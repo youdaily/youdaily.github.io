@@ -123,9 +123,9 @@
     
       <category term="公众号" scheme="http://yoursite.com/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
     
-      <category term="香港" scheme="http://yoursite.com/tags/%E9%A6%99%E6%B8%AF/"/>
-    
       <category term="日常生活" scheme="http://yoursite.com/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="香港" scheme="http://yoursite.com/tags/%E9%A6%99%E6%B8%AF/"/>
     
   </entry>
   
@@ -252,9 +252,9 @@
     
       <category term="公众号" scheme="http://yoursite.com/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
     
-      <category term="日常生活" scheme="http://yoursite.com/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/"/>
-    
       <category term="副业" scheme="http://yoursite.com/tags/%E5%89%AF%E4%B8%9A/"/>
+    
+      <category term="日常生活" scheme="http://yoursite.com/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
@@ -285,11 +285,11 @@
       <category term="Python" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/"/>
     
     
+      <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
+    
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="高级技术" scheme="http://yoursite.com/tags/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
@@ -317,11 +317,11 @@
       <category term="Python" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/"/>
     
     
+      <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
+    
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="高级技术" scheme="http://yoursite.com/tags/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
@@ -352,11 +352,11 @@
       <category term="Python" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
     
       <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
   </entry>
   
@@ -393,11 +393,11 @@
       <category term="Python" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
     
       <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
   </entry>
   
@@ -432,11 +432,11 @@
       <category term="Python" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
     
       <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
   </entry>
   
@@ -472,11 +472,11 @@
       <category term="Python" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
     
       <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
   </entry>
   
@@ -509,11 +509,11 @@
       <category term="Python" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
     
       <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
   </entry>
   
@@ -563,11 +563,11 @@
       <category term="Python" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
     
       <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
   </entry>
   
@@ -609,11 +609,11 @@
       <category term="Python" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
     
       <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
   </entry>
   
@@ -639,11 +639,11 @@
       <category term="Python" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
     
       <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
   </entry>
   
@@ -672,11 +672,68 @@
       <category term="Java" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/"/>
     
     
+      <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
+    
       <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git 基础命令使用</title>
+    <link href="http://yoursite.com/2017/01/03/Programing-Git-Git-command/"/>
+    <id>http://yoursite.com/2017/01/03/Programing-Git-Git-command/</id>
+    <published>2017-01-03T09:29:05.000Z</published>
+    <updated>2019-11-21T09:52:59.496Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>随便整理的一些自用的Git指令</p></blockquote><h1 id="GitHub创建仓库提示代码"><a href="#GitHub创建仓库提示代码" class="headerlink" title="GitHub创建仓库提示代码"></a>GitHub创建仓库提示代码</h1><pre><code>echo &quot;# 项目名&quot; &gt;&gt; README.mdgit initgit add README.mdgit commit -m &quot;first commit&quot;git remote add origin git@github.com:youdaily/youdaily.gitgit push -u origin master</code></pre><p>若仓库存在直接push</p><pre><code>git remote add origin git@github.com:youdaily/youdaily.gitgit push -u origin master</code></pre><h1 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h1><h2 id="创建仓库（初始化）"><a href="#创建仓库（初始化）" class="headerlink" title="创建仓库（初始化）"></a>创建仓库（初始化）</h2><pre><code>在当前指定目录下创建git init新建一个仓库目录git init [project-name]克隆一个远程项目git clone [url]</code></pre><h2 id="添加文件到缓存区"><a href="#添加文件到缓存区" class="headerlink" title="添加文件到缓存区"></a>添加文件到缓存区</h2><pre><code>添加所有变化的文件 git add .添加名称指定文件git add text.txt</code></pre><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><pre><code>设置提交代码时的用户信息git config [--global] user.name &quot;[name]&quot;git config [--global] user.email &quot;[email address]&quot;</code></pre><a id="more"></a><h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><pre><code>提交暂存区到仓库区git commit -m &quot;msg&quot;# 提交暂存区的指定文件到仓库区$ git commit [file1] [file2] ... -m [message]# 提交工作区自上次commit之后的变化，直接到仓库区$ git commit -a# 提交时显示所有diff信息$ git commit -v# 使用一次新的commit，替代上一次提交# 如果代码没有任何新变化，则用来改写上一次commit的提交信息$ git commit --amend -m [message]# 重做上一次commit，并包括指定文件的新变化$ git commit --amend [file1] [file2] ...</code></pre><h2 id="远程同步"><a href="#远程同步" class="headerlink" title="远程同步"></a>远程同步</h2><pre><code># 下载远程仓库的所有变动$ git fetch [remote]# 显示所有远程仓库$ git remote -v# 显示某个远程仓库的信息$ git remote show [remote]# 增加一个新的远程仓库，并命名$ git remote add [shortname] [url]# 取回远程仓库的变化，并与本地分支合并$ git pull [remote] [branch]# 上传本地指定分支到远程仓库$ git push [remote] [branch]# 强行推送当前分支到远程仓库，即使有冲突$ git push [remote] --force# 推送所有分支到远程仓库$ git push [remote] --all</code></pre><h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><pre><code># 列出所有本地分支$ git branch# 列出所有远程分支$ git branch -r# 列出所有本地分支和远程分支$ git branch -a# 新建一个分支，但依然停留在当前分支$ git branch [branch-name]# 新建一个分支，并切换到该分支$ git checkout -b [branch]# 新建一个分支，指向指定commit$ git branch [branch] [commit]# 新建一个分支，与指定的远程分支建立追踪关系$ git branch --track [branch] [remote-branch]# 切换到指定分支，并更新工作区$ git checkout [branch-name]# 切换到上一个分支$ git checkout -# 建立追踪关系，在现有分支与指定的远程分支之间$ git branch --set-upstream [branch] [remote-branch]# 合并指定分支到当前分支$ git merge [branch]# 选择一个commit，合并进当前分支$ git cherry-pick [commit]# 删除分支$ git branch -d [branch-name]# 删除远程分支$ git push origin --delete [branch-name]$ git branch -dr [remote/branch]</code></pre><h2 id="标签Tags"><a href="#标签Tags" class="headerlink" title="标签Tags"></a>标签Tags</h2><pre><code>添加标签 在当前commitgit tag -a v1.0 -m &#39;xxx&#39; 添加标签 在指定commitgit tag v1.0 [commit]查看git tag删除git tag -d V1.0删除远程taggit push origin :refs/tags/[tagName]推送git push origin --tags拉取git fetch origin tag V1.0新建一个分支，指向某个taggit checkout -b [branch] [tag]</code></pre><h2 id="查看信息"><a href="#查看信息" class="headerlink" title="查看信息"></a>查看信息</h2><pre><code># 显示有变更的文件$ git status# 显示当前分支的版本历史$ git log# 显示commit历史，以及每次commit发生变更的文件$ git log --stat# 搜索提交历史，根据关键词$ git log -S [keyword]# 显示某个commit之后的所有变动，每个commit占据一行$ git log [tag] HEAD --pretty=format:%s# 显示某个commit之后的所有变动，其&quot;提交说明&quot;必须符合搜索条件$ git log [tag] HEAD --grep feature# 显示某个文件的版本历史，包括文件改名$ git log --follow [file]$ git whatchanged [file]# 显示指定文件相关的每一次diff$ git log -p [file]# 显示过去5次提交$ git log -5 --pretty --oneline# 显示所有提交过的用户，按提交次数排序$ git shortlog -sn# 显示指定文件是什么人在什么时间修改过$ git blame [file]# 显示暂存区和工作区的差异$ git diff# 显示暂存区和上一个commit的差异$ git diff --cached [file]# 显示工作区与当前分支最新commit之间的差异$ git diff HEAD# 显示两次提交之间的差异$ git diff [first-branch]...[second-branch]# 显示今天你写了多少行代码$ git diff --shortstat &quot;@{0 day ago}&quot;# 显示某次提交的元数据和内容变化$ git show [commit]# 显示某次提交发生变化的文件$ git show --name-only [commit]# 显示某次提交时，某个文件的内容$ git show [commit]:[filename]# 显示当前分支的最近几次提交$ git reflog</code></pre><h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><pre><code># 恢复暂存区的指定文件到工作区$ git checkout [file]# 恢复某个commit的指定文件到暂存区和工作区$ git checkout [commit] [file]# 恢复暂存区的所有文件到工作区$ git checkout .# 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变$ git reset [file]# 重置暂存区与工作区，与上一次commit保持一致$ git reset --hard# 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变$ git reset [commit]# 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致$ git reset --hard [commit]# 重置当前HEAD为指定commit，但保持暂存区和工作区不变$ git reset --keep [commit]# 新建一个commit，用来撤销指定commit# 后者的所有变化都将被前者抵消，并且应用到当前分支$ git revert [commit]# 暂时将未提交的变化移除，稍后再移入$ git stash$ git stash pop</code></pre><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><pre><code># 生成一个可供发布的压缩包$ git archives</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;随便整理的一些自用的Git指令&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;GitHub创建仓库提示代码&quot;&gt;&lt;a href=&quot;#GitHub创建仓库提示代码&quot; class=&quot;headerlink&quot; title=&quot;GitHub创建仓库提示代码&quot;&gt;&lt;/a&gt;GitHub创建仓库提示代码&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;echo &amp;quot;# 项目名&amp;quot; &amp;gt;&amp;gt; README.md
+git init
+git add README.md
+git commit -m &amp;quot;first commit&amp;quot;
+git remote add origin git@github.com:youdaily/youdaily.git
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;若仓库存在直接push&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git remote add origin git@github.com:youdaily/youdaily.git
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;常用操作&quot;&gt;&lt;a href=&quot;#常用操作&quot; class=&quot;headerlink&quot; title=&quot;常用操作&quot;&gt;&lt;/a&gt;常用操作&lt;/h1&gt;&lt;h2 id=&quot;创建仓库（初始化）&quot;&gt;&lt;a href=&quot;#创建仓库（初始化）&quot; class=&quot;headerlink&quot; title=&quot;创建仓库（初始化）&quot;&gt;&lt;/a&gt;创建仓库（初始化）&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;在当前指定目录下创建
+git init
+
+新建一个仓库目录
+git init [project-name]
+
+克隆一个远程项目
+git clone [url]
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;添加文件到缓存区&quot;&gt;&lt;a href=&quot;#添加文件到缓存区&quot; class=&quot;headerlink&quot; title=&quot;添加文件到缓存区&quot;&gt;&lt;/a&gt;添加文件到缓存区&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;添加所有变化的文件
+ git add .
+
+添加名称指定文件
+git add text.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;配置&quot;&gt;&lt;a href=&quot;#配置&quot; class=&quot;headerlink&quot; title=&quot;配置&quot;&gt;&lt;/a&gt;配置&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;设置提交代码时的用户信息
+git config [--global] user.name &amp;quot;[name]&amp;quot;
+git config [--global] user.email &amp;quot;[email address]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+      <category term="编程技术" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Git" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Git/"/>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
     
       <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+      <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
@@ -702,9 +759,9 @@
       <category term="Hexo" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Hexo/"/>
     
     
-      <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
-    
       <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
     
       <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
@@ -733,9 +790,9 @@
       <category term="Hexo" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Hexo/"/>
     
     
-      <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
-    
       <category term="基础技术" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="编程技术" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
     
       <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     

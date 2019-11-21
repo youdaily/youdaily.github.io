@@ -206,6 +206,116 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/03/Programing-Git-Git-command/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/01/03/Programing-Git-Git-command/" class="post-title-link" itemprop="url">Git 基础命令使用</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-03 17:29:05" itemprop="dateCreated datePublished" datetime="2017-01-03T17:29:05+08:00">2017-01-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>随便整理的一些自用的Git指令</p>
+</blockquote>
+<h1 id="GitHub创建仓库提示代码"><a href="#GitHub创建仓库提示代码" class="headerlink" title="GitHub创建仓库提示代码"></a>GitHub创建仓库提示代码</h1><pre><code>echo &quot;# 项目名&quot; &gt;&gt; README.md
+git init
+git add README.md
+git commit -m &quot;first commit&quot;
+git remote add origin git@github.com:youdaily/youdaily.git
+git push -u origin master
+</code></pre><p>若仓库存在直接push</p>
+<pre><code>git remote add origin git@github.com:youdaily/youdaily.git
+git push -u origin master
+</code></pre><h1 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h1><h2 id="创建仓库（初始化）"><a href="#创建仓库（初始化）" class="headerlink" title="创建仓库（初始化）"></a>创建仓库（初始化）</h2><pre><code>在当前指定目录下创建
+git init
+
+新建一个仓库目录
+git init [project-name]
+
+克隆一个远程项目
+git clone [url]
+</code></pre><h2 id="添加文件到缓存区"><a href="#添加文件到缓存区" class="headerlink" title="添加文件到缓存区"></a>添加文件到缓存区</h2><pre><code>添加所有变化的文件
+ git add .
+
+添加名称指定文件
+git add text.txt
+</code></pre><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><pre><code>设置提交代码时的用户信息
+git config [--global] user.name &quot;[name]&quot;
+git config [--global] user.email &quot;[email address]&quot;
+</code></pre>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/01/03/Programing-Git-Git-command/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/22/Programing-Hexo-Paging-function/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -419,20 +529,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
