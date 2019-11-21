@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="Python使用MongoDBMongoDB相对于传统的关系型数据库，可以存储JSON数据，非常适合存储数据抓取返回的JSON数据。今天主要学习的是使用Python连接MongoDB，并进行增删改查的操作。 MongoDB 的安装及使用，请参照官方文档。https:&#x2F;&#x2F;api.mongodb.com&#x2F;python&#x2F;current&#x2F;installation.html">
+  <meta name="description" content="Python使用MongoDBMongoDB相对于传统的关系型数据库，可以存储JSON数据，非常适合存储数据抓取返回的JSON数据。今天主要学习的是使用Python连接MongoDB，并进行增删改查的操作。  MongoDB 的安装及使用，请参照官方文档。https:&#x2F;&#x2F;api.mongodb.com&#x2F;python&#x2F;current&#x2F;installation.html  在连接MongoDB前 首">
 <meta name="keywords" content="Python,高级技术,编程技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python-高级-使用MongoDB">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;01&#x2F;Programing-Python-Basic-use-mongoDB&#x2F;index.html">
 <meta property="og:site_name" content="You的日常">
-<meta property="og:description" content="Python使用MongoDBMongoDB相对于传统的关系型数据库，可以存储JSON数据，非常适合存储数据抓取返回的JSON数据。今天主要学习的是使用Python连接MongoDB，并进行增删改查的操作。 MongoDB 的安装及使用，请参照官方文档。https:&#x2F;&#x2F;api.mongodb.com&#x2F;python&#x2F;current&#x2F;installation.html">
+<meta property="og:description" content="Python使用MongoDBMongoDB相对于传统的关系型数据库，可以存储JSON数据，非常适合存储数据抓取返回的JSON数据。今天主要学习的是使用Python连接MongoDB，并进行增删改查的操作。  MongoDB 的安装及使用，请参照官方文档。https:&#x2F;&#x2F;api.mongodb.com&#x2F;python&#x2F;current&#x2F;installation.html  在连接MongoDB前 首">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-21T06:36:37.482Z">
+<meta property="og:updated_time" content="2019-11-21T07:11:33.569Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/11/01/Programing-Python-Basic-use-mongoDB/">
@@ -261,13 +261,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <hr><h2 id="Python使用MongoDB"><a href="#Python使用MongoDB" class="headerlink" title="Python使用MongoDB"></a>Python使用MongoDB</h2><p>MongoDB相对于传统的关系型数据库，可以存储JSON数据，非常适合存储数据抓取返回的JSON数据。<br>今天主要学习的是使用Python连接MongoDB，并进行增删改查的操作。</p><blockquote>
+        <hr>
+<h2 id="Python使用MongoDB"><a href="#Python使用MongoDB" class="headerlink" title="Python使用MongoDB"></a>Python使用MongoDB</h2><p>MongoDB相对于传统的关系型数据库，可以存储JSON数据，非常适合存储数据抓取返回的JSON数据。<br>今天主要学习的是使用Python连接MongoDB，并进行增删改查的操作。</p>
+<blockquote>
 <p>MongoDB 的安装及使用，请参照官方文档。<br><a href="https://api.mongodb.com/python/current/installation.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/installation.html</a></p>
-</blockquote><a id="more"></a>
-
-
+</blockquote>
 <p>在连接MongoDB前 首先要安装的是Python包：PyMongo，包的安装非常的简单。<br>只需执行 <code>pip install pymongo</code> 即可使用。</p>
 <h3 id="创建连接"><a href="#创建连接" class="headerlink" title="创建连接"></a>创建连接</h3><p>在安装完PyMongo以后，使用Python连接MongoDB变得异常简单。具体方式为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"> </span><br><span class="line">client = MongoClient(<span class="string">'localhost'</span>, <span class="number">27017</span>)</span><br></pre></td></tr></table></figure><br>或使用如下方式：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"> </span><br><span class="line">client = MongoClient(<span class="string">'mongodb://localhost:27017'</span>)</span><br></pre></td></tr></table></figure><br>如果连接含有账号密码等，请参考：<br><a href="https://api.mongodb.com/python/current/api/pymongo/mongo_client.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/api/pymongo/mongo_client.html</a></p>
+<a id="more"></a>
 <h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><p>连接数据库的操作也非常的简单，最为重要的是，在你连接数据库之前无需先创建数据库，如果数据库存在则直接连接，如果数据库不存在则会创建新的库。具体方式为：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方式一</span></span><br><span class="line">db = client.pymongo_test</span><br><span class="line"><span class="comment"># 方式二</span></span><br><span class="line">db = client[<span class="string">'pymongo_test'</span>]</span><br></pre></td></tr></table></figure>
 <p>以上两种方式任选一种即可。</p>
@@ -298,6 +299,9 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
+                <a href="/2016/11/22/Programing-Hexo-Hexo-blog-read-more-button/" rel="next" title="Programing-Hexo-Hexo_blog_read_more_button">
+                  <i class="fa fa-chevron-left"></i> Programing-Hexo-Hexo_blog_read_more_button
+                </a>
             </div>
 
             <span class="post-nav-divider"></span>
@@ -361,20 +365,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="这次主要介绍python 的基础流程控制。包括 if 条件语句、for 循环 和 while 循环语句； continue 及 break 的用法等。基本用法与 C 和 Java 差不多，无 switch 语句。if 语句语法：if(...):, 括号内为一表达式，当为True（即成立）时，执行对应的代码段。">
+  <meta name="description" content="这次主要介绍python 的基础流程控制。包括 if 条件语句、for 循环 和 while 循环语句； continue 及 break 的用法等。基本用法与 C 和 Java 差不多，无 switch 语句。  if 语句语法：if(...):, 括号内为一表达式，当为True（即成立）时，执行对应的代码段。  注意:所有条件语句后方都需加冒号 :  12345678910111213141">
 <meta name="keywords" content="Python,编程技术,基础技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python-基础-时间控制">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;14&#x2F;Programing-Python-Basic-flow-control&#x2F;index.html">
 <meta property="og:site_name" content="You的日常">
-<meta property="og:description" content="这次主要介绍python 的基础流程控制。包括 if 条件语句、for 循环 和 while 循环语句； continue 及 break 的用法等。基本用法与 C 和 Java 差不多，无 switch 语句。if 语句语法：if(...):, 括号内为一表达式，当为True（即成立）时，执行对应的代码段。">
+<meta property="og:description" content="这次主要介绍python 的基础流程控制。包括 if 条件语句、for 循环 和 while 循环语句； continue 及 break 的用法等。基本用法与 C 和 Java 差不多，无 switch 语句。  if 语句语法：if(...):, 括号内为一表达式，当为True（即成立）时，执行对应的代码段。  注意:所有条件语句后方都需加冒号 :  12345678910111213141">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-21T06:35:30.277Z">
+<meta property="og:updated_time" content="2019-11-21T07:11:20.923Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/11/14/Programing-Python-Basic-flow-control/">
@@ -261,10 +261,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <hr><p>这次主要介绍python 的基础流程控制。<br>包括 if 条件语句、for 循环 和 while 循环语句； continue 及 break 的用法等。<br>基本用法与 C 和 Java 差不多，无 switch 语句。</p><hr><h2 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h2><p>语法：<code>if(...):</code>, 括号内为一表达式，当为<code>True</code>（即成立）时，执行对应的代码段。</p><a id="more"></a>
-
-
-
+        <hr>
+<p>这次主要介绍python 的基础流程控制。<br>包括 if 条件语句、for 循环 和 while 循环语句； continue 及 break 的用法等。<br>基本用法与 C 和 Java 差不多，无 switch 语句。</p>
+<hr>
+<h2 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h2><p>语法：<code>if(...):</code>, 括号内为一表达式，当为<code>True</code>（即成立）时，执行对应的代码段。</p>
 <blockquote>
 <p>注意:所有条件语句后方都需加冒号 <code>:</code></p>
 </blockquote>
@@ -273,6 +273,7 @@
 <p>可能会有零到多个 elif 部分，else 是可选的。</p>
 </blockquote>
 <p>关键字 “ elif ” 是 “else if ” 的缩写，这个可以有效地避免过深的缩进。<code>if ... elif ... elif ...</code> 序列于替代其它语言中的switch case语句。</p>
+<a id="more"></a>
 <hr>
 <h2 id="for-语句"><a href="#for-语句" class="headerlink" title="for 语句"></a>for 语句</h2><p>Python 中的 <code>for</code> 语句和 C Pascal 中的 有不同。通常的循环可能会由用户来定义迭代步骤和中止条件（如 C ），Python 的 <code>for</code> 语句依据任意序列（链表或字符串）中的子项，按它们在序列中的顺序来进行迭代。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># for 语句实例</span></span><br><span class="line">string = <span class="string">"python"</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> string:</span><br><span class="line">    <span class="comment"># 字符串处理</span></span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line">list = [<span class="string">"l"</span>,<span class="string">"i"</span>,<span class="string">"s"</span>,<span class="string">"t"</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list:</span><br><span class="line">    <span class="comment"># 列表处理</span></span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    <span class="comment"># range()函数，range(5) 表示 0 到 4 </span></span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
@@ -372,20 +373,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

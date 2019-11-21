@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="下面内容主要摘抄自python 官网，https:&#x2F;&#x2F;docs.python.org&#x2F;3.7&#x2F;glossary.html#glossary，部分内容有删减。2to3一个将 Python 2.x 代码转换为 Python 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools&#x2F;scripts">
+  <meta name="description" content="下面内容主要摘抄自python 官网，https:&#x2F;&#x2F;docs.python.org&#x2F;3.7&#x2F;glossary.html#glossary，部分内容有删减。 2to3一个将 Python 2.x 代码转换为 Python 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。 2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools&#x2F;scri">
 <meta name="keywords" content="Python,编程技术,基础技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python-基础-常用术语对照表">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;19&#x2F;Programing-Python-Basic-Common-Terms-table&#x2F;index.html">
 <meta property="og:site_name" content="You的日常">
-<meta property="og:description" content="下面内容主要摘抄自python 官网，https:&#x2F;&#x2F;docs.python.org&#x2F;3.7&#x2F;glossary.html#glossary，部分内容有删减。2to3一个将 Python 2.x 代码转换为 Python 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools&#x2F;scripts">
+<meta property="og:description" content="下面内容主要摘抄自python 官网，https:&#x2F;&#x2F;docs.python.org&#x2F;3.7&#x2F;glossary.html#glossary，部分内容有删减。 2to3一个将 Python 2.x 代码转换为 Python 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。 2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools&#x2F;scri">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-21T06:35:52.321Z">
+<meta property="og:updated_time" content="2019-11-21T07:10:55.928Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/11/19/Programing-Python-Basic-Common-Terms-table/">
@@ -261,10 +261,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <hr><p>下面内容主要摘抄自<code>python</code> 官网，<a href="https://docs.python.org/3.7/glossary.html#glossary" target="_blank" rel="noopener">https://docs.python.org/3.7/glossary.html#glossary</a>，部分内容有删减。</p><h3 id="2to3"><a href="#2to3" class="headerlink" title="2to3"></a>2to3</h3><p>一个将 <code>Python</code> 2.x 代码转换为 <code>Python</code> 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。</p><p>2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools/scripts/2to3。参见 2to3 - 自动将 <code>Python</code> 2 代码转为 <code>Python</code> 3 代码。</p><a id="more"></a>
-
-
-
+        <hr>
+<p>下面内容主要摘抄自<code>python</code> 官网，<a href="https://docs.python.org/3.7/glossary.html#glossary" target="_blank" rel="noopener">https://docs.python.org/3.7/glossary.html#glossary</a>，部分内容有删减。</p>
+<h3 id="2to3"><a href="#2to3" class="headerlink" title="2to3"></a>2to3</h3><p>一个将 <code>Python</code> 2.x 代码转换为 <code>Python</code> 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。</p>
+<p>2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools/scripts/2to3。参见 2to3 - 自动将 <code>Python</code> 2 代码转为 <code>Python</code> 3 代码。</p>
 <p>因为官方将在2020年不再支持 <code>Python</code> 2.x, 在遇到没有<code>Python</code> 2.X 版本 的code 的时候，可以尝试使用这个工具将代码转化成Python 的版本。</p>
 <h3 id="abstract-base-class-—-抽象基类"><a href="#abstract-base-class-—-抽象基类" class="headerlink" title="abstract base class — 抽象基类"></a>abstract base class — 抽象基类</h3><p>抽象基类简称 ABC，是对 duck-typing 的补充，它提供了一种定义接口的新方式，相比之下其他技巧例如 hasattr() 显得过于笨拙或有微妙错误（例如使用 魔术方法）。ABC 引入了虚拟子类，这种类并非继承自其他类，但却仍能被 isinstance() 和 issubclass() 所认可；详见 abc 模块文档。<code>Python</code> 自带许多内置的 ABC 用于实现数据结构（在 collections.abc 模块中）、数字（在 numbers 模块中）、流（在 io 模块中）、导入查找器和加载器（在 importlib.abc 模块中）。你可以使用 abc 模块来创建自己的 ABC。</p>
 <h3 id="argument-—-参数"><a href="#argument-—-参数" class="headerlink" title="argument — 参数"></a>argument — 参数</h3><p>在调用函数时传给 function （或 method ）的值。参数分为两种：</p>
@@ -274,6 +274,7 @@
 参数会被赋值给函数体中对应的局部变量。有关赋值规则参见 调用 一节。根据语法，任何表达式都可用来表示一个参数；最终算出的值会被赋给对应的局部变量。</li>
 </ul>
 <p>另参见 parameter 术语表条目，常见问题中 参数与形参的区别 以及 PEP 362。</p>
+<a id="more"></a>
 <h3 id="asynchronous-context-manager-—-异步上下文管理器"><a href="#asynchronous-context-manager-—-异步上下文管理器" class="headerlink" title="asynchronous context manager — 异步上下文管理器"></a>asynchronous context manager — 异步上下文管理器</h3><p>此种对象通过定义 <strong>aenter</strong>() 和 <strong>aexit</strong>() 方法来对 async with 语句中的环境进行控制。由 PEP 492 引入。</p>
 <h3 id="asynchronous-generator-—-异步生成器"><a href="#asynchronous-generator-—-异步生成器" class="headerlink" title="asynchronous generator — 异步生成器"></a>asynchronous generator — 异步生成器</h3><p>返回值为 asynchronous generator iterator 的函数。它与使用 async def 定义的协程函数很相似，不同之处在于它包含 yield 表达式以产生一系列可在 async for 循环中使用的值。</p>
 <p>此术语通常是指异步生成器函数，但在某些情况下则可能是指 异步生成器迭代器。如果需要清楚表达具体含义，请使用全称以避免歧义。</p>
@@ -439,20 +440,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

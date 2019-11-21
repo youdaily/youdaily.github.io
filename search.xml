@@ -3,13 +3,14 @@
   <entry>
     <title>Python-基础-日期和时间</title>
     <url>/2019/11/21/Programing-Python-Basic-date-time-intro/</url>
-    <content><![CDATA[<hr><p>Python程序可以通过多种方式来处理日期和时间。<br>日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。</p><h2 id="什么是刻度？"><a href="#什么是刻度？" class="headerlink" title="什么是刻度？"></a>什么是刻度？</h2><p>时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。</p><p>在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 <code>time.time()</code>返回当前系统时间，从1970年1月1日12点起来的秒数。</p><a id="more"></a>
-
-
-
+    <content><![CDATA[<hr>
+<p>Python程序可以通过多种方式来处理日期和时间。<br>日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。</p>
+<h2 id="什么是刻度？"><a href="#什么是刻度？" class="headerlink" title="什么是刻度？"></a>什么是刻度？</h2><p>时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。</p>
+<p>在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 <code>time.time()</code>返回当前系统时间，从1970年1月1日12点起来的秒数。</p>
 <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time;  <span class="comment"># This is required to include time module.</span></span><br><span class="line"></span><br><span class="line">ticks = time.time()</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Number of ticks since 12:00am, January 1, 1970:"</span>, ticks)</span><br></pre></td></tr></table></figure>
 <p>将产生一个结果，如下 -<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Number of ticks since <span class="number">12</span>:<span class="number">00</span>am, January <span class="number">1</span>, <span class="number">1970</span>: <span class="number">1568018748.2947338</span></span><br></pre></td></tr></table></figure></p>
 <p>日期计算使用刻度线是很容易做到的。<br>然而，新纪元日期之前不能以这种形式表示。在未来的一个日期也不能表示这种方式, 分界点是在某个时候，在 UNIX和Windows上为 2038年。</p>
+<a id="more"></a>
 <h2 id="什么是TimeTuple？"><a href="#什么是TimeTuple？" class="headerlink" title="什么是TimeTuple？"></a>什么是TimeTuple？</h2><p>Python时间的函数处理时间9个数字的元组，如下图所示</p>
 <div class="table-container">
 <table>
@@ -234,10 +235,10 @@
   <entry>
     <title>Python-基础-常用术语对照表</title>
     <url>/2019/11/19/Programing-Python-Basic-Common-Terms-table/</url>
-    <content><![CDATA[<hr><p>下面内容主要摘抄自<code>python</code> 官网，<a href="https://docs.python.org/3.7/glossary.html#glossary" target="_blank" rel="noopener">https://docs.python.org/3.7/glossary.html#glossary</a>，部分内容有删减。</p><h3 id="2to3"><a href="#2to3" class="headerlink" title="2to3"></a>2to3</h3><p>一个将 <code>Python</code> 2.x 代码转换为 <code>Python</code> 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。</p><p>2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools/scripts/2to3。参见 2to3 - 自动将 <code>Python</code> 2 代码转为 <code>Python</code> 3 代码。</p><a id="more"></a>
-
-
-
+    <content><![CDATA[<hr>
+<p>下面内容主要摘抄自<code>python</code> 官网，<a href="https://docs.python.org/3.7/glossary.html#glossary" target="_blank" rel="noopener">https://docs.python.org/3.7/glossary.html#glossary</a>，部分内容有删减。</p>
+<h3 id="2to3"><a href="#2to3" class="headerlink" title="2to3"></a>2to3</h3><p>一个将 <code>Python</code> 2.x 代码转换为 <code>Python</code> 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。</p>
+<p>2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools/scripts/2to3。参见 2to3 - 自动将 <code>Python</code> 2 代码转为 <code>Python</code> 3 代码。</p>
 <p>因为官方将在2020年不再支持 <code>Python</code> 2.x, 在遇到没有<code>Python</code> 2.X 版本 的code 的时候，可以尝试使用这个工具将代码转化成Python 的版本。</p>
 <h3 id="abstract-base-class-—-抽象基类"><a href="#abstract-base-class-—-抽象基类" class="headerlink" title="abstract base class — 抽象基类"></a>abstract base class — 抽象基类</h3><p>抽象基类简称 ABC，是对 duck-typing 的补充，它提供了一种定义接口的新方式，相比之下其他技巧例如 hasattr() 显得过于笨拙或有微妙错误（例如使用 魔术方法）。ABC 引入了虚拟子类，这种类并非继承自其他类，但却仍能被 isinstance() 和 issubclass() 所认可；详见 abc 模块文档。<code>Python</code> 自带许多内置的 ABC 用于实现数据结构（在 collections.abc 模块中）、数字（在 numbers 模块中）、流（在 io 模块中）、导入查找器和加载器（在 importlib.abc 模块中）。你可以使用 abc 模块来创建自己的 ABC。</p>
 <h3 id="argument-—-参数"><a href="#argument-—-参数" class="headerlink" title="argument — 参数"></a>argument — 参数</h3><p>在调用函数时传给 function （或 method ）的值。参数分为两种：</p>
@@ -247,6 +248,7 @@
 参数会被赋值给函数体中对应的局部变量。有关赋值规则参见 调用 一节。根据语法，任何表达式都可用来表示一个参数；最终算出的值会被赋给对应的局部变量。</li>
 </ul>
 <p>另参见 parameter 术语表条目，常见问题中 参数与形参的区别 以及 PEP 362。</p>
+<a id="more"></a>
 <h3 id="asynchronous-context-manager-—-异步上下文管理器"><a href="#asynchronous-context-manager-—-异步上下文管理器" class="headerlink" title="asynchronous context manager — 异步上下文管理器"></a>asynchronous context manager — 异步上下文管理器</h3><p>此种对象通过定义 <strong>aenter</strong>() 和 <strong>aexit</strong>() 方法来对 async with 语句中的环境进行控制。由 PEP 492 引入。</p>
 <h3 id="asynchronous-generator-—-异步生成器"><a href="#asynchronous-generator-—-异步生成器" class="headerlink" title="asynchronous generator — 异步生成器"></a>asynchronous generator — 异步生成器</h3><p>返回值为 asynchronous generator iterator 的函数。它与使用 async def 定义的协程函数很相似，不同之处在于它包含 yield 表达式以产生一系列可在 async for 循环中使用的值。</p>
 <p>此术语通常是指异步生成器函数，但在某些情况下则可能是指 异步生成器迭代器。如果需要清楚表达具体含义，请使用全称以避免歧义。</p>
@@ -342,10 +344,10 @@
   <entry>
     <title>Python-Basic-dirt_intro</title>
     <url>/2019/11/16/Programing-Python-Basic-dirt-intro/</url>
-    <content><![CDATA[<hr><p>每个键是从它的值由冒号(:)，即在项目之间用逗号隔开，整个东西是包含在大括号中。没有任何项目一个空字典只写两个大括号，就像这样：<code>{}</code>.</p><p>键在一个字典中是唯一的，而值则可以重复。字典的值可以是任何类型，但键必须是不可变的数据的类型，例如：字符串，数字或元组这样的类型。</p><h2 id="访问字典中的值"><a href="#访问字典中的值" class="headerlink" title="访问字典中的值"></a>访问字典中的值</h2><p>要访问字典元素，你可以使用方括号和对应键，以获得其对应的值。下面是一个简单的例子 -</p><a id="more"></a>
-
-
-
+    <content><![CDATA[<hr>
+<p>每个键是从它的值由冒号(:)，即在项目之间用逗号隔开，整个东西是包含在大括号中。没有任何项目一个空字典只写两个大括号，就像这样：<code>{}</code>.</p>
+<p>键在一个字典中是唯一的，而值则可以重复。字典的值可以是任何类型，但键必须是不可变的数据的类型，例如：字符串，数字或元组这样的类型。</p>
+<h2 id="访问字典中的值"><a href="#访问字典中的值" class="headerlink" title="访问字典中的值"></a>访问字典中的值</h2><p>要访问字典元素，你可以使用方括号和对应键，以获得其对应的值。下面是一个简单的例子 -</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Saul'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'Third'</span>&#125;</span><br><span class="line"></span><br><span class="line">print(<span class="string">"dict['Name']: "</span>, dict[<span class="string">'Name'</span>])</span><br><span class="line">print(<span class="string">"dict['Age']: "</span>, dict[<span class="string">'Age'</span>])</span><br></pre></td></tr></table></figure>
 <p>当执行上面的代码，它产生以下结果 </p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dict[<span class="string">'Name'</span>]:  Saul</span><br><span class="line">dict[<span class="string">'Age'</span>]:  <span class="number">7</span></span><br></pre></td></tr></table></figure>
@@ -353,6 +355,7 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Saul'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'Third'</span>&#125;;</span><br><span class="line">print(<span class="string">"dict['Alice']: "</span>, dict[<span class="string">'Alice'</span>])</span><br></pre></td></tr></table></figure>
 <p>当执行上面的代码，它产生以下结果 </p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dict[<span class="string">'Saul'</span>]:</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">4</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(<span class="string">"dict['Alice']: "</span>, dict[<span class="string">'Alice'</span>])</span><br><span class="line">KeyError: <span class="string">'Alice'</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="更新字典"><a href="#更新字典" class="headerlink" title="更新字典"></a>更新字典</h2><p>可以通过添加新条目或键值对，修改现有条目，或删除现有条目，更新词典的简单例子如下图所示 -</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Saul'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'Third'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># update existing entry</span></span><br><span class="line">dict[<span class="string">'Age'</span>] = <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add new entry</span></span><br><span class="line">dict[<span class="string">'School'</span>] = <span class="string">"SPD School"</span> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"dict['Age']: "</span>, dict[<span class="string">'Age'</span>])</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"dict['School']: "</span>, dict[<span class="string">'School'</span>])</span><br></pre></td></tr></table></figure>
 <p>当执行上面的代码，它产生以下结果 -<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dict[<span class="string">'Age'</span>]:  <span class="number">8</span></span><br><span class="line">dict[<span class="string">'School'</span>]:  SPD School</span><br></pre></td></tr></table></figure></p>
@@ -486,10 +489,10 @@
   <entry>
     <title>Python-基础-时间控制</title>
     <url>/2019/11/14/Programing-Python-Basic-flow-control/</url>
-    <content><![CDATA[<hr><p>这次主要介绍python 的基础流程控制。<br>包括 if 条件语句、for 循环 和 while 循环语句； continue 及 break 的用法等。<br>基本用法与 C 和 Java 差不多，无 switch 语句。</p><hr><h2 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h2><p>语法：<code>if(...):</code>, 括号内为一表达式，当为<code>True</code>（即成立）时，执行对应的代码段。</p><a id="more"></a>
-
-
-
+    <content><![CDATA[<hr>
+<p>这次主要介绍python 的基础流程控制。<br>包括 if 条件语句、for 循环 和 while 循环语句； continue 及 break 的用法等。<br>基本用法与 C 和 Java 差不多，无 switch 语句。</p>
+<hr>
+<h2 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h2><p>语法：<code>if(...):</code>, 括号内为一表达式，当为<code>True</code>（即成立）时，执行对应的代码段。</p>
 <blockquote>
 <p>注意:所有条件语句后方都需加冒号 <code>:</code></p>
 </blockquote>
@@ -498,6 +501,7 @@
 <p>可能会有零到多个 elif 部分，else 是可选的。</p>
 </blockquote>
 <p>关键字 “ elif ” 是 “else if ” 的缩写，这个可以有效地避免过深的缩进。<code>if ... elif ... elif ...</code> 序列于替代其它语言中的switch case语句。</p>
+<a id="more"></a>
 <hr>
 <h2 id="for-语句"><a href="#for-语句" class="headerlink" title="for 语句"></a>for 语句</h2><p>Python 中的 <code>for</code> 语句和 C Pascal 中的 有不同。通常的循环可能会由用户来定义迭代步骤和中止条件（如 C ），Python 的 <code>for</code> 语句依据任意序列（链表或字符串）中的子项，按它们在序列中的顺序来进行迭代。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># for 语句实例</span></span><br><span class="line">string = <span class="string">"python"</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> string:</span><br><span class="line">    <span class="comment"># 字符串处理</span></span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line">list = [<span class="string">"l"</span>,<span class="string">"i"</span>,<span class="string">"s"</span>,<span class="string">"t"</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list:</span><br><span class="line">    <span class="comment"># 列表处理</span></span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    <span class="comment"># range()函数，range(5) 表示 0 到 4 </span></span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
@@ -527,15 +531,16 @@
   <entry>
     <title>Python-基础- I/O 简介</title>
     <url>/2019/11/13/Programing-Python-Basic-IO-intro/</url>
-    <content><![CDATA[<p>这里只讲述基本的 I/O 函数，更多函数请参考Python标准文档。</p><blockquote>
+    <content><![CDATA[<p>这里只讲述基本的 I/O 函数，更多函数请参考Python标准文档。</p>
+<blockquote>
 <p>Python 3.x I/O 标准文档位置  <a href="https://docs.python.org/3/library/io.html" target="_blank" rel="noopener">https://docs.python.org/3/library/io.html</a></p>
-</blockquote><hr><h2 id="打印到屏幕"><a href="#打印到屏幕" class="headerlink" title="打印到屏幕"></a>打印到屏幕</h2><p>最简单的输出方法是用<code>print</code>函数，你可以给它传递零个或多个用逗号隔开的表达式。此函数把你传递的表达式转换成一个字符串表达式，并将结果写到标准输出如下：</p><a id="more"></a>
-
-
-
+</blockquote>
+<hr>
+<h2 id="打印到屏幕"><a href="#打印到屏幕" class="headerlink" title="打印到屏幕"></a>打印到屏幕</h2><p>最简单的输出方法是用<code>print</code>函数，你可以给它传递零个或多个用逗号隔开的表达式。此函数把你传递的表达式转换成一个字符串表达式，并将结果写到标准输出如下：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*- </span></span><br><span class="line">print(<span class="string">"hello world"</span>)</span><br></pre></td></tr></table></figure>
 <p>你的标准屏幕上会产生以下结果：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-e87780fd91230718.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hello world"></p>
 <h2 id="读取键盘输入"><a href="#读取键盘输入" class="headerlink" title="读取键盘输入"></a>读取键盘输入</h2><p>Python 3 提供了内置函数从标准输入读入一行文本，默认的标准输入是键盘。</p>
+<a id="more"></a>
 <h3 id="input-函数"><a href="#input-函数" class="headerlink" title="input 函数"></a>input 函数</h3><p><strong>input([prompt])</strong> 函数，<code>input</code> 可以接收一个Python表达式作为输入，并将运算结果返回。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*- </span></span><br><span class="line"> </span><br><span class="line">str = input(<span class="string">"请输入："</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"你输入的内容是: "</span>, str)</span><br></pre></td></tr></table></figure>
 <p>这会产生如下的对应着输入的结果：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-7aaa0b67137263ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="input"></p>
@@ -825,11 +830,11 @@
   <entry>
     <title>Python-基础-`yeild` 关键字使用</title>
     <url>/2019/11/11/Programing-Python-Basic-use-yield/</url>
-    <content><![CDATA[<hr><p>大家在阅读 Python 代码时，经常遇到带有 <code>yield</code> 的函数，通常此时我们都需要去想想这个<code>yield</code> 是个什么东西？这一段代码在讲什么事情呢？</p><p>那我们这里就来好好讲讲这个 <code>yield</code>。</p><p><code>yield</code> 是 Python 设计之初就保留的关键字之一。</p><p>在 Python 中被称之为 <code>generator</code>(中文翻译是 <code>“生成器”</code>)，那什么是 <code>generator</code> 呢 ？</p><a id="more"></a>
-
-
-
-
+    <content><![CDATA[<hr>
+<p>大家在阅读 Python 代码时，经常遇到带有 <code>yield</code> 的函数，通常此时我们都需要去想想这个<code>yield</code> 是个什么东西？这一段代码在讲什么事情呢？</p>
+<p>那我们这里就来好好讲讲这个 <code>yield</code>。</p>
+<p><code>yield</code> 是 Python 设计之初就保留的关键字之一。</p>
+<p>在 Python 中被称之为 <code>generator</code>(中文翻译是 <code>“生成器”</code>)，那什么是 <code>generator</code> 呢 ？</p>
 <p>我们先抛开 <code>generator</code>，以一个常见的编程题目来展示 <code>yield</code> 的概念。</p>
 <hr>
 <h2 id="从生成斐波那契数列开始"><a href="#从生成斐波那契数列开始" class="headerlink" title="从生成斐波那契数列开始"></a>从生成斐波那契数列开始</h2><p>斐波那契（Fibonacci）数列是一个非常简单的递归数列，除第一个和第二个数外，任意一个数都可由前两个数相加得到。</p>
@@ -851,6 +856,7 @@
 <p>执行 ，我们可以得到如下输出：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-6f51a320b6673d3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果3"></p>
 <p>然而，使用 class 改写的这个版本，代码远远没有第一版的 fab 函数来得简洁。</p>
 <p>如果我们想要保持第一版 fab 函数的简洁性，同时又要获得 <code>iterable</code> 的效果，<code>yield</code> 就派上用场了。</p>
+<a id="more"></a>
 <h2 id="使用-yield-生成斐波那契数列"><a href="#使用-yield-生成斐波那契数列" class="headerlink" title="使用 yield 生成斐波那契数列"></a>使用 <code>yield</code> 生成斐波那契数列</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fab</span><span class="params">(max)</span>:</span></span><br><span class="line">    n, a, b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> n &lt; max:</span><br><span class="line">        <span class="keyword">yield</span> b</span><br><span class="line">        <span class="comment"># print(b)</span></span><br><span class="line">        a, b = b, a + b</span><br><span class="line">        n = n + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> fab(<span class="number">5</span>):</span><br><span class="line">    print(n)</span><br></pre></td></tr></table></figure>
 <p>第四个版本的 fab 和第一版相比，仅仅把 <code>print(b)</code> 改为了 <code>yield b</code> ，就在保持简洁性的同时获得了 <code>iterable</code> 的效果。</p>
 <p>那么 <code>yield</code> 到底做了什么呢？</p>
@@ -887,10 +893,11 @@
   <entry>
     <title>Python-高级-聊一聊 Flask 的 jsonify</title>
     <url>/2019/11/07/Programing-Python-Advanced-jsonify-in-Flask/</url>
-    <content><![CDATA[<p>首先我们来看一段 Python 代码</p><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, jsonify</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">tasks = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 python_mastery 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/python_mastery'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 pythonml 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/pythonml'</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/api/v1.0/tasks', methods=['GET'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_tasks</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'tasks'</span>: tasks&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure><a id="more"></a>
-
+    <content><![CDATA[<p>首先我们来看一段 Python 代码</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, jsonify</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">tasks = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 python_mastery 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/python_mastery'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 pythonml 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/pythonml'</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/api/v1.0/tasks', methods=['GET'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_tasks</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'tasks'</span>: tasks&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 <p>在这段代码里面，我们看到了今天的主角 <code>jsonify</code>。</p>
 <p>Flask 框架里，可以用 <code>jsonify</code> 返回 json 数据，但是为什么不用 <code>Python</code> 自带的 <code>json</code> 模块返回 JSON 数据呢？</p>
+<a id="more"></a>
 <hr>
 <h2 id="其实是一样"><a href="#其实是一样" class="headerlink" title="其实是一样"></a>其实是一样</h2><p>其实，<code>jsonify</code> 在处理数据过程中，对数据做 JSON 序列化处理时，用的是 <code>itsdangerous</code> 模块里的 JSON ，让我们看一下，这个模块里的 JSON 是如何引入的</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">import</span> simplejson <span class="keyword">as</span> json</span><br><span class="line"><span class="keyword">except</span> ImportError:</span><br><span class="line">    <span class="keyword">import</span> json</span><br></pre></td></tr></table></figure>
@@ -935,8 +942,8 @@
   <entry>
     <title>Python-基础-PEP 是什么？</title>
     <url>/2019/11/05/Programing-Python-Basic-what-is-PEP/</url>
-    <content><![CDATA[<h2 id="PEP-是什么？"><a href="#PEP-是什么？" class="headerlink" title="PEP 是什么？"></a>PEP 是什么？</h2><p>Python的 PEP 文档是一组不断发展的标准文档，PEP是 <code>Python Enhancement Proposal</code>的首字母缩写。就像TCPIP协议使用RFC来组织起不断发展的通信标准一样，PEP也是类似的用于发展Python的一组文档。</p><p>PEP的全称是Python Enhancement Proposals，其中Enhancement是增强改进的意思，Proposals则可译为提案或建议书，所以合起来，比较常见的翻译是 Python 增强提案或 Python 改进建议书。Python 核心开发者主要通过邮件列表讨论问题、提议、计划等，PEP 通常是汇总了多方信息，经过了部分核心开发者 review 和认可，最终形成的正式文档，起到了对外公示的作用。</p><a id="more"></a>
-
+    <content><![CDATA[<h2 id="PEP-是什么？"><a href="#PEP-是什么？" class="headerlink" title="PEP 是什么？"></a>PEP 是什么？</h2><p>Python的 PEP 文档是一组不断发展的标准文档，PEP是 <code>Python Enhancement Proposal</code>的首字母缩写。就像TCPIP协议使用RFC来组织起不断发展的通信标准一样，PEP也是类似的用于发展Python的一组文档。</p>
+<p>PEP的全称是Python Enhancement Proposals，其中Enhancement是增强改进的意思，Proposals则可译为提案或建议书，所以合起来，比较常见的翻译是 Python 增强提案或 Python 改进建议书。Python 核心开发者主要通过邮件列表讨论问题、提议、计划等，PEP 通常是汇总了多方信息，经过了部分核心开发者 review 和认可，最终形成的正式文档，起到了对外公示的作用。</p>
 <p>PEP文档越多，说明 Python 社区越活跃，发展良好。</p>
 <h2 id="PEP-的类型"><a href="#PEP-的类型" class="headerlink" title="PEP 的类型"></a>PEP 的类型</h2><p>每个PEP都有对应的类型（PEP Status Key）：</p>
 <p>A – Accepted (Standards Track only) or Active proposal 已接受（仅限标准跟踪）或有效提案<br>D – Deferred proposal延期提案<br>F – Final proposal 最终提案<br>P – Provisional proposal 暂定提案<br>R – Rejected proposal 拒绝提案<br>S – Superseded proposal 被取代的提案<br>W – Withdrawn proposal 撤回提案</p>
@@ -953,6 +960,7 @@
 </ol>
 <h3 id="PEP-8"><a href="#PEP-8" class="headerlink" title="PEP 8"></a>PEP 8</h3><p><a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0008/</a></p>
 <p>PEP 8号文档，是Python官方出的编程规范.</p>
+<a id="more"></a>
 <h3 id="PEP-20"><a href="#PEP-20" class="headerlink" title="PEP 20"></a>PEP 20</h3><p><a href="https://www.python.org/dev/peps/pep-0020/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0020/</a><br>Python 之禅，就是我们在python 解释器中输入</p>
 <p>每次Python官方发布新版本，新版本的New Features都有相应的PEP文档支撑，比如3.7.0版本，PEP文档成了Python发展的需求管理工具。如下图：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/1940331-4e51d36b3d821fdf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Python 3.7.0版本关联的PEP"></p>
@@ -999,13 +1007,14 @@
   <entry>
     <title>Python-高级-使用MongoDB</title>
     <url>/2019/11/01/Programing-Python-Basic-use-mongoDB/</url>
-    <content><![CDATA[<hr><h2 id="Python使用MongoDB"><a href="#Python使用MongoDB" class="headerlink" title="Python使用MongoDB"></a>Python使用MongoDB</h2><p>MongoDB相对于传统的关系型数据库，可以存储JSON数据，非常适合存储数据抓取返回的JSON数据。<br>今天主要学习的是使用Python连接MongoDB，并进行增删改查的操作。</p><blockquote>
+    <content><![CDATA[<hr>
+<h2 id="Python使用MongoDB"><a href="#Python使用MongoDB" class="headerlink" title="Python使用MongoDB"></a>Python使用MongoDB</h2><p>MongoDB相对于传统的关系型数据库，可以存储JSON数据，非常适合存储数据抓取返回的JSON数据。<br>今天主要学习的是使用Python连接MongoDB，并进行增删改查的操作。</p>
+<blockquote>
 <p>MongoDB 的安装及使用，请参照官方文档。<br><a href="https://api.mongodb.com/python/current/installation.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/installation.html</a></p>
-</blockquote><a id="more"></a>
-
-
+</blockquote>
 <p>在连接MongoDB前 首先要安装的是Python包：PyMongo，包的安装非常的简单。<br>只需执行 <code>pip install pymongo</code> 即可使用。</p>
 <h3 id="创建连接"><a href="#创建连接" class="headerlink" title="创建连接"></a>创建连接</h3><p>在安装完PyMongo以后，使用Python连接MongoDB变得异常简单。具体方式为：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"> </span><br><span class="line">client = MongoClient(<span class="string">'localhost'</span>, <span class="number">27017</span>)</span><br></pre></td></tr></table></figure><br>或使用如下方式：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"> </span><br><span class="line">client = MongoClient(<span class="string">'mongodb://localhost:27017'</span>)</span><br></pre></td></tr></table></figure><br>如果连接含有账号密码等，请参考：<br><a href="https://api.mongodb.com/python/current/api/pymongo/mongo_client.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/api/pymongo/mongo_client.html</a></p>
+<a id="more"></a>
 <h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><p>连接数据库的操作也非常的简单，最为重要的是，在你连接数据库之前无需先创建数据库，如果数据库存在则直接连接，如果数据库不存在则会创建新的库。具体方式为：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 方式一</span></span><br><span class="line">db = client.pymongo_test</span><br><span class="line"><span class="comment"># 方式二</span></span><br><span class="line">db = client[<span class="string">'pymongo_test'</span>]</span><br></pre></td></tr></table></figure>
 <p>以上两种方式任选一种即可。</p>
@@ -1027,6 +1036,28 @@
         <tag>Python</tag>
         <tag>高级技术</tag>
         <tag>编程技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Programing-Hexo-Hexo_blog_read_more_button</title>
+    <url>/2016/11/22/Programing-Hexo-Hexo-blog-read-more-button/</url>
+    <content><![CDATA[<p>我们在搭建好博客后，肯定是第一时间写一篇文章测试一下啦！但是细心的你一定会发现一个问题，那就是——主页为什么会展示每一篇文章的所有内容？而不是首页只展示文章的部分内容，再提供一个阅读全文的按钮呢？</p>
+<p>本篇博客就是帮助各个同学实现阅读全文的功能，同时根据自己的使用经验给出意见和建议。要实现阅读全文，目前存在两种方法，我们会一个个讨论，评价其优缺点的。</p>
+<h2 id="方法一：配置文件设置"><a href="#方法一：配置文件设置" class="headerlink" title="方法一：配置文件设置"></a>方法一：配置文件设置</h2><p>首先我们需要找到Hexo所使用主题的主配置文件_config.yml，注意此处不是Hexo的主配置文件，而是主题的。博主所使用的是NexT主题，因此在此以此为例。</p>
+<a id="more"></a>
+<p>方法一是搜索此处的 <code>auto_excerpt</code>，将 <code>enable</code> 改为 true，就自动可以对每一篇文章进行分割了，length 属性就是定义显示的字符数量。<br><img src="/2016/11/22/Programing-Hexo-Hexo-blog-read-more-button/auto_excerpt_setting.png" class title="auto_excerpt_setting"></p>
+<p>但是不得不说，很不建议使用此方法，主要原因是：</p>
+<p>作者不能灵活控制显示内容，只能固定遵循字数设置<br>会丢失Markdown语法的格式，只显示纯文本<br>对！没错！Markdown的格式会全部丢失，所以整个首页的博客预览会非常难看。而主题作者推荐的做法也写的非常明显了，就是在图片中红框当中的内容。</p>
+<h2 id="方法二：手动分割文章"><a href="#方法二：手动分割文章" class="headerlink" title="方法二：手动分割文章"></a>方法二：手动分割文章</h2><p>在文章当中需要分割的位置手动插入以下语句即可：<br><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- more --&gt;</span></span></span><br></pre></td></tr></table></figure><br>效果还是很不错的，如图所示：<br><img src="/2016/11/22/Programing-Hexo-Hexo-blog-read-more-button/read-more.png" class title="read more 按键"></p>
+]]></content>
+      <categories>
+        <category>编程技术</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>编程技术</tag>
+        <tag>Hexo</tag>
+        <tag>基础技术</tag>
       </tags>
   </entry>
 </search>
