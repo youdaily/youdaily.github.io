@@ -255,224 +255,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<p>Python程序可以通过多种方式来处理日期和时间。<br>日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。</p>
-<h2 id="什么是刻度？"><a href="#什么是刻度？" class="headerlink" title="什么是刻度？"></a>什么是刻度？</h2><p>时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。</p>
-<p>在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 <code>time.time()</code>返回当前系统时间，从1970年1月1日12点起来的秒数。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time;  <span class="comment"># This is required to include time module.</span></span><br><span class="line"></span><br><span class="line">ticks = time.time()</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Number of ticks since 12:00am, January 1, 1970:"</span>, ticks)</span><br></pre></td></tr></table></figure>
-<p>将产生一个结果，如下 -<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number of ticks since <span class="number">12</span>:<span class="number">00</span>am, January <span class="number">1</span>, <span class="number">1970</span>: <span class="number">1568018748.2947338</span></span><br></pre></td></tr></table></figure></p>
-<p>日期计算使用刻度线是很容易做到的。<br>然而，新纪元日期之前不能以这种形式表示。在未来的一个日期也不能表示这种方式, 分界点是在某个时候，在 UNIX和Windows上为 2038年。</p>
-<h2 id="什么是TimeTuple？"><a href="#什么是TimeTuple？" class="headerlink" title="什么是TimeTuple？"></a>什么是TimeTuple？</h2><p>Python时间的函数处理时间9个数字的元组，如下图所示</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>字段</th>
-<th>值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>4-digit year</td>
-<td>2019</td>
-</tr>
-<tr>
-<td>1</td>
-<td>Month</td>
-<td>1 to 12</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Day</td>
-<td>1 to 31</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Hour</td>
-<td>0 to 23</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Minute</td>
-<td>0 to 59</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Second</td>
-<td>0 to 61 (60 or 61 are leap-seconds)</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Day of Week</td>
-<td>0 to 6 (0 is Monday)</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Day of year</td>
-<td>1 to 366 (Julian day)</td>
-</tr>
-<tr>
-<td>8</td>
-<td>Daylight savings</td>
-<td>-1, 0, 1, -1 means library determines DST</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> (time.localtime())</span><br></pre></td></tr></table></figure>
-<p>这将产生一个结果如下 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time.struct_time(tm_year=<span class="number">2019</span>, tm_mon=<span class="number">9</span>, tm_mday=<span class="number">9</span>, tm_hour=<span class="number">10</span>, tm_min=<span class="number">51</span>, tm_sec=<span class="number">9</span>, tm_wday=<span class="number">0</span>, tm_yday=<span class="number">252</span>, tm_isdst=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-<p>上述元组相当于struct_time结构。这种结构具有以下属性 -</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>属性</th>
-<th>值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>tm_year</td>
-<td>2019</td>
-</tr>
-<tr>
-<td>1</td>
-<td>tm_mon</td>
-<td>1 to 12</td>
-</tr>
-<tr>
-<td>2</td>
-<td>tm_mday</td>
-<td>1 to 31</td>
-</tr>
-<tr>
-<td>3</td>
-<td>tm_hour</td>
-<td>1 to 23</td>
-</tr>
-<tr>
-<td>4</td>
-<td>tm_min</td>
-<td>1 to 59</td>
-</tr>
-<tr>
-<td>5</td>
-<td>tm_sec</td>
-<td>0 to 61 (60 or 61 are leap-seconds)</td>
-</tr>
-<tr>
-<td>6</td>
-<td>tm_wday</td>
-<td>0 to 6 (0 is Monday)</td>
-</tr>
-<tr>
-<td>7</td>
-<td>tm_yday</td>
-<td>1 to 366 (Julian day)</td>
-</tr>
-<tr>
-<td>8</td>
-<td>tm_isdst</td>
-<td>-1, 0, 1, -1 means library determines DST</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="获取当前时间"><a href="#获取当前时间" class="headerlink" title="获取当前时间"></a>获取当前时间</h2><p>划时代浮点值从秒时刻转换生成为时间元组，浮点值传递给一个函数返回时间的元组并带上所有九个项目无效(例如，本地时间)。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">localtime = time.localtime(time.time())</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Local current time :"</span>, localtime)</span><br></pre></td></tr></table></figure>
-<p>这将产生以下结果，这可能会在任何其他像样形式被格式化.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Local current time : time.struct_time(tm_year=<span class="number">2019</span>, tm_mon=<span class="number">9</span>, tm_mday=<span class="number">9</span>, tm_hour=<span class="number">16</span>, tm_min=<span class="number">51</span>, tm_sec=<span class="number">9</span>, tm_wday=<span class="number">0</span>, tm_yday=<span class="number">252</span>, tm_isdst=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="获取格式化时间"><a href="#获取格式化时间" class="headerlink" title="获取格式化时间"></a>获取格式化时间</h2><p>可以在格式化任何时候按您的要求，但用来获得时间可读格式的简单方法是asctime() -</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">localtime = time.asctime( time.localtime(time.time()) )</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Local current time :"</span>, localtime)</span><br></pre></td></tr></table></figure>
-<p>这将产生以下结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Local current time : Mon Sep  <span class="number">9</span> <span class="number">16</span>:<span class="number">57</span>:<span class="number">48</span> <span class="number">2019</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="获取一个月份的日历"><a href="#获取一个月份的日历" class="headerlink" title="获取一个月份的日历"></a>获取一个月份的日历</h2><p>日历模块提供各种各样年度和月度的日历方法。在这里，我们将打印给定月份(2008年1月)的日历 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> calendar</span><br><span class="line"></span><br><span class="line">cal = calendar.month(<span class="number">2019</span>, <span class="number">2</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Here is the calendar:"</span>)</span><br><span class="line"><span class="keyword">print</span> (cal)</span><br></pre></td></tr></table></figure>
-<p>这将产生以下结果 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Here <span class="keyword">is</span> the calendar:</span><br><span class="line">   February <span class="number">2019</span></span><br><span class="line">Mo Tu We Th Fr Sa Su</span><br><span class="line">             <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span></span><br><span class="line"> <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span> <span class="number">10</span></span><br><span class="line"><span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span> <span class="number">17</span></span><br><span class="line"><span class="number">18</span> <span class="number">19</span> <span class="number">20</span> <span class="number">21</span> <span class="number">22</span> <span class="number">23</span> <span class="number">24</span></span><br><span class="line"><span class="number">25</span> <span class="number">26</span> <span class="number">27</span> <span class="number">28</span></span><br></pre></td></tr></table></figure>
-<h3 id="time模块"><a href="#time模块" class="headerlink" title="time模块"></a>time模块</h3><p>Python提供一个流行时间模块，为时间和表示之间转换提供了相应函数。<br>这里是所有可用方法的列表<br>|序号|函数|描述|<br>|—-|—-|—-|<br>|1|time.altzone |如果定义则在当地的DST时区偏移，在UTC西部秒数。这是负值，如果当地的MST时区是UTC以东 (在西欧，包括英国).只使用这个，如果白天不为零。|<br>|2|time.asctime([tupletime]) |接受时间元组，并返回一个可读24个字符的字符串，如 ‘Tue Dec 11 18:07:14 2008’.|<br>|3|time.clock( ) |返回当前CPU时间为几秒钟的浮点数。要测量计算成本的不同的方法，time.clock()的值比time.time更有用。|<br>|4|time.ctime([secs])|类似 asctime(localtime(secs))和不带参数的 ctime()函数|<br>|5|time.gmtime([secs]) |接受从新纪元用秒表示瞬间和返回用UTC表示时间元组t。注: t.tm_isdst 总是为 0|<br>|6|time.localtime([secs]) |接受从新纪元用秒表示瞬间和返回本地时间的时间元组t(t.tm_isdst 为 0 或 1, 根据DST是否通过局部规则适用于时刻秒)|<br>|7|time.mktime(tupletime) |接受表示为本地时间的时间元组并返回从新纪元以秒表示瞬间的一个浮点值|<br>|8|time.sleep(secs) |线程暂停secs秒调用|<br>|9|time.strftime(fmt[,tupletime]) |接受表示为本地时间的时间元组瞬间，并返回表示由字符串指定 fmt 瞬间的字符串 |<br>|10|time.strptime(str,fmt=’%a %b %d %H:%M:%S %Y’) |解析 str 按照格式字符串格式化并返回时间元组格式的时间|<br>|11|time.time( ) |返回当前时刻，从新纪元以来的秒的浮点数|<br>|12|time.tzset() |通过重置库例程使用时间转换规则。 环境变量TZ指定如何做到这一点 |下列是时间模块提供两个重要属性：</p>
-<p>下列是时间模块提供两个重要属性：<br>|序号|属性及说明|<br>|—-|—-|<br>|1|time.timezone |属性time.timezone是在本地时区以UTC的秒偏移量(不包括DST) |<br>|2|time.tzname |属性time.tzname是一对区域设置相关的字符串|</p>
-<h2 id="calendar-日历模块"><a href="#calendar-日历模块" class="headerlink" title="calendar 日历模块"></a>calendar 日历模块</h2><p>calendar 模块提供日历相关的功能，包括函数用来打印给定月份或年份文本日历。默认情况下，日历采用星期一作为一周的第一天，周日是最后一个。如要改变这种情况，调用calendar.setfirstweekday()函数。这里是 calendar 模块可用的函数列表：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>方法</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>calendar.calendar(year,w=2,l=1,c=6)</td>
-<td>返回一个多行字符串使用格式化成用c空格分隔的三列逐年的日历</td>
-</tr>
-<tr>
-<td>2</td>
-<td>calendar.firstweekday( )</td>
-<td>返回每周工作日开始的当前设置。默认情况下，当日历被首次导入是0，这意味着星期一</td>
-</tr>
-<tr>
-<td>3</td>
-<td>calendar.isleap(year)</td>
-<td>如果 year 是闰年返回True;否则为false</td>
-</tr>
-<tr>
-<td>4</td>
-<td>calendar.leapdays(y1,y2)</td>
-<td>返回跨越润年在范围内(y1,y2)的总数</td>
-</tr>
-<tr>
-<td>5</td>
-<td>calendar.month(year,month,w=2,l=1)</td>
-<td>返回一个多行字符串以及逐年月月份的日历，每周一行加上两个标题行。</td>
-</tr>
-<tr>
-<td>6</td>
-<td>calendar.monthcalendar(year,month)</td>
-<td>返回列表的列表整数。</td>
-</tr>
-<tr>
-<td>7</td>
-<td>calendar.monthrange(year,month)</td>
-<td>返回两个整数。</td>
-</tr>
-<tr>
-<td>8</td>
-<td>calendar.prcal(year,w=2,l=1,c=6)</td>
-<td>类似打印 calendar.calendar(year,w,l,c).</td>
-</tr>
-<tr>
-<td>9</td>
-<td>calendar.prmonth(year,month,w=2,l=1)</td>
-<td>类似打印 calendar.month(year,month,w,l).</td>
-</tr>
-<tr>
-<td>10</td>
-<td>calendar.setfirstweekday(weekday)</td>
-<td>设定每个星期的第一天工作日代码。工作日代码是0(星期一)至6(星期日)</td>
-</tr>
-<tr>
-<td>11</td>
-<td>calendar.timegm(tupletime)</td>
-<td>time.gmtime反转：接受时间元组形式的时刻，并返回同一时刻作为自新纪元以来秒的浮点数</td>
-</tr>
-<tr>
-<td>12</td>
-<td>calendar.weekday(year,month,day)</td>
-<td>返回给定日期是星期几代码。 工作日代码是0(星期一)至60(星期日);月数是1(1月)到12(12月)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="其它模块和功能："><a href="#其它模块和功能：" class="headerlink" title="其它模块和功能："></a>其它模块和功能：</h2><p>如果你有兴趣，那么在这里你会发现其他重要的模块和功能的列表，包括在Python日期和时间的使用：</p>
-<p>datetime模块<br><a href="https://docs.python.org/3/library/datetime.html#module-datetime" target="_blank" rel="noopener">https://docs.python.org/3/library/datetime.html#module-datetime</a></p>
-
+          <hr><p>Python程序可以通过多种方式来处理日期和时间。<br>日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。</p><h2 id="什么是刻度？"><a href="#什么是刻度？" class="headerlink" title="什么是刻度？"></a>什么是刻度？</h2><p>时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。</p><p>在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 <code>time.time()</code>返回当前系统时间，从1970年1月1日12点起来的秒数。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/21/Python-Basic-date-time-intro/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -540,101 +331,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<p>下面内容主要摘抄自<code>python</code> 官网，<a href="https://docs.python.org/3.7/glossary.html#glossary" target="_blank" rel="noopener">https://docs.python.org/3.7/glossary.html#glossary</a>，部分内容有删减。</p>
-<h3 id="2to3"><a href="#2to3" class="headerlink" title="2to3"></a>2to3</h3><p>一个将 <code>Python</code> 2.x 代码转换为 <code>Python</code> 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。</p>
-<p>2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools/scripts/2to3。参见 2to3 - 自动将 <code>Python</code> 2 代码转为 <code>Python</code> 3 代码。</p>
-<p>因为官方将在2020年不再支持 <code>Python</code> 2.x, 在遇到没有<code>Python</code> 2.X 版本 的code 的时候，可以尝试使用这个工具将代码转化成Python 的版本。</p>
-<h3 id="abstract-base-class-—-抽象基类"><a href="#abstract-base-class-—-抽象基类" class="headerlink" title="abstract base class — 抽象基类"></a>abstract base class — 抽象基类</h3><p>抽象基类简称 ABC，是对 duck-typing 的补充，它提供了一种定义接口的新方式，相比之下其他技巧例如 hasattr() 显得过于笨拙或有微妙错误（例如使用 魔术方法）。ABC 引入了虚拟子类，这种类并非继承自其他类，但却仍能被 isinstance() 和 issubclass() 所认可；详见 abc 模块文档。<code>Python</code> 自带许多内置的 ABC 用于实现数据结构（在 collections.abc 模块中）、数字（在 numbers 模块中）、流（在 io 模块中）、导入查找器和加载器（在 importlib.abc 模块中）。你可以使用 abc 模块来创建自己的 ABC。</p>
-<h3 id="argument-—-参数"><a href="#argument-—-参数" class="headerlink" title="argument — 参数"></a>argument — 参数</h3><p>在调用函数时传给 function （或 method ）的值。参数分为两种：</p>
-<ul>
-<li>关键字参数: 在函数调用中前面带有标识符（例如 name=）或者作为包含在前面带有 ** 的字典里的值传入。<br>  举例来说，3 和 5 在以下对 complex() 的调用中均属于关键字参数:  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">complex(real=<span class="number">3</span>, imag=<span class="number">5</span>)</span><br><span class="line">complex(**&#123;<span class="string">'real'</span>: <span class="number">3</span>, <span class="string">'imag'</span>: <span class="number">5</span>&#125;)</span><br></pre></td></tr></table></figure></li>
-<li>位置参数: 不属于关键字参数的参数。位置参数可出现于参数列表的开头以及/或者作为前面带有 * 的 iterable 里的元素被传入。<br>  举例来说，3 和 5 在以下调用中均属于位置参数:  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">complex(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">complex(*(<span class="number">3</span>, <span class="number">5</span>))</span><br></pre></td></tr></table></figure>
-参数会被赋值给函数体中对应的局部变量。有关赋值规则参见 调用 一节。根据语法，任何表达式都可用来表示一个参数；最终算出的值会被赋给对应的局部变量。</li>
-</ul>
-<p>另参见 parameter 术语表条目，常见问题中 参数与形参的区别 以及 PEP 362。</p>
-<h3 id="asynchronous-context-manager-—-异步上下文管理器"><a href="#asynchronous-context-manager-—-异步上下文管理器" class="headerlink" title="asynchronous context manager — 异步上下文管理器"></a>asynchronous context manager — 异步上下文管理器</h3><p>此种对象通过定义 <strong>aenter</strong>() 和 <strong>aexit</strong>() 方法来对 async with 语句中的环境进行控制。由 PEP 492 引入。</p>
-<h3 id="asynchronous-generator-—-异步生成器"><a href="#asynchronous-generator-—-异步生成器" class="headerlink" title="asynchronous generator — 异步生成器"></a>asynchronous generator — 异步生成器</h3><p>返回值为 asynchronous generator iterator 的函数。它与使用 async def 定义的协程函数很相似，不同之处在于它包含 yield 表达式以产生一系列可在 async for 循环中使用的值。</p>
-<p>此术语通常是指异步生成器函数，但在某些情况下则可能是指 异步生成器迭代器。如果需要清楚表达具体含义，请使用全称以避免歧义。</p>
-<p>一个异步生成器函数可能包含 await 表达式或者 async for 以及 async with 语句。</p>
-<h3 id="attribute-—-属性"><a href="#attribute-—-属性" class="headerlink" title="attribute — 属性"></a>attribute — 属性</h3><p>关联到一个对象的值，可以使用点号表达式通过其名称来引用。例如，如果一个对象 o 具有一个属性 a，就可以用 o.a 来引用它。</p>
-<h3 id="BDFL"><a href="#BDFL" class="headerlink" title="BDFL"></a>BDFL</h3><p>“终身仁慈独裁者”的英文缩写，即 Guido van Rossum，<code>Python</code> 的创造者。</p>
-<h3 id="binary-file-—-二进制文件"><a href="#binary-file-—-二进制文件" class="headerlink" title="binary file — 二进制文件"></a>binary file — 二进制文件</h3><p>file object 能够读写 字节类对象。二进制文件的例子包括以二进制模式（’rb’, ‘wb’ or ‘rb+’）打开的文件、sys.stdin.buffer、sys.stdout.buffer 以及 io.BytesIO 和 gzip.GzipFile 的实例。</p>
-<p>另请参见 text file 了解能够读写 str 对象的文件对象。</p>
-<h3 id="bytes-like-object-—-字节类对象"><a href="#bytes-like-object-—-字节类对象" class="headerlink" title="bytes-like object — 字节类对象"></a>bytes-like object — 字节类对象</h3><p>支持 缓冲协议 并且能导出 C-contiguous 缓冲的对象。这包括所有 bytes、bytearray 和 array.array 对象，以及许多普通 memoryview 对象。字节类对象可在多种二进制数据操作中使用；这些操作包括压缩、保存为二进制文件以及通过套接字发送等。</p>
-<p>某些操作需要可变的二进制数据。这种对象在文档中常被称为“可读写字节类对象”。可变缓冲对象的例子包括 bytearray 以及 bytearray 的 memoryview。其他操作要求二进制数据存放于不可变对象 (“只读字节类对象”)；这种对象的例子包括 bytes 以及 bytes 对象的 memoryview。</p>
-<h3 id="bytecode-—-字节码"><a href="#bytecode-—-字节码" class="headerlink" title="bytecode — 字节码"></a>bytecode — 字节码</h3><p><code>Python</code> 源代码会被编译为字节码，即 C<code>Python</code> 解释器中表示 <code>Python</code> 程序的内部代码。字节码还会缓存在 .pyc 文件中，这样第二次执行同一文件时速度更快（可以免去将源码重新编译为字节码）。这种 “中间语言” 运行在根据字节码执行相应机器码的 virtual machine 之上。请注意不同 <code>Python</code> 虚拟机上的字节码不一定通用，也不一定能在不同 <code>Python</code> 版本上兼容。</p>
-<h3 id="class-—-类"><a href="#class-—-类" class="headerlink" title="class — 类"></a>class — 类</h3><p>用来创建用户定义对象的模板。类定义通常包含对该类的实例进行操作的方法定义。</p>
-<h3 id="class-variable-—-类变量"><a href="#class-variable-—-类变量" class="headerlink" title="class variable — 类变量"></a>class variable — 类变量</h3><p>在类中定义的变量，并且仅限在类的层级上修改 (而不是在类的实例中修改)。</p>
-<h3 id="coercion-—-强制类型转换"><a href="#coercion-—-强制类型转换" class="headerlink" title="coercion — 强制类型转换"></a>coercion — 强制类型转换</h3><p>在包含两个相同类型参数的操作中，一种类型的实例隐式地转换为另一种类型。例如，int(3.15) 是将原浮点数转换为整型数 3，但在 3+4.5 中，参数的类型不一致（一个是 int, 一个是 float），两者必须转换为相同类型才能相加，否则将引发 TypeError。如果没有强制类型转换机制，程序员必须将所有可兼容参数归一化为相同类型，例如要写成 float(3)+4.5 而不是 3+4.5。</p>
-<p>coroutine — 协程<br>协程是子例程的更一般形式。子例程可以在某一点进入并在另一点退出。协程则可以在许多不同的点上进入、退出和恢复。它们可通过 async def 语句来实现。参见 PEP 492。</p>
-<p>coroutine function — 协程函数<br>返回一个 coroutine 对象的函数。协程函数可通过 async def 语句来定义，并可能包含 await、async for 和 async with 关键字。这些特性是由 PEP 492 引入的。</p>
-<h3 id="CPython"><a href="#CPython" class="headerlink" title="CPython"></a>CPython</h3><p><code>Python</code> 编程语言的规范实现，在 <code>python</code>.org 上发布。<code>CPython</code> 一词用于在必要时将此实现与其他实现例如 <code>Jython</code> 或 <code>IronPython</code> 相区别。</p>
-<h3 id="decorator-—-装饰器"><a href="#decorator-—-装饰器" class="headerlink" title="decorator — 装饰器"></a>decorator — 装饰器</h3><p>返回值为另一个函数的函数，通常使用 @wrapper 语法形式来进行函数变换。 装饰器的常见例子包括 classmethod() 和 staticmethod()。</p>
-<p>装饰器语法只是一种语法糖，以下两个函数定义在语义上完全等价:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(...)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">f = staticmethod(f)</span><br><span class="line"></span><br><span class="line"><span class="meta">@staticmethod</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(...)</span>:</span></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
-<p>同的样概念也适用于类，但通常较少这样使用。有关装饰器的详情可参见 函数定义 和 类定义 的文档。</p>
-<h3 id="dictionary-—-字典"><a href="#dictionary-—-字典" class="headerlink" title="dictionary — 字典"></a>dictionary — 字典</h3><p>一个关联数组，其中的任意键都映射到相应的值。键可以是任何具有 <strong>hash</strong>() 和 <strong>eq</strong>() 方法的对象。在 Perl 语言中称为 hash。</p>
-<h3 id="EAFP"><a href="#EAFP" class="headerlink" title="EAFP"></a>EAFP</h3><p>“求原谅比求许可更容易”的英文缩写。这种 <code>Python</code> 常用代码编写风格会假定所需的键或属性存在，并在假定错误时捕获异常。这种简洁快速风格的特点就是大量运用 try 和 except 语句。于其相对的则是所谓 LBYL 风格，常见于 C 等许多其他语言。</p>
-<h3 id="expression-—-表达式"><a href="#expression-—-表达式" class="headerlink" title="expression — 表达式"></a>expression — 表达式</h3><p>可以求出某个值的语法单元。 换句话说，一个表达式就是表达元素例如字面值、名称、属性访问、运算符或函数调用的汇总，它们最终都会返回一个值。 与许多其他语言不同，并非所有语言构件都是表达式。 还存在不能被用作表达式的 statement，例如 while。 赋值也是属于语句而非表达式。</p>
-<p>extension module — 扩展模块<br>以 C 或 C++ 编写的模块，使用 <code>Python</code> 的 C API 来与语言核心以及用户代码进行交互。</p>
-<h3 id="file-object-—-文件对象"><a href="#file-object-—-文件对象" class="headerlink" title="file object — 文件对象"></a>file object — 文件对象</h3><p>对外提供面向文件 API 以使用下层资源的对象（带有 read() 或 write() 这样的方法）。<br>根据其创建方式的不同，文件对象可以处理对真实磁盘文件，对其他类型存储，或是对通讯设备的访问（例如标准输入/输出、内存缓冲区、套接字、管道等等）。<br>文件对象也被称为 <code>文件类对象</code> 或 <code>流</code>。</p>
-<p>实际上共有三种类别的文件对象: <code>原始二进制文件</code>, <code>缓冲二进制文件</code> 以及 <code>文本文件</code>。它们的接口定义均在 io 模块中。<br>创建文件对象的规范方式是使用 open() 函数。</p>
-<h3 id="floor-division-—-向下取整除法"><a href="#floor-division-—-向下取整除法" class="headerlink" title="floor division — 向下取整除法"></a>floor division — 向下取整除法</h3><p>向下舍入到最接近的整数的数学除法。向下取整除法的运算符是 // 。例如，表达式 11 // 4 的计算结果是 2 ，而与之相反的是浮点数的真正除法返回 2.75 。注意 (-11) // 4 会返回 -3 因为这是 -2.75 向下 舍入得到的结果。见 PEP 238 。</p>
-<h3 id="function-—-函数"><a href="#function-—-函数" class="headerlink" title="function — 函数"></a>function — 函数</h3><p>可以向调用者返回某个值的一组语句。还可以向其传入零个或多个 参数 并在函数体执行中被使用。另见 parameter, method 和 函数定义 等节。</p>
-<h3 id="future"><a href="#future" class="headerlink" title="future"></a><strong>future</strong></h3><p>一种伪模块，可被程序员用来启用与当前解释器不兼容的新语言特性。</p>
-<p>通过导入 <strong>future</strong> 模块并对其中的变量求值，你可以查看新特性何时首次加入语言以及何时成为默认:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> __future__</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>__future__.division</span><br><span class="line">_Feature((<span class="number">2</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="string">'alpha'</span>, <span class="number">2</span>), (<span class="number">3</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">'alpha'</span>, <span class="number">0</span>), <span class="number">8192</span>)</span><br></pre></td></tr></table></figure></p>
-<h3 id="garbage-collection-—-垃圾回收"><a href="#garbage-collection-—-垃圾回收" class="headerlink" title="garbage collection — 垃圾回收"></a>garbage collection — 垃圾回收</h3><p>释放不再被使用的内存空间的过程。<br><code>Python</code> 是通过引用计数和一个能够检测和打破循环引用的循环垃圾回收器来执行垃圾回收的。<br>可以使用 gc 模块来控制垃圾回收器。</p>
-<h3 id="global-interpreter-lock-—-全局解释器锁"><a href="#global-interpreter-lock-—-全局解释器锁" class="headerlink" title="global interpreter lock — 全局解释器锁"></a>global interpreter lock — 全局解释器锁</h3><p>C<code>Python</code> 解释器所采用的一种机制，它确保同一时刻只有一个线程在执行 <code>Python</code> bytecode。此机制通过设置对象模型（包括 dict 等重要内置类型）针对并发访问的隐式安全简化了 C<code>Python</code> 实现。给整个解释器加锁使得解释器多线程运行更方便，其代价则是牺牲了在多处理器上的并行性。</p>
-<p>不过，某些标准库或第三方库的扩展模块被设计为在执行计算密集型任务如压缩或哈希时释放 GIL。此外，在执行 I/O 操作时也总是会释放 GIL。</p>
-<p>创建一个（以更精细粒度来锁定共享数据的）“自由线程”解释器的努力从未获得成功，因为这会牺牲在普通单处理器情况下的性能。据信克服这种性能问题的措施将导致实现变得更复杂，从而更难以维护。</p>
-<h3 id="IDLE"><a href="#IDLE" class="headerlink" title="IDLE"></a>IDLE</h3><p><code>Python</code> 的 IDE，“集成开发与学习环境”的英文缩写。是 <code>Python</code> 标准发行版附带的基本编程器和解释器环境。</p>
-<h3 id="import-path-—-导入路径"><a href="#import-path-—-导入路径" class="headerlink" title="import path — 导入路径"></a>import path — 导入路径</h3><p>由多个位置（或 路径条目）组成的列表，会被模块的 path based finder 用来查找导入目标。在导入时，此位置列表通常来自 sys.path，但对次级包来说也可能来自上级包的 <strong>path</strong> 属性。</p>
-<h3 id="iterable-—-可迭代对象"><a href="#iterable-—-可迭代对象" class="headerlink" title="iterable — 可迭代对象"></a>iterable — 可迭代对象</h3><p>能够逐一返回其成员项的对象。可迭代对象的例子包括所有序列类型（例如 list、str 和 tuple）以及某些非序列类型例如 dict、文件对象 以及定义了 <strong>iter</strong>() 方法或是实现了 Sequence 语义的 <strong>getitem</strong>() 方法的任意自定义类对象。</p>
-<p>可迭代对象被可用于 for 循环以及许多其他需要一个序列的地方（zip()、map() …）。当一个可迭代对象作为参数传给内置函数 iter() 时，它会返回该对象的迭代器。这种迭代器适用于对值集合的一次性遍历。在使用可迭代对象时，你通常不需要调用 iter() 或者自己处理迭代器对象。for 语句会为你自动处理那些操作，创建一个临时的未命名变量用来在循环期间保存迭代器。参见 iterator、sequence 以及 generator。</p>
-<h3 id="iterator-—-迭代器"><a href="#iterator-—-迭代器" class="headerlink" title="iterator — 迭代器"></a>iterator — 迭代器</h3><p>用来表示一连串数据流的对象。重复调用迭代器的 <strong>next</strong>() 方法（或将其传给内置函数 next()）将逐个返回流中的项。当没有数据可用时则将引发 StopIteration 异常。到这时迭代器对象中的数据项已耗尽，继续调用其 <strong>next</strong>() 方法只会再次引发 StopIteration 异常。迭代器必须具有 <strong>iter</strong>() 方法用来返回该迭代器对象自身，因此迭代器必定也是可迭代对象，可被用于其他可迭代对象适用的大部分场合。一个显著的例外是那些会多次重复访问迭代项的代码。容器对象（例如 list）在你每次向其传入 iter() 函数或是在 for 循环中使用它时都会产生一个新的迭代器。如果在此情况下你尝试用迭代器则会返回在之前迭代过程中被耗尽的同一迭代器对象，使其看起来就像是一个空容器。</p>
-<h3 id="lambda"><a href="#lambda" class="headerlink" title="lambda"></a>lambda</h3><p>由一个单独 expression 构成的匿名内联函数，表达式会在调用时被求值。<br>创建 lambda 函数的句法为 <code>lambda [parameters]: expression</code>。</p>
-<h3 id="list-—-列表"><a href="#list-—-列表" class="headerlink" title="list — 列表"></a>list — 列表</h3><p><code>Python</code> 内置的一种 sequence。虽然名为列表，但更类似于其他语言中的数组而非链接列表，因为访问元素的时间复杂度为 O(1)。</p>
-<h3 id="mapping-—-映射"><a href="#mapping-—-映射" class="headerlink" title="mapping — 映射"></a>mapping — 映射</h3><p>一种支持任意键查找并实现了 Mapping 或 MutableMapping 抽象基类 中所规定方法的容器对象。<br>此类对象的例子包括 <code>dict</code>, c<code>ollections.defaultdict</code>, <code>collections.OrderedDict</code> 以及 <code>collections.Counter</code>。</p>
-<h3 id="metaclass-—-元类"><a href="#metaclass-—-元类" class="headerlink" title="metaclass — 元类"></a>metaclass — 元类</h3><p>一种用于创建类的类。类定义包含类名、类字典和基类列表。元类负责接受上述三个参数并创建相应的类。大部分面向对象的编程语言都会提供一个默认实现。<code>Python</code> 的特别之处在于可以创建自定义元类。大部分用户永远不需要这个工具，但当需要出现时，元类可提供强大而优雅的解决方案。它们已被用于记录属性访问日志、添加线程安全性、跟踪对象创建、实现单例，以及其他许多任务。</p>
-<h3 id="method-—-方法"><a href="#method-—-方法" class="headerlink" title="method — 方法"></a>method — 方法</h3><p>在类内部定义的函数。如果作为该类的实例的一个属性来调用，方法将会获取实例对象作为其第一个 argument (通常命名为 self)。参见 <code>function</code> 。</p>
-<h3 id="module-—-模块"><a href="#module-—-模块" class="headerlink" title="module — 模块"></a>module — 模块</h3><p>此对象是 <code>Python</code> 代码的一种组织单位。各模块具有独立的<code>命名空间</code>，可包含任意 <code>Python</code> 对象。模块可通过 importing 操作被加载到 <code>Python</code> 中。</p>
-<p>另见 package。</p>
-<h3 id="namespace-—-命名空间"><a href="#namespace-—-命名空间" class="headerlink" title="namespace — 命名空间"></a>namespace — 命名空间</h3><p>命名空间是存放变量的场所。命名空间有局部、全局和内置的，还有对象中的嵌套命名空间（在方法之内）。<br>命名空间通过防止命名冲突来支持模块化。例如，函数 <code>builtins.open</code> 与 <code>os.open()</code> 可通过各自的命名空间来区分。命名空间还通过明确哪个模块实现那个函数来帮助提高可读性和可维护性。<br>例如，<code>`random.seed() 或</code>itertools.islice()` 这种写法明确了这些函数是由 random 与 itertools 模块分别实现的。</p>
-<h3 id="namespace-package-—-命名空间包"><a href="#namespace-package-—-命名空间包" class="headerlink" title="namespace package — 命名空间包"></a>namespace package — 命名空间包</h3><p>PEP 420 所引入的一种仅被用作子包的容器的 package，命名空间包可以没有实体表示物，其描述方式与 regular package 不同，因为它们没有 <code>__init__.py</code> 文件。</p>
-<p>另可参见 module。</p>
-<h3 id="object-—-对象"><a href="#object-—-对象" class="headerlink" title="object — 对象"></a>object — 对象</h3><p>任何具有状态（属性或值）以及预定义行为（方法）的数据。object 也是任何 new-style class 的最顶层基类名。</p>
-<h3 id="package-—-包"><a href="#package-—-包" class="headerlink" title="package — 包"></a>package — 包</h3><p>一种可包含子模块或递归地包含子包的 <code>Python</code> module。从技术上说，包是带有 <strong>path</strong> 属性的 <code>Python</code> 模块。</p>
-<p>另参见 regular package 和 namespace package。</p>
-<h3 id="parameter-—-形参"><a href="#parameter-—-形参" class="headerlink" title="parameter — 形参"></a>parameter — 形参</h3><p>function （或方法）定义中的命名实体，它指定函数可以接受的一个 argument （或在某些情况下，多个实参）。有五种形参：</p>
-<ul>
-<li>positional-or-keyword：位置或关键字，指定一个可以作为 位置参数 传入也可以作为 关键字参数 传入的实参。<br>  这是默认的形参类型，例如下面的 foo 和 bar:  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(foo, bar=None)</span>:</span> ...</span><br></pre></td></tr></table></figure></li>
-<li><p>positional-only：仅限位置，指定一个只能按位置传入的参数。<code>Python</code> 中没有定义仅限位置形参的语法。但是一些内置函数有仅限位置形参（比如 <code>abs()</code>）。</p>
-</li>
-<li><p>keyword-only：仅限关键字，指定一个只能通过关键字传入的参数。<br>仅限关键字形参可通过在函数定义的形参列表中包含单个可变位置形参或者在多个可变位置形参之前放一个 * 来定义，例如下面的 kw_only1 和 kw_only2:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(arg, *, kw_only1, kw_only2)</span>:</span> ...</span><br></pre></td></tr></table></figure></li>
-<li>var-positional：可变位置，指定可以提供由一个任意数量的位置参数构成的序列（附加在其他形参已接受的位置参数之后）。这种形参可通过在形参名称前加缀 * 来定义。<br>例如下面的 args:<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(*args, **kwargs)</span>:</span> ...</span><br></pre></td></tr></table></figure></li>
-<li>var-keyword：可变关键字，指定可以提供任意数量的关键字参数（附加在其他形参已接受的关键字参数之后）。这种形参可通过在形参名称前加缀 ** 来定义，例如上面的 kwargs。</li>
-</ul>
-<p>形参可以同时指定可选和必选参数，也可以为某些可选参数指定默认值。</p>
-<h3 id="path-entry-—-路径入口"><a href="#path-entry-—-路径入口" class="headerlink" title="path entry — 路径入口"></a>path entry — 路径入口</h3><p>import path 中的一个单独位置，会被 path based finder 用来查找要导入的模块。</p>
-<h3 id="PEP"><a href="#PEP" class="headerlink" title="PEP"></a>PEP</h3><p>“<code>Python</code> 增强提议”的英文缩写。<br>一个 PEP 就是一份设计文档，用来向 <code>Python</code> 社区提供信息，或描述一个 <code>Python</code> 的新增特性及其进度或环境。PEP 应当提供精确的技术规格和所提议特性的原理说明。</p>
-<p>PEP 应被作为提出主要新特性建议、收集社区对特定问题反馈以及为必须加入 <code>Python</code> 的设计决策编写文档的首选机制。PEP 的作者有责任在社区内部建立共识，并应将不同意见也记入文档。</p>
-<p>参见 PEP 1。</p>
-<h3 id="sequence-—-序列"><a href="#sequence-—-序列" class="headerlink" title="sequence — 序列"></a>sequence — 序列</h3><p>一种 iterable，它支持通过 <strong>getitem</strong>() 特殊方法来使用整数索引进行高效的元素访问，并定义了一个返回序列长度的 <strong>len</strong>() 方法。<br>内置的序列类型有 list、str、tuple 和 bytes。注意虽然 dict 也支持   <code>__getitem__()</code> 和 <code>__len__()</code>，但它被认为属于映射而非序列，因为它查找时使用任意的 immutable 键而非整数。</p>
-<p>collections.abc.Sequence 抽象基类定义了一个更丰富的接口，它超越了<code>__getitem__()</code> 和<code>__len__()</code>，添加了 <code>count()</code>, <code>index()</code>, <code>__contains__()</code> 和 <code>__reversed__()</code> 。 可以使用 <code>register()</code> 显式注册实现此扩展接口的类型。</p>
-<h3 id="slice-—-切片"><a href="#slice-—-切片" class="headerlink" title="slice — 切片"></a>slice — 切片</h3><p>通常只包含了特定 sequence 的一部分的对象。<br>切片是通过使用下标标记来创建的，在 [] 中给出几个以冒号分隔的数字，例如 variable_name[1:3:5]。方括号（下标）标记在内部使用 slice 对象。</p>
-<h3 id="statement-—-语句"><a href="#statement-—-语句" class="headerlink" title="statement — 语句"></a>statement — 语句</h3><p>语句是程序段（一个代码“块”）的组成单位。<br>一条语句可以是一个 expression 或某个带有关键字的结构，例如 if、while 或 for。</p>
-<h3 id="text-encoding-—-文本编码"><a href="#text-encoding-—-文本编码" class="headerlink" title="text encoding — 文本编码"></a>text encoding — 文本编码</h3><p>用于将Unicode字符串编码为字节串的编码器。</p>
-<h3 id="type-—-类型"><a href="#type-—-类型" class="headerlink" title="type — 类型"></a>type — 类型</h3><p>类型决定一个 <code>Python</code> 对象属于什么种类；每个对象都具有一种类型。<br>要知道对象的类型，可以访问它的 <code>__class__</code> 属性，或是通过 type(obj) 来获取。</p>
-<p>type hint — 类型提示<br>annotation 为变量、类属性、函数的形参或返回值指定预期的类型。</p>
-<p>类型提示属于可选项，<code>Python</code> 不要求提供，但其可对静态类型分析工具起作用，并可协助 IDE 实现代码补全与重构。</p>
-<p>全局变量、类属性和函数的类型提示可以使用 typing.get_type_hints() 来访问，但局部变量则不可以。</p>
-<p>参见 typing 和 PEP 484，其中有对此功能的详细描述。</p>
-<h3 id="universal-newlines-—-通用换行"><a href="#universal-newlines-—-通用换行" class="headerlink" title="universal newlines — 通用换行"></a>universal newlines — 通用换行</h3><p>一种解读文本流的方式，将以下所有符号都识别为行结束标志：Unix 的行结束约定 ‘\n’、Windows 的约定 ‘\r\n’ 以及旧版 Macintosh 的约定 ‘\r’。<br>参见 PEP 278 和 PEP 3116 和 bytes.splitlines() 了解更多用法说明。</p>
-<h3 id="virtual-machine-—-虚拟机"><a href="#virtual-machine-—-虚拟机" class="headerlink" title="virtual machine — 虚拟机"></a>virtual machine — 虚拟机</h3><p>一台完全通过软件定义的计算机。<br><code>Python</code> 虚拟机可执行字节码编译器所生成的 bytecode。</p>
-<h3 id="Zen-of-Python-—-Python-之禅"><a href="#Zen-of-Python-—-Python-之禅" class="headerlink" title="Zen of Python — Python 之禅"></a>Zen of <code>Python</code> — <code>Python</code> 之禅</h3><p>列出 <code>Python</code> 设计的原则与哲学，有助于理解与使用这种语言。<br>定义在PEP 8 中。<br>每个版本的具体内容，可能会有差。查看当前版本的具体内容可在交互模式提示符中输入 “import this”。</p>
-
+          <hr><p>下面内容主要摘抄自<code>python</code> 官网，<a href="https://docs.python.org/3.7/glossary.html#glossary" target="_blank" rel="noopener">https://docs.python.org/3.7/glossary.html#glossary</a>，部分内容有删减。</p><h3 id="2to3"><a href="#2to3" class="headerlink" title="2to3"></a>2to3</h3><p>一个将 <code>Python</code> 2.x 代码转换为 <code>Python</code> 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。</p><p>2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools/scripts/2to3。参见 2to3 - 自动将 <code>Python</code> 2 代码转为 <code>Python</code> 3 代码。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/19/Python-Basic-Common-Terms-table/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -702,137 +407,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<p>每个键是从它的值由冒号(:)，即在项目之间用逗号隔开，整个东西是包含在大括号中。没有任何项目一个空字典只写两个大括号，就像这样：<code>{}</code>.</p>
-<p>键在一个字典中是唯一的，而值则可以重复。字典的值可以是任何类型，但键必须是不可变的数据的类型，例如：字符串，数字或元组这样的类型。</p>
-<h2 id="访问字典中的值"><a href="#访问字典中的值" class="headerlink" title="访问字典中的值"></a>访问字典中的值</h2><p>要访问字典元素，你可以使用方括号和对应键，以获得其对应的值。下面是一个简单的例子 -</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Saul'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'Third'</span>&#125;</span><br><span class="line"></span><br><span class="line">print(<span class="string">"dict['Name']: "</span>, dict[<span class="string">'Name'</span>])</span><br><span class="line">print(<span class="string">"dict['Age']: "</span>, dict[<span class="string">'Age'</span>])</span><br></pre></td></tr></table></figure>
-<p>当执行上面的代码，它产生以下结果 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dict[<span class="string">'Name'</span>]:  Saul</span><br><span class="line">dict[<span class="string">'Age'</span>]:  <span class="number">7</span></span><br></pre></td></tr></table></figure>
-<p>如果我们试图使用一个键，但这是不字典访问数据项的一部分，我们会得到一个错误如下 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Saul'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'Third'</span>&#125;;</span><br><span class="line">print(<span class="string">"dict['Alice']: "</span>, dict[<span class="string">'Alice'</span>])</span><br></pre></td></tr></table></figure>
-<p>当执行上面的代码，它产生以下结果 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dict[<span class="string">'Saul'</span>]:</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">4</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(<span class="string">"dict['Alice']: "</span>, dict[<span class="string">'Alice'</span>])</span><br><span class="line">KeyError: <span class="string">'Alice'</span></span><br></pre></td></tr></table></figure>
-<h2 id="更新字典"><a href="#更新字典" class="headerlink" title="更新字典"></a>更新字典</h2><p>可以通过添加新条目或键值对，修改现有条目，或删除现有条目，更新词典的简单例子如下图所示 -</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Saul'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'Third'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># update existing entry</span></span><br><span class="line">dict[<span class="string">'Age'</span>] = <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add new entry</span></span><br><span class="line">dict[<span class="string">'School'</span>] = <span class="string">"SPD School"</span> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"dict['Age']: "</span>, dict[<span class="string">'Age'</span>])</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"dict['School']: "</span>, dict[<span class="string">'School'</span>])</span><br></pre></td></tr></table></figure>
-<p>当执行上面的代码，它产生以下结果 -<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dict[<span class="string">'Age'</span>]:  <span class="number">8</span></span><br><span class="line">dict[<span class="string">'School'</span>]:  SPD School</span><br></pre></td></tr></table></figure></p>
-<h3 id="删除字典元素"><a href="#删除字典元素" class="headerlink" title="删除字典元素"></a>删除字典元素</h3><p>可以删除单个字典元素或清除字典的全部内容。也可以在一个单一的操作删除整个词典。</p>
-<p>要明确删除整个词典，只要用 del 语句就可以做到。下面是一个简单的例子 -</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Saul'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'Third'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># remove entry with key 'Name'</span></span><br><span class="line"><span class="keyword">del</span> dict[<span class="string">'Name'</span>] </span><br><span class="line"></span><br><span class="line"><span class="comment"># remove all entries in dict</span></span><br><span class="line">dict.clear()  </span><br><span class="line"></span><br><span class="line"><span class="comment"># delete entire dictionary</span></span><br><span class="line"><span class="keyword">del</span> dict         </span><br><span class="line"></span><br><span class="line">print(<span class="string">"dict['Age']: "</span>, dict[<span class="string">'Age'</span>])</span><br><span class="line">print(<span class="string">"dict['School']: "</span>, dict[<span class="string">'School'</span>])</span><br></pre></td></tr></table></figure>
-<p>这将产生以下结果。请注意，将引发一个异常，因为执行 del dict 后字典不存在了-<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dict[<span class="string">'Age'</span>]:</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">8</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(<span class="string">"dict['Age']: "</span>, dict[<span class="string">'Age'</span>])</span><br><span class="line">TypeError: <span class="string">'type'</span> object <span class="keyword">is</span> unsubscriptable</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>注： del() 方法是在后续部分讨论。</p>
-</blockquote>
-<h2 id="字典键的属性"><a href="#字典键的属性" class="headerlink" title="字典键的属性"></a>字典键的属性</h2><p>字典的值没有限制。它们可以是任意Python对象，无论是标准的对象或用户定义的对象。但是，键却不能这样使用。</p>
-<p>还有要记住字典的键的重要两点 -</p>
-<ul>
-<li>每个键对应多个条目是不允许的。这意味着重复键是不允许的。当键分配过程中遇到重复，以最后分配的为准。例如 -</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Saul'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Name'</span>: <span class="string">'Manli'</span>&#125;</span><br><span class="line"></span><br><span class="line">print(<span class="string">"dict['Name']: "</span>, dict[<span class="string">'Name'</span>])</span><br></pre></td></tr></table></figure>
-<p>当执行上面的代码，它产生以下结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">dict[<span class="string">'Name'</span>]:  Manli</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>键必须是不可变的。这意味着可以使用字符串，数字或元组作为字典的键，但是像[‘key’]是不允许的。下面是一个简单的例子：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">dict = &#123;[<span class="string">'Name'</span>]: <span class="string">'Saul'</span>, <span class="string">'Age'</span>: <span class="number">7</span>&#125;</span><br><span class="line"></span><br><span class="line">print(<span class="string">"dict['Name']: "</span>, dict[<span class="string">'Name'</span>])</span><br></pre></td></tr></table></figure>
-<p>当执行上面的代码，它产生以下结果 -</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">3</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    dict = &#123;[<span class="string">'Name'</span>]: <span class="string">'Saul'</span>, <span class="string">'Age'</span>: <span class="number">7</span>&#125;</span><br><span class="line">TypeError: list objects are unhashable</span><br></pre></td></tr></table></figure>
-<h2 id="内置字典函数和方法"><a href="#内置字典函数和方法" class="headerlink" title="内置字典函数和方法"></a>内置字典函数和方法</h2><h3 id="Python包括以下字典函数"><a href="#Python包括以下字典函数" class="headerlink" title="Python包括以下字典函数"></a>Python包括以下字典函数</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>函数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>cmp(dict1, dict2)</td>
-<td>比较这两个字典的元素。</td>
-</tr>
-<tr>
-<td>2</td>
-<td>len(dict)</td>
-<td>计算字典的总长度。这等于字典中的项的数目。</td>
-</tr>
-<tr>
-<td>3</td>
-<td>str(dict)</td>
-<td>产生字典的可打印字符串表示</td>
-</tr>
-<tr>
-<td>4</td>
-<td>type(variable)</td>
-<td>返回传递变量的类型。如果传递变量是字典，那么它会返回一个字典类型。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="Python中包括以下字典方法"><a href="#Python中包括以下字典方法" class="headerlink" title="Python中包括以下字典方法 -"></a>Python中包括以下字典方法 -</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>函数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>dict.clear()</td>
-<td>删除字典 dict 中的所有元素</td>
-</tr>
-<tr>
-<td>2</td>
-<td>dict.copy()</td>
-<td>返回字典 dict 的浅表副本</td>
-</tr>
-<tr>
-<td>3</td>
-<td>dict.fromkeys()</td>
-<td>使用seq的键和值来设置创建新字典</td>
-</tr>
-<tr>
-<td>4</td>
-<td>dict.get(key, default=None)</td>
-<td>对于键key，返回其值或default如果键不存在于字典中</td>
-</tr>
-<tr>
-<td>5</td>
-<td>dict.has_key(key)</td>
-<td>返回true如果在字典dict有存在键key，否则为false</td>
-</tr>
-<tr>
-<td>6</td>
-<td>dict.items()</td>
-<td>返回 dict (键，值)元组对的列表</td>
-</tr>
-<tr>
-<td>7</td>
-<td>dict.keys()</td>
-<td>返回字典 dict 的键列表</td>
-</tr>
-<tr>
-<td>8</td>
-<td>dict.setdefault(key, default=None)</td>
-<td>类似于get()方法，但会设定dict[key]=default，如果键不存在于dict中</td>
-</tr>
-<tr>
-<td>9</td>
-<td>dict.update(dict2)</td>
-<td>添加字典dict2的键值对到dict</td>
-</tr>
-<tr>
-<td>10</td>
-<td>dict.values()</td>
-<td>返回字典dict值列表</td>
-</tr>
-</tbody>
-</table>
-</div>
-
+          <hr><p>每个键是从它的值由冒号(:)，即在项目之间用逗号隔开，整个东西是包含在大括号中。没有任何项目一个空字典只写两个大括号，就像这样：<code>{}</code>.</p><p>键在一个字典中是唯一的，而值则可以重复。字典的值可以是任何类型，但键必须是不可变的数据的类型，例如：字符串，数字或元组这样的类型。</p><h2 id="访问字典中的值"><a href="#访问字典中的值" class="headerlink" title="访问字典中的值"></a>访问字典中的值</h2><p>要访问字典元素，你可以使用方括号和对应键，以获得其对应的值。下面是一个简单的例子 -</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/16/Python-Basic-dirt-intro/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -900,34 +483,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<p>这次主要介绍python 的基础流程控制。<br>包括 if 条件语句、for 循环 和 while 循环语句； continue 及 break 的用法等。<br>基本用法与 C 和 Java 差不多，无 switch 语句。</p>
-<hr>
-<h2 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h2><p>语法：<code>if(...):</code>, 括号内为一表达式，当为<code>True</code>（即成立）时，执行对应的代码段。</p>
-<blockquote>
-<p>注意:所有条件语句后方都需加冒号 <code>:</code></p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># if 语句实例</span></span><br><span class="line"><span class="string">''' 判断用户输入的整数是几位数（暂不考虑用户输入非整数）</span></span><br><span class="line"><span class="string">    为0               输出     It's zero.</span></span><br><span class="line"><span class="string">    个位数             输出     It's a number below 10</span></span><br><span class="line"><span class="string">    两位数             输出     It's a two-digit number</span></span><br><span class="line"><span class="string">    三位数级以上        输出     It's digit is more than two</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">user_input = input(<span class="string">"Please input a number: "</span>)</span><br><span class="line"><span class="comment"># 用户输入的类型为字符串，转换为整数类型</span></span><br><span class="line">n = int(user_input)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (n==<span class="number">0</span>):</span><br><span class="line">    print(<span class="string">"It's zero."</span>)</span><br><span class="line"><span class="keyword">elif</span> (n&lt;<span class="number">10</span>):</span><br><span class="line">    print(<span class="string">"It's a number below 10"</span>)</span><br><span class="line"><span class="keyword">elif</span> (n&lt;<span class="number">100</span>):</span><br><span class="line">    print(<span class="string">"It's a two-digit number"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"It's digit is more than two"</span>)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>可能会有零到多个 elif 部分，else 是可选的。</p>
-</blockquote>
-<p>关键字 “ elif ” 是 “else if ” 的缩写，这个可以有效地避免过深的缩进。<code>if ... elif ... elif ...</code> 序列于替代其它语言中的switch case语句。</p>
-<hr>
-<h2 id="for-语句"><a href="#for-语句" class="headerlink" title="for 语句"></a>for 语句</h2><p>Python 中的 <code>for</code> 语句和 C Pascal 中的 有不同。通常的循环可能会由用户来定义迭代步骤和中止条件（如 C ），Python 的 <code>for</code> 语句依据任意序列（链表或字符串）中的子项，按它们在序列中的顺序来进行迭代。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># for 语句实例</span></span><br><span class="line">string = <span class="string">"python"</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> string:</span><br><span class="line">    <span class="comment"># 字符串处理</span></span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line">list = [<span class="string">"l"</span>,<span class="string">"i"</span>,<span class="string">"s"</span>,<span class="string">"t"</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list:</span><br><span class="line">    <span class="comment"># 列表处理</span></span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    <span class="comment"># range()函数，range(5) 表示 0 到 4 </span></span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>上述示例仅感受下 for 语句的写法。</p>
-<hr>
-<h2 id="while-语句"><a href="#while-语句" class="headerlink" title="while 语句"></a>while 语句</h2><p><code>while(...)</code> 括号内表达式若为 <code>True</code>，则继续执行代码段；若为<code>False</code>，停止执行</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># while语句实例</span></span><br><span class="line">i=<span class="number">1</span></span><br><span class="line"><span class="keyword">while</span>(i&lt;<span class="number">10</span>):</span><br><span class="line">    print(i)</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>需要注意错误代码导致的无限循环，如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i=<span class="number">1</span></span><br><span class="line"><span class="keyword">while</span>(i&gt;<span class="number">0</span>):</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="break-、-continue"><a href="#break-、-continue" class="headerlink" title="break 、 continue"></a>break 、 continue</h2><p><code>break</code> 用法和 C 中的类似，直接跳出循环，执行循环后的语句</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">i=<span class="number">1</span></span><br><span class="line"><span class="keyword">while</span>(i&lt;<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">3</span>):</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    print(i)</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p><code>continue</code> 用法也是从C中借鉴来的，跳出当前循环，并执行下一次循环<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">i=<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">6</span>):</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">3</span>):</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure></p>
-
+          <hr><p>这次主要介绍python 的基础流程控制。<br>包括 if 条件语句、for 循环 和 while 循环语句； continue 及 break 的用法等。<br>基本用法与 C 和 Java 差不多，无 switch 语句。</p><hr><h2 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h2><p>语法：<code>if(...):</code>, 括号内为一表达式，当为<code>True</code>（即成立）时，执行对应的代码段。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/14/Python-Basic-flow-control/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -995,291 +559,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>这里只讲述基本的 I/O 函数，更多函数请参考Python标准文档。</p>
-<blockquote>
+          <p>这里只讲述基本的 I/O 函数，更多函数请参考Python标准文档。</p><blockquote>
 <p>Python 3.x I/O 标准文档位置  <a href="https://docs.python.org/3/library/io.html" target="_blank" rel="noopener">https://docs.python.org/3/library/io.html</a></p>
-</blockquote>
-<hr>
-<h2 id="打印到屏幕"><a href="#打印到屏幕" class="headerlink" title="打印到屏幕"></a>打印到屏幕</h2><p>最简单的输出方法是用<code>print</code>函数，你可以给它传递零个或多个用逗号隔开的表达式。此函数把你传递的表达式转换成一个字符串表达式，并将结果写到标准输出如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*- </span></span><br><span class="line">print(<span class="string">"hello world"</span>)</span><br></pre></td></tr></table></figure>
-<p>你的标准屏幕上会产生以下结果：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-e87780fd91230718.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hello world"></p>
-<h2 id="读取键盘输入"><a href="#读取键盘输入" class="headerlink" title="读取键盘输入"></a>读取键盘输入</h2><p>Python 3 提供了内置函数从标准输入读入一行文本，默认的标准输入是键盘。</p>
-<h3 id="input-函数"><a href="#input-函数" class="headerlink" title="input 函数"></a>input 函数</h3><p><strong>input([prompt])</strong> 函数，<code>input</code> 可以接收一个Python表达式作为输入，并将运算结果返回。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*- </span></span><br><span class="line"> </span><br><span class="line">str = input(<span class="string">"请输入："</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"你输入的内容是: "</span>, str)</span><br></pre></td></tr></table></figure>
-<p>这会产生如下的对应着输入的结果：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-7aaa0b67137263ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="input"></p>
-<hr>
-<h2 id="打开和关闭文件"><a href="#打开和关闭文件" class="headerlink" title="打开和关闭文件"></a>打开和关闭文件</h2><p>现在，您已经可以向标准输入和输出进行读写。现在，来看看怎么读写实际的数据文件。</p>
-<p>Python 提供了必要的函数和方法进行默认情况下的文件基本操作。你可以用 <strong>file</strong> 对象做大部分的文件操作。</p>
-<h3 id="open-函数"><a href="#open-函数" class="headerlink" title="open 函数"></a>open 函数</h3><p>你必须先用Python内置的open()函数打开一个文件，创建一个file对象，相关的方法才可以调用它进行读写。</p>
-<p>语法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file object = open(file_name [, access_mode][, buffering])</span><br></pre></td></tr></table></figure>
-<p>各个参数的细节如下：</p>
-<ul>
-<li>file_name：<br>file_name变量是一个包含了你要访问的文件名称的字符串值。</li>
-<li>access_mode：<br>access_mode决定了打开文件的模式：只读，写入，追加等。所有可取值见如下的完全列表。这个参数是非强制的，默认文件访问模式为只读(r)。</li>
-<li>buffering:<br>如果buffering的值被设为0，就不会有寄存。如果buffering的值取1，访问文件时会寄存行。如果将buffering的值设为大于1的整数，表明了这就是的寄存区的缓冲大小。如果取负值，寄存区的缓冲大小则为系统默认。</li>
-</ul>
-<p>不同模式打开文件的完全列表：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>模式</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>t</td>
-<td>文本模式 (默认)。</td>
-</tr>
-<tr>
-<td>x</td>
-<td>写模式，新建一个文件，如果该文件已存在则会报错。</td>
-</tr>
-<tr>
-<td>b</td>
-<td>二进制模式。</td>
-</tr>
-<tr>
-<td>+</td>
-<td>打开一个文件进行更新(可读可写)。</td>
-</tr>
-<tr>
-<td>U</td>
-<td>通用换行模式（不推荐）。</td>
-</tr>
-<tr>
-<td>r</td>
-<td>以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。</td>
-</tr>
-<tr>
-<td>rb</td>
-<td>以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。一般用于非文本文件如图片等。</td>
-</tr>
-<tr>
-<td>r+</td>
-<td>打开一个文件用于读写。文件指针将会放在文件的开头。</td>
-</tr>
-<tr>
-<td>rb+</td>
-<td>以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头。一般用于非文本文件如图片等。</td>
-</tr>
-<tr>
-<td>w</td>
-<td>打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。</td>
-</tr>
-<tr>
-<td>wb</td>
-<td>以二进制格式打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。一般用于非文本文件如图片等。</td>
-</tr>
-<tr>
-<td>w+</td>
-<td>打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。</td>
-</tr>
-<tr>
-<td>wb+</td>
-<td>以二进制格式打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。一般用于非文本文件如图片等。</td>
-</tr>
-<tr>
-<td>a</td>
-<td>打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
-</tr>
-<tr>
-<td>ab</td>
-<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
-</tr>
-<tr>
-<td>a+</td>
-<td>打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。</td>
-</tr>
-<tr>
-<td>ab+</td>
-<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>下图很好的总结了这几种模式：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-e33ee7e59b1f578c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="不同模式打开文件"></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>模式</th>
-<th>r</th>
-<th>r+</th>
-<th>w</th>
-<th>w+</th>
-<th>a</th>
-<th>a+</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>读</td>
-<td>+</td>
-<td>+</td>
-<td></td>
-<td>+</td>
-<td></td>
-<td>+</td>
-</tr>
-<tr>
-<td>写</td>
-<td></td>
-<td>+</td>
-<td>+</td>
-<td>+</td>
-<td>+</td>
-<td>+</td>
-</tr>
-<tr>
-<td>创建</td>
-<td></td>
-<td></td>
-<td>+</td>
-<td>+</td>
-<td>+</td>
-<td>+</td>
-</tr>
-<tr>
-<td>覆盖</td>
-<td></td>
-<td></td>
-<td>+</td>
-<td>+</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>指针在开始</td>
-<td>+</td>
-<td>+</td>
-<td>+</td>
-<td>+</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>指针在结尾</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>+</td>
-<td>+</td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr>
-<h2 id="File对象的属性"><a href="#File对象的属性" class="headerlink" title="File对象的属性"></a>File对象的属性</h2><p>一个文件被打开后，你有一个file对象，你可以得到有关该文件的各种信息。</p>
-<p>以下是和file对象相关的所有属性的列表：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>file.closed</td>
-<td>返回true如果文件已被关闭，否则返回false。</td>
-</tr>
-<tr>
-<td>file.mode</td>
-<td>返回被打开文件的访问模式。</td>
-</tr>
-<tr>
-<td>file.name</td>
-<td>返回文件的名称。</td>
-</tr>
-<tr>
-<td>file.softspace</td>
-<td>如果用print输出后，必须跟一个空格符，则返回false。否则返回true。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>如下实例：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*- </span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 打开一个文件</span></span><br><span class="line">fo = open(<span class="string">"temp.txt"</span>, <span class="string">"w"</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"文件名: "</span>, fo.name)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"是否已关闭 : "</span>, fo.closed)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"访问模式 : "</span>, fo.mode)</span><br></pre></td></tr></table></figure>
-<p>以上实例输出结果：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-6f26e4d45e1aadac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="close 文件"></p>
-<h3 id="close-方法"><a href="#close-方法" class="headerlink" title="close()方法"></a>close()方法</h3><p>File 对象的 close()方法刷新缓冲区里任何还没写入的信息，并关闭该文件，这之后便不能再进行写入。</p>
-<p>当一个文件对象的引用被重新指定给另一个文件时，Python 会关闭之前的文件。用 close（）方法关闭文件是一个很好的习惯。</p>
-<p>语法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fileObject.close()</span><br></pre></td></tr></table></figure></p>
-<p>例子：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开一个文件</span></span><br><span class="line">fo = open(<span class="string">"temp.txt"</span>, <span class="string">"w"</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"文件名: "</span>, fo.name)</span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure></p>
-<p>以上实例输出结果：</p>
-<p><img src="https://images.xiaozhuanlan.com/photo/2019/34293a3ecaa0cb2f69d381ae0453bbef.png" alt="image.png"></p>
-<p>读写文件：</p>
-<p>file对象提供了一系列方法，能让我们的文件访问更轻松。来看看如何使用read()和write()方法来读取和写入文件。</p>
-<h3 id="write-方法"><a href="#write-方法" class="headerlink" title="write()方法"></a>write()方法</h3><p><code>write()</code>方法可将任何字符串写入一个打开的文件。需要重点注意的是，Python字符串可以是二进制数据，而不是仅仅是文字。</p>
-<p><code>write()</code>方法不会在字符串的结尾添加换行符(‘\n’)：</p>
-<p>语法：<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fileObject.write(string)</span><br></pre></td></tr></table></figure></p>
-<p>在这里，被传递的参数是要写入到已打开文件的内容。</p>
-<p>例子：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开一个文件</span></span><br><span class="line">fo = open(<span class="string">"temp.txt"</span>, <span class="string">"w"</span>)</span><br><span class="line">fo.write( <span class="string">"www.xiaozhuanlan.com!\nVery good site!\n"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 关闭打开的文件</span></span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure>
-<p>上述方法会创建temp.txt文件，并将收到的内容写入该文件，并最终关闭文件。如果你打开这个文件，将看到以下内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">www.xiaozhuanlan.com!  </span><br><span class="line">Very good site!</span><br></pre></td></tr></table></figure></p>
-<h3 id="read-方法"><a href="#read-方法" class="headerlink" title="read()方法"></a>read()方法</h3><p><code>read()</code>方法从一个打开的文件中读取一个字符串。需要重点注意的是，Python字符串可以是二进制数据，而不是仅仅是文字。</p>
-<p>语法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fileObject.read([count])</span><br></pre></td></tr></table></figure></p>
-<p>在这里，被传递的参数是要从已打开文件中读取的字节计数。该方法从文件的开头开始读入，如果没有传入count，它会尝试尽可能多地读取更多的内容，很可能是直到文件的末尾。</p>
-<p>这里我们用到以上创建的 foo.txt 文件。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开一个文件</span></span><br><span class="line">fo = open(<span class="string">"temp.txt"</span>, <span class="string">"r+"</span>)</span><br><span class="line">str = fo.read(<span class="number">10</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"读取的字符串是 : "</span>, str)</span><br><span class="line"><span class="comment"># 关闭打开的文件</span></span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure>
-<p>以上实例输出结果：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-bea32e445d75c946.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="read file"></p>
-<h2 id="文件定位"><a href="#文件定位" class="headerlink" title="文件定位"></a>文件定位</h2><ul>
-<li><p>tell()方法<br>告诉你文件内的当前位置, 换句话说，下一次的读写会发生在文件开头这么多字节之后。</p>
-</li>
-<li><p>seek（offset [,from]）方法<br>改变当前文件的位置。Offset变量表示要移动的字节数。From变量指定开始移动字节的参考位置。</p>
-<p>如果from被设为0，这意味着将文件的开头作为移动字节的参考位置。如果设为1，则使用当前的位置作为参考位置。如果它被设为2，那么该文件的末尾将作为参考位置。</p>
-</li>
-</ul>
-<p>例子：</p>
-<p>就用我们上面创建的文件temp.txt。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="comment"># 打开一个文件</span></span><br><span class="line">fo = open(<span class="string">"foo.txt"</span>, <span class="string">"r+"</span>)</span><br><span class="line">str = fo.read(<span class="number">10</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"读取的字符串是 : "</span>, str</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查找当前位置</span></span><br><span class="line">position = fo.tell()</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"当前文件位置 : "</span>, position)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 把指针再次重新定位到文件开头</span></span><br><span class="line">position = fo.seek(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">str = fo.read(<span class="number">10</span>)</span><br><span class="line"><span class="keyword">print</span> （<span class="string">"重新读取字符串 : "</span>, str）</span><br><span class="line"><span class="comment"># 关闭打开的文件</span></span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure></p>
-<p>以上实例输出结果：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-9dfe3cba7f0a9e2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h2 id="重命名和删除文件"><a href="#重命名和删除文件" class="headerlink" title="重命名和删除文件"></a>重命名和删除文件</h2><p>Python的os模块提供了帮你执行文件处理操作的方法，比如重命名和删除文件。</p>
-<p>要使用这个模块，你必须先导入它，然后才可以调用相关的各种功能。</p>
-<p>rename()方法：</p>
-<p>rename()方法需要两个参数，当前的文件名和新文件名。</p>
-<p>语法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.rename(current_file_name, new_file_name)</span><br></pre></td></tr></table></figure></p>
-<p>例子：</p>
-<p>下例将重命名一个已经存在的文件 temp.txt。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 重命名文件temp.txt到temp-1.txt。</span></span><br><span class="line">os.rename( <span class="string">"temp.txt"</span>, <span class="string">"temp-1.txt"</span> )</span><br></pre></td></tr></table></figure>
-<h3 id="remove-方法"><a href="#remove-方法" class="headerlink" title="remove()方法"></a>remove()方法</h3><p>你可以用remove()方法删除文件，需要提供要删除的文件名作为参数。</p>
-<p>语法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.remove(file_name)</span><br></pre></td></tr></table></figure></p>
-<p>例子：</p>
-<p>下例将删除一个已经存在的文件temp-1.txt。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 删除temp-1.txt。</span></span><br><span class="line">os.remove( <span class="string">"temp-1.txt"</span>)</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="Python里的目录："><a href="#Python里的目录：" class="headerlink" title="Python里的目录："></a>Python里的目录：</h2><p>所有文件都包含在各个不同的目录下，不过Python也能轻松处理。os模块有许多方法能帮你创建，删除和更改目录。</p>
-<h3 id="mkdir-方法"><a href="#mkdir-方法" class="headerlink" title="mkdir()方法"></a>mkdir()方法</h3><p>可以使用os模块的mkdir()方法在当前目录下创建新的目录们。你需要提供一个包含了要创建的目录名称的参数。</p>
-<p>语法：</p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.mkdir(<span class="string">"newdir"</span>)</span><br></pre></td></tr></table></figure>
-<p>例子：</p>
-<p>下例将在当前目录下创建一个新目录test。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 创建目录test</span></span><br><span class="line">os.mkdir(<span class="string">"test"</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="chdir-方法"><a href="#chdir-方法" class="headerlink" title="chdir()方法"></a>chdir()方法</h3><p>可以用chdir()方法来改变当前的目录。chdir()方法需要的一个参数是你想设成当前目录的目录名称。</p>
-<p>语法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.chdir(<span class="string">"newdir"</span>)</span><br></pre></td></tr></table></figure>
-<p>例子：</p>
-<p>下例将进入”test”目录。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 创建目录test</span></span><br><span class="line">os.chdir(<span class="string">"test"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>getcwd()方法：</p>
-<p>getcwd()方法显示当前的工作目录。</p>
-<p>语法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.getcwd()</span><br></pre></td></tr></table></figure>
-<p>例子：</p>
-<p>下例给出当前目录：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># 给出当前的目录</span></span><br><span class="line"><span class="keyword">print</span> (os.getcwd())</span><br></pre></td></tr></table></figure></p>
-<h3 id="rmdir-方法"><a href="#rmdir-方法" class="headerlink" title="rmdir()方法"></a>rmdir()方法</h3><p>rmdir()方法删除目录，目录名称以参数传递。在删除这个目录之前，它的所有内容应该先被清除。</p>
-<p>语法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.rmdir()</span><br></pre></td></tr></table></figure>
-<p>例子：</p>
-<p>以下是删除” test”目录的例子。目录的完全合规的名称必须被给出，否则会在当前目录下搜索该目录。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># 给出当前的目录</span></span><br><span class="line">os.rmdir(<span class="string">"test"</span>)</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="文件、目录相关的方法"><a href="#文件、目录相关的方法" class="headerlink" title="文件、目录相关的方法"></a>文件、目录相关的方法</h2><p>File 对象和 OS 对象提供了很多文件与目录的操作方法，可以通过点击下面链接查看详情：</p>
-<ul>
-<li><a href="https://docs.python.org/3/tutorial/inputoutput.html" target="_blank" rel="noopener">File 对象方法</a>: file 对象提供了操作文件的一系列方法。</li>
-<li><a href="https://docs.python.org/3/library/os.html" target="_blank" rel="noopener">OS 对象方法</a>: 提供了处理文件及目录的一系列方法。</li>
-</ul>
-
+</blockquote><hr><h2 id="打印到屏幕"><a href="#打印到屏幕" class="headerlink" title="打印到屏幕"></a>打印到屏幕</h2><p>最简单的输出方法是用<code>print</code>函数，你可以给它传递零个或多个用逗号隔开的表达式。此函数把你传递的表达式转换成一个字符串表达式，并将结果写到标准输出如下：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/13/Python-Basic-IO-intro/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1347,55 +637,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<p>大家在阅读 Python 代码时，经常遇到带有 <code>yield</code> 的函数，通常此时我们都需要去想想这个<code>yield</code> 是个什么东西？这一段代码在讲什么事情呢？</p>
-<p>那我们这里就来好好讲讲这个 <code>yield</code>。</p>
-<p><code>yield</code> 是 Python 设计之初就保留的关键字之一。</p>
-<p>在 Python 中被称之为 <code>generator</code>(中文翻译是 <code>“生成器”</code>)，那什么是 <code>generator</code> 呢 ？</p>
-<p>我们先抛开 <code>generator</code>，以一个常见的编程题目来展示 <code>yield</code> 的概念。</p>
-<hr>
-<h2 id="从生成斐波那契数列开始"><a href="#从生成斐波那契数列开始" class="headerlink" title="从生成斐波那契数列开始"></a>从生成斐波那契数列开始</h2><p>斐波那契（Fibonacci）数列是一个非常简单的递归数列，除第一个和第二个数外，任意一个数都可由前两个数相加得到。</p>
-<p>用计算机程序输出斐波那契数列的前 N 个数是一个非常简单的问题，许多初学者都可以轻易写出如下函数：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出斐波那契数列前 N 个数第一版</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fab</span><span class="params">(max)</span>:</span></span><br><span class="line">    n, a, b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> n &lt; max:</span><br><span class="line">       print(b)</span><br><span class="line">       a, b = b, a + b</span><br><span class="line">       n = n + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">fab(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<p>将上面的内容保存为 <code>.py</code> 后缀的文件，然后执行 ，我们可以得到如下输出：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-03a4c82710ec33e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果1"></p>
-<p>结果没有问题，但有经验的开发者会指出，直接在 fab 函数中用 print 打印数字会导致该函数可复用性较差，因为 fab 函数返回 None，其他函数无法获得该函数生成的数列。</p>
-<p>要提高 fab 函数的可复用性，最好不要直接打印出数列，而是返回一个 List。</p>
-<p>以下是 fab 函数改写后的第二个版本：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出斐波那契数列前 N 个数第二版</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fab</span><span class="params">(max)</span>:</span> </span><br><span class="line">    n, a, b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span> </span><br><span class="line">    L = [] </span><br><span class="line">    <span class="keyword">while</span> n &lt; max: </span><br><span class="line">        L.append(b) </span><br><span class="line">        a, b = b, a + b </span><br><span class="line">        n = n + <span class="number">1</span> </span><br><span class="line">    <span class="keyword">return</span> L</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> fab(<span class="number">5</span>):</span><br><span class="line">    print(n)</span><br></pre></td></tr></table></figure>
-<p>执行 ，我们可以得到如下输出：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-4c63ee7aa08c18ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果2"></p>
-<p>改写后的 fab 函数通过返回 List 能满足复用性的要求，但是更有经验的开发者会指出，该函数在运行中占用的内存会随着参数 max 的增大而增大，如果要控制内存占用，最好不要用 List</p>
-<p>来保存中间结果，而是通过 iterable 对象来迭代。例如，在 Python 中，<code>range()</code> 不返回 List，而是返回一个 <code>iterable</code>(中文翻译 <code>“可迭代的对象”</code>) 对象。</p>
-<p>例如下面的代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过 iterable 对象来迭代</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<p>是在每次迭代中返回下一个数值，内存空间占用很小。</p>
-<p>我们可以利用 <code>iterable</code> 的特性，把 fab 函数改写为一个支持 <code>iterable</code> 的 class，以下是第三个版本的 Fab：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出斐波那契数列前 N 个数第三版</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fab</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, max)</span>:</span></span><br><span class="line">       self.max = max</span><br><span class="line">       self.n, self.a, self.b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">       <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span> </span><br><span class="line">        <span class="keyword">if</span> self.n &lt; self.max:</span><br><span class="line">           r = self.b</span><br><span class="line">           self.a, self.b = self.b, self.a + self.b</span><br><span class="line">           self.n = self.n + <span class="number">1</span></span><br><span class="line">           <span class="keyword">return</span> r</span><br><span class="line">        <span class="keyword">raise</span> StopIteration()</span><br><span class="line"><span class="comment"># Fab 类通过 next() 不断返回数列的下一个数，内存占用始终为常数：</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> Fab(<span class="number">5</span>):</span><br><span class="line">    print(n)</span><br></pre></td></tr></table></figure>
-<p>执行 ，我们可以得到如下输出：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-6f51a320b6673d3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果3"></p>
-<p>然而，使用 class 改写的这个版本，代码远远没有第一版的 fab 函数来得简洁。</p>
-<p>如果我们想要保持第一版 fab 函数的简洁性，同时又要获得 <code>iterable</code> 的效果，<code>yield</code> 就派上用场了。</p>
-<h2 id="使用-yield-生成斐波那契数列"><a href="#使用-yield-生成斐波那契数列" class="headerlink" title="使用 yield 生成斐波那契数列"></a>使用 <code>yield</code> 生成斐波那契数列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fab</span><span class="params">(max)</span>:</span></span><br><span class="line">    n, a, b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> n &lt; max:</span><br><span class="line">        <span class="keyword">yield</span> b</span><br><span class="line">        <span class="comment"># print(b)</span></span><br><span class="line">        a, b = b, a + b</span><br><span class="line">        n = n + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> fab(<span class="number">5</span>):</span><br><span class="line">    print(n)</span><br></pre></td></tr></table></figure>
-<p>第四个版本的 fab 和第一版相比，仅仅把 <code>print(b)</code> 改为了 <code>yield b</code> ，就在保持简洁性的同时获得了 <code>iterable</code> 的效果。</p>
-<p>那么 <code>yield</code> 到底做了什么呢？</p>
-<p>简单地讲，<code>yield</code> 的作用就是把一个函数变成一个 <code>generator</code>，带有 <code>yield</code> 的函数不再是一个普通函数，Python 解释器会将其视为一个 <code>generator</code>。</p>
-<p>调用 <code>fab(5)</code> 不会执行 fab 函数，而是返回一个 <code>iterable</code> 对象！</p>
-<p>在 for 循环执行时，每次循环都会执行 fab 函数内部的代码，执行到 <code>yield b</code> 时，fab 函数就返回一个迭代值，下次迭代时，代码从 <code>yield b</code> 的下一条语句继续执行，而函数的本地变量看起来和上次中断执行前是完全一样的，于是函数继续执行，直到再次遇到 <code>yield</code>。</p>
-<p>为了精通 <code>yield</code> ,你必须要理解：当你调用这个函数的时候，函数内部的代码并不立马执行 ，这个函数只是返回一个 <code>generator</code> 对象。</p>
-<p>函数内的代码只有当你使用 <code>for</code> 进行迭代的时候(也就是 <code>for n in fab(5):</code> 这一句)。</p>
-<p>现在到了关键点了！</p>
-<p><strong>第一次迭代中你的函数会执行，从开始到达 yield 关键字，然后返回 yield 后的值作为第一次迭代的返回值. 然后，每次执行这个函数都会继续执行你在函数内部定义的那个循环的下一次，再返回那个值，直到没有可以返回的。</strong></p>
-<p>如果 <code>generator</code> 内部没有定义 yield 关键字，那么这个 <code>generator</code> 被认为成空的。这种情况可能因为是循环进行没了，或者是没有满足 <code>if/else</code> 条件。</p>
-<p>yield 的好处是显而易见的，把一个函数改写为一个 generator 就获得了迭代能力，比起用类的实例保存状态来计算下一个 next() 的值，不仅代码简洁，而且执行流程异常清晰。</p>
-<hr>
-<h2 id="其它注意事项"><a href="#其它注意事项" class="headerlink" title="其它注意事项"></a>其它注意事项</h2><p>要注意区分 fab 和 fab(5)，fab 是一个 <code>generator function</code>，而 fab(5) 是调用 fab 返回的一个 <code>generator</code>，好比类的定义和类的实例的区别：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 类的定义和类的实例</span></span><br><span class="line"><span class="keyword">import</span> types</span><br><span class="line"></span><br><span class="line">print(isinstance(fab, types.GeneratorType))</span><br><span class="line"><span class="comment"># 将输出 False</span></span><br><span class="line">print(isinstance(fab(<span class="number">5</span>), types.GeneratorType))</span><br><span class="line"><span class="comment"># 将输出 True</span></span><br></pre></td></tr></table></figure>
-<p>fab 是无法迭代的，而 fab(5) 是可迭代的：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterable</span><br><span class="line"></span><br><span class="line">print(isinstance(fab, Iterable)）</span><br><span class="line"><span class="comment"># 将输出 False</span></span><br><span class="line">print(isinstance(fab(<span class="number">5</span>), Iterable))</span><br><span class="line"><span class="comment"># 将输出 True</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="yield-的实际使用"><a href="#yield-的实际使用" class="headerlink" title="yield 的实际使用"></a><code>yield</code> 的实际使用</h2><p>下面我们通过一个实际的例子来再次回顾下 <code>yield</code> 的用法。</p>
-<p>通过 <code>yield</code> 来进行文件读取。如果直接对文件对象调用 <code>read()</code> 方法，会导致不可预测的内存占用。</p>
-<p>好的方法是利用固定长度的缓冲区来不断读取文件内容。通过 <code>yield</code>，我们不再需要编写读文件的迭代类，就可以轻松实现文件读取：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 yield 读取文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_file</span><span class="params">(filepath)</span>:</span></span><br><span class="line">    BLOCK_SIZE = <span class="number">2048</span></span><br><span class="line">    <span class="keyword">with</span> open(filepath, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            block = f.read(BLOCK_SIZE)</span><br><span class="line">            <span class="keyword">if</span> block:</span><br><span class="line">                <span class="keyword">yield</span> block</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
-<p>以上内容介绍了 <code>yield</code> 的基本概念和用法。</p>
-
+          <hr><p>大家在阅读 Python 代码时，经常遇到带有 <code>yield</code> 的函数，通常此时我们都需要去想想这个<code>yield</code> 是个什么东西？这一段代码在讲什么事情呢？</p><p>那我们这里就来好好讲讲这个 <code>yield</code>。</p><p><code>yield</code> 是 Python 设计之初就保留的关键字之一。</p><p>在 Python 中被称之为 <code>generator</code>(中文翻译是 <code>“生成器”</code>)，那什么是 <code>generator</code> 呢 ？</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/11/Python-Basic-use-yield/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1463,41 +713,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>首先我们来看一段 Python 代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, jsonify</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">tasks = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 python_mastery 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/python_mastery'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 pythonml 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/pythonml'</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/api/v1.0/tasks', methods=['GET'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_tasks</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'tasks'</span>: tasks&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-<p>在这段代码里面，我们看到了今天的主角 <code>jsonify</code>。</p>
-<p>Flask 框架里，可以用 <code>jsonify</code> 返回 json 数据，但是为什么不用 <code>Python</code> 自带的 <code>json</code> 模块返回 JSON 数据呢？</p>
-<hr>
-<h2 id="其实是一样"><a href="#其实是一样" class="headerlink" title="其实是一样"></a>其实是一样</h2><p>其实，<code>jsonify</code> 在处理数据过程中，对数据做 JSON 序列化处理时，用的是 <code>itsdangerous</code> 模块里的 JSON ，让我们看一下，这个模块里的 JSON 是如何引入的</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">import</span> simplejson <span class="keyword">as</span> json</span><br><span class="line"><span class="keyword">except</span> ImportError:</span><br><span class="line">    <span class="keyword">import</span> json</span><br></pre></td></tr></table></figure>
-<p>它会先尝试引入<code>simplejson</code>，如果没有安装这个模块，则引入 Python 原生模。</p>
-<p>在Flask框架中，引入过程如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itsdangerous <span class="keyword">import</span> json <span class="keyword">as</span> _json</span><br></pre></td></tr></table></figure>
-<p>对于数据的序列化处理，用的正是 <code>_json</code>.</p>
-<hr>
-<h2 id="Content-Type-的差别"><a href="#Content-Type-的差别" class="headerlink" title="Content-Type 的差别"></a>Content-Type 的差别</h2><p>前面讲到，<code>jsonify</code> 和 <code>json</code> 是殊途同归，那么为什么要费周折绕这么一圈呢?</p>
-<p>肯定存在一个合理的原因让 <code>jsonify</code>存在的有意义。</p>
-<p>这个原因就是 <code>Content-Type</code></p>
-<p>看下面两段代码</p>
-<p><strong>第一段代码</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##  jsonify</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, jsonify</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/json')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_json</span><span class="params">()</span>:</span></span><br><span class="line">    data = &#123;<span class="string">'name'</span>: <span class="string">'lilei'</span>, <span class="string">'age'</span>: <span class="number">30</span>&#125;</span><br><span class="line">    <span class="keyword">return</span> jsonify(data)</span><br><span class="line"></span><br><span class="line">app.run(host=<span class="string">"0.0.0.0"</span>, port=<span class="number">9877</span>)</span><br></pre></td></tr></table></figure></p>
-<p>在浏览器里输入<a href="http://127.0.0.1:9877/json," target="_blank" rel="noopener">http://127.0.0.1:9877/json</a>， 得到的结果是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"age"</span>:<span class="number">30</span>,<span class="string">"name"</span>:<span class="string">"lilei"</span>&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>第二段代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">## json</span><br><span class="line">import json</span><br><span class="line">from flask import Flask, jsonify</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&apos;/json&apos;)</span><br><span class="line">def test_json():</span><br><span class="line">    data = &#123;&apos;name&apos;: &apos;lilei&apos;, &apos;age&apos;: 30&#125;</span><br><span class="line">    return json.dumps(data)</span><br><span class="line"></span><br><span class="line">app.run(host=&quot;0.0.0.0&quot;, port=9877)</span><br></pre></td></tr></table></figure></p>
-<p>在浏览器里输入<a href="http://127.0.0.1:9877/json," target="_blank" rel="noopener">http://127.0.0.1:9877/json</a>， 得到的结果是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"name"</span>: <span class="string">"lilei"</span>, <span class="string">"age"</span>: <span class="number">30</span>&#125;</span><br></pre></td></tr></table></figure>
-<p>从内容上看，两种方法没有区别。<br>但是使用  <code>jsonify</code> 时，返回的 <code>http response</code>  的 <code>Content-Type</code> 是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: application/json</span><br></pre></td></tr></table></figure>
-<p>而使用json.dumps时，Content-Type则是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: text/html; charset=utf<span class="number">-8</span></span><br></pre></td></tr></table></figure>
-<p>既然返回的是 json 数据，那么自然要指明 <code>Content-Type</code> 是 <code>application/json</code> ， 这样做是符合 HTTP 协议的规定的，这就是使用 <code>jsonify</code> 的原因之一。</p>
-<hr>
-<h2 id="减小数据量"><a href="#减小数据量" class="headerlink" title="减小数据量"></a>减小数据量</h2><p>使用 <code>jsonify</code> 除了让返回的 `http response符合 HTTP 协议，同时也对数据做了压缩处理，让数据体积更小。</p>
-<p>仔细比较上面两种方法返回的数据，虽然内容相同，但 <code>jsonify</code> 返回的数据，每个 <code>key-value</code> 对之间的逗号，和每个 <code>key</code> 与 <code>value</code> 之间的冒号后面都是没有空格的，而 <code>json.dumps</code> 返回的数据里，却在逗号和冒号后面存在空格，因此即便内容相同，<code>jsonify</code> 返回的数据体积更小，更节省流量。</p>
-<p>其实，<code>json.dumps</code> 也可以将这些不必要的空格去掉，看下面的代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">data = &#123;<span class="string">'name'</span>: <span class="string">'lilei'</span>, <span class="string">'age'</span>: <span class="number">30</span>&#125;</span><br><span class="line"></span><br><span class="line">print(json.dumps(data, separators=(<span class="string">','</span>, <span class="string">':'</span>)))</span><br><span class="line">print(json.dumps(data))</span><br></pre></td></tr></table></figure>
-<p>输出结果为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;name&quot;:&quot;lilei&quot;,&quot;age&quot;:30&#125;</span><br><span class="line">&#123;&quot;name&quot;: &quot;lilei&quot;, &quot;age&quot;: 30&#125;</span><br></pre></td></tr></table></figure></p>
-<p>只需要在 <code>dumps</code> 参数里指定   <code>separators</code> 即可，其实在 <code>jsonify</code> 里就是这么干的。</p>
-
+          <p>首先我们来看一段 Python 代码</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, jsonify</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">tasks = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 python_mastery 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/python_mastery'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 pythonml 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/pythonml'</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/api/v1.0/tasks', methods=['GET'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_tasks</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'tasks'</span>: tasks&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/07/Python-Advanced-jsonify-in-Flask/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1554,57 +778,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="PEP-是什么？"><a href="#PEP-是什么？" class="headerlink" title="PEP 是什么？"></a>PEP 是什么？</h2><p>Python的 PEP 文档是一组不断发展的标准文档，PEP是 <code>Python Enhancement Proposal</code>的首字母缩写。就像TCPIP协议使用RFC来组织起不断发展的通信标准一样，PEP也是类似的用于发展Python的一组文档。</p>
-<p>PEP的全称是Python Enhancement Proposals，其中Enhancement是增强改进的意思，Proposals则可译为提案或建议书，所以合起来，比较常见的翻译是 Python 增强提案或 Python 改进建议书。Python 核心开发者主要通过邮件列表讨论问题、提议、计划等，PEP 通常是汇总了多方信息，经过了部分核心开发者 review 和认可，最终形成的正式文档，起到了对外公示的作用。</p>
-<p>PEP文档越多，说明 Python 社区越活跃，发展良好。</p>
-<h2 id="PEP-的类型"><a href="#PEP-的类型" class="headerlink" title="PEP 的类型"></a>PEP 的类型</h2><p>每个PEP都有对应的类型（PEP Status Key）：</p>
-<p>A – Accepted (Standards Track only) or Active proposal 已接受（仅限标准跟踪）或有效提案<br>D – Deferred proposal延期提案<br>F – Final proposal 最终提案<br>P – Provisional proposal 暂定提案<br>R – Rejected proposal 拒绝提案<br>S – Superseded proposal 被取代的提案<br>W – Withdrawn proposal 撤回提案</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1940331-ffd775233a9043a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="PEP Status"></p>
-<h2 id="几个特殊的PEP"><a href="#几个特殊的PEP" class="headerlink" title="几个特殊的PEP"></a>几个特殊的PEP</h2><h3 id="PEP-0"><a href="#PEP-0" class="headerlink" title="PEP 0"></a>PEP 0</h3><p><a href="https://www.python.org/dev/peps/" target="_blank" rel="noopener">https://www.python.org/dev/peps/</a></p>
-<p>这个文档是属于Information类的PEP文档，是所有PEP文档的索引。</p>
-<h3 id="PEP-1"><a href="#PEP-1" class="headerlink" title="PEP 1"></a>PEP 1</h3><p><a href="https://www.python.org/dev/peps/pep-0001/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0001/</a></p>
-<p>这个文档讲了PEP的目的和指引。</p>
-<p>在PEP 1中的开头，就说明了PEP文档分成3个类型：</p>
-<ol>
-<li>标准，当然是Python语言的标准；</li>
-<li>信息类；</li>
-<li>过程类，记录Python语言发展过程中的一些信息。</li>
-</ol>
-<h3 id="PEP-8"><a href="#PEP-8" class="headerlink" title="PEP 8"></a>PEP 8</h3><p><a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0008/</a></p>
-<p>PEP 8号文档，是Python官方出的编程规范.</p>
-<h3 id="PEP-20"><a href="#PEP-20" class="headerlink" title="PEP 20"></a>PEP 20</h3><p><a href="https://www.python.org/dev/peps/pep-0020/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0020/</a><br>Python 之禅，就是我们在python 解释器中输入</p>
-<p>每次Python官方发布新版本，新版本的New Features都有相应的PEP文档支撑，比如3.7.0版本，PEP文档成了Python发展的需求管理工具。如下图：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1940331-4e51d36b3d821fdf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Python 3.7.0版本关联的PEP"></p>
-<p>Python新版本的New Features都有相应的PEP文档支撑</p>
-<p>详见：<a href="https://www.python.org/downloads/release/python-370/" target="_blank" rel="noopener">https://www.python.org/downloads/release/python-370/</a></p>
-<h3 id="其它需要重点关注的PEP"><a href="#其它需要重点关注的PEP" class="headerlink" title="其它需要重点关注的PEP"></a>其它需要重点关注的PEP</h3><ul>
-<li>PEP 7 — Style Guide for C Code，C扩展</li>
-<li>PEP 202 — List Comprehensions，列表生成式</li>
-<li>PEP 274 — Dict Comprehensions，字典生成式</li>
-<li>PEP 234 — Iterators，迭代器</li>
-<li>PEP 257 — Docstring Conventions，文档注释规范</li>
-<li>PEP 279 — The enumerate() built-in function，enumerate枚举</li>
-<li>PEP 282 — A Logging System，日志模块</li>
-<li>PEP 285 — Adding a bool type，布尔值</li>
-<li>PEP 289 — Generator Expressions，生成器表达式</li>
-<li>PEP 318 — Decorators for Functions and Methods，装饰器</li>
-<li>PEP 342 — Coroutines via Enhanced Generators，协程</li>
-<li>PEP 343 — The “with” Statement，with语句</li>
-<li>PEP 380 — Syntax for Delegating to a Subgenerator，yield from语法</li>
-<li>PEP 405 — Python Virtual Environments，虚拟环境</li>
-<li>PEP 471 — os.scandir() function，遍历目录</li>
-<li>PEP 484 — Type Hints，类型约束</li>
-<li>PEP 492 — Coroutines with async and await syntax，async/await语法</li>
-<li>PEP 498 — Literal String Interpolation Python，字面字符串插值</li>
-<li>PEP 525 — Asynchronous Generators，异步生成器</li>
-<li>PEP 572 — Assignment Expressions，表达式内赋值</li>
-<li>PEP 3105 — Make print a function，print改为函数</li>
-<li>PEP 3115 — Metaclasses in Python 3000，元类</li>
-<li>PEP 3120 — Using UTF-8 as the default source encoding，默认UTF-8</li>
-<li>PEP 3333 — Python Web Server Gateway Interface v1.0.1，Web开发</li>
-<li>PEP 8000 — Python Language Governance Proposal Overview，GvR老爹推出决策层后，事关新决策方案</li>
-</ul>
-
+          <h2 id="PEP-是什么？"><a href="#PEP-是什么？" class="headerlink" title="PEP 是什么？"></a>PEP 是什么？</h2><p>Python的 PEP 文档是一组不断发展的标准文档，PEP是 <code>Python Enhancement Proposal</code>的首字母缩写。就像TCPIP协议使用RFC来组织起不断发展的通信标准一样，PEP也是类似的用于发展Python的一组文档。</p><p>PEP的全称是Python Enhancement Proposals，其中Enhancement是增强改进的意思，Proposals则可译为提案或建议书，所以合起来，比较常见的翻译是 Python 增强提案或 Python 改进建议书。Python 核心开发者主要通过邮件列表讨论问题、提议、计划等，PEP 通常是汇总了多方信息，经过了部分核心开发者 review 和认可，最终形成的正式文档，起到了对外公示的作用。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/05/Python-Basic-what-is-PEP/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

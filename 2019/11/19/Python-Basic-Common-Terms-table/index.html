@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="下面内容主要摘抄自python 官网，https:&#x2F;&#x2F;docs.python.org&#x2F;3.7&#x2F;glossary.html#glossary，部分内容有删减。 2to3一个将 Python 2.x 代码转换为 Python 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。 2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools&#x2F;scri">
+  <meta name="description" content="下面内容主要摘抄自python 官网，https:&#x2F;&#x2F;docs.python.org&#x2F;3.7&#x2F;glossary.html#glossary，部分内容有删减。2to3一个将 Python 2.x 代码转换为 Python 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools&#x2F;scripts">
 <meta name="keywords" content="Python,基础技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python-基础-常用术语对照表">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;19&#x2F;Python-Basic-Common-Terms-table&#x2F;index.html">
 <meta property="og:site_name" content="You的日常">
-<meta property="og:description" content="下面内容主要摘抄自python 官网，https:&#x2F;&#x2F;docs.python.org&#x2F;3.7&#x2F;glossary.html#glossary，部分内容有删减。 2to3一个将 Python 2.x 代码转换为 Python 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。 2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools&#x2F;scri">
+<meta property="og:description" content="下面内容主要摘抄自python 官网，https:&#x2F;&#x2F;docs.python.org&#x2F;3.7&#x2F;glossary.html#glossary，部分内容有删减。2to3一个将 Python 2.x 代码转换为 Python 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools&#x2F;scripts">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-11-21T05:53:21.901Z">
 <meta name="twitter:card" content="summary">
@@ -255,10 +255,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <hr>
-<p>下面内容主要摘抄自<code>python</code> 官网，<a href="https://docs.python.org/3.7/glossary.html#glossary" target="_blank" rel="noopener">https://docs.python.org/3.7/glossary.html#glossary</a>，部分内容有删减。</p>
-<h3 id="2to3"><a href="#2to3" class="headerlink" title="2to3"></a>2to3</h3><p>一个将 <code>Python</code> 2.x 代码转换为 <code>Python</code> 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。</p>
-<p>2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools/scripts/2to3。参见 2to3 - 自动将 <code>Python</code> 2 代码转为 <code>Python</code> 3 代码。</p>
+        <hr><p>下面内容主要摘抄自<code>python</code> 官网，<a href="https://docs.python.org/3.7/glossary.html#glossary" target="_blank" rel="noopener">https://docs.python.org/3.7/glossary.html#glossary</a>，部分内容有删减。</p><h3 id="2to3"><a href="#2to3" class="headerlink" title="2to3"></a>2to3</h3><p>一个将 <code>Python</code> 2.x 代码转换为 <code>Python</code> 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。</p><p>2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools/scripts/2to3。参见 2to3 - 自动将 <code>Python</code> 2 代码转为 <code>Python</code> 3 代码。</p><a id="more"></a>
+
+
+
 <p>因为官方将在2020年不再支持 <code>Python</code> 2.x, 在遇到没有<code>Python</code> 2.X 版本 的code 的时候，可以尝试使用这个工具将代码转化成Python 的版本。</p>
 <h3 id="abstract-base-class-—-抽象基类"><a href="#abstract-base-class-—-抽象基类" class="headerlink" title="abstract base class — 抽象基类"></a>abstract base class — 抽象基类</h3><p>抽象基类简称 ABC，是对 duck-typing 的补充，它提供了一种定义接口的新方式，相比之下其他技巧例如 hasattr() 显得过于笨拙或有微妙错误（例如使用 魔术方法）。ABC 引入了虚拟子类，这种类并非继承自其他类，但却仍能被 isinstance() 和 issubclass() 所认可；详见 abc 模块文档。<code>Python</code> 自带许多内置的 ABC 用于实现数据结构（在 collections.abc 模块中）、数字（在 numbers 模块中）、流（在 io 模块中）、导入查找器和加载器（在 importlib.abc 模块中）。你可以使用 abc 模块来创建自己的 ABC。</p>
 <h3 id="argument-—-参数"><a href="#argument-—-参数" class="headerlink" title="argument — 参数"></a>argument — 参数</h3><p>在调用函数时传给 function （或 method ）的值。参数分为两种：</p>

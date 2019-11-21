@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="大家在阅读 Python 代码时，经常遇到带有 yield 的函数，通常此时我们都需要去想想这个yield 是个什么东西？这一段代码在讲什么事情呢？ 那我们这里就来好好讲讲这个 yield。 yield 是 Python 设计之初就保留的关键字之一。 在 Python 中被称之为 generator(中文翻译是 “生成器”)，那什么是 generator 呢 ？ 我们先抛开 generator，">
+  <meta name="description" content="大家在阅读 Python 代码时，经常遇到带有 yield 的函数，通常此时我们都需要去想想这个yield 是个什么东西？这一段代码在讲什么事情呢？那我们这里就来好好讲讲这个 yield。yield 是 Python 设计之初就保留的关键字之一。在 Python 中被称之为 generator(中文翻译是 “生成器”)，那什么是 generator 呢 ？">
 <meta name="keywords" content="Python,基础技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python-基础-&#96;yeild&#96; 关键字使用">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;11&#x2F;Python-Basic-use-yield&#x2F;index.html">
 <meta property="og:site_name" content="You的日常">
-<meta property="og:description" content="大家在阅读 Python 代码时，经常遇到带有 yield 的函数，通常此时我们都需要去想想这个yield 是个什么东西？这一段代码在讲什么事情呢？ 那我们这里就来好好讲讲这个 yield。 yield 是 Python 设计之初就保留的关键字之一。 在 Python 中被称之为 generator(中文翻译是 “生成器”)，那什么是 generator 呢 ？ 我们先抛开 generator，">
+<meta property="og:description" content="大家在阅读 Python 代码时，经常遇到带有 yield 的函数，通常此时我们都需要去想想这个yield 是个什么东西？这一段代码在讲什么事情呢？那我们这里就来好好讲讲这个 yield。yield 是 Python 设计之初就保留的关键字之一。在 Python 中被称之为 generator(中文翻译是 “生成器”)，那什么是 generator 呢 ？">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;1940331-03a4c82710ec33e5.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
 <meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;1940331-4c63ee7aa08c18ab.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
@@ -259,11 +259,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <hr>
-<p>大家在阅读 Python 代码时，经常遇到带有 <code>yield</code> 的函数，通常此时我们都需要去想想这个<code>yield</code> 是个什么东西？这一段代码在讲什么事情呢？</p>
-<p>那我们这里就来好好讲讲这个 <code>yield</code>。</p>
-<p><code>yield</code> 是 Python 设计之初就保留的关键字之一。</p>
-<p>在 Python 中被称之为 <code>generator</code>(中文翻译是 <code>“生成器”</code>)，那什么是 <code>generator</code> 呢 ？</p>
+        <hr><p>大家在阅读 Python 代码时，经常遇到带有 <code>yield</code> 的函数，通常此时我们都需要去想想这个<code>yield</code> 是个什么东西？这一段代码在讲什么事情呢？</p><p>那我们这里就来好好讲讲这个 <code>yield</code>。</p><p><code>yield</code> 是 Python 设计之初就保留的关键字之一。</p><p>在 Python 中被称之为 <code>generator</code>(中文翻译是 <code>“生成器”</code>)，那什么是 <code>generator</code> 呢 ？</p><a id="more"></a>
+
+
+
+
 <p>我们先抛开 <code>generator</code>，以一个常见的编程题目来展示 <code>yield</code> 的概念。</p>
 <hr>
 <h2 id="从生成斐波那契数列开始"><a href="#从生成斐波那契数列开始" class="headerlink" title="从生成斐波那契数列开始"></a>从生成斐波那契数列开始</h2><p>斐波那契（Fibonacci）数列是一个非常简单的递归数列，除第一个和第二个数外，任意一个数都可由前两个数相加得到。</p>

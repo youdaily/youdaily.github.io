@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="Python程序可以通过多种方式来处理日期和时间。日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。 什么是刻度？时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。 在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 time.time()返回当前系统时间，从1970年">
+  <meta name="description" content="Python程序可以通过多种方式来处理日期和时间。日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。什么是刻度？时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 time.time()返回当前系统时间，从1970年1月1">
 <meta name="keywords" content="Python,基础技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python-基础-日期和时间">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;21&#x2F;Python-Basic-date-time-intro&#x2F;index.html">
 <meta property="og:site_name" content="You的日常">
-<meta property="og:description" content="Python程序可以通过多种方式来处理日期和时间。日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。 什么是刻度？时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。 在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 time.time()返回当前系统时间，从1970年">
+<meta property="og:description" content="Python程序可以通过多种方式来处理日期和时间。日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。什么是刻度？时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 time.time()返回当前系统时间，从1970年1月1">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-11-21T05:54:36.251Z">
 <meta name="twitter:card" content="summary">
@@ -255,10 +255,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <hr>
-<p>Python程序可以通过多种方式来处理日期和时间。<br>日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。</p>
-<h2 id="什么是刻度？"><a href="#什么是刻度？" class="headerlink" title="什么是刻度？"></a>什么是刻度？</h2><p>时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。</p>
-<p>在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 <code>time.time()</code>返回当前系统时间，从1970年1月1日12点起来的秒数。</p>
+        <hr><p>Python程序可以通过多种方式来处理日期和时间。<br>日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。</p><h2 id="什么是刻度？"><a href="#什么是刻度？" class="headerlink" title="什么是刻度？"></a>什么是刻度？</h2><p>时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。</p><p>在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 <code>time.time()</code>返回当前系统时间，从1970年1月1日12点起来的秒数。</p><a id="more"></a>
+
+
+
 <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time;  <span class="comment"># This is required to include time module.</span></span><br><span class="line"></span><br><span class="line">ticks = time.time()</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Number of ticks since 12:00am, January 1, 1970:"</span>, ticks)</span><br></pre></td></tr></table></figure>
 <p>将产生一个结果，如下 -<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number of ticks since <span class="number">12</span>:<span class="number">00</span>am, January <span class="number">1</span>, <span class="number">1970</span>: <span class="number">1568018748.2947338</span></span><br></pre></td></tr></table></figure></p>
 <p>日期计算使用刻度线是很容易做到的。<br>然而，新纪元日期之前不能以这种形式表示。在未来的一个日期也不能表示这种方式, 分界点是在某个时候，在 UNIX和Windows上为 2038年。</p>
