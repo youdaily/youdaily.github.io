@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>You的日常</title>
   
-  <subtitle>you的日常，我们大家的日常</subtitle>
+  <subtitle>you的日常，我们的日常</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
