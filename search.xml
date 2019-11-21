@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Python-基础-日期和时间</title>
-    <url>/2019/11/21/Python-Basic-date-time-intro/</url>
+    <url>/2019/11/21/Programing-Python-Basic-date-time-intro/</url>
     <content><![CDATA[<hr><p>Python程序可以通过多种方式来处理日期和时间。<br>日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。</p><h2 id="什么是刻度？"><a href="#什么是刻度？" class="headerlink" title="什么是刻度？"></a>什么是刻度？</h2><p>时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。</p><p>在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 <code>time.time()</code>返回当前系统时间，从1970年1月1日12点起来的秒数。</p><a id="more"></a>
 
 
@@ -227,13 +227,13 @@
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>高级技术</tag>
         <tag>编程技术</tag>
+        <tag>基础技术</tag>
       </tags>
   </entry>
   <entry>
     <title>Python-基础-常用术语对照表</title>
-    <url>/2019/11/19/Python-Basic-Common-Terms-table/</url>
+    <url>/2019/11/19/Programing-Python-Basic-Common-Terms-table/</url>
     <content><![CDATA[<hr><p>下面内容主要摘抄自<code>python</code> 官网，<a href="https://docs.python.org/3.7/glossary.html#glossary" target="_blank" rel="noopener">https://docs.python.org/3.7/glossary.html#glossary</a>，部分内容有删减。</p><h3 id="2to3"><a href="#2to3" class="headerlink" title="2to3"></a>2to3</h3><p>一个将 <code>Python</code> 2.x 代码转换为 <code>Python</code> 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。</p><p>2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools/scripts/2to3。参见 2to3 - 自动将 <code>Python</code> 2 代码转为 <code>Python</code> 3 代码。</p><a id="more"></a>
 
 
@@ -335,13 +335,13 @@
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>高级技术</tag>
         <tag>编程技术</tag>
+        <tag>基础技术</tag>
       </tags>
   </entry>
   <entry>
     <title>Python-Basic-dirt_intro</title>
-    <url>/2019/11/16/Python-Basic-dirt-intro/</url>
+    <url>/2019/11/16/Programing-Python-Basic-dirt-intro/</url>
     <content><![CDATA[<hr><p>每个键是从它的值由冒号(:)，即在项目之间用逗号隔开，整个东西是包含在大括号中。没有任何项目一个空字典只写两个大括号，就像这样：<code>{}</code>.</p><p>键在一个字典中是唯一的，而值则可以重复。字典的值可以是任何类型，但键必须是不可变的数据的类型，例如：字符串，数字或元组这样的类型。</p><h2 id="访问字典中的值"><a href="#访问字典中的值" class="headerlink" title="访问字典中的值"></a>访问字典中的值</h2><p>要访问字典元素，你可以使用方括号和对应键，以获得其对应的值。下面是一个简单的例子 -</p><a id="more"></a>
 
 
@@ -479,13 +479,352 @@
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>高级技术</tag>
         <tag>编程技术</tag>
+        <tag>基础技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python-基础-时间控制</title>
+    <url>/2019/11/14/Programing-Python-Basic-flow-control/</url>
+    <content><![CDATA[<hr><p>这次主要介绍python 的基础流程控制。<br>包括 if 条件语句、for 循环 和 while 循环语句； continue 及 break 的用法等。<br>基本用法与 C 和 Java 差不多，无 switch 语句。</p><hr><h2 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h2><p>语法：<code>if(...):</code>, 括号内为一表达式，当为<code>True</code>（即成立）时，执行对应的代码段。</p><a id="more"></a>
+
+
+
+<blockquote>
+<p>注意:所有条件语句后方都需加冒号 <code>:</code></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># if 语句实例</span></span><br><span class="line"><span class="string">''' 判断用户输入的整数是几位数（暂不考虑用户输入非整数）</span></span><br><span class="line"><span class="string">    为0               输出     It's zero.</span></span><br><span class="line"><span class="string">    个位数             输出     It's a number below 10</span></span><br><span class="line"><span class="string">    两位数             输出     It's a two-digit number</span></span><br><span class="line"><span class="string">    三位数级以上        输出     It's digit is more than two</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">user_input = input(<span class="string">"Please input a number: "</span>)</span><br><span class="line"><span class="comment"># 用户输入的类型为字符串，转换为整数类型</span></span><br><span class="line">n = int(user_input)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (n==<span class="number">0</span>):</span><br><span class="line">    print(<span class="string">"It's zero."</span>)</span><br><span class="line"><span class="keyword">elif</span> (n&lt;<span class="number">10</span>):</span><br><span class="line">    print(<span class="string">"It's a number below 10"</span>)</span><br><span class="line"><span class="keyword">elif</span> (n&lt;<span class="number">100</span>):</span><br><span class="line">    print(<span class="string">"It's a two-digit number"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"It's digit is more than two"</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可能会有零到多个 elif 部分，else 是可选的。</p>
+</blockquote>
+<p>关键字 “ elif ” 是 “else if ” 的缩写，这个可以有效地避免过深的缩进。<code>if ... elif ... elif ...</code> 序列于替代其它语言中的switch case语句。</p>
+<hr>
+<h2 id="for-语句"><a href="#for-语句" class="headerlink" title="for 语句"></a>for 语句</h2><p>Python 中的 <code>for</code> 语句和 C Pascal 中的 有不同。通常的循环可能会由用户来定义迭代步骤和中止条件（如 C ），Python 的 <code>for</code> 语句依据任意序列（链表或字符串）中的子项，按它们在序列中的顺序来进行迭代。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># for 语句实例</span></span><br><span class="line">string = <span class="string">"python"</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> string:</span><br><span class="line">    <span class="comment"># 字符串处理</span></span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line">list = [<span class="string">"l"</span>,<span class="string">"i"</span>,<span class="string">"s"</span>,<span class="string">"t"</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list:</span><br><span class="line">    <span class="comment"># 列表处理</span></span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    <span class="comment"># range()函数，range(5) 表示 0 到 4 </span></span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上述示例仅感受下 for 语句的写法。</p>
+<hr>
+<h2 id="while-语句"><a href="#while-语句" class="headerlink" title="while 语句"></a>while 语句</h2><p><code>while(...)</code> 括号内表达式若为 <code>True</code>，则继续执行代码段；若为<code>False</code>，停止执行</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># while语句实例</span></span><br><span class="line">i=<span class="number">1</span></span><br><span class="line"><span class="keyword">while</span>(i&lt;<span class="number">10</span>):</span><br><span class="line">    print(i)</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>需要注意错误代码导致的无限循环，如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i=<span class="number">1</span></span><br><span class="line"><span class="keyword">while</span>(i&gt;<span class="number">0</span>):</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="break-、-continue"><a href="#break-、-continue" class="headerlink" title="break 、 continue"></a>break 、 continue</h2><p><code>break</code> 用法和 C 中的类似，直接跳出循环，执行循环后的语句</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i=<span class="number">1</span></span><br><span class="line"><span class="keyword">while</span>(i&lt;<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">3</span>):</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    print(i)</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><code>continue</code> 用法也是从C中借鉴来的，跳出当前循环，并执行下一次循环<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i=<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">6</span>):</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">3</span>):</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>编程技术</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>编程技术</tag>
+        <tag>基础技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python-基础- I/O 简介</title>
+    <url>/2019/11/13/Programing-Python-Basic-IO-intro/</url>
+    <content><![CDATA[<p>这里只讲述基本的 I/O 函数，更多函数请参考Python标准文档。</p><blockquote>
+<p>Python 3.x I/O 标准文档位置  <a href="https://docs.python.org/3/library/io.html" target="_blank" rel="noopener">https://docs.python.org/3/library/io.html</a></p>
+</blockquote><hr><h2 id="打印到屏幕"><a href="#打印到屏幕" class="headerlink" title="打印到屏幕"></a>打印到屏幕</h2><p>最简单的输出方法是用<code>print</code>函数，你可以给它传递零个或多个用逗号隔开的表达式。此函数把你传递的表达式转换成一个字符串表达式，并将结果写到标准输出如下：</p><a id="more"></a>
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*- </span></span><br><span class="line">print(<span class="string">"hello world"</span>)</span><br></pre></td></tr></table></figure>
+<p>你的标准屏幕上会产生以下结果：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-e87780fd91230718.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hello world"></p>
+<h2 id="读取键盘输入"><a href="#读取键盘输入" class="headerlink" title="读取键盘输入"></a>读取键盘输入</h2><p>Python 3 提供了内置函数从标准输入读入一行文本，默认的标准输入是键盘。</p>
+<h3 id="input-函数"><a href="#input-函数" class="headerlink" title="input 函数"></a>input 函数</h3><p><strong>input([prompt])</strong> 函数，<code>input</code> 可以接收一个Python表达式作为输入，并将运算结果返回。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*- </span></span><br><span class="line"> </span><br><span class="line">str = input(<span class="string">"请输入："</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"你输入的内容是: "</span>, str)</span><br></pre></td></tr></table></figure>
+<p>这会产生如下的对应着输入的结果：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-7aaa0b67137263ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="input"></p>
+<hr>
+<h2 id="打开和关闭文件"><a href="#打开和关闭文件" class="headerlink" title="打开和关闭文件"></a>打开和关闭文件</h2><p>现在，您已经可以向标准输入和输出进行读写。现在，来看看怎么读写实际的数据文件。</p>
+<p>Python 提供了必要的函数和方法进行默认情况下的文件基本操作。你可以用 <strong>file</strong> 对象做大部分的文件操作。</p>
+<h3 id="open-函数"><a href="#open-函数" class="headerlink" title="open 函数"></a>open 函数</h3><p>你必须先用Python内置的open()函数打开一个文件，创建一个file对象，相关的方法才可以调用它进行读写。</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">file object = open(file_name [, access_mode][, buffering])</span><br></pre></td></tr></table></figure>
+<p>各个参数的细节如下：</p>
+<ul>
+<li>file_name：<br>file_name变量是一个包含了你要访问的文件名称的字符串值。</li>
+<li>access_mode：<br>access_mode决定了打开文件的模式：只读，写入，追加等。所有可取值见如下的完全列表。这个参数是非强制的，默认文件访问模式为只读(r)。</li>
+<li>buffering:<br>如果buffering的值被设为0，就不会有寄存。如果buffering的值取1，访问文件时会寄存行。如果将buffering的值设为大于1的整数，表明了这就是的寄存区的缓冲大小。如果取负值，寄存区的缓冲大小则为系统默认。</li>
+</ul>
+<p>不同模式打开文件的完全列表：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>t</td>
+<td>文本模式 (默认)。</td>
+</tr>
+<tr>
+<td>x</td>
+<td>写模式，新建一个文件，如果该文件已存在则会报错。</td>
+</tr>
+<tr>
+<td>b</td>
+<td>二进制模式。</td>
+</tr>
+<tr>
+<td>+</td>
+<td>打开一个文件进行更新(可读可写)。</td>
+</tr>
+<tr>
+<td>U</td>
+<td>通用换行模式（不推荐）。</td>
+</tr>
+<tr>
+<td>r</td>
+<td>以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。</td>
+</tr>
+<tr>
+<td>rb</td>
+<td>以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。一般用于非文本文件如图片等。</td>
+</tr>
+<tr>
+<td>r+</td>
+<td>打开一个文件用于读写。文件指针将会放在文件的开头。</td>
+</tr>
+<tr>
+<td>rb+</td>
+<td>以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头。一般用于非文本文件如图片等。</td>
+</tr>
+<tr>
+<td>w</td>
+<td>打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>wb</td>
+<td>以二进制格式打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。一般用于非文本文件如图片等。</td>
+</tr>
+<tr>
+<td>w+</td>
+<td>打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>wb+</td>
+<td>以二进制格式打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。一般用于非文本文件如图片等。</td>
+</tr>
+<tr>
+<td>a</td>
+<td>打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+</tr>
+<tr>
+<td>ab</td>
+<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+</tr>
+<tr>
+<td>a+</td>
+<td>打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。</td>
+</tr>
+<tr>
+<td>ab+</td>
+<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>下图很好的总结了这几种模式：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-e33ee7e59b1f578c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="不同模式打开文件"></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>r</th>
+<th>r+</th>
+<th>w</th>
+<th>w+</th>
+<th>a</th>
+<th>a+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读</td>
+<td>+</td>
+<td>+</td>
+<td></td>
+<td>+</td>
+<td></td>
+<td>+</td>
+</tr>
+<tr>
+<td>写</td>
+<td></td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>创建</td>
+<td></td>
+<td></td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>覆盖</td>
+<td></td>
+<td></td>
+<td>+</td>
+<td>+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>指针在开始</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>指针在结尾</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>+</td>
+<td>+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="File对象的属性"><a href="#File对象的属性" class="headerlink" title="File对象的属性"></a>File对象的属性</h2><p>一个文件被打开后，你有一个file对象，你可以得到有关该文件的各种信息。</p>
+<p>以下是和file对象相关的所有属性的列表：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file.closed</td>
+<td>返回true如果文件已被关闭，否则返回false。</td>
+</tr>
+<tr>
+<td>file.mode</td>
+<td>返回被打开文件的访问模式。</td>
+</tr>
+<tr>
+<td>file.name</td>
+<td>返回文件的名称。</td>
+</tr>
+<tr>
+<td>file.softspace</td>
+<td>如果用print输出后，必须跟一个空格符，则返回false。否则返回true。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>如下实例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*- </span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 打开一个文件</span></span><br><span class="line">fo = open(<span class="string">"temp.txt"</span>, <span class="string">"w"</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"文件名: "</span>, fo.name)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"是否已关闭 : "</span>, fo.closed)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"访问模式 : "</span>, fo.mode)</span><br></pre></td></tr></table></figure>
+<p>以上实例输出结果：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-6f26e4d45e1aadac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="close 文件"></p>
+<h3 id="close-方法"><a href="#close-方法" class="headerlink" title="close()方法"></a>close()方法</h3><p>File 对象的 close()方法刷新缓冲区里任何还没写入的信息，并关闭该文件，这之后便不能再进行写入。</p>
+<p>当一个文件对象的引用被重新指定给另一个文件时，Python 会关闭之前的文件。用 close（）方法关闭文件是一个很好的习惯。</p>
+<p>语法：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fileObject.close()</span><br></pre></td></tr></table></figure></p>
+<p>例子：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 打开一个文件</span></span><br><span class="line">fo = open(<span class="string">"temp.txt"</span>, <span class="string">"w"</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"文件名: "</span>, fo.name)</span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure></p>
+<p>以上实例输出结果：</p>
+<p><img src="https://images.xiaozhuanlan.com/photo/2019/34293a3ecaa0cb2f69d381ae0453bbef.png" alt="image.png"></p>
+<p>读写文件：</p>
+<p>file对象提供了一系列方法，能让我们的文件访问更轻松。来看看如何使用read()和write()方法来读取和写入文件。</p>
+<h3 id="write-方法"><a href="#write-方法" class="headerlink" title="write()方法"></a>write()方法</h3><p><code>write()</code>方法可将任何字符串写入一个打开的文件。需要重点注意的是，Python字符串可以是二进制数据，而不是仅仅是文字。</p>
+<p><code>write()</code>方法不会在字符串的结尾添加换行符(‘\n’)：</p>
+<p>语法：<br> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fileObject.write(string)</span><br></pre></td></tr></table></figure></p>
+<p>在这里，被传递的参数是要写入到已打开文件的内容。</p>
+<p>例子：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 打开一个文件</span></span><br><span class="line">fo = open(<span class="string">"temp.txt"</span>, <span class="string">"w"</span>)</span><br><span class="line">fo.write( <span class="string">"www.xiaozhuanlan.com!\nVery good site!\n"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 关闭打开的文件</span></span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure>
+<p>上述方法会创建temp.txt文件，并将收到的内容写入该文件，并最终关闭文件。如果你打开这个文件，将看到以下内容:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">www.xiaozhuanlan.com!  </span><br><span class="line">Very good site!</span><br></pre></td></tr></table></figure></p>
+<h3 id="read-方法"><a href="#read-方法" class="headerlink" title="read()方法"></a>read()方法</h3><p><code>read()</code>方法从一个打开的文件中读取一个字符串。需要重点注意的是，Python字符串可以是二进制数据，而不是仅仅是文字。</p>
+<p>语法：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fileObject.read([count])</span><br></pre></td></tr></table></figure></p>
+<p>在这里，被传递的参数是要从已打开文件中读取的字节计数。该方法从文件的开头开始读入，如果没有传入count，它会尝试尽可能多地读取更多的内容，很可能是直到文件的末尾。</p>
+<p>这里我们用到以上创建的 foo.txt 文件。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 打开一个文件</span></span><br><span class="line">fo = open(<span class="string">"temp.txt"</span>, <span class="string">"r+"</span>)</span><br><span class="line">str = fo.read(<span class="number">10</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"读取的字符串是 : "</span>, str)</span><br><span class="line"><span class="comment"># 关闭打开的文件</span></span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure>
+<p>以上实例输出结果：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-bea32e445d75c946.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="read file"></p>
+<h2 id="文件定位"><a href="#文件定位" class="headerlink" title="文件定位"></a>文件定位</h2><ul>
+<li><p>tell()方法<br>告诉你文件内的当前位置, 换句话说，下一次的读写会发生在文件开头这么多字节之后。</p>
+</li>
+<li><p>seek（offset [,from]）方法<br>改变当前文件的位置。Offset变量表示要移动的字节数。From变量指定开始移动字节的参考位置。</p>
+<p>如果from被设为0，这意味着将文件的开头作为移动字节的参考位置。如果设为1，则使用当前的位置作为参考位置。如果它被设为2，那么该文件的末尾将作为参考位置。</p>
+</li>
+</ul>
+<p>例子：</p>
+<p>就用我们上面创建的文件temp.txt。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="comment"># 打开一个文件</span></span><br><span class="line">fo = open(<span class="string">"foo.txt"</span>, <span class="string">"r+"</span>)</span><br><span class="line">str = fo.read(<span class="number">10</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"读取的字符串是 : "</span>, str</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查找当前位置</span></span><br><span class="line">position = fo.tell()</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"当前文件位置 : "</span>, position)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 把指针再次重新定位到文件开头</span></span><br><span class="line">position = fo.seek(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">str = fo.read(<span class="number">10</span>)</span><br><span class="line"><span class="keyword">print</span> （<span class="string">"重新读取字符串 : "</span>, str）</span><br><span class="line"><span class="comment"># 关闭打开的文件</span></span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure></p>
+<p>以上实例输出结果：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-9dfe3cba7f0a9e2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="重命名和删除文件"><a href="#重命名和删除文件" class="headerlink" title="重命名和删除文件"></a>重命名和删除文件</h2><p>Python的os模块提供了帮你执行文件处理操作的方法，比如重命名和删除文件。</p>
+<p>要使用这个模块，你必须先导入它，然后才可以调用相关的各种功能。</p>
+<p>rename()方法：</p>
+<p>rename()方法需要两个参数，当前的文件名和新文件名。</p>
+<p>语法：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">os.rename(current_file_name, new_file_name)</span><br></pre></td></tr></table></figure></p>
+<p>例子：</p>
+<p>下例将重命名一个已经存在的文件 temp.txt。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 重命名文件temp.txt到temp-1.txt。</span></span><br><span class="line">os.rename( <span class="string">"temp.txt"</span>, <span class="string">"temp-1.txt"</span> )</span><br></pre></td></tr></table></figure>
+<h3 id="remove-方法"><a href="#remove-方法" class="headerlink" title="remove()方法"></a>remove()方法</h3><p>你可以用remove()方法删除文件，需要提供要删除的文件名作为参数。</p>
+<p>语法：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">os.remove(file_name)</span><br></pre></td></tr></table></figure></p>
+<p>例子：</p>
+<p>下例将删除一个已经存在的文件temp-1.txt。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 删除temp-1.txt。</span></span><br><span class="line">os.remove( <span class="string">"temp-1.txt"</span>)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="Python里的目录："><a href="#Python里的目录：" class="headerlink" title="Python里的目录："></a>Python里的目录：</h2><p>所有文件都包含在各个不同的目录下，不过Python也能轻松处理。os模块有许多方法能帮你创建，删除和更改目录。</p>
+<h3 id="mkdir-方法"><a href="#mkdir-方法" class="headerlink" title="mkdir()方法"></a>mkdir()方法</h3><p>可以使用os模块的mkdir()方法在当前目录下创建新的目录们。你需要提供一个包含了要创建的目录名称的参数。</p>
+<p>语法：</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">os.mkdir(<span class="string">"newdir"</span>)</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<p>下例将在当前目录下创建一个新目录test。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 创建目录test</span></span><br><span class="line">os.mkdir(<span class="string">"test"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="chdir-方法"><a href="#chdir-方法" class="headerlink" title="chdir()方法"></a>chdir()方法</h3><p>可以用chdir()方法来改变当前的目录。chdir()方法需要的一个参数是你想设成当前目录的目录名称。</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">os.chdir(<span class="string">"newdir"</span>)</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<p>下例将进入”test”目录。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 创建目录test</span></span><br><span class="line">os.chdir(<span class="string">"test"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>getcwd()方法：</p>
+<p>getcwd()方法显示当前的工作目录。</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">os.getcwd()</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<p>下例给出当前目录：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># 给出当前的目录</span></span><br><span class="line"><span class="keyword">print</span> (os.getcwd())</span><br></pre></td></tr></table></figure></p>
+<h3 id="rmdir-方法"><a href="#rmdir-方法" class="headerlink" title="rmdir()方法"></a>rmdir()方法</h3><p>rmdir()方法删除目录，目录名称以参数传递。在删除这个目录之前，它的所有内容应该先被清除。</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">os.rmdir()</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<p>以下是删除” test”目录的例子。目录的完全合规的名称必须被给出，否则会在当前目录下搜索该目录。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># 给出当前的目录</span></span><br><span class="line">os.rmdir(<span class="string">"test"</span>)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="文件、目录相关的方法"><a href="#文件、目录相关的方法" class="headerlink" title="文件、目录相关的方法"></a>文件、目录相关的方法</h2><p>File 对象和 OS 对象提供了很多文件与目录的操作方法，可以通过点击下面链接查看详情：</p>
+<ul>
+<li><a href="https://docs.python.org/3/tutorial/inputoutput.html" target="_blank" rel="noopener">File 对象方法</a>: file 对象提供了操作文件的一系列方法。</li>
+<li><a href="https://docs.python.org/3/library/os.html" target="_blank" rel="noopener">OS 对象方法</a>: 提供了处理文件及目录的一系列方法。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>编程技术</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>编程技术</tag>
+        <tag>基础技术</tag>
       </tags>
   </entry>
   <entry>
     <title>Python-基础-`yeild` 关键字使用</title>
-    <url>/2019/11/11/Python-Basic-use-yield/</url>
+    <url>/2019/11/11/Programing-Python-Basic-use-yield/</url>
     <content><![CDATA[<hr><p>大家在阅读 Python 代码时，经常遇到带有 <code>yield</code> 的函数，通常此时我们都需要去想想这个<code>yield</code> 是个什么东西？这一段代码在讲什么事情呢？</p><p>那我们这里就来好好讲讲这个 <code>yield</code>。</p><p><code>yield</code> 是 Python 设计之初就保留的关键字之一。</p><p>在 Python 中被称之为 <code>generator</code>(中文翻译是 <code>“生成器”</code>)，那什么是 <code>generator</code> 呢 ？</p><a id="more"></a>
 
 
@@ -541,13 +880,13 @@
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>高级技术</tag>
         <tag>编程技术</tag>
+        <tag>基础技术</tag>
       </tags>
   </entry>
   <entry>
     <title>Python-高级-聊一聊 Flask 的 jsonify</title>
-    <url>/2019/11/07/Python-Advanced-jsonify-in-Flask/</url>
+    <url>/2019/11/07/Programing-Python-Advanced-jsonify-in-Flask/</url>
     <content><![CDATA[<p>首先我们来看一段 Python 代码</p><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, jsonify</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">tasks = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 python_mastery 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/python_mastery'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 pythonml 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/pythonml'</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/api/v1.0/tasks', methods=['GET'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_tasks</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'tasks'</span>: tasks&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure><a id="more"></a>
 
 <p>在这段代码里面，我们看到了今天的主角 <code>jsonify</code>。</p>
@@ -595,7 +934,7 @@
   </entry>
   <entry>
     <title>Python-基础-PEP 是什么？</title>
-    <url>/2019/11/05/Python-Basic-what-is-PEP/</url>
+    <url>/2019/11/05/Programing-Python-Basic-what-is-PEP/</url>
     <content><![CDATA[<h2 id="PEP-是什么？"><a href="#PEP-是什么？" class="headerlink" title="PEP 是什么？"></a>PEP 是什么？</h2><p>Python的 PEP 文档是一组不断发展的标准文档，PEP是 <code>Python Enhancement Proposal</code>的首字母缩写。就像TCPIP协议使用RFC来组织起不断发展的通信标准一样，PEP也是类似的用于发展Python的一组文档。</p><p>PEP的全称是Python Enhancement Proposals，其中Enhancement是增强改进的意思，Proposals则可译为提案或建议书，所以合起来，比较常见的翻译是 Python 增强提案或 Python 改进建议书。Python 核心开发者主要通过邮件列表讨论问题、提议、计划等，PEP 通常是汇总了多方信息，经过了部分核心开发者 review 和认可，最终形成的正式文档，起到了对外公示的作用。</p><a id="more"></a>
 
 <p>PEP文档越多，说明 Python 社区越活跃，发展良好。</p>
@@ -646,6 +985,39 @@
 <li>PEP 3333 — Python Web Server Gateway Interface v1.0.1，Web开发</li>
 <li>PEP 8000 — Python Language Governance Proposal Overview，GvR老爹推出决策层后，事关新决策方案</li>
 </ul>
+]]></content>
+      <categories>
+        <category>编程技术</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>编程技术</tag>
+        <tag>基础技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python-高级-使用MongoDB</title>
+    <url>/2019/11/01/Programing-Python-Basic-use-mongoDB/</url>
+    <content><![CDATA[<hr><h2 id="Python使用MongoDB"><a href="#Python使用MongoDB" class="headerlink" title="Python使用MongoDB"></a>Python使用MongoDB</h2><p>MongoDB相对于传统的关系型数据库，可以存储JSON数据，非常适合存储数据抓取返回的JSON数据。<br>今天主要学习的是使用Python连接MongoDB，并进行增删改查的操作。</p><blockquote>
+<p>MongoDB 的安装及使用，请参照官方文档。<br><a href="https://api.mongodb.com/python/current/installation.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/installation.html</a></p>
+</blockquote><a id="more"></a>
+
+
+<p>在连接MongoDB前 首先要安装的是Python包：PyMongo，包的安装非常的简单。<br>只需执行 <code>pip install pymongo</code> 即可使用。</p>
+<h3 id="创建连接"><a href="#创建连接" class="headerlink" title="创建连接"></a>创建连接</h3><p>在安装完PyMongo以后，使用Python连接MongoDB变得异常简单。具体方式为：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"> </span><br><span class="line">client = MongoClient(<span class="string">'localhost'</span>, <span class="number">27017</span>)</span><br></pre></td></tr></table></figure><br>或使用如下方式：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"> </span><br><span class="line">client = MongoClient(<span class="string">'mongodb://localhost:27017'</span>)</span><br></pre></td></tr></table></figure><br>如果连接含有账号密码等，请参考：<br><a href="https://api.mongodb.com/python/current/api/pymongo/mongo_client.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/api/pymongo/mongo_client.html</a></p>
+<h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><p>连接数据库的操作也非常的简单，最为重要的是，在你连接数据库之前无需先创建数据库，如果数据库存在则直接连接，如果数据库不存在则会创建新的库。具体方式为：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 方式一</span></span><br><span class="line">db = client.pymongo_test</span><br><span class="line"><span class="comment"># 方式二</span></span><br><span class="line">db = client[<span class="string">'pymongo_test'</span>]</span><br></pre></td></tr></table></figure>
+<p>以上两种方式任选一种即可。</p>
+<h3 id="Collection概念"><a href="#Collection概念" class="headerlink" title="Collection概念"></a>Collection概念</h3><p>在MongoDB中存在一个Collection的概念，我将其理解为命名空间，类似其他数据库中Scheme的概念，Collection可以理解为一些表的集合。Collection可以使用也可以不使用，具体看你是否要给库下的表分类。相关的操作：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#方法一：</span></span><br><span class="line">collection = db.test_collection</span><br><span class="line"><span class="comment">#方法二</span></span><br><span class="line">collection = db[<span class="string">'test-collection'</span>]</span><br></pre></td></tr></table></figure><br>需要知晓的是，collection的创建是在第一张表创建时才会创建。</p>
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><p>插入数据的方式的凡是非常的简单，最长使用的方法是，<code>insert_one()</code>和<code>inert_many()</code>方法，从字面上就可以看出来一个是插入一条数据，另外一个是插入多条数据，示例：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"> </span><br><span class="line">client = MongoClient(<span class="string">'localhost'</span>, <span class="number">27017</span>)</span><br><span class="line">db = client.testdb</span><br><span class="line">posts = db.posts</span><br><span class="line"> </span><br><span class="line">post_1 = &#123;</span><br><span class="line">    <span class="string">'title'</span>: <span class="string">'Python and MongoDB'</span>,</span><br><span class="line">    <span class="string">'content'</span>: <span class="string">'PyMongo is fun'</span>,</span><br><span class="line">    <span class="string">'author'</span>: <span class="string">'saul'</span></span><br><span class="line">&#125;</span><br><span class="line">post_2 = &#123;</span><br><span class="line">    <span class="string">'title'</span>: <span class="string">'Virtual Environments'</span>,</span><br><span class="line">    <span class="string">'content'</span>: <span class="string">'Use virtual environments'</span>,</span><br><span class="line">    <span class="string">'author'</span>: <span class="string">'Scott'</span></span><br><span class="line">&#125;</span><br><span class="line">post_3 = &#123;</span><br><span class="line">    <span class="string">'title'</span>: <span class="string">'Learning Python'</span>,</span><br><span class="line">    <span class="string">'content'</span>: <span class="string">'Learn Python, it is easy'</span>,</span><br><span class="line">    <span class="string">'author'</span>: <span class="string">'Bill'</span></span><br><span class="line">&#125; </span><br><span class="line"> </span><br><span class="line"><span class="comment">#每次插入一条数据</span></span><br><span class="line">posts.insert_one(post_1)</span><br><span class="line">posts.insert_one(post_2)</span><br><span class="line">posts.insert_one(post_3)</span><br><span class="line"> </span><br><span class="line"><span class="comment">#一次插入多条数据</span></span><br><span class="line">posts.insert_many([post_1, post_2, post_3])</span><br></pre></td></tr></table></figure></p>
+<h3 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h3><p>和插入数据一样，查询数据的时候，提供查询一条或多条数据的方法，方法分别为<code>find_one()</code>和<code>find()</code>。示例：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查询一条数据</span></span><br><span class="line">bills_post = posts.find_one(&#123;<span class="string">'author'</span>: <span class="string">'Bill'</span>&#125;)</span><br><span class="line">print(bills_post)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查询多条数据</span></span><br><span class="line">scotts_posts = posts.find(&#123;<span class="string">'author'</span>: <span class="string">'Scott'</span>&#125;)</span><br><span class="line"><span class="keyword">for</span> post <span class="keyword">in</span> scotts_posts:</span><br><span class="line">    print(post)</span><br></pre></td></tr></table></figure><br>另外，查询多条时，可以设定返回的数量或其他限定条件：<br><a href="https://api.mongodb.com/python/current/api/pymongo/collection.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/api/pymongo/collection.html</a></p>
+<p>另外条件中如需支持类似的关系数据库中的WHERE条件，需要使用特定的关键词。示例：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">d = datetime.datetime(<span class="number">2009</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">12</span>)</span><br><span class="line"><span class="keyword">for</span> post <span class="keyword">in</span> posts.find(&#123;<span class="string">"date"</span>: &#123;<span class="string">"$lt"</span>: d&#125;&#125;).sort(<span class="string">"author"</span>):</span><br><span class="line">    pprint.pprint(post)</span><br></pre></td></tr></table></figure></p>
+<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><p>删除数据同样非常的简单，主要用到的方法为：<code>delete_one()</code>和<code>delete_many()</code>。</p>
+<h3 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h3><p>更新数据的主要方法是，<code>update_one()</code>和<code>update_many()</code>，除此之外，还有一个<code>replace_one()</code>方法用来替换，由于用的不多，具体看文档。</p>
+<h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><p>pyMongo还支持创建索引，可以进一步提升查询的性能，示例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">result = db.profiles.create_index([(<span class="string">'user_id'</span>, pymongo.ASCENDING)],unique=<span class="literal">True</span>)</span><br><span class="line">sorted(list(db.profiles.index_information()))</span><br></pre></td></tr></table></figure>
+<h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p><a href="https://api.mongodb.com/python/current/tutorial.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/tutorial.html</a><br><a href="https://docs.mongodb.com/manual/indexes/" target="_blank" rel="noopener">https://docs.mongodb.com/manual/indexes/</a></p>
 ]]></content>
       <categories>
         <category>编程技术</category>
