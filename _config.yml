@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: You Daily
-subtitle: ''
-description: ''
-keywords:
-author: Saul Zhou
-language: en
+title: You的日常
+subtitle: You的日常，我们的日常
+description: Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。
+keywords: Python, Java, Android, JS, TS, JavaScript, TypeScript, 爬虫, 人工智能, AI, 机器学习, 深度学习, 服务研发, 日常故事, 分享 
+author: You的日常
+language: zh-CN
 timezone: ''
 
 # URL
@@ -55,7 +55,7 @@ highlight:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 10
+  per_page: 8
   order_by: -date
 
 # Category & Tag
@@ -90,7 +90,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -98,3 +98,10 @@ deploy:
   type: git 
   repo: git@github.com:youdaily/youdaily.github.io.git
   branch: master
+
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
