@@ -223,10 +223,12 @@
 ]]></content>
       <categories>
         <category>编程技术</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>基础技术</tag>
+        <tag>高级技术</tag>
+        <tag>编程技术</tag>
       </tags>
   </entry>
   <entry>
@@ -329,10 +331,12 @@
 ]]></content>
       <categories>
         <category>编程技术</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>基础技术</tag>
+        <tag>高级技术</tag>
+        <tag>编程技术</tag>
       </tags>
   </entry>
   <entry>
@@ -471,10 +475,12 @@
 ]]></content>
       <categories>
         <category>编程技术</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>基础技术</tag>
+        <tag>高级技术</tag>
+        <tag>编程技术</tag>
       </tags>
   </entry>
   <entry>
@@ -866,10 +872,12 @@
 ]]></content>
       <categories>
         <category>编程技术</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>基础技术</tag>
+        <tag>高级技术</tag>
+        <tag>编程技术</tag>
       </tags>
   </entry>
   <entry>
@@ -912,10 +920,12 @@
 ]]></content>
       <categories>
         <category>编程技术</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Python</tag>
         <tag>高级技术</tag>
+        <tag>编程技术</tag>
       </tags>
   </entry>
   <entry>
@@ -972,5 +982,14 @@
 <li>PEP 8000 — Python Language Governance Proposal Overview，GvR老爹推出决策层后，事关新决策方案</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>编程技术</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>高级技术</tag>
+        <tag>编程技术</tag>
+      </tags>
   </entry>
 </search>
