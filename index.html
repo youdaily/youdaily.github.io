@@ -206,7 +206,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/20/Life-Wenxin-20191120-wen/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/2017-04-01-Programing-JavaScript-drive-promise-in-ES6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -220,7 +220,100 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/20/Life-Wenxin-20191120-wen/" class="post-title-link" itemprop="url">今日一文：妈妈的手套</a>
+            <a href="/2019/11/22/2017-04-01-Programing-JavaScript-drive-promise-in-ES6/" class="post-title-link" itemprop="url">ES6 实现自己的 Promise</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-22 16:14:31" itemprop="dateCreated datePublished" datetime="2019-11-22T16:14:31+08:00">2019-11-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一、JavaScript-异步编程背景"><a href="#一、JavaScript-异步编程背景" class="headerlink" title="一、JavaScript 异步编程背景"></a>一、JavaScript 异步编程背景</h2><p>​ 从去年 ES2015 发布至今，已经过去了一年多，ES2015 发布的新的语言特性中最为流行的也就莫过于 Promise 了，Promise 使得如今 JavaScript 异步编程如此轻松惬意，甚至慢慢遗忘了曾经那不堪回首的痛楚。</p>
+<p>其实从 JavaScript 诞生，JavaScript 中的异步编程就已经出现，例如点击鼠标、敲击键盘这些事件的处理函数都是异步的，时间到了 2009 年，Node.js 横空出世，在整个 Node.js 的实现中，将回调模式的异步编程机制发挥的淋漓尽致，Node 的流行也是的越来越多的 JavaScripter 开始了异步编程，但是回调模式的副作用也慢慢展现在人们眼前，错误处理不够优雅以及嵌套回调带来的“回调地狱”。</p>
+<p>这些副作用使得人们从回调模式的温柔乡中慢慢清醒过来，开始寻找更为优雅的异步编程模式，路漫漫其修远兮、吾将上下而求索。时间到了 2015 年，Promise 拯救那些苦苦探索的先驱。行使它历史使命的时代似乎已经到来。</p>
+<p>​每个事物的诞生有他的历史使命，更有其历史成因，促进其被那些探索的先驱们所发现。<br>了解 nodejs 或者熟悉浏览器的人都知道，JavaScript 引擎是基于事件循环或单线程这两个特性的。更为甚者在浏览器中，更新 UI(也就是浏览器重绘、重拍页面布局)和执行 JavaScript 代码也在一个单线程中，可想而知，一个线程就相当于只有一条马路，如果一辆马车抛锚在路上了阻塞了马路，那么别的马车也就拥堵在了那儿，这个单线程容易被阻塞是一个道理，单线程也只能允许某一时间点只能够执行一段代码。<br>同时，JavaScript 没有想它的哥哥姐姐们那么财大气粗，像 Java 或者 C++，一个线程不够，那么再加一个线程，这样就能够同时执行多段代码了，但是这样就会带来的隐患就是状态不容易维护，JavaScript 选择了单线程非阻塞式的方式，也就是异步编程的方式，就像上面的马车抛锚在了路上，那么把马车推到路边的维修站，让其他马车先过去，等马车修好了再回到马路上继续行驶，这就是单线程非阻塞方式。正如 Promise 的工作方式一样，通过 Promise 去向服务器发起一个请求，毕竟请求有网络开销，不可能马上就返回请求结果的，这个时候 Promise 就处于 pending 状态，但是其并不会阻塞其他代码的执行，当请求返回时，修改 Promise 状态为 fulfilled 或者 rejected（失败请求）。同时执行绑定到这两个状态上面的“处理函数”。这就是异步编程的模式，也就是 Promise 兢兢业业的工作方式，在下面一个部分将详细讨论 Promise。</p>
+<h2 id="二、Promise-基础"><a href="#二、Promise-基础" class="headerlink" title="二、Promise 基础"></a>二、Promise 基础</h2><p>​ 怎么一句话解释 Promise 呢？Promise 可以代指那些尚未完成的一些操作，但是其在未来的某个时间会返回某一特定的结果。</p>
+<p>​ 当创建一个 Promise 实例后，其代表一个未知的值，在将来的某个时间会返回一个成功的返回值，或者失败的返回值，我们可以为这些返回值添加处理函数，当值返回时，处理函数被调用。Promise 总是处于下面三种状态之一：</p>
+<ul>
+<li>pending： Promise 的初始状态，也就是未被 fulfilled 或者 rejected 的状态。</li>
+<li>fulfilled： 意味着 promise 代指的操作已经成功完成。</li>
+<li>rejected：意味着 promise 代指的操作由于某些原因失败。</li>
+</ul>
+<p>一个处于 pending 状态的 promise 可能由于某个成功返回值而发展为 fulfilled 状态，也有可能因为某些错误而进入 rejected 状态，无论是进入 fulfilled 状态或者 rejected 状态，绑定到这两种状态上面的处理函数就会被执行。并且进入 fulfilled 或者 rejected 状态也就不能再返回 pending 状态了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/22/2017-04-01-Programing-JavaScript-drive-promise-in-ES6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/20/2019-11-20_Life-Wenxin-wen/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/20/2019-11-20_Life-Wenxin-wen/" class="post-title-link" itemprop="url">今日一文：妈妈的手套</a>
         </h1>
 
         <div class="post-meta">
@@ -277,7 +370,7 @@
 <p><img src="https://upload-images.jianshu.io/upload_images/1940331-afdea73a422163cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="北风吹"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/11/20/Life-Wenxin-20191120-wen/#more" rel="contents">
+              <a class="btn" href="/2019/11/20/2019-11-20_Life-Wenxin-wen/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -301,7 +394,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/18/Life-Wenxin-20191118-wen/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/18/2019-11-18_Life-Wenxin-wen/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -315,7 +408,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/18/Life-Wenxin-20191118-wen/" class="post-title-link" itemprop="url">今日一文：国足又输球了</a>
+            <a href="/2019/11/18/2019-11-18_Life-Wenxin-wen/" class="post-title-link" itemprop="url">今日一文：国足又输球了</a>
         </h1>
 
         <div class="post-meta">
@@ -371,7 +464,7 @@
 <p>中国队唯一一次入围世界杯是在 2002 年的日韩世界杯，当时中国队输掉了所有三场比赛，并且未进一球。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/11/18/Life-Wenxin-20191118-wen/#more" rel="contents">
+              <a class="btn" href="/2019/11/18/2019-11-18_Life-Wenxin-wen/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -395,7 +488,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/15/Life-Wenxin-20191115-wen/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/15/2019-11-15_Life-Wenxin-wen/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -409,7 +502,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/15/Life-Wenxin-20191115-wen/" class="post-title-link" itemprop="url">今日一文：三罢对香港经济的影响</a>
+            <a href="/2019/11/15/2019-11-15_Life-Wenxin-wen/" class="post-title-link" itemprop="url">今日一文：三罢对香港经济的影响</a>
         </h1>
 
         <div class="post-meta">
@@ -466,7 +559,7 @@
 </blockquote>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/11/15/Life-Wenxin-20191115-wen/#more" rel="contents">
+              <a class="btn" href="/2019/11/15/2019-11-15_Life-Wenxin-wen/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -490,7 +583,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/Life-Wenxin-20191114-wen/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/2019-11-14_Life-Wenxin-wen/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -504,7 +597,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/14/Life-Wenxin-20191114-wen/" class="post-title-link" itemprop="url">今日一文-矛盾的日本人</a>
+            <a href="/2019/11/14/2019-11-14_Life-Wenxin-wen/" class="post-title-link" itemprop="url">今日一文-矛盾的日本人</a>
         </h1>
 
         <div class="post-meta">
@@ -560,7 +653,7 @@
 <p>顺着这个思路，来展开我们今天的话题。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/11/14/Life-Wenxin-20191114-wen/#more" rel="contents">
+              <a class="btn" href="/2019/11/14/2019-11-14_Life-Wenxin-wen/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -584,7 +677,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/Life-Wenxin-20191113-wen/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/2019-11-13_Life-Wenxin-wen/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -598,7 +691,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/13/Life-Wenxin-20191113-wen/" class="post-title-link" itemprop="url">副业赚钱？ 我用自己的教训来给你指路</a>
+            <a href="/2019/11/13/2019-11-13_Life-Wenxin-wen/" class="post-title-link" itemprop="url">副业赚钱？ 我用自己的教训来给你指路</a>
         </h1>
 
         <div class="post-meta">
@@ -709,7 +802,7 @@
 <p>上面的这些内容，大部分都在上班时间抽空来完成的。质量可定也好不到哪里去，基本上可以说大部分的内容都是拼凑完成的，另外一些内容，虽然加入了自己的一些东西，但是大部分都不是太深入。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/11/13/Life-Wenxin-20191113-wen/#more" rel="contents">
+              <a class="btn" href="/2019/11/13/2019-11-13_Life-Wenxin-wen/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -733,7 +826,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/02/Programing-Python-Advanced-use-mongoDB/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/03/2018-11-03_Programing-Python-Advanced-use-mongoDB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -747,7 +840,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2018/11/02/Programing-Python-Advanced-use-mongoDB/" class="post-title-link" itemprop="url">Python-高级-使用MongoDB</a>
+            <a href="/2018/11/03/2018-11-03_Programing-Python-Advanced-use-mongoDB/" class="post-title-link" itemprop="url">Python-高级-使用MongoDB</a>
         </h1>
 
         <div class="post-meta">
@@ -757,7 +850,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-11-02 14:34:06" itemprop="dateCreated datePublished" datetime="2018-11-02T14:34:06+08:00">2018-11-02</time>
+              <time title="创建时间：2018-11-03 14:34:06" itemprop="dateCreated datePublished" datetime="2018-11-03T14:34:06+08:00">2018-11-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -797,7 +890,7 @@
 <h3 id="创建连接"><a href="#创建连接" class="headerlink" title="创建连接"></a>创建连接</h3><p>在安装完PyMongo以后，使用Python连接MongoDB变得异常简单。具体方式为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"> </span><br><span class="line">client = MongoClient(<span class="string">'localhost'</span>, <span class="number">27017</span>)</span><br></pre></td></tr></table></figure><br>或使用如下方式：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"> </span><br><span class="line">client = MongoClient(<span class="string">'mongodb://localhost:27017'</span>)</span><br></pre></td></tr></table></figure><br>如果连接含有账号密码等，请参考：<br><a href="https://api.mongodb.com/python/current/api/pymongo/mongo_client.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/api/pymongo/mongo_client.html</a></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/11/02/Programing-Python-Advanced-use-mongoDB/#more" rel="contents">
+              <a class="btn" href="/2018/11/03/2018-11-03_Programing-Python-Advanced-use-mongoDB/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -821,7 +914,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/Programing-Python-Advanced-jsonify-in-Flask/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/2018-07-07_Programing-Python-Advanced-jsonify-in-Flask/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -835,7 +928,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2018/07/07/Programing-Python-Advanced-jsonify-in-Flask/" class="post-title-link" itemprop="url">Python-高级-聊一聊 Flask 的 jsonify</a>
+            <a href="/2018/07/07/2018-07-07_Programing-Python-Advanced-jsonify-in-Flask/" class="post-title-link" itemprop="url">Python-高级-聊一聊 Flask 的 jsonify</a>
         </h1>
 
         <div class="post-meta">
@@ -882,95 +975,7 @@
 <p>Flask 框架里，可以用 <code>jsonify</code> 返回 json 数据，但是为什么不用 <code>Python</code> 自带的 <code>json</code> 模块返回 JSON 数据呢？</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/07/07/Programing-Python-Advanced-jsonify-in-Flask/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/21/Programing-Python-Basic-date-time-intro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/11/21/Programing-Python-Basic-date-time-intro/" class="post-title-link" itemprop="url">Python-基础-日期和时间</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-11-21 13:47:33" itemprop="dateCreated datePublished" datetime="2017-11-21T13:47:33+08:00">2017-11-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <hr>
-<p>Python程序可以通过多种方式来处理日期和时间。<br>日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。</p>
-<h2 id="什么是刻度？"><a href="#什么是刻度？" class="headerlink" title="什么是刻度？"></a>什么是刻度？</h2><p>时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。</p>
-<p>在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 <code>time.time()</code>返回当前系统时间，从1970年1月1日12点起来的秒数。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time;  <span class="comment"># This is required to include time module.</span></span><br><span class="line"></span><br><span class="line">ticks = time.time()</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Number of ticks since 12:00am, January 1, 1970:"</span>, ticks)</span><br></pre></td></tr></table></figure>
-<p>将产生一个结果，如下 -<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number of ticks since <span class="number">12</span>:<span class="number">00</span>am, January <span class="number">1</span>, <span class="number">1970</span>: <span class="number">1568018748.2947338</span></span><br></pre></td></tr></table></figure></p>
-<p>日期计算使用刻度线是很容易做到的。<br>然而，新纪元日期之前不能以这种形式表示。在未来的一个日期也不能表示这种方式, 分界点是在某个时候，在 UNIX和Windows上为 2038年。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/11/21/Programing-Python-Basic-date-time-intro/#more" rel="contents">
+              <a class="btn" href="/2018/07/07/2018-07-07_Programing-Python-Advanced-jsonify-in-Flask/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -994,7 +999,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1040,20 +1045,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
