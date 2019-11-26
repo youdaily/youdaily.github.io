@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="You的日常" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="导读React的虚拟DOM和Diff算法是React的非常重要的核心特性，这部分源码也非常复杂，理解这部分知识的原理对更深入的掌握React是非常必要的。 本来想将虚拟DOM和Diff算法放到一篇文章，写完虚拟DOM发现文章已经很长了，所以本篇只分析虚拟DOM。 本篇文章从源码出发，分析虚拟DOM的核心渲染原理（首次渲染），以及React对它做的性能优化点。 说实话React源码真的很难读 😅，">
+<meta name="keywords" content="编程技术,React,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入分析虚拟DOM的渲染原理和特性">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;01&#x2F;22&#x2F;2019-01-22-Programing-JavaScript-DOM-Intro&#x2F;index.html">
+<meta property="og:site_name" content="You的日常">
+<meta property="og:description" content="导读React的虚拟DOM和Diff算法是React的非常重要的核心特性，这部分源码也非常复杂，理解这部分知识的原理对更深入的掌握React是非常必要的。 本来想将虚拟DOM和Diff算法放到一篇文章，写完虚拟DOM发现文章已经很长了，所以本篇只分析虚拟DOM。 本篇文章从源码出发，分析虚拟DOM的核心渲染原理（首次渲染），以及React对它做的性能优化点。 说实话React源码真的很难读 😅，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;虚拟dom.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;diff3.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;rn.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;虚拟dom2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;diff2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;vdom1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;vdom2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;vdom3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;vdom4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;diff4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;vdom6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;vdom7.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;diff5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;vdom9.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;vdom10.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;vdom5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;vdom8.png">
+<meta property="og:updated_time" content="2019-11-25T07:48:04.124Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;虚拟dom.png">
+
+<link rel="canonical" href="http://yoursite.com/2019/01/22/2019-01-22-Programing-JavaScript-DOM-Intro/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>深入分析虚拟DOM的渲染原理和特性 | You的日常</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">You的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">You的日常，我们的日常</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/22/2019-01-22-Programing-JavaScript-DOM-Intro/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          深入分析虚拟DOM的渲染原理和特性
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-22 15:44:04" itemprop="dateCreated datePublished" datetime="2019-01-22T15:44:04+08:00">2019-01-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><code>React</code>的虚拟<code>DOM</code>和<code>Diff</code>算法是<code>React</code>的非常重要的核心特性，这部分源码也非常复杂，理解这部分知识的原理对更深入的掌握<code>React</code>是非常必要的。</p>
+<p>本来想将虚拟<code>DOM</code>和<code>Diff</code>算法放到一篇文章，写完虚拟<code>DOM</code>发现文章已经很长了，所以本篇只分析虚拟<code>DOM</code>。</p>
+<p>本篇文章从源码出发，分析虚拟<code>DOM</code>的核心渲染原理（首次渲染），以及<code>React</code>对它做的性能优化点。</p>
+<p>说实话<code>React</code>源码真的很难读 😅，如果本篇文章帮助到了你，那么请给个赞 👍 支持一下吧。</p>
+<h2 id="开发中的常见问题"><a href="#开发中的常见问题" class="headerlink" title="开发中的常见问题"></a>开发中的常见问题</h2><ul>
+<li>为何必须引用<code>React</code></li>
+<li>自定义的<code>React</code>组件为何必须大写</li>
+<li><code>React</code>如何防止<code>XSS</code></li>
+<li><code>React</code>的<code>Diff</code>算法和其他的<code>Diff</code>算法有何区别</li>
+<li><code>key</code>在<code>React</code>中的作用</li>
+<li>如何写出高性能的<code>React</code>组件</li>
+</ul>
+<p>如果你对上面几个问题还存在疑问，说明你对<code>React</code>的虚拟<code>DOM</code>以及<code>Diff</code>算法实现原理还有所欠缺，那么请好好阅读本篇文章吧。</p>
+<p>首先我们来看看到底什么是虚拟<code>DOM</code>:</p>
+<h2 id="虚拟-DOM"><a href="#虚拟-DOM" class="headerlink" title="虚拟 DOM"></a>虚拟 DOM</h2><p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/虚拟dom.png" alt="image"></p>
+<p>在原生的<code>JavaScript</code>程序中，我们直接对<code>DOM</code>进行创建和更改，而<code>DOM</code>元素通过我们监听的事件和我们的应用程序进行通讯。</p>
+<p>而<code>React</code>会先将你的代码转换成一个<code>JavaScript</code>对象，然后这个<code>JavaScript</code>对象再转换成真实<code>DOM</code>。这个<code>JavaScript</code>对象就是所谓的虚拟<code>DOM</code>。</p>
+<p>比如下面一段<code>html</code>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>Hello ConardLi<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>橘子<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>在<code>React</code>可能存储为这样的<code>JS</code>代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> VitrualDom = &#123;</span><br><span class="line">  type: <span class="string">"div"</span>,</span><br><span class="line">  props: &#123; <span class="attr">class</span>: <span class="string">"title"</span> &#125;,</span><br><span class="line">  children: [</span><br><span class="line">    &#123;</span><br><span class="line">      type: <span class="string">"span"</span>,</span><br><span class="line">      children: <span class="string">"Hello ConardLi"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      type: <span class="string">"ul"</span>,</span><br><span class="line">      children: [</span><br><span class="line">        &#123; <span class="attr">type</span>: <span class="string">"ul"</span>, <span class="attr">children</span>: <span class="string">"苹果"</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">type</span>: <span class="string">"ul"</span>, <span class="attr">children</span>: <span class="string">"橘子"</span> &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>当我们需要创建或更新元素时，<code>React</code>首先会让这个<code>VitrualDom</code>对象进行创建和更改，然后再将<code>VitrualDom</code>对象渲染成真实<code>DOM</code>；</p>
+<p>当我们需要对<code>DOM</code>进行事件监听时，首先对<code>VitrualDom</code>进行事件监听，<code>VitrualDom</code>会代理原生的<code>DOM</code>事件从而做出响应。</p>
+<h2 id="为何使用虚拟-DOM"><a href="#为何使用虚拟-DOM" class="headerlink" title="为何使用虚拟 DOM"></a>为何使用虚拟 DOM</h2><p><code>React</code>为何采用<code>VitrualDom</code>这种方案呢？</p>
+<h3 id="提高开发效率"><a href="#提高开发效率" class="headerlink" title="提高开发效率"></a>提高开发效率</h3><p>使用<code>JavaScript</code>，我们在编写应用程序时的关注点在于如何更新<code>DOM</code>。</p>
+<p>使用<code>React</code>，你只需要告诉<code>React</code>你想让视图处于什么状态，<code>React</code>则通过<code>VitrualDom</code>确保<code>DOM</code>与该状态相匹配。你不必自己去完成属性操作、事件处理、<code>DOM</code>更新，<code>React</code>会替你完成这一切。</p>
+<p>这让我们更关注我们的业务逻辑而非<code>DOM</code>操作，这一点即可大大提升我们的开发效率。</p>
+<h3 id="关于提升性能"><a href="#关于提升性能" class="headerlink" title="关于提升性能"></a>关于提升性能</h3><p>很多文章说<code>VitrualDom</code>可以提升性能，这一说法实际上是很片面的。</p>
+<p>直接操作<code>DOM</code>是非常耗费性能的，这一点毋庸置疑。但是<code>React</code>使用<code>VitrualDom</code>也是无法避免操作<code>DOM</code>的。</p>
+<p>如果是首次渲染，<code>VitrualDom</code>不具有任何优势，甚至它要进行更多的计算，消耗更多的内存。</p>
+<p><code>VitrualDom</code>的优势在于<code>React</code>的<code>Diff</code>算法和批处理策略，<code>React</code>在页面更新之前，提前计算好了如何进行更新和渲染<code>DOM</code>。实际上，这个计算过程我们在直接操作<code>DOM</code>时，也是可以自己判断和实现的，但是一定会耗费非常多的精力和时间，而且往往我们自己做的是不如<code>React</code>好的。所以，在这个过程中<code>React</code>帮助我们”提升了性能”。</p>
+<p>所以，我更倾向于说，<code>VitrualDom</code>帮助我们提高了开发效率，在重复渲染时它帮助我们计算如何更高效的更新，而不是它比<code>DOM</code>操作更快。</p>
+<p>如果您对本部分的分析有什么不同见解，欢迎在评论区拍砖。</p>
+<h3 id="跨浏览器兼容"><a href="#跨浏览器兼容" class="headerlink" title="跨浏览器兼容"></a>跨浏览器兼容</h3><p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/diff3.jpg" alt="image"></p>
+<p><code>React</code>基于<code>VitrualDom</code>自己实现了一套自己的事件机制，自己模拟了事件冒泡和捕获的过程，采用了事件代理，批量更新等方法，抹平了各个浏览器的事件兼容性问题。</p>
+<h3 id="跨平台兼容"><a href="#跨平台兼容" class="headerlink" title="跨平台兼容"></a>跨平台兼容</h3><p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/rn.png" alt="image"></p>
+<p><code>VitrualDom</code>为<code>React</code>带来了跨平台渲染的能力。以<code>React Native</code>为例子。<code>React</code>根据<code>VitrualDom</code>画出相应平台的<code>ui</code>层，只不过不同平台画的姿势不同而已。</p>
+<h2 id="虚拟-DOM-实现原理"><a href="#虚拟-DOM-实现原理" class="headerlink" title="虚拟 DOM 实现原理"></a>虚拟 DOM 实现原理</h2><p>如果你不想看繁杂的源码，或者现在没有足够时间，可以跳过这一章，直接 👇<a href="#虚拟DOM原理、特性总结">虚拟 DOM 原理总结</a></p>
+<p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/虚拟dom2.png" alt="image"></p>
+<p>在上面的图上我们继续进行扩展，按照图中的流程，我们依次来分析虚拟<code>DOM</code>的实现原理。</p>
+<h3 id="JSX-和-createElement"><a href="#JSX-和-createElement" class="headerlink" title="JSX 和 createElement"></a>JSX 和 createElement</h3><p>我们在实现一个<code>React</code>组件时可以选择两种编码方式，第一种是使用<code>JSX</code>编写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hello</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Hello ConardLi<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二种是直接使用<code>React.createElement</code>编写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hello</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> React.createElement(<span class="string">"div"</span>, <span class="literal">null</span>, <span class="string">`Hello ConardLi`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实际上，上面两种写法是等价的，<code>JSX</code>只是为 <code>React.createElement(component, props, ...children)</code>方法提供的语法糖。也就是说所有的<code>JSX</code>代码最后都会转换成<code>React.createElement(...)</code>，<code>Babel</code>帮助我们完成了这个转换的过程。</p>
+<p>如下面的<code>JSX</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;img src=<span class="string">"avatar.png"</span> className=<span class="string">"profile"</span> /&gt;</span><br><span class="line">  &lt;Hello /&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+<p>将会被<code>Babel</code>转换为</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">React.createElement(</span><br><span class="line">  <span class="string">"div"</span>,</span><br><span class="line">  <span class="literal">null</span>,</span><br><span class="line">  React.createElement(<span class="string">"img"</span>, &#123;</span><br><span class="line">    src: <span class="string">"avatar.png"</span>,</span><br><span class="line">    className: <span class="string">"profile"</span></span><br><span class="line">  &#125;),</span><br><span class="line">  React.createElement(Hello, <span class="literal">null</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>注意，<code>babel</code>在编译时会判断<code>JSX</code>中组件的首字母，当首字母为小写时，其被认定为原生<code>DOM</code>标签，<code>createElement</code>的第一个变量被编译为字符串；当首字母为大写时，其被认定为自定义组件，<code>createElement</code>的第一个变量被编译为对象；</p>
+<p>另外，由于<code>JSX</code>提前要被<code>Babel</code>编译，所以<code>JSX</code>是不能在运行时动态选择类型的，比如下面的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Story</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Wrong! JSX type can't be an expression.</span></span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">components[props.storyType]</span> <span class="attr">story</span>=<span class="string">&#123;props.story&#125;</span> /&gt;</span>;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>需要变成下面的写法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Story</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Correct! JSX type can be a capitalized variable.</span></span><br><span class="line">  <span class="keyword">const</span> SpecificStory = components[props.storyType];</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">SpecificStory</span> <span class="attr">story</span>=<span class="string">&#123;props.story&#125;</span> /&gt;</span>;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>所以，使用<code>JSX</code>你需要安装<code>Babel</code>插件<code>babel-plugin-transform-react-jsx</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"plugins"</span>: [</span><br><span class="line">        [<span class="string">"transform-react-jsx"</span>, &#123;</span><br><span class="line">            <span class="string">"pragma"</span>: <span class="string">"React.createElement"</span></span><br><span class="line">        &#125;]</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="创建虚拟-DOM"><a href="#创建虚拟-DOM" class="headerlink" title="创建虚拟 DOM"></a>创建虚拟 DOM</h3><p>下面我们来看看虚拟<code>DOM</code>的真实模样，将下面的<code>JSX</code>代码在控制台打印出来：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"title"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>Hello ConardLi<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>橘子<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/diff2.png" alt="image"></p>
+<p>这个结构和我们上面自己描绘的结构很像，那么<code>React</code>是如何将我们的代码转换成这个结构的呢，下面我们来看看<code>createElement</code>函数的具体实现（文中的源码经过精简）。</p>
+<p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/vdom1.png" alt="image"></p>
+<p><code>createElement</code>函数内部做的操作很简单，将<code>props</code>和子元素进行处理后返回一个<code>ReactElement</code>对象，下面我们来逐一分析：</p>
+<p><strong>(1).处理 props：</strong></p>
+<p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/vdom2.png" alt="image"></p>
+<ul>
+<li>1.将特殊属性<code>ref</code>、<code>key</code>从<code>config</code>中取出并赋值</li>
+<li>2.将特殊属性<code>self</code>、<code>source</code>从<code>config</code>中取出并赋值</li>
+<li>3.将除特殊属性的其他属性取出并赋值给<code>props</code></li>
+</ul>
+<p>后面的文章会详细介绍这些特殊属性的作用。</p>
+<p><strong>(2).获取子元素</strong></p>
+<p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/vdom3.png" alt="image"></p>
+<ul>
+<li>1.获取子元素的个数 —— 第二个参数后面的所有参数</li>
+<li>2.若只有一个子元素，赋值给<code>props.children</code></li>
+<li>3.若有多个子元素，将子元素填充为一个数组赋值给<code>props.children</code></li>
+</ul>
+<p><strong>(3).处理默认 props</strong></p>
+<p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/vdom4.png" alt="image"></p>
+<ul>
+<li>将组件的静态属性<code>defaultProps</code>定义的默认<code>props</code>进行赋值</li>
+</ul>
+<p><strong>ReactElement</strong></p>
+<p><code>ReactElement</code>将传入的几个属性进行组合，并返回。</p>
+<ul>
+<li><code>type</code>：元素的类型，可以是原生 html 类型（字符串），或者自定义组件（函数或<code>class</code>）</li>
+<li><code>key</code>：组件的唯一标识，用于<code>Diff</code>算法，下面会详细介绍</li>
+<li><code>ref</code>：用于访问原生<code>dom</code>节点</li>
+<li><code>props</code>：传入组件的<code>props</code></li>
+<li><code>owner</code>：当前正在构建的<code>Component</code>所属的<code>Component</code></li>
+</ul>
+<p><code>$$typeof</code>：一个我们不常见到的属性，它被赋值为<code>REACT_ELEMENT_TYPE</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> REACT_ELEMENT_TYPE =</span><br><span class="line">  (<span class="keyword">typeof</span> <span class="built_in">Symbol</span> === <span class="string">"function"</span> &amp;&amp; <span class="built_in">Symbol</span>.for &amp;&amp; <span class="built_in">Symbol</span>.for(<span class="string">"react.element"</span>)) ||</span><br><span class="line">  <span class="number">0xeac7</span>;</span><br></pre></td></tr></table></figure>
+<p>可见，<code>$$typeof</code>是一个<code>Symbol</code>类型的变量，这个变量可以防止<code>XSS</code>。</p>
+<p>如果你的服务器有一个漏洞，允许用户存储任意<code>JSON</code>对象， 而客户端代码需要一个字符串，这可能会成为一个问题：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JSON</span></span><br><span class="line"><span class="keyword">let</span> expectedTextButGotJSON = &#123;</span><br><span class="line">  type: <span class="string">"div"</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    dangerouslySetInnerHTML: &#123;</span><br><span class="line">      __html: <span class="string">"/* put your exploit here */"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> message = &#123; <span class="attr">text</span>: expectedTextButGotJSON &#125;;</span><br><span class="line">&lt;p&gt;&#123;message.text&#125;&lt;<span class="regexp">/p&gt;;</span></span><br></pre></td></tr></table></figure>
+<p><code>JSON</code>中不能存储<code>Symbol</code>类型的变量。</p>
+<p><code>ReactElement.isValidElement</code>函数用来判断一个<code>React</code>组件是否是有效的，下面是它的具体实现。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ReactElement.isValidElement = <span class="function"><span class="keyword">function</span>(<span class="params">object</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="keyword">typeof</span> object === <span class="string">"object"</span> &amp;&amp;</span><br><span class="line">    object !== <span class="literal">null</span> &amp;&amp;</span><br><span class="line">    object.$$<span class="keyword">typeof</span> === REACT_ELEMENT_TYPE</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>可见<code>React</code>渲染时会把没有<code>$$typeof</code>标识，以及规则校验不通过的组件过滤掉。</p>
+<p>当你的环境不支持<code>Symbol</code>时，<code>$$typeof</code>被赋值为<code>0xeac7</code>，至于为什么，<code>React</code>开发者给出了答案：</p>
+<blockquote>
+<p><code>0xeac7</code>看起来有点像<code>React</code>。</p>
+</blockquote>
+<p><code>self</code>、<code>source</code>只有在非生产环境才会被加入对象中。</p>
+<ul>
+<li><code>self</code>指定当前位于哪个组件实例。</li>
+<li><code>_source</code>指定调试代码来自的文件(<code>fileName</code>)和代码行数(<code>lineNumber</code>)。</li>
+</ul>
+<h3 id="虚拟-DOM-转换为真实-DOM"><a href="#虚拟-DOM-转换为真实-DOM" class="headerlink" title="虚拟 DOM 转换为真实 DOM"></a>虚拟 DOM 转换为真实 DOM</h3><p>上面我们分析了代码转换成了虚拟<code>DOM</code>的过程，下面来看一下<code>React</code>如何将虚拟<code>DOM</code>转换成真实<code>DOM</code>。</p>
+<p>本部分逻辑较复杂，我们先用流程图梳理一下整个过程，整个过程大概可分为四步：</p>
+<p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/diff4.png" alt="image"></p>
+<p><strong>过程 1：初始参数处理</strong></p>
+<p>在编写好我们的<code>React</code>组件后，我们需要调用<code>ReactDOM.render(element, container[, callback])</code>将组件进行渲染。</p>
+<p><code>render</code>函数内部实际调用了<code>_renderSubtreeIntoContainer</code>，我们来看看它的具体实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">nextElement, container, callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> ReactMount._renderSubtreeIntoContainer(<span class="literal">null</span>, nextElement, container, callback);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/vdom6.png" alt="image"></p>
+<ul>
+<li>1.将当前组件使用<code>TopLevelWrapper</code>进行包裹</li>
+</ul>
+<p><code>TopLevelWrapper</code>只一个空壳，它为你需要挂载的组件提供了一个<code>rootID</code>属性，并在<code>render</code>函数中返回该组件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TopLevelWrapper.prototype.render = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.props.child;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><code>ReactDOM.render</code>函数的第一个参数可以是原生<code>DOM</code>也可以是<code>React</code>组件，包裹一层<code>TopLevelWrapper</code>可以在后面的渲染中将它们进行统一处理，而不用关心是否原生。</p>
+<ul>
+<li>2.判断根结点下是否已经渲染过元素，如果已经渲染过，判断执行更新或者卸载操作</li>
+<li>3.处理<code>shouldReuseMarkup</code>变量，该变量表示是否需要重新标记元素</li>
+<li>4.调用将上面处理好的参数传入<code>_renderNewRootComponent</code>，渲染完成后调用<code>callback</code>。</li>
+</ul>
+<p>在<code>_renderNewRootComponent</code>中调用<code>instantiateReactComponent</code>对我们传入的组件进行分类包装：</p>
+<p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/vdom7.png" alt="image"></p>
+<p>根据组件的类型，<code>React</code>根据原组件创建了下面四大类组件，对组件进行分类渲染：</p>
+<ul>
+<li><code>ReactDOMEmptyComponent</code>:空组件</li>
+<li><code>ReactDOMTextComponent</code>:文本</li>
+<li><code>ReactDOMComponent</code>:原生<code>DOM</code></li>
+<li><code>ReactCompositeComponent</code>:自定义<code>React</code>组件</li>
+</ul>
+<p>他们都具备以下三个方法：</p>
+<ul>
+<li><code>construct</code>:用来接收<code>ReactElement</code>进行初始化。</li>
+<li><code>mountComponent</code>:用来生成<code>ReactElement</code>对应的真实<code>DOM</code>或<code>DOMLazyTree</code>。</li>
+<li><code>unmountComponent</code>:卸载<code>DOM</code>节点，解绑事件。</li>
+</ul>
+<p>具体是如何渲染我们在过程 3 中进行分析。</p>
+<p><strong>过程 2：批处理、事务调用</strong></p>
+<p>在<code>_renderNewRootComponent</code>中使用<code>ReactUpdates.batchedUpdates</code>调用<code>batchedMountComponentIntoNode</code>进行批处理。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ReactUpdates.batchedUpdates(</span><br><span class="line">  batchedMountComponentIntoNode,</span><br><span class="line">  componentInstance,</span><br><span class="line">  container,</span><br><span class="line">  shouldReuseMarkup,</span><br><span class="line">  context</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>在<code>batchedMountComponentIntoNode</code>中，使用<code>transaction.perform</code>调用<code>mountComponentIntoNode</code>让其基于事务机制进行调用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">transaction.perform(</span><br><span class="line">  mountComponentIntoNode,</span><br><span class="line">  <span class="literal">null</span>,</span><br><span class="line">  componentInstance,</span><br><span class="line">  container,</span><br><span class="line">  transaction,</span><br><span class="line">  shouldReuseMarkup,</span><br><span class="line">  context</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>关于批处理事务，在我前面的分析<a href="https://juejin.im/post/5c71050ef265da2db27938b5" target="_blank" rel="noopener">setState 执行机制</a>中有更多介绍。</p>
+<p><strong>过程 3：生成 html</strong></p>
+<p>在<code>mountComponentIntoNode</code>函数中调用<code>ReactReconciler.mountComponent</code>生成原生<code>DOM</code>节点。</p>
+<p><code>mountComponent</code>内部实际上是调用了过程 1 生成的四种对象的<code>mountComponent</code>方法。首先来看一下<code>ReactDOMComponent</code>：</p>
+<p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/diff5.png" alt="image"></p>
+<ul>
+<li>1.对特殊<code>DOM</code>标签、<code>props</code>进行处理。</li>
+<li>2.根据标签类型创建<code>DOM</code>节点。</li>
+<li>3.调用<code>_updateDOMProperties</code>将<code>props</code>插入到<code>DOM</code>节点，<code>_updateDOMProperties</code>也可用于<code>props Diff</code>，第一个参数为上次渲染的<code>props</code>，第二个参数为当前<code>props</code>，若第一个参数为空，则为首次创建。</li>
+<li>4.生成一个<code>DOMLazyTree</code>对象并调用<code>_createInitialChildren</code>将孩子节点渲染到上面。</li>
+</ul>
+<p>那么为什么不直接生成一个<code>DOM</code>节点而是要创建一个<code>DOMLazyTree</code>呢？我们先来看看<code>_createInitialChildren</code>做了什么：</p>
+<p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/vdom9.png" alt="image"></p>
+<p>判断当前节点的<code>dangerouslySetInnerHTML</code>属性、孩子节点是否为文本和其他节点分别调用<code>DOMLazyTree</code>的<code>queueHTML</code>、<code>queueText</code>、<code>queueChild</code>。</p>
+<p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/vdom10.png" alt="image"></p>
+<p>可以发现：<code>DOMLazyTree</code>实际上是一个包裹对象，<code>node</code>属性中存储了真实的<code>DOM</code>节点，<code>children</code>、<code>html</code>、<code>text</code>分别存储孩子、html 节点和文本节点。</p>
+<p>它提供了几个方法用于插入孩子、<code>html</code>以及文本节点，这些插入都是有条件限制的，当<code>enableLazy</code>属性为<code>true</code>时，这些孩子、<code>html</code>以及文本节点会被插入到<code>DOMLazyTree</code>对象中，当其为<code>false</code>时会插入到真实<code>DOM</code>节点中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> enableLazy =</span><br><span class="line">  (<span class="keyword">typeof</span> <span class="built_in">document</span> !== <span class="string">"undefined"</span> &amp;&amp;</span><br><span class="line">    <span class="keyword">typeof</span> <span class="built_in">document</span>.documentMode === <span class="string">"number"</span>) ||</span><br><span class="line">  (<span class="keyword">typeof</span> navigator !== <span class="string">"undefined"</span> &amp;&amp;</span><br><span class="line">    <span class="keyword">typeof</span> navigator.userAgent === <span class="string">"string"</span> &amp;&amp;</span><br><span class="line">    /\bEdge\/\d/.test(navigator.userAgent));</span><br></pre></td></tr></table></figure>
+<p>可见：<code>enableLazy</code>是一个变量，当前浏览器是<code>IE</code>或<code>Edge</code>时为<code>true</code>。</p>
+<p>在<code>IE（8-11）</code>和<code>Edge</code>浏览器中，一个一个插入无子孙的节点，效率要远高于插入一整个序列化完整的节点树。</p>
+<p>所以<code>lazyTree</code>主要解决的是在<code>IE（8-11）</code>和<code>Edge</code>浏览器中插入节点的效率问题，在后面的过程 4 我们会分析到：若当前是<code>IE</code>或<code>Edge</code>，则需要递归插入<code>DOMLazyTree</code>中缓存的子节点，其他浏览器只需要插入一次当前节点，因为他们的孩子已经被渲染好了，而不用担心效率问题。</p>
+<p>下面来看一下<code>ReactCompositeComponent</code>，由于代码非常多这里就不再贴这个模块的代码，其内部主要做了以下几步：</p>
+<ul>
+<li>处理<code>props</code>、<code>contex</code>等变量，调用构造函数创建组件实例</li>
+<li>判断是否为无状态组件，处理<code>state</code></li>
+<li>调用<code>performInitialMount</code>生命周期，处理子节点，获取<code>markup</code>。</li>
+<li>调用<code>componentDidMount</code>生命周期</li>
+</ul>
+<p>在<code>performInitialMount</code>函数中，首先调用了<code>componentWillMount</code>生命周期，由于自定义的<code>React</code>组件并不是一个真实的 DOM，所以在函数中又调用了孩子节点的<code>mountComponent</code>。这也是一个递归的过程，当所有孩子节点渲染完成后，返回<code>markup</code>并调用<code>componentDidMount</code>。</p>
+<p><strong>过程 4：渲染 html</strong></p>
+<p>在<code>mountComponentIntoNode</code>函数中调用将上一步生成的<code>markup</code>插入<code>container</code>容器。</p>
+<p>在首次渲染时，<code>_mountImageIntoNode</code>会清空<code>container</code>的子节点后调用<code>DOMLazyTree.insertTreeBefore</code>：</p>
+<p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/vdom5.png" alt="image"></p>
+<p>判断是否为<code>fragment</code>节点或者<code>&lt;object&gt;</code>插件：</p>
+<ul>
+<li><p>如果是以上两种，首先调用<code>insertTreeChildren</code>将此节点的孩子节点渲染到当前节点上，再将渲染完的节点插入到<code>html</code></p>
+</li>
+<li><p>如果是其他节点，先将节点插入到插入到<code>html</code>，再调用<code>insertTreeChildren</code>将孩子节点插入到<code>html</code>。</p>
+</li>
+<li><p>若当前不是<code>IE</code>或<code>Edge</code>，则不需要再递归插入子节点，只需要插入一次当前节点。</p>
+</li>
+</ul>
+<p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/vdom8.png" alt="image"></p>
+<ul>
+<li>判断不是<code>IE</code>或<code>bEdge</code>时<code>return</code></li>
+<li>若<code>children</code>不为空，递归<code>insertTreeBefore</code>进行插入</li>
+<li>渲染 html 节点</li>
+<li>渲染文本节点</li>
+</ul>
+<h3 id="原生-DOM-事件代理"><a href="#原生-DOM-事件代理" class="headerlink" title="原生 DOM 事件代理"></a>原生 DOM 事件代理</h3><p>有关虚拟<code>DOM</code>的事件机制，我曾专门写过一篇文章，有兴趣可以 👇<a href="https://juejin.im/post/5c7df2e7f265da2d8a55d49d" target="_blank" rel="noopener">【React 深入】React 事件机制</a></p>
+<h2 id="虚拟-DOM-原理、特性总结"><a href="#虚拟-DOM-原理、特性总结" class="headerlink" title="虚拟 DOM 原理、特性总结"></a>虚拟 DOM 原理、特性总结</h2><h3 id="React-组件的渲染流程"><a href="#React-组件的渲染流程" class="headerlink" title="React 组件的渲染流程"></a>React 组件的渲染流程</h3><ul>
+<li><p>使用<code>React.createElement</code>或<code>JSX</code>编写<code>React</code>组件，实际上所有的<code>JSX</code>代码最后都会转换成<code>React.createElement(...)</code>，<code>Babel</code>帮助我们完成了这个转换的过程。</p>
+</li>
+<li><p><code>createElement</code>函数对<code>key</code>和<code>ref</code>等特殊的<code>props</code>进行处理，并获取<code>defaultProps</code>对默认<code>props</code>进行赋值，并且对传入的孩子节点进行处理，最终构造成一个<code>ReactElement</code>对象（所谓的虚拟<code>DOM</code>）。</p>
+</li>
+<li><p><code>ReactDOM.render</code>将生成好的虚拟<code>DOM</code>渲染到指定容器上，其中采用了批处理、事务等机制并且对特定浏览器进行了性能优化，最终转换为真实<code>DOM</code>。</p>
+</li>
+</ul>
+<h3 id="虚拟-DOM-的组成"><a href="#虚拟-DOM-的组成" class="headerlink" title="虚拟 DOM 的组成"></a>虚拟 DOM 的组成</h3><p>即<code>ReactElement</code>element 对象，我们的组件最终会被渲染成下面的结构：</p>
+<ul>
+<li><code>type</code>：元素的类型，可以是原生 html 类型（字符串），或者自定义组件（函数或<code>class</code>）</li>
+<li><code>key</code>：组件的唯一标识，用于<code>Diff</code>算法，下面会详细介绍</li>
+<li><code>ref</code>：用于访问原生<code>dom</code>节点</li>
+<li><code>props</code>：传入组件的<code>props</code>，<code>chidren</code>是<code>props</code>中的一个属性，它存储了当前组件的孩子节点，可以是数组（多个孩子节点）或对象（只有一个孩子节点）</li>
+<li><code>owner</code>：当前正在构建的<code>Component</code>所属的<code>Component</code></li>
+<li><code>self</code>：（非生产环境）指定当前位于哪个组件实例</li>
+<li><code>_source</code>：（非生产环境）指定调试代码来自的文件(<code>fileName</code>)和代码行数(<code>lineNumber</code>)</li>
+</ul>
+<h3 id="防止-XSS"><a href="#防止-XSS" class="headerlink" title="防止 XSS"></a>防止 XSS</h3><p><code>ReactElement</code>对象还有一个<code>$$typeof</code>属性，它是一个<code>Symbol</code>类型的变量<code>Symbol.for(&#39;react.element&#39;)</code>，当环境不支持<code>Symbol</code>时，<code>$$typeof</code>被赋值为<code>0xeac7</code>。</p>
+<p>这个变量可以防止<code>XSS</code>。如果你的服务器有一个漏洞，允许用户存储任意<code>JSON</code>对象， 而客户端代码需要一个字符串，这可能为你的应用程序带来风险。<code>JSON</code>中不能存储<code>Symbol</code>类型的变量，而<code>React</code>渲染时会把没有<code>$$typeof</code>标识的组件过滤掉。</p>
+<h3 id="批处理和事务"><a href="#批处理和事务" class="headerlink" title="批处理和事务"></a>批处理和事务</h3><p><code>React</code>在渲染虚拟<code>DOM</code>时应用了批处理以及事务机制，以提高渲染性能。</p>
+<p>关于批处理以及事务机制，在我之前的文章<a href="https://juejin.im/post/5c71050ef265da2db27938b5" target="_blank" rel="noopener">【React 深入】setState 的执行机制</a>中有详细介绍。</p>
+<h3 id="针对性的性能优化"><a href="#针对性的性能优化" class="headerlink" title="针对性的性能优化"></a>针对性的性能优化</h3><p>在<code>IE（8-11）</code>和<code>Edge</code>浏览器中，一个一个插入无子孙的节点，效率要远高于插入一整个序列化完整的节点树。</p>
+<p><code>React</code>通过<code>lazyTree</code>，在<code>IE（8-11）</code>和<code>Edge</code>中进行单个节点依次渲染节点，而在其他浏览器中则首先将整个大的<code>DOM</code>结构构建好，然后再整体插入容器。</p>
+<p>并且，在单独渲染节点时，<code>React</code>还考虑了<code>fragment</code>等特殊节点，这些节点则不会一个一个插入渲染。</p>
+<h3 id="虚拟-DOM-事件机制"><a href="#虚拟-DOM-事件机制" class="headerlink" title="虚拟 DOM 事件机制"></a>虚拟 DOM 事件机制</h3><p><code>React</code>自己实现了一套事件机制，其将所有绑定在虚拟<code>DOM</code>上的事件映射到真正的<code>DOM</code>事件，并将所有的事件都代理到<code>document</code>上，自己模拟了事件冒泡和捕获的过程，并且进行统一的事件分发。</p>
+<p><code>React</code>自己构造了合成事件对象<code>SyntheticEvent</code>，这是一个跨浏览器原生事件包装器。 它具有与浏览器原生事件相同的接口，包括<code>stopPropagation()</code>和<code>preventDefault()</code>等等，在所有浏览器中他们工作方式都相同。这抹平了各个浏览器的事件兼容性问题。</p>
+<p>上面只分析虚拟<code>DOM</code>首次渲染的原理和过程，当然这并不包括虚拟 <code>DOM</code>进行 <code>Diff</code>的过程，下一篇文章我们再来详细探讨。</p>
+<p>关于开篇提的几个问题，我们在下篇文章中进行统一回答。</p>
+<h2 id="末尾"><a href="#末尾" class="headerlink" title="末尾"></a>末尾</h2><p>文中如有错误，欢迎在评论区指正，或者您对文章的排版，阅读体验有什么好的建议，欢迎在评论区指出，谢谢阅读。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"># 编程技术</a>
+              <a href="/tags/React/" rel="tag"># React</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/01/19/2019-01-19-Programing-JavaScript-setState-run-flow/" rel="next" title="setState的执行机制">
+                  <i class="fa fa-chevron-left"></i> setState的执行机制
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/02/23/2019-02-23-Life-JianShu-ZY-intro-1/" rel="prev" title="《张扬的日生活》 写在专题开始前">
+                  《张扬的日生活》 写在专题开始前 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发中的常见问题"><span class="nav-number">2.</span> <span class="nav-text">开发中的常见问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟-DOM"><span class="nav-number">3.</span> <span class="nav-text">虚拟 DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为何使用虚拟-DOM"><span class="nav-number">4.</span> <span class="nav-text">为何使用虚拟 DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#提高开发效率"><span class="nav-number">4.1.</span> <span class="nav-text">提高开发效率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于提升性能"><span class="nav-number">4.2.</span> <span class="nav-text">关于提升性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨浏览器兼容"><span class="nav-number">4.3.</span> <span class="nav-text">跨浏览器兼容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨平台兼容"><span class="nav-number">4.4.</span> <span class="nav-text">跨平台兼容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟-DOM-实现原理"><span class="nav-number">5.</span> <span class="nav-text">虚拟 DOM 实现原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSX-和-createElement"><span class="nav-number">5.1.</span> <span class="nav-text">JSX 和 createElement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建虚拟-DOM"><span class="nav-number">5.2.</span> <span class="nav-text">创建虚拟 DOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟-DOM-转换为真实-DOM"><span class="nav-number">5.3.</span> <span class="nav-text">虚拟 DOM 转换为真实 DOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原生-DOM-事件代理"><span class="nav-number">5.4.</span> <span class="nav-text">原生 DOM 事件代理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟-DOM-原理、特性总结"><span class="nav-number">6.</span> <span class="nav-text">虚拟 DOM 原理、特性总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#React-组件的渲染流程"><span class="nav-number">6.1.</span> <span class="nav-text">React 组件的渲染流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟-DOM-的组成"><span class="nav-number">6.2.</span> <span class="nav-text">虚拟 DOM 的组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防止-XSS"><span class="nav-number">6.3.</span> <span class="nav-text">防止 XSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#批处理和事务"><span class="nav-number">6.4.</span> <span class="nav-text">批处理和事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#针对性的性能优化"><span class="nav-number">6.5.</span> <span class="nav-text">针对性的性能优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟-DOM-事件机制"><span class="nav-number">6.6.</span> <span class="nav-text">虚拟 DOM 事件机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#末尾"><span class="nav-number">7.</span> <span class="nav-text">末尾</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="You的日常"
+      src="/images/avatar-youDaily.jpg">
+  <p class="site-author-name" itemprop="name">You的日常</p>
+  <div class="site-description" itemprop="description">Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/youdaily" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;youdaily" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCJoHHCT90Di7_gRZ88sFaGw" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCJoHHCT90Di7_gRZ88sFaGw" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">You的日常</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '3ded7c8301b626225867',
+      clientSecret: '766c6428decc1ccf8dd1381ab21492978884105b',
+      repo: 'youdaily.github.io',
+      owner: 'YouDaily',
+      admin: ['You的日常'],
+      id: 'c3abd8e79af30dc2d4906ac563ecf26a',
+        language: 'zh-CN',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+    </div>
+</body>
+</html>

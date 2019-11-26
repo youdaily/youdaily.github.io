@@ -206,7 +206,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/16/2017-08-16-Life-Exercise-Kinetic-Chain/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/08/2019-10-08-Programing-Python-Advanded-Numpy-intro/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -220,7 +220,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2017/08/16/2017-08-16-Life-Exercise-Kinetic-Chain/" class="post-title-link" itemprop="url">「体能训练理论」之动力链</a>
+            <a href="/2018/10/08/2019-10-08-Programing-Python-Advanded-Numpy-intro/" class="post-title-link" itemprop="url">Python-高级-Numpy简介</a>
         </h1>
 
         <div class="post-meta">
@@ -230,7 +230,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-08-16 14:50:51" itemprop="dateCreated datePublished" datetime="2017-08-16T14:50:51+08:00">2017-08-16</time>
+              <time title="创建时间：2018-10-08 11:21:59" itemprop="dateCreated datePublished" datetime="2018-10-08T11:21:59+08:00">2018-10-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -238,14 +238,20 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
-                    <span itemprop="name">日常生活</span>
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
                   </a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E9%94%BB%E7%82%BC/" itemprop="url" rel="index">
-                    <span itemprop="name">锻炼</span>
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">高级技术</span>
                   </a>
                 </span>
             </span>
@@ -261,18 +267,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>与其说体能训练是一种行为，不如说体能训练是一种程序。只要符合逻辑，就可以自由组合。</p>
-<h2 id="动力链"><a href="#动力链" class="headerlink" title="动力链"></a>动力链</h2><p>如果说 <strong>五大运动素质</strong>（力量、速度、耐力、灵敏、柔韧）代表了体能的宏观表现，那么动力链理论则阐释了人体解剖结构在运动中的客观规律，这二者同为人体的本质属性。</p>
-<p>动力链这一理论早在1875年就被提出过，当时的定义还很简单，就是指几个相邻的关节所组成的复杂动作单元。后来在不断地实践与研究中，动力链理论也不断的升级，越来越清晰，越来越客观，也越来越复杂，并且逐渐成为了体能训练师们必备的思考工具之一。</p>
-<p>来看看动力链的英文解释:</p>
+          <hr>
+<h2 id="Numpy-是什么？"><a href="#Numpy-是什么？" class="headerlink" title="Numpy 是什么？"></a><code>Numpy</code> 是什么？</h2><p><code>Numpy</code> 是 Python 中科学计算的核心库。它提供了一个高性能的多维数组对象，以及用于处理这些数组的工具。</p>
 <blockquote>
-<p>The concept of the kinetic chain originated in 1875, when a mechanical engineer named Franz Reuleaux proposed that if a series of overlapping segments were connected via pin joints, these interlocking joints would create a system that would allow the movement of one joint to affect the movement of another joint within the kinetic link. Dr. Arthur Steindler adapted this theory in 1955, and included an analysis of human movement. Steindler suggested that the extremities be viewed as a series of rigid, overlapping segments and defined the kinetic chain as a “combination of several successively arranged joints constituting a complex motor unit.” The movements that occur within these segments present as two primary types—open and closed.</p>
+<p>如果您已经熟悉 <code>MATLAB</code> ，那么您可能会发现本教程对 <code>Numpy</code> 入门非常有用。</p>
 </blockquote>
-<p>这种模糊形容根本无法让人们理解它真正的内核，虽然它看起来就像是一堆联动的齿轮和杠杆。实际上它也真的很像一堆齿轮和杠杆，有的负责驱动，有的负责传力，有的负责稳定。</p>
-<p>为了方便大家理解，下面我要将这个理论拆解开来跟大家分享。<br></p>
+<p>它主要包含下面内容：</p>
+<ul>
+<li>一个强大的N维数组对象</li>
+<li>复杂的（广播）功能</li>
+<li>用于集成<code>C / C ++</code> 和 <code>Fortran</code> 代码的工具</li>
+<li>提供了丰富的的线性代数，傅里叶变换和随机数等功能</li>
+</ul>
+<p>除了科学计算用途外，<code>NumPy</code> 还可以用作通用数据的高效多维容器。可以定义任意数据类型。这使 <code>NumPy</code> 能够无缝快速地与各种数据库集成。特别在人工智能领域， <code>Numpy</code> 已经是不可或缺的基础库了。</p>
+<h2 id="Numpy-安装"><a href="#Numpy-安装" class="headerlink" title="Numpy 安装"></a>Numpy 安装</h2><p>安装 Numpy 最快的方式是通过 pip 安装，通过下面的命令进行安装</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install numpy</span><br></pre></td></tr></table></figure>
+<p>然后按下回车键，系统将会自动安装 Numpy 及 Numpy 引用的包。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1940331-8e598c43a1848784.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Numpy 安装"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/08/16/2017-08-16-Life-Exercise-Kinetic-Chain/#more" rel="contents">
+              <a class="btn" href="/2018/10/08/2019-10-08-Programing-Python-Advanded-Numpy-intro/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -296,7 +310,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/15/2017-08-15-Life-Exercise-Functional/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/2018-07-07_Programing-Python-Advanced-jsonify-in-Flask/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -310,7 +324,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2017/08/15/2017-08-15-Life-Exercise-Functional/" class="post-title-link" itemprop="url">「体能训练理论」之功能性</a>
+            <a href="/2018/07/07/2018-07-07_Programing-Python-Advanced-jsonify-in-Flask/" class="post-title-link" itemprop="url">Python-高级-聊一聊 Flask 的 jsonify</a>
         </h1>
 
         <div class="post-meta">
@@ -320,7 +334,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-08-15 14:45:13" itemprop="dateCreated datePublished" datetime="2017-08-15T14:45:13+08:00">2017-08-15</time>
+              <time title="创建时间：2018-07-07 13:52:49" itemprop="dateCreated datePublished" datetime="2018-07-07T13:52:49+08:00">2018-07-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -328,14 +342,20 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
-                    <span itemprop="name">日常生活</span>
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
                   </a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E9%94%BB%E7%82%BC/" itemprop="url" rel="index">
-                    <span itemprop="name">锻炼</span>
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">高级技术</span>
                   </a>
                 </span>
             </span>
@@ -351,14 +371,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>体能训练是一种开源的程序它所依仗的并不是固有的方法手段，而是能够贯穿始终的逻辑，它是一种指导实践的思维方式，我们管它叫“体能思路”。</p>
-<p>体能思路有两个方向，一个是原点，一个是过程。所谓原点我们认为是人体的本质属性，比如之前我们分享的五大运动素质以及动力链理论。所谓过程是我们分析问题实现目的的思考方向以及逻辑，它主要体现在接下来要跟大家分享的功能性原则和金字塔。</p>
-<p>今天先来说功能性原则。</p>
-<h2 id="功能性"><a href="#功能性" class="headerlink" title="功能性"></a>功能性</h2><p>我们所说的功能性是一种解决问题的思维方式，而功能性训练则定义了一种多关节参与，多平面运动的复杂练习。功能性训练是具体的，比较好理解，我就不赘述了，也不评价其优劣，因为在“功能性”的思维方式下，只存在目标之下的合适与否。</p>
-<h3 id="什么是功能性？"><a href="#什么是功能性？" class="headerlink" title="什么是功能性？"></a>什么是功能性？</h3><p>我们把它定义为目标导向下的效率，所以它是一种程度的体现。如果一个练习与目标的相关性强，那么我们认为它具备较强的功能意义；而如果一个练习与它的目标背道而驰，那么我们就认为它缺乏功能意义。</p>
+          <p>首先我们来看一段 Python 代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, jsonify</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">tasks = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 python_mastery 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/python_mastery'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 pythonml 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/pythonml'</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/api/v1.0/tasks', methods=['GET'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_tasks</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'tasks'</span>: tasks&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<p>在这段代码里面，我们看到了今天的主角 <code>jsonify</code>。</p>
+<p>Flask 框架里，可以用 <code>jsonify</code> 返回 json 数据，但是为什么不用 <code>Python</code> 自带的 <code>json</code> 模块返回 JSON 数据呢？</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/08/15/2017-08-15-Life-Exercise-Functional/#more" rel="contents">
+              <a class="btn" href="/2018/07/07/2018-07-07_Programing-Python-Advanced-jsonify-in-Flask/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -382,7 +401,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/07/2017-08-07-Programing-JavaScript-ArrayBuffers-SharedArrayBuffers/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/29/2018-04-29-Programing-Java-Spring-Boot-App-speeded-up/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -396,7 +415,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2017/08/07/2017-08-07-Programing-JavaScript-ArrayBuffers-SharedArrayBuffers/" class="post-title-link" itemprop="url">通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</a>
+            <a href="/2018/04/29/2018-04-29-Programing-Java-Spring-Boot-App-speeded-up/" class="post-title-link" itemprop="url">Spring Boot Web 应用加速</a>
         </h1>
 
         <div class="post-meta">
@@ -406,7 +425,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-08-07 15:58:31" itemprop="dateCreated datePublished" datetime="2017-08-07T15:58:31+08:00">2017-08-07</time>
+              <time title="创建时间：2018-04-29 15:22:40" itemprop="dateCreated datePublished" datetime="2018-04-29T15:22:40+08:00">2018-04-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -420,8 +439,14 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/Spring-Boot/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring Boot</span>
                   </a>
                 </span>
             </span>
@@ -437,49 +462,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="通过漫画形式来解释-ArrayBuffers-和-SharedArrayBuffers"><a href="#通过漫画形式来解释-ArrayBuffers-和-SharedArrayBuffers" class="headerlink" title="通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers"></a>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</h1><p>这是本系列三篇文章中的第二篇：</p>
-<ol>
-<li><em>内存管理速成手册</em></li>
-<li><em>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</em></li>
-<li><em>使用 Atomics 来在 SharedArrayBuffers 中避免竞用条件</em></li>
-</ol>
-<p>在上一篇中，我解释了一些自动内存管理的语言比如 JavaScript 怎么管理内存。同时我也解释了例如 C 语言，如何进行手动内存管理。</p>
-<p>那么这和我们将要讨论的 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer" target="_blank" rel="noopener">ArrayBuffers</a> 和 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer" target="_blank" rel="noopener">SharedArrayBuffers</a> 有什么关系呢？这是因为 ArrayBuffer 也使得你能够手动处理数据，尽管这是在 JavaScript 中，一种具有自动内存管理的语言。</p>
-<p>那么，你为什么想要进行手动处理呢？正如上一篇文章所描述，在使用自动内存管理上有一个权衡。自动内存管理使得开发者开发程序变得相对容易，但是它也带来了一些困扰。在某些场景中，自动内存管理可能会带来性能上的问题。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_01.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_01-500x285.png" alt="A balancing scale showing that automatic memory management is easier to understand, but harder to make fast"></a></p>
-<p>例如，当你使用 JS 创建一个变量的时候，JS 引擎不得不猜测这个 JS 变量所包含数据的类型以及怎样在内存中进行存储。因为这些猜测，JS 引擎通常会为这些变量实际需要的内存分配更大的内存空间。根据不同的变量，分配的内存空间可能是实际所需的 2-8 倍，这将导致极大的内存浪费。除此之外，特性模式的创建和使用 JS 对象也将会使得其很难被 JS 引擎垃圾回收。</p>
-<p>如果你正在进行手动的内存管理，你可以根据自己工作上的使用场景自己选择内存分配和解除分配的策略。当时在很多时候，却并不值得这样做。因为在很多使用场景下我们的程序并没有那么性能敏感以至于需要采用手动得内存管理。甚至在通常的使用中，手动内存管理甚至会使得程序更慢。但是在有些时候，你需要从一些更底层的操作来时的你的代码运行的更快，那么 ArrayBuffers 和 SharedArrayBuffers 将是很好的选择。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_02.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_02-500x285.png" alt="A balancing scale showing that manual memory management gives you more control for performance fine-tuning, but requires more thought and planning"></a></p>
-<p>那么 ArrayBuffer 是怎么工作的呢？基本上和其他的 JavaScript 数组没有什么区别。除了，当你使用 ArrayBuffer 的时候，你不可以将任意的 JavaScript 数据类型到 ArrayBuffer 中，例如 objects 或者 strings。唯一能够放入 ArrayBuffer 中的只有字节（可以通过数字来表示）。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_03.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_03-500x377.png" alt="Two arrays, a normal array which can contain numbers, objects, strings, etc, and an ArrayBuffer, which can only contain bytes"></a></p>
-<p>另外一件我必须明确说明的是，你并不能够直接的将字节放入 ArrayBuffer。这是因为，ArrayBuffer 并不知道一个字节有多大，也不知道不同的数字转化成字节的区别。ArrayBuffer 仅仅是一个「0」和「1」组成一行的二进制串。ArrayBuffer 也不知道分隔符应该放在该二进制串的什么位置。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_04.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_04-500x61.png" alt="A bunch of ones and zeros in a line"></a></p>
-<p>为了给 ArrayBuffer 提供上下文，将上面的二进制串分割在相同尺寸的盒子里，我们需要一个称作「视窗」概念将二进制串分割到不同的盒子里。这些二进制数据上的视窗可以以带类型的数组存储，同时在 ArrayBuffer 中有不同带类型数组。比如，你可以通过 8 位整数的类型数组将上面的 ArrayBuffer 8 位一字节分割开来。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_05.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_05-500x177.png" alt="Those ones and zeros broken up into boxes of 8"></a></p>
-<p>或者你可以使用无符号 16 位整数的数组，这样就将上面的 ArrayBuffer 分割成了 16 位一字节的不同块中，然后依然想无符号整数一样对其操作。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_06.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_06-500x153.png" alt="Those ones and zeros broken up into boxes of 16"></a></p>
-<p>你甚至可以在同一个基础 buffer 上面拥有不同的「视窗」。不同的「视窗」在相同的操作下会带来不同的结果。比如，在 Int8 视窗中，你可能会得到 <code>0 &amp; 1</code> 表达式，而在同样的 buffer 下，在 Uint16 视窗下你可能会得到其他结果，尽管他们都拥有相同的二进制位串。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_07.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_07-500x262.png" alt="Those ones and zeros broken up into boxes of 16"></a></p>
-<p>在上面描述得工作方式下，ArrayBuffer 的角色仅仅是向一块原始的内存。它模拟了像在 C 语言中直接获取\操作 内存的工作。你可能会产生疑问，为什么 JS 不直接提供给使用者直接获取/操作内存的接口而是添加 ArrayBuffer 这一抽象层呢？这是因为直接获取/操作内存可能会导致一些安全漏洞。我将在将来的文章中讨论这一块内容。那么，SharedArrayBuffers 又是什么呢？</p>
-<p>为了解释 SharedArrayBuffers，我需要先简略解释 JavaScript 中并行运行代码。为了并行运行代码，你需要将工作拆分成不同部分。但是在一个典型的 app 中，所有的工作都是在一个独立的线程中完成。在之前的文章中我也提及过这一点…这个主线程就像一个全栈工程师一样。它掌管着 JavaScript、DOM、以及视图布局。所有你能够操作的工作都是在这个主线程帮助下完成的。在某些特定环境下，ArrayBuffers 可以减轻主线程的负担，代替完成主线程的部分工作。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_08.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_08-500x350.png" alt="The main thread standing at its desk with a pile of paperwork. The top part of that pile has been removed"></a></p>
-<p>但是有时候减少主线程的工作依然是不够的。有时候你需要引进增援…你需要将工作分开。在很多编程语言中，将工作分成不同块每一块也就称作一个线程。这个多人共同完成一个项目是一个道理。</p>
-<p>如果你有一些任务，同时该任务和其他任务相对独立，那么你就可以在其他线程中完成这些任务。因此，不同的线程就可以在同一时间完成互相独立的分离任务。在 JavaScript 中，我们可以通过被称作<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers" target="_blank" rel="noopener">web worker</a>的工具来完成以上工作。这些 web workers 与您在其他语言中使用的线程略有不同。默认情况下，它们不共享内存。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_09.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_09-500x360.png" alt="Two threads at desks next to each other. Their piles of paperwork are half as tall as before. There is a chunk of memory below each, but not connected to the other&#39;s memory"></a></p>
-<p>这也就意味着，如果你想和其他线程共享数据，那么你就需要将数据从一个地方复制到另外一个地方。这是通过函数<a href="https://developer.mozilla.org/en-US/docs/Web/API/Worker/postMessage" target="_blank" rel="noopener">postMessage</a> 完成的。postMessage 将所有输入的对象序列化，将其发送到另一个 web worker，并将其反序列化并放入内存中。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_10.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_10-500x355.png" alt="Thread 1 shares memory with thread 2 by serializing it, sending it across, where it is copied into thread 2&#39;s memory"></a></p>
-<p>这事一个相当慢的过程，比如一些类型的数据，像 ArrayBuffers，你可以转移内存。这意味着你可以将某一特定的内存块移动到其他地方，这样其他的 web worker 就可以获取/操作 该内存块。但是之前的 web worker 将不能够再获取到该内存块了。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_11.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_11-500x360.png" alt="Thread 1 shares memory with thread 2 by transferring it. Thread 1 no longer has access to it"></a></p>
-<p>这也许在某些场景中适用，但是在更多的情况，你可能需要更高效得并行策略，在这些场景下，你可能真实的想要共享内存单元。ShareArrayBuffer 能够帮助你达到此目的。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_12.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_12-500x349.png" alt="The two threads get some shared memory which they can both access"></a></p>
-<p>通过 ShareArrayBuffer，web worker、不同线程可以在相同的内存块中读写数据。这也意味着你不爱需要通过 postMessage 来在不同的线程中通信传递数据。不同的 web worker 都有获取/操作数据的权限。但是这也会带来一些问题，比如两个线程在同一时间对数据进行操作。这也就是通常被称作「竞用条件」的现象。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_13.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_13-500x201.png" alt="Drawing of two threads racing towards memory"></a></p>
-<p>我将在<a href="https://hacks.mozilla.org/2017/06/avoiding-race-conditions-in-sharedarraybuffers-with-atomics/" target="_blank" rel="noopener">下一篇文章</a>中解释什么是竞用条件。那么 SharedArrayBuffers 现阶段处于什么地位呢？庆幸得，在不久的将来，所有主流浏览器都贱支持 SharedArrayBuffers。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_14.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_14-500x169.png" alt="Logos of the major browsers high-fiving"></a></p>
-<p>SharedArrayBuffers 在 Safari（Safari 10.1）中已经可以使用。Firefox 和 Chrome 也将在今年的七八月发布的版本中包含此项功能。Edge 浏览器计划在今年的秋天完成此项功能的更新。但是即使所有主流浏览器都已经支持 SharedArrayBuffers，我们也不希望应用程序开发人员直接使用它。</p>
-<p>实际上，我们发对这样做。你应该在其之上进行抽象，使用更高层的一些库。我们所期待的是框架或库的开发者们能够创建一些工具库，这些工具库能够帮助我们更方便、安全的使用 SharedArrayBuffer。除此之外，一旦 SharedArrayBuffers 在平台上实现，WebAssembly 可以使用它来实现多线程。到时候，你就能够向 Rust 语言一样使用并发的抽象层，它将无所畏惧得将并发作为其主要目标。在下一篇文章中，我们将解释工具（<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics" target="_blank" rel="noopener">Atomics</a> ）以及工具开发者是怎样来实现这一抽象层并如何避免竞用条件的。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_15.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_15-500x335.png" alt="Layer diagram showing SharedArrayBuffer + Atomics as the foundation, and JS libaries and WebAssembly threading building on top"></a></p>
-
+          <h1 id="Spring-Boot-Web-应用加速"><a href="#Spring-Boot-Web-应用加速" class="headerlink" title="Spring Boot Web 应用加速"></a>Spring Boot Web 应用加速</h1><p>默认情况下，Spring Boot Web 应用会装配一些功能组件 Bean。</p>
+<p>在大多数 Web 应用场景下，可以选择性地关闭一下自动装配的Spring 组件 Bean，以达到提升性能的目的。</p>
+<h2 id="配置项优化"><a href="#配置项优化" class="headerlink" title="配置项优化"></a>配置项优化</h2><h3 id="Spring-Boot-Web-应用加速-完整配置项"><a href="#Spring-Boot-Web-应用加速-完整配置项" class="headerlink" title="Spring Boot Web 应用加速 完整配置项"></a>Spring Boot Web 应用加速 完整配置项</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">management.add-application-context-header</span> = <span class="string">false</span></span><br><span class="line"><span class="meta">spring.mvc.formcontent.putfilter.enabled</span> = <span class="string">false</span></span><br><span class="line"></span><br><span class="line"><span class="meta">spring.autoconfigure.exclude</span> = <span class="string">org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration,\</span></span><br><span class="line">org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.JndiDataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.transaction.jta.JtaAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.WebSocketAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.WebSocketMessagingAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mail.MailSenderValidatorAutoConfiguration,\</span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceRepositoryAutoConfiguration,\</span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceWebFilterAutoConfiguration,\</span><br><span class="line"><span class="attr">org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置项汇总"><a href="#配置项汇总" class="headerlink" title="配置项汇总"></a>配置项汇总</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">spring.autoconfigure.exclude</span> = <span class="string">org.springframework.boot.actuate.autoconfigure.TraceRepositoryAutoConfiguration,\</span></span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceWebFilterAutoConfiguration,\</span><br><span class="line"><span class="attr">org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/04/29/2018-04-29-Programing-Java-Spring-Boot-App-speeded-up/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -498,7 +492,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/05/2017-08-05-Programing-JavaScript-Memory-Manager/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/2017-12-28-Programing-Java-Dubbo-Annotation-Driven/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -512,7 +506,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2017/08/05/2017-08-05-Programing-JavaScript-Memory-Manager/" class="post-title-link" itemprop="url">内存管理速成手册</a>
+            <a href="/2017/11/28/2017-12-28-Programing-Java-Dubbo-Annotation-Driven/" class="post-title-link" itemprop="url">Dubbo 注解驱动</a>
         </h1>
 
         <div class="post-meta">
@@ -522,7 +516,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-08-05 15:52:35" itemprop="dateCreated datePublished" datetime="2017-08-05T15:52:35+08:00">2017-08-05</time>
+              <time title="创建时间：2017-11-28 15:28:13" itemprop="dateCreated datePublished" datetime="2017-11-28T15:28:13+08:00">2017-11-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -536,8 +530,14 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/Dubbo/" itemprop="url" rel="index">
+                    <span itemprop="name">Dubbo</span>
                   </a>
                 </span>
             </span>
@@ -553,44 +553,289 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="内存管理速成手册"><a href="#内存管理速成手册" class="headerlink" title="内存管理速成手册"></a>内存管理速成手册</h2><blockquote>
-<p><a href="https://hacks.mozilla.org/2017/06/a-crash-course-in-memory-management/" target="_blank" rel="noopener">原文地址</a></p>
-<p>_这是本系列文章中的第一篇：</p>
+          <h1 id="Dubbo-注解驱动（Annotation-Driven）"><a href="#Dubbo-注解驱动（Annotation-Driven）" class="headerlink" title="Dubbo 注解驱动（Annotation-Driven）"></a>Dubbo 注解驱动（Annotation-Driven）</h1><h2 id="注解驱动（Annotation-Driven）"><a href="#注解驱动（Annotation-Driven）" class="headerlink" title="注解驱动（Annotation-Driven）"></a>注解驱动（Annotation-Driven）</h2><h3 id="DubboComponentScan"><a href="#DubboComponentScan" class="headerlink" title="@DubboComponentScan"></a><code>@DubboComponentScan</code></h3><h4 id="起始版本：-2-5-7"><a href="#起始版本：-2-5-7" class="headerlink" title="起始版本： 2.5.7"></a>起始版本： <code>2.5.7</code></h4><h4 id="lt-dubbo-annotation-gt-历史遗留问题"><a href="#lt-dubbo-annotation-gt-历史遗留问题" class="headerlink" title="&lt;dubbo:annotation&gt;历史遗留问题"></a><code>&lt;dubbo:annotation&gt;</code>历史遗留问题</h4><h5 id="1-注解支持不充分"><a href="#1-注解支持不充分" class="headerlink" title="1. 注解支持不充分"></a>1. 注解支持不充分</h5><p>在 Dubbo <code>2.5.7</code>之前的版本 ，Dubbo 提供了两个核心注解 <code>@Service</code> 以及 <code>@Reference</code>，分别用于 Dubbo 服务提供和 Dubbo 服务引用。</p>
+<p>其中，<code>@Service</code> 作为 XML 元素 <code>&lt;dubbo:service&gt;</code>的替代注解，与 Spring Framework <code>@org.springframework.stereotype.Service</code> 类似，用于服务提供方 Dubbo 服务暴露。与之相对应的<code>@Reference</code>，则是替代<code>&lt;dubbo:reference</code> 元素，类似于 Spring 中的 <code>@Autowired</code>。</p>
+<p><code>2.5.7</code> 之前的 Dubbo，与早期的 Spring Framework 2.5 存在类似的不足，即注解支持不够充分。注解需要和 XML 配置文件配合使用，如下所示：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:dubbo</span>=<span class="string">"http://code.alibabatech.com/schema/dubbo"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"annotation-provider"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">"127.0.0.1:4548"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:annotation</span> <span class="attr">package</span>=<span class="string">"com.alibaba.dubbo.config.spring.annotation.provider"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/11/28/2017-12-28-Programing-Java-Dubbo-Annotation-Driven/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/22/2017-11-22_Programing-Python-Basic-date-time-intro/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/11/22/2017-11-22_Programing-Python-Basic-date-time-intro/" class="post-title-link" itemprop="url">Python-基础-日期和时间</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-22 13:47:33" itemprop="dateCreated datePublished" datetime="2017-11-22T13:47:33+08:00">2017-11-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<p>Python程序可以通过多种方式来处理日期和时间。<br>日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。</p>
+<h2 id="什么是刻度？"><a href="#什么是刻度？" class="headerlink" title="什么是刻度？"></a>什么是刻度？</h2><p>时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。</p>
+<p>在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 <code>time.time()</code>返回当前系统时间，从1970年1月1日12点起来的秒数。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time;  <span class="comment"># This is required to include time module.</span></span><br><span class="line"></span><br><span class="line">ticks = time.time()</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Number of ticks since 12:00am, January 1, 1970:"</span>, ticks)</span><br></pre></td></tr></table></figure>
+<p>将产生一个结果，如下 -<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number of ticks since <span class="number">12</span>:<span class="number">00</span>am, January <span class="number">1</span>, <span class="number">1970</span>: <span class="number">1568018748.2947338</span></span><br></pre></td></tr></table></figure></p>
+<p>日期计算使用刻度线是很容易做到的。<br>然而，新纪元日期之前不能以这种形式表示。在未来的一个日期也不能表示这种方式, 分界点是在某个时候，在 UNIX和Windows上为 2038年。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/11/22/2017-11-22_Programing-Python-Basic-date-time-intro/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/19/2017-11-19_Programing-Python-Basic-Common-Terms-table/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/11/19/2017-11-19_Programing-Python-Basic-Common-Terms-table/" class="post-title-link" itemprop="url">Python-基础-常用术语对照表</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-19 10:27:05" itemprop="dateCreated datePublished" datetime="2017-11-19T10:27:05+08:00">2017-11-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<p>下面内容主要摘抄自<code>python</code> 官网，<a href="https://docs.python.org/3.7/glossary.html#glossary" target="_blank" rel="noopener">https://docs.python.org/3.7/glossary.html#glossary</a>，部分内容有删减。</p>
+<h3 id="2to3"><a href="#2to3" class="headerlink" title="2to3"></a>2to3</h3><p>一个将 <code>Python</code> 2.x 代码转换为 <code>Python</code> 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。</p>
+<p>2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools/scripts/2to3。参见 2to3 - 自动将 <code>Python</code> 2 代码转为 <code>Python</code> 3 代码。</p>
+<p>因为官方将在2020年不再支持 <code>Python</code> 2.x, 在遇到没有<code>Python</code> 2.X 版本 的code 的时候，可以尝试使用这个工具将代码转化成Python 的版本。</p>
+<h3 id="abstract-base-class-—-抽象基类"><a href="#abstract-base-class-—-抽象基类" class="headerlink" title="abstract base class — 抽象基类"></a>abstract base class — 抽象基类</h3><p>抽象基类简称 ABC，是对 duck-typing 的补充，它提供了一种定义接口的新方式，相比之下其他技巧例如 hasattr() 显得过于笨拙或有微妙错误（例如使用 魔术方法）。ABC 引入了虚拟子类，这种类并非继承自其他类，但却仍能被 isinstance() 和 issubclass() 所认可；详见 abc 模块文档。<code>Python</code> 自带许多内置的 ABC 用于实现数据结构（在 collections.abc 模块中）、数字（在 numbers 模块中）、流（在 io 模块中）、导入查找器和加载器（在 importlib.abc 模块中）。你可以使用 abc 模块来创建自己的 ABC。</p>
+<h3 id="argument-—-参数"><a href="#argument-—-参数" class="headerlink" title="argument — 参数"></a>argument — 参数</h3><p>在调用函数时传给 function （或 method ）的值。参数分为两种：</p>
+<ul>
+<li>关键字参数: 在函数调用中前面带有标识符（例如 name=）或者作为包含在前面带有 ** 的字典里的值传入。<br>  举例来说，3 和 5 在以下对 complex() 的调用中均属于关键字参数:  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">complex(real=<span class="number">3</span>, imag=<span class="number">5</span>)</span><br><span class="line">complex(**&#123;<span class="string">'real'</span>: <span class="number">3</span>, <span class="string">'imag'</span>: <span class="number">5</span>&#125;)</span><br></pre></td></tr></table></figure></li>
+<li>位置参数: 不属于关键字参数的参数。位置参数可出现于参数列表的开头以及/或者作为前面带有 * 的 iterable 里的元素被传入。<br>  举例来说，3 和 5 在以下调用中均属于位置参数:  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">complex(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">complex(*(<span class="number">3</span>, <span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+参数会被赋值给函数体中对应的局部变量。有关赋值规则参见 调用 一节。根据语法，任何表达式都可用来表示一个参数；最终算出的值会被赋给对应的局部变量。</li>
+</ul>
+<p>另参见 parameter 术语表条目，常见问题中 参数与形参的区别 以及 PEP 362。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/11/19/2017-11-19_Programing-Python-Basic-Common-Terms-table/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/16/2017-11-16-Programing-becomer-a-coder-from-others/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/11/16/2017-11-16-Programing-becomer-a-coder-from-others/" class="post-title-link" itemprop="url">非科班出身，如何成为程序员？</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-16 16:09:52" itemprop="dateCreated datePublished" datetime="2017-11-16T16:09:52+08:00">2017-11-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/" itemprop="url" rel="index">
+                    <span itemprop="name">程序人生</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="非科班出身，如何成为程序员"><a href="#非科班出身，如何成为程序员" class="headerlink" title="非科班出身，如何成为程序员"></a>非科班出身，如何成为程序员</h2><blockquote>
+<p>本文是知乎的一篇回答</p>
 </blockquote>
-<ol>
-<li><em>内存管理速成手册</em></li>
-<li><em>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</em></li>
-<li><em>使用 Atomics 来在 SharedArrayBuffers 中避免竞用条件</em></li>
-</ol>
-<p>在弄懂 <code>ArrayBuffer</code> 和 <code>SharedArrayBuffer</code> 为什么添加到 JavaScript 之前，你首先需要了解一些关于内存管理的知识。你可以把机器中的内存比喻成一组箱子，就像我把内存想象成办公室内部的信箱一样，或者是为学龄前儿童准备的用于存储杂物的小房间，如果你想给某位孩子准备一些礼物，你可以将物品放到某个箱子里。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_01.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_01-500x353.png" alt="A column of boxes with a child putting something in one of the boxes"></a></p>
-<p>在每个箱子旁边都有一个与之对应的数字，这就是内存地址。正是因为有了地址，你才能够告诉别人你为其准备动物品存放的位置。每个箱子具有相同的尺寸，也因此每个内存箱子也具有相同的容量来存储信息。箱子的尺寸是根据不同的机器而定的。箱子的尺寸被称作「字长」。它通常被标识为「32 位」或者「64 位」。但是为了简单的展示，在本文中我们使用「8 位」的字长。（译者注：一个字长包含 8 个二进制位，也就是说一个内存单元的容量是 8 位）</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_02.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_02-500x121.png" alt="A box with 8 smaller boxes in it"></a></p>
-<p>如果你打算将数字 2 放进其中一个内存箱子里，这将非常容易做到，因为数字可以很容易通过二进制来表示。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_03.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_03-500x229.png" alt="The number two, converted to binary 00000010 and put inside the boxes"></a></p>
-<p>倘若我们想放入内存箱子中的不是数字，而比如是字母「H」，怎么办呢？我们需要通过某种方法将其转化成可以使用数字来表示。为了完成此项工作，我们需要编码。类似于 <a href="https://en.wikipedia.org/wiki/UTF-8" target="_blank" rel="noopener">UTF-8</a> 。同时我们需要某种工具来按照 UTF-8 中的对应关系将字符转化成数字…比如说一个编码环。有了编码和编码环后，我们就可以将任意字符存入到内存箱子中了。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_04.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_04-500x277.png" alt="The letter H, put through an encoder ring to get 72, which is then converted to binary and put in the boxes"></a></p>
-<p>当我们打算将我们存入内存箱子中的信息取出时，我们需要将其放入一个解码器中，通过解码器将存放的数字转换成字母「H」。当你使用 JavaScript 工作时，你无须关心内存是怎样分配和使用的，因为在 JavaScript 中内存是自动管理的，内存管理和你的代码完全隔离。这意味着你不能够直接操作内存。JS 引擎将作为中介的角色，帮我们管理内存。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_05.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_05-500x371.png" alt="A column of boxes with a rope in front of it and the JS engine standing at that rope like a bouncer"></a></p>
-<p>让我们一些 JS 代码，比如在 React 中，我们需要创建一个变量并对其赋值。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_06.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_06-500x373.png" alt="Same as above, with React asking the JS engine to create a variable"></a></p>
-<p>JS 引擎的工作就是通过编码器将变量名转换成二进制表示。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_07.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_07-500x370.png" alt="The JS engine using an encoder ring to convert the string to binary"></a></p>
-<p>然后在内存中找到闲余的空间用来存放上面转换后的二进制表示。这一过程被称作分配内存。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_08.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_08-500x367.png" alt="The JS engine finding space for the binary in the column of boxes"></a></p>
-<p>接下来，JS 引擎会跟踪该变量并判断在程序中该变量是否还能够获取到。如果该变量不能够再被获取到，那么该内存箱子将会被回收再利用，以便 JS 引擎能够分配新的值到该内存中。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_09.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_09-500x379.png" alt="The garbage collector clearing out the memory"></a></p>
-<p>JS 引擎监听变量所代表的字符串、对象、以及内存中的其他数据类型的数据，当这些值不能再被获取到的时候，JS 引擎将会把它们清除出内存，这一过程被称作「垃圾回收」。比如 JavaScript 语言，代码不能够直接操纵内存，被称作自动内存管理语言。这一自动内存管理机制会使得开发变得相对简单。但是自动内存管理也会带来一些头疼的地方。比如自动内存管理可能会带来性能不可预测。而手动进行内存管理的语言就不会有这些问题。比如，通过 C 语言内存管理的方式来写 React 代码（当然，通过<a href="https://hacks.mozilla.org/2017/02/a-cartoon-intro-to-webassembly/" target="_blank" rel="noopener">WebAssembly</a> 已经使得其<a href="https://www.youtube.com/watch?v=3GHJ4cbxsVQ" target="_blank" rel="noopener">成为现实</a>）。C 语言没有 JavaScript 自动内存管理的这一层功能抽象。所以，你可以直接操作内存，你可以从内存中对去数据，你也可以操作内存将数据存入内存中。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_10.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_10-500x360.png" alt="A WebAssembly version of React working with memory directly"></a></p>
-<p>当你讲其它语言比如 C 语言传递给 WebAssembly，你使用的工具将会添加一些代码到 WebAssembly 中，比如，将添加对字节进行编码和解码的代码。这些代码被称作运行时环境。运行时环境也将像 JS 引擎在 JavaScript 语言中的作用一样，处理一些与之相同的工作。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_11.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_11-500x361.png" alt="An encoder ring being shipped down as part of the .wasm file"></a></p>
-<p>但是对于手动内存管理的语言来说，运行时环境并不包含垃圾回收。这就意味着你必须手动来进行垃圾回收，即使是手动内存管理的语言，你通常也可以从该语言运行时环境中获取一些帮助。比如，在 C 语言中，C 语言运行时将会跟踪那些未被使用的内存，并将内存地址存储在一个链表中，该列表被称作「free list」。</p>
-<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_12.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_12-500x360.png" alt="A free list next to the column of boxes, listing which boxes are free right now"></a></p>
-<p>你可以使用 <code>malloc</code> 函数（memory allocate 简写）来请求运行时环境来寻找能够存放你数据的内存地址。这会使得这些内存地址从「free list」中移除。当你使用数据完成工作后，你必须通过<code>free</code>函数来讲该内存释放。</p>
-<p>这样该内存地址将会被重新添加至「free list」中。你必须知道什么时候该调用这些函数。这也是为什么称为手动内存管理的原因所在 -- 你完全自己管理程序中的内存。作为开发者，断定什么时候该清除内存是一件相当困难的事。</p>
-<p>如果在错误的时间点清除内存，将导致程序 bug，甚至一些安全漏洞。如果不对不在使用的内存进行处理，又将导致内存用尽。这也就是为什么现代语言都是用自动内存管理的原因 -- 避免人为错误。但是这也将会产生一些性能上的问题。</p>
-<p>将在<a href="https://hacks.mozilla.org/2017/06/a-cartoon-intro-to-arraybuffers-and-sharedarraybuffers/" target="_blank" rel="noopener">下一篇</a>对此进行说明。</p>
-
+<p>身边有很多非科班出身的程序员，比如 sofish、粽神。当然我也是，所以决定结合自身经历强答一波。</p>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><p>我本科学习的是「生物科学」，大学四年无非就是拿着 eppendorf 的实验枪，在超净台旁养着各种知名或不知名的微生物，有广为人知的「海拉细胞」有很多人没有听过的「毕赤酵母」，每逢寒暑假可能还会去山里或者某个海滨城市实习，在鸟巢旁边装一个微型摄像头，记录下喂食雏鸟的频率，去海边抓一些招潮蟹或者海月水母，也算乐在其中。我很享受大学这段时光，因为毕竟是我儿时的梦想，成为一个生物学家。</p>
+<p>毕业后，进入了北京水产科学研究所，主要工作是「养鱼」，每天固定时间给「小西伯利亚鲟」喂点吃的，给鱼缸换水。很不幸…，在一次换水的过程中水龙头我忘关了，结果水沿着鱼缸溢了出来，小鲟鱼也在想「外面的世界那么大，我想去看看」，都顺着鱼缸溢出的水推力，游到了鱼缸外面，等我发现时，这些小生命都散落在鱼缸周围，也不跳了。主任没有批评我把一缸鱼都养死了，但是也再让我去喂鱼了，给了我一份新的差事，通过毕赤酵母来表达出促性腺激素，促进鲟鱼快速性成熟。实验做了大概一年，有一些成果，毕竟在一年中成功过一次。后来觉得愧对这份工作，就跟主任请辞了，主任就介绍了上海的一份工作给我，去欧莱雅研发中心做实验。现在想想主任真是难得的人生导师。</p>
+<p>在欧莱雅工作了三年，每天也是重复相同的工作，工作内容只是从以前的养各种微生物变成了养「人造皮肤」，然后再把化妆品涂在人造皮肤上，看看化妆品对皮肤的效果，其实和大学拿老鼠、兔子做实验没什么区别，只是欧洲那边不让在活体上做化妆品实验。在欧莱雅的三年，慢慢消磨了我对「生物科学」的热情，重复的工作让我麻痹了我的思想。我决定做一些改变，那是2014年，我已经27了。</p>
+<h3 id="学习编程的动机"><a href="#学习编程的动机" class="headerlink" title="学习编程的动机"></a>学习编程的动机</h3><p>还得从 13 年年底说起，在欧莱雅工作期间，命运多舛，出了一次车祸，右胫腓骨粉碎骨折，当时还是女朋友的老婆放弃了东京的工作回国来照顾我，在床上躺了三四个月，老婆回上海后也找了一份广告公司的工作，做 SEM。到了14年，腿伤基本恢复，我重新回到欧莱雅工作，经历了人生变故（车祸），住院期间把这一生中的生离死别都看完了，开始思考起人生，更加热爱生命。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/11/16/2017-11-16-Programing-becomer-a-coder-from-others/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -609,7 +854,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/24/2017-03-24-Programing-Git-Git-change-history/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/15/2017-11-15_Programing-Python-Basic-flow-control/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -623,7 +868,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2017/03/24/2017-03-24-Programing-Git-Git-change-history/" class="post-title-link" itemprop="url">Git 修改历史记录</a>
+            <a href="/2017/11/15/2017-11-15_Programing-Python-Basic-flow-control/" class="post-title-link" itemprop="url">Python-基础-时间控制</a>
         </h1>
 
         <div class="post-meta">
@@ -633,7 +878,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-03-24 15:43:11" itemprop="dateCreated datePublished" datetime="2017-03-24T15:43:11+08:00">2017-03-24</time>
+              <time title="创建时间：2017-11-15 13:50:33" itemprop="dateCreated datePublished" datetime="2017-11-15T13:50:33+08:00">2017-11-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -647,8 +892,8 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
             </span>
@@ -664,307 +909,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="聊聊-Git-「改变历史」"><a href="#聊聊-Git-「改变历史」" class="headerlink" title="聊聊 Git 「改变历史」"></a>聊聊 Git 「改变历史」</h2><p>在本篇文章中，聊聊 Git 怎么改变历史记录。</p>
-<h2 id="重写最后一次提交"><a href="#重写最后一次提交" class="headerlink" title="重写最后一次提交"></a>重写最后一次提交</h2><p>在我们开发的过程中，我们经常会遇到这样的问题，当我们进行了一次「冲动」的 Git 提交后。发现我们的 commit 信息有误，或者我们把不应该这次提交的文件添加到了此次提交中，或者有的文件忘记提交了，怎么办？这些问题都可以通过如下命令来进行弥补。</p>
+          <hr>
+<p>这次主要介绍python 的基础流程控制。<br>包括 if 条件语句、for 循环 和 while 循环语句； continue 及 break 的用法等。<br>基本用法与 C 和 Java 差不多，无 switch 语句。</p>
+<hr>
+<h2 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h2><p>语法：<code>if(...):</code>, 括号内为一表达式，当为<code>True</code>（即成立）时，执行对应的代码段。</p>
 <blockquote>
-<p>git commit —amend</p>
+<p>注意:所有条件语句后方都需加冒号 <code>:</code></p>
 </blockquote>
-<p>举个例子，在一个刚初始化的 Git 仓库中，有如下两个文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">total 0</span><br><span class="line">-rw-r--r--  1 ransixi  staff     0B  9 19 16:35 should-commit.js</span><br><span class="line">-rw-r--r--  1 ransixi  staff     0B  9 19 16:35 should-not-commit.js</span><br></pre></td></tr></table></figure>
-<p>其中 should-commit.js 文件应该被提交，而 should-not-commit.js 不应该被提交，但是由于「冲动」，我把 should-not-commit.js 文件提交了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 其实应该添加 should-commit.js 文件</span></span><br><span class="line">git add should-not-commit.js</span><br><span class="line"><span class="meta">#</span><span class="bash"> 啊哈，由于笔误，我把 commit 写成了 commmit</span></span><br><span class="line">git commit -m 'commmit 1'</span><br></pre></td></tr></table></figure>
-<p>通过 git log 命令打印下当前的历史提交记录：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">commit fba6199e7fd5f325cc0bfcec4c599c93603d48f8 (HEAD -&gt; master)</span><br><span class="line">Author: ran.luo03 &lt;ran.luo03@ele.me&gt;</span><br><span class="line">Date:   Tue Sep 19 16:49:57 2017 +0800</span><br><span class="line"></span><br><span class="line">    commmit 1</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/03/24/2017-03-24-Programing-Git-Git-change-history/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/19/2017-02-19-Programing-React-setup-react-environment/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/02/19/2017-02-19-Programing-React-setup-react-environment/" class="post-title-link" itemprop="url">React 学习 - 开发环境搭建</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-02-19 14:27:12" itemprop="dateCreated datePublished" datetime="2017-02-19T14:27:12+08:00">2017-02-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/React/" itemprop="url" rel="index">
-                    <span itemprop="name">React</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-安装-Yarn"><a href="#1-安装-Yarn" class="headerlink" title="1. 安装 Yarn"></a>1. 安装 Yarn</h2><p>包管理可以用 npm 或者 yarn，好多人推荐 yarn，我这里就用这个了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br><span class="line">brew install yarn</span><br></pre></td></tr></table></figure>
-<h2 id="2-初始化项目文件夹"><a href="#2-初始化项目文件夹" class="headerlink" title="2. 初始化项目文件夹"></a>2. 初始化项目文件夹</h2><p>首先要做的是创建一个工程目录，然后在目录中执行 yarn 初始化即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn init</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/02/19/2017-02-19-Programing-React-setup-react-environment/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/15/2017-01-15-Programing-Git-Git-revert-and-reset/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/01/15/2017-01-15-Programing-Git-Git-revert-and-reset/" class="post-title-link" itemprop="url">Git 代码回滚回的正确姿势</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-01-15 14:38:08" itemprop="dateCreated datePublished" datetime="2017-01-15T14:38:08+08:00">2017-01-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="git-revert-和-git-reset-的区别"><a href="#git-revert-和-git-reset-的区别" class="headerlink" title="git revert 和 git reset 的区别"></a><strong>git revert</strong> 和 <strong>git reset</strong> 的区别</h1><p> 先看图：</p>
-<p><img src="https://ww3.sinaimg.cn/large/006tNbRwgy1fcr9tu6vdjj30t30ez0y8.jpg" alt></p>
-<p><strong>sourceTree</strong> 中 <strong>revert</strong> 译为<strong><code>提交回滚</code></strong>，作用为忽略你指定的版本，然后提交一个新的版本。新的版本中已近删除了你所指定的版本。</p>
-<p><strong>reset</strong> 为 <strong>重置到这次提交</strong>，将内容重置到指定的版本。<code>git reset</code> 命令后面是需要加2种参数的：<code>–-hard</code> 和 <code>–-soft</code>。这条命令默认情况下是 <code>-–soft</code>。</p>
-<p>执行上述命令时，这该条commit号之 后（时间作为参考点）的所有commit的修改都会退回到git缓冲区中。使用<code>git status</code> 命令可以在缓冲区中看到这些修改。而如果加上<code>-–hard</code>参数，则缓冲区中不会存储这些修改，git会直接丢弃这部分内容。可以使用 <code>git push origin HEAD --force</code> 强制将分区内容推送到远程服务器。</p>
-<h2 id="代码回退"><a href="#代码回退" class="headerlink" title="代码回退"></a>代码回退</h2><p>默认参数 <code>-soft</code>,所有commit的修改都会退回到git缓冲区<br>参数<code>--hard</code>，所有commit的修改直接丢弃</p>
-<pre><code>$ git reset --hard HEAD^         回退到上个版本
-$ git reset --hard commit_id    退到/进到 指定commit_id
-</code></pre><p>推送到远程    </p>
-<pre><code>$ git push origin HEAD --force
-</code></pre>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/01/15/2017-01-15-Programing-Git-Git-revert-and-reset/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/03/2017-01-03_Programing-Git-Git-command/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/01/03/2017-01-03_Programing-Git-Git-command/" class="post-title-link" itemprop="url">Git 基础命令使用</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-01-03 17:29:05" itemprop="dateCreated datePublished" datetime="2017-01-03T17:29:05+08:00">2017-01-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>随便整理的一些自用的Git指令</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># if 语句实例</span></span><br><span class="line"><span class="string">''' 判断用户输入的整数是几位数（暂不考虑用户输入非整数）</span></span><br><span class="line"><span class="string">    为0               输出     It's zero.</span></span><br><span class="line"><span class="string">    个位数             输出     It's a number below 10</span></span><br><span class="line"><span class="string">    两位数             输出     It's a two-digit number</span></span><br><span class="line"><span class="string">    三位数级以上        输出     It's digit is more than two</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">user_input = input(<span class="string">"Please input a number: "</span>)</span><br><span class="line"><span class="comment"># 用户输入的类型为字符串，转换为整数类型</span></span><br><span class="line">n = int(user_input)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (n==<span class="number">0</span>):</span><br><span class="line">    print(<span class="string">"It's zero."</span>)</span><br><span class="line"><span class="keyword">elif</span> (n&lt;<span class="number">10</span>):</span><br><span class="line">    print(<span class="string">"It's a number below 10"</span>)</span><br><span class="line"><span class="keyword">elif</span> (n&lt;<span class="number">100</span>):</span><br><span class="line">    print(<span class="string">"It's a two-digit number"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"It's digit is more than two"</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可能会有零到多个 elif 部分，else 是可选的。</p>
 </blockquote>
-<h1 id="GitHub创建仓库提示代码"><a href="#GitHub创建仓库提示代码" class="headerlink" title="GitHub创建仓库提示代码"></a>GitHub创建仓库提示代码</h1><pre><code>echo &quot;# 项目名&quot; &gt;&gt; README.md
-git init
-git add README.md
-git commit -m &quot;first commit&quot;
-git remote add origin git@github.com:youdaily/youdaily.git
-git push -u origin master
-</code></pre><p>若仓库存在直接push</p>
-<pre><code>git remote add origin git@github.com:youdaily/youdaily.git
-git push -u origin master
-</code></pre><h1 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h1><h2 id="创建仓库（初始化）"><a href="#创建仓库（初始化）" class="headerlink" title="创建仓库（初始化）"></a>创建仓库（初始化）</h2><pre><code>在当前指定目录下创建
-git init
-
-新建一个仓库目录
-git init [project-name]
-
-克隆一个远程项目
-git clone [url]
-</code></pre><h2 id="添加文件到缓存区"><a href="#添加文件到缓存区" class="headerlink" title="添加文件到缓存区"></a>添加文件到缓存区</h2><pre><code>添加所有变化的文件
- git add .
-
-添加名称指定文件
-git add text.txt
-</code></pre><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><pre><code>设置提交代码时的用户信息
-git config [--global] user.name &quot;[name]&quot;
-git config [--global] user.email &quot;[email address]&quot;
-</code></pre>
+<p>关键字 “ elif ” 是 “else if ” 的缩写，这个可以有效地避免过深的缩进。<code>if ... elif ... elif ...</code> 序列于替代其它语言中的switch case语句。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/01/03/2017-01-03_Programing-Git-Git-command/#more" rel="contents">
+              <a class="btn" href="/2017/11/15/2017-11-15_Programing-Python-Basic-flow-control/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -988,7 +947,7 @@ git config [--global] user.email &quot;[email address]&quot;
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1034,20 +993,20 @@ git config [--global] user.email &quot;[email address]&quot;
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

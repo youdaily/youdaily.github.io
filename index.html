@@ -206,99 +206,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/2017-04-01-Programing-JavaScript-drive-promise-in-ES6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/22/2017-04-01-Programing-JavaScript-drive-promise-in-ES6/" class="post-title-link" itemprop="url">ES6 实现自己的 Promise</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-22 16:14:31" itemprop="dateCreated datePublished" datetime="2019-11-22T16:14:31+08:00">2019-11-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="一、JavaScript-异步编程背景"><a href="#一、JavaScript-异步编程背景" class="headerlink" title="一、JavaScript 异步编程背景"></a>一、JavaScript 异步编程背景</h2><p>​ 从去年 ES2015 发布至今，已经过去了一年多，ES2015 发布的新的语言特性中最为流行的也就莫过于 Promise 了，Promise 使得如今 JavaScript 异步编程如此轻松惬意，甚至慢慢遗忘了曾经那不堪回首的痛楚。</p>
-<p>其实从 JavaScript 诞生，JavaScript 中的异步编程就已经出现，例如点击鼠标、敲击键盘这些事件的处理函数都是异步的，时间到了 2009 年，Node.js 横空出世，在整个 Node.js 的实现中，将回调模式的异步编程机制发挥的淋漓尽致，Node 的流行也是的越来越多的 JavaScripter 开始了异步编程，但是回调模式的副作用也慢慢展现在人们眼前，错误处理不够优雅以及嵌套回调带来的“回调地狱”。</p>
-<p>这些副作用使得人们从回调模式的温柔乡中慢慢清醒过来，开始寻找更为优雅的异步编程模式，路漫漫其修远兮、吾将上下而求索。时间到了 2015 年，Promise 拯救那些苦苦探索的先驱。行使它历史使命的时代似乎已经到来。</p>
-<p>​每个事物的诞生有他的历史使命，更有其历史成因，促进其被那些探索的先驱们所发现。<br>了解 nodejs 或者熟悉浏览器的人都知道，JavaScript 引擎是基于事件循环或单线程这两个特性的。更为甚者在浏览器中，更新 UI(也就是浏览器重绘、重拍页面布局)和执行 JavaScript 代码也在一个单线程中，可想而知，一个线程就相当于只有一条马路，如果一辆马车抛锚在路上了阻塞了马路，那么别的马车也就拥堵在了那儿，这个单线程容易被阻塞是一个道理，单线程也只能允许某一时间点只能够执行一段代码。<br>同时，JavaScript 没有想它的哥哥姐姐们那么财大气粗，像 Java 或者 C++，一个线程不够，那么再加一个线程，这样就能够同时执行多段代码了，但是这样就会带来的隐患就是状态不容易维护，JavaScript 选择了单线程非阻塞式的方式，也就是异步编程的方式，就像上面的马车抛锚在了路上，那么把马车推到路边的维修站，让其他马车先过去，等马车修好了再回到马路上继续行驶，这就是单线程非阻塞方式。正如 Promise 的工作方式一样，通过 Promise 去向服务器发起一个请求，毕竟请求有网络开销，不可能马上就返回请求结果的，这个时候 Promise 就处于 pending 状态，但是其并不会阻塞其他代码的执行，当请求返回时，修改 Promise 状态为 fulfilled 或者 rejected（失败请求）。同时执行绑定到这两个状态上面的“处理函数”。这就是异步编程的模式，也就是 Promise 兢兢业业的工作方式，在下面一个部分将详细讨论 Promise。</p>
-<h2 id="二、Promise-基础"><a href="#二、Promise-基础" class="headerlink" title="二、Promise 基础"></a>二、Promise 基础</h2><p>​ 怎么一句话解释 Promise 呢？Promise 可以代指那些尚未完成的一些操作，但是其在未来的某个时间会返回某一特定的结果。</p>
-<p>​ 当创建一个 Promise 实例后，其代表一个未知的值，在将来的某个时间会返回一个成功的返回值，或者失败的返回值，我们可以为这些返回值添加处理函数，当值返回时，处理函数被调用。Promise 总是处于下面三种状态之一：</p>
-<ul>
-<li>pending： Promise 的初始状态，也就是未被 fulfilled 或者 rejected 的状态。</li>
-<li>fulfilled： 意味着 promise 代指的操作已经成功完成。</li>
-<li>rejected：意味着 promise 代指的操作由于某些原因失败。</li>
-</ul>
-<p>一个处于 pending 状态的 promise 可能由于某个成功返回值而发展为 fulfilled 状态，也有可能因为某些错误而进入 rejected 状态，无论是进入 fulfilled 状态或者 rejected 状态，绑定到这两种状态上面的处理函数就会被执行。并且进入 fulfilled 或者 rejected 状态也就不能再返回 pending 状态了。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/22/2017-04-01-Programing-JavaScript-drive-promise-in-ES6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/20/2019-11-20_Life-Wenxin-wen/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -826,7 +733,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/03/2018-11-03_Programing-Python-Advanced-use-mongoDB/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/18/2019-10-18-Programing-Python-Advanded-use-Flask-create-RESTful-API-Services/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -840,7 +747,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2018/11/03/2018-11-03_Programing-Python-Advanced-use-mongoDB/" class="post-title-link" itemprop="url">Python-高级-使用MongoDB</a>
+            <a href="/2019/10/18/2019-10-18-Programing-Python-Advanded-use-Flask-create-RESTful-API-Services/" class="post-title-link" itemprop="url">2019-10-18-Programing-Python-Advanded-use-Flask-create-RESTful-API-Services</a>
         </h1>
 
         <div class="post-meta">
@@ -850,7 +757,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-11-03 14:34:06" itemprop="dateCreated datePublished" datetime="2018-11-03T14:34:06+08:00">2018-11-03</time>
+              <time title="创建时间：2019-10-18 11:36:18" itemprop="dateCreated datePublished" datetime="2019-10-18T11:36:18+08:00">2019-10-18</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -868,6 +775,12 @@
                     <span itemprop="name">Python</span>
                   </a>
                 </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">高级技术</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -882,15 +795,29 @@
 
       
           <hr>
-<h2 id="Python使用MongoDB"><a href="#Python使用MongoDB" class="headerlink" title="Python使用MongoDB"></a>Python使用MongoDB</h2><p>MongoDB相对于传统的关系型数据库，可以存储JSON数据，非常适合存储数据抓取返回的JSON数据。<br>今天主要学习的是使用Python连接MongoDB，并进行增删改查的操作。</p>
+<p>在工作学习中，我们经常会需要将自己的开发成果对外提供服务，此时的选择很多，但是什么才是最高效的呢？</p>
+<p>想必聪明的你，已经想到了：通过 <code>API</code> 的方式对外提供服务。既然我们在学习 Python 过程中，那我们就使用 Python 来实现自己的 API 吧。</p>
+<p>下面将从下面几个方面进行讲解：</p>
+<ul>
+<li>API 简介</li>
+<li>RESTful API 简介</li>
+<li>使用Python Flask 实现 RESTful API</li>
+</ul>
+<hr>
+<h2 id="API-简介"><a href="#API-简介" class="headerlink" title="API 简介"></a>API 简介</h2><p>API 是英语 <code>Application Programming Interfaces</code> 的3个首字母组成的，翻译成中文即 <code>应用程序编程接口</code>。</p>
+<p>API 通常是由服务器（Server）提供（服务器有各种各样的类型，一般我们浏览网页用到的是web server，即网络服务器），通过调用 API，本地计算机可以读取、编辑网站数据，就像人类可以加载网页、提交信息等。</p>
+<p>通俗地，API可以理解为家用电器的插头，用户(本地电脑)只需要将插头插入插座的，不需要考虑电器内部(服务器)里面是如何运作的。通过提供 API, 将内部的实现细节封装了起来，对本地电脑简化的流程，同时减少了出错的可能。</p>
+<p>另外一个角度上讲API是一套协议，规定了与外界的沟通方式：如何发送请求和接受响应。只有大家同遵循同样的方式，就可以很快速的接入我们的服务。</p>
+<hr>
+<h2 id="RESTful-API-简介"><a href="#RESTful-API-简介" class="headerlink" title="RESTful API 简介"></a>RESTful API 简介</h2><p>RESTful API 即满足 RESTful 风格设计的API，RESTful 表示的是一种互联网软件架构(以网络为基础的应用软件的架构设计)，如果一个架构符合 <code>REST</code> (Representational State Transfer的缩写，翻译成中文是 <code>&quot;表现层状态转化&quot;</code>.)原则，就称它为 RESTful 架构。</p>
+<p>那什么是 <code>REST</code> 原则呢？<code>Representational State Transfer</code> 这个词组到底是什么意思，它的每一个词代表了什么涵义。如果你把这个名称搞懂了，基本就理解了什么是 <code>REST</code> 设计原则。</p>
+<p>从下面几个角度来分解这个问题。</p>
 <blockquote>
-<p>MongoDB 的安装及使用，请参照官方文档。<br><a href="https://api.mongodb.com/python/current/installation.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/installation.html</a></p>
+<p>下面的部分内容可以忽略，可以直接跳到总结的部分。</p>
 </blockquote>
-<p>在连接MongoDB前 首先要安装的是Python包：PyMongo，包的安装非常的简单。<br>只需执行 <code>pip install pymongo</code> 即可使用。</p>
-<h3 id="创建连接"><a href="#创建连接" class="headerlink" title="创建连接"></a>创建连接</h3><p>在安装完PyMongo以后，使用Python连接MongoDB变得异常简单。具体方式为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"> </span><br><span class="line">client = MongoClient(<span class="string">'localhost'</span>, <span class="number">27017</span>)</span><br></pre></td></tr></table></figure><br>或使用如下方式：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"> </span><br><span class="line">client = MongoClient(<span class="string">'mongodb://localhost:27017'</span>)</span><br></pre></td></tr></table></figure><br>如果连接含有账号密码等，请参考：<br><a href="https://api.mongodb.com/python/current/api/pymongo/mongo_client.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/api/pymongo/mongo_client.html</a></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/11/03/2018-11-03_Programing-Python-Advanced-use-mongoDB/#more" rel="contents">
+              <a class="btn" href="/2019/10/18/2019-10-18-Programing-Python-Advanded-use-Flask-create-RESTful-API-Services/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -914,7 +841,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/2018-07-07_Programing-Python-Advanced-jsonify-in-Flask/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/2019-10-15-Programing-Python-Advanded-Excel-operation-with-xlwings/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -928,7 +855,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2018/07/07/2018-07-07_Programing-Python-Advanced-jsonify-in-Flask/" class="post-title-link" itemprop="url">Python-高级-聊一聊 Flask 的 jsonify</a>
+            <a href="/2019/10/15/2019-10-15-Programing-Python-Advanded-Excel-operation-with-xlwings/" class="post-title-link" itemprop="url">Python-高级-实用-操作 Excel</a>
         </h1>
 
         <div class="post-meta">
@@ -938,7 +865,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-07-07 13:52:49" itemprop="dateCreated datePublished" datetime="2018-07-07T13:52:49+08:00">2018-07-07</time>
+              <time title="创建时间：2019-10-15 11:31:13" itemprop="dateCreated datePublished" datetime="2019-10-15T11:31:13+08:00">2019-10-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -956,6 +883,12 @@
                     <span itemprop="name">Python</span>
                   </a>
                 </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">高级技术</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -969,13 +902,131 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>首先我们来看一段 Python 代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, jsonify</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">tasks = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 python_mastery 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/python_mastery'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 pythonml 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/pythonml'</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/api/v1.0/tasks', methods=['GET'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_tasks</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'tasks'</span>: tasks&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-<p>在这段代码里面，我们看到了今天的主角 <code>jsonify</code>。</p>
-<p>Flask 框架里，可以用 <code>jsonify</code> 返回 json 数据，但是为什么不用 <code>Python</code> 自带的 <code>json</code> 模块返回 JSON 数据呢？</p>
+          <hr>
+<h1 id="Python-高级-实用-操作-Excel"><a href="#Python-高级-实用-操作-Excel" class="headerlink" title="Python-高级-实用-操作 Excel"></a>Python-高级-实用-操作 Excel</h1><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>Excel 是我们日常工作学习中都会使用到的很重要的工具。但是处理过程中难免会遇到重复的操作，同时面对大量数据时手工操作也可能因为误操作导致错误发生。我们刚好在学习 Python, 那有没有办法通过 code 来读取 Excel 文件。</p>
+<p>答案是肯定的，下面我们就使用 Python 来进行操作 Excel 文件。</p>
+<h2 id="模块选择"><a href="#模块选择" class="headerlink" title="模块选择"></a>模块选择</h2><p>熟悉 Python 世界的读者，就会明白：在 Python 的世界里，做一件事情，官方建议只有一种方法。但是现实中，大佬太多，互相之间看不上别人做的东西，重复造轮子的现象比较严重。</p>
+<p>如果百度或google 一下：“Python Excel”, 下面的几个第三方模块库常常出现在推荐列表中</p>
+<ul>
+<li>openpyxl</li>
+<li>xlsxwriter</li>
+<li>xlutils</li>
+<li>xlwings</li>
+</ul>
+<p>经过实际的验证(验证过程略), 我挑选 <code>xlwings</code> 作为实际使用的模块。</p>
+<h2 id="xlwings-简介"><a href="#xlwings-简介" class="headerlink" title="xlwings 简介"></a><code>xlwings</code> 简介</h2><p>众所周知，VBA 可以很高效的操作 Excel，提高办公效率。<br>在 Python 中，我们可以通过 pywin32 来调用 windows 系统的 API 来实现 VBA 的很多功能，但是写起来比较复杂。</p>
+<p><code>xlwings</code> 是基于 BSD-licensed 的一个 Python 第三方的模块，对 <code>pywin32</code> 进行了封装，可以很方便的和 Excel 进行交互，它有以下优点：</p>
+<ul>
+<li>语法接近 VBA</li>
+<li>可以用 Python 代码取代 VBA 编写宏</li>
+<li>在 windows 可以用 Python 编写 Excel 用户自定义函数</li>
+<li>全功能支持 Numpy Pandas matplotlib 等科学计算库</li>
+<li>支持 Windows 和 MacOS</li>
+<li>支持 Py3.3+</li>
+</ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/07/07/2018-07-07_Programing-Python-Advanced-jsonify-in-Flask/#more" rel="contents">
+              <a class="btn" href="/2019/10/15/2019-10-15-Programing-Python-Advanded-Excel-operation-with-xlwings/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/13/2019-10-13-Programing-Python-Advanded-Requests-intro-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/13/2019-10-13-Programing-Python-Advanded-Requests-intro-2/" class="post-title-link" itemprop="url">Python-高级-爬虫-Requests 库高级使用</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-13 11:29:35" itemprop="dateCreated datePublished" datetime="2019-10-13T11:29:35+08:00">2019-10-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">高级技术</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<h2 id="Headers（定制请求头）"><a href="#Headers（定制请求头）" class="headerlink" title="Headers（定制请求头）"></a>Headers（定制请求头）</h2><h3 id="什么是Headers请求头呢？"><a href="#什么是Headers请求头呢？" class="headerlink" title="什么是Headers请求头呢？"></a>什么是Headers请求头呢？</h3><p>请求头就是访问网页时的各种简单的证明信息，里面包含了很多内容。</p>
+<p>比如你要获取信息的格式、访问的时间、是否用了代理（使用透明代理时浏览器依旧会发送你的真实IP，只有高匿代理才不会）、浏览器标识（User-Agent）等。</p>
+<p>提示：给大家举一个非常直白的例子，浏览器就像是你的专属外卖配送员，各网站就像外卖商家，配送员到商家取餐时，需要提供订单号、我是谁的配送员、要取什么餐等等信息。</p>
+<p>这里以chrome浏览器为例，首先 F12 打开调试模式，然后访问一个网站，将会在NetWork下看到对目标网页的请求信息，如下图：<br><img src="https://images.xiaozhuanlan.com/photo/2019/b2f2ccdcfc8c21bd8cf347564f09ec12.png" alt></p>
+<p>通过设置header可以跳过一些简单的反爬或者防盗链措施。对付防盗链，服务器会识别 headers 中的 referer 是不是它自己，如果不是，有的服务器不会响应，所以我们还可以在 headers 中加入 referer 。</p>
+<blockquote>
+<p>爬虫和反爬虫就像是双生兄弟一样，其中</p>
+</blockquote>
+<h3 id="一个响应内容的小例子"><a href="#一个响应内容的小例子" class="headerlink" title="一个响应内容的小例子"></a>一个响应内容的小例子</h3><p>这里以上海证券交易所为例，比如我要获取整个市场当日的基金成交信息，地址：<a href="http://www.sse.com.cn/market/funddata/overview/day/" target="_blank" rel="noopener">http://www.sse.com.cn/market/funddata/overview/day/</a><br><img src="https://images.xiaozhuanlan.com/photo/2019/4fa96803c51d0ccd800998dc044d5560.png" alt="当日的基金成交信息"></p>
+<p>经过分析，其数据所在网址为<br><a href="http://query.sse.com.cn/marketdata/tradedata/queryNewTradingByProdTypeData.do?jsonCallBack=jsonpCallback10558&amp;searchDate=2019-10-08&amp;prodType=jj&amp;_=1570591517567" target="_blank" rel="noopener">http://query.sse.com.cn/marketdata/tradedata/queryNewTradingByProdTypeData.do?jsonCallBack=jsonpCallback10558&amp;searchDate=2019-10-08&amp;prodType=jj&amp;_=1570591517567</a></p>
+<p>里面几个参数 <code>searchDate=2019-10-08</code> 和 <code>_=1570591517567</code> 很明显是时间戳，如果需要定时访问时，还是要构造一个url的。</p>
+<p>使用time库的time方法即可。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/13/2019-10-13-Programing-Python-Advanded-Requests-intro-2/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -999,7 +1050,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1045,20 +1096,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

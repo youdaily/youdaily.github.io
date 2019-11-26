@@ -206,7 +206,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/29/2018-04-29-Programing-Java-Spring-Boot-App-speeded-up/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/10/2019-10-10-Programing-Python-Advanded-Requests-intro/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -220,7 +220,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2018/04/29/2018-04-29-Programing-Java-Spring-Boot-App-speeded-up/" class="post-title-link" itemprop="url">Spring Boot Web 应用加速</a>
+            <a href="/2019/10/10/2019-10-10-Programing-Python-Advanded-Requests-intro/" class="post-title-link" itemprop="url">Python-高级-爬虫-Requests 库基础使用</a>
         </h1>
 
         <div class="post-meta">
@@ -230,189 +230,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-04-29 15:22:40" itemprop="dateCreated datePublished" datetime="2018-04-29T15:22:40+08:00">2018-04-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/Spring-Boot/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring Boot</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Spring-Boot-Web-应用加速"><a href="#Spring-Boot-Web-应用加速" class="headerlink" title="Spring Boot Web 应用加速"></a>Spring Boot Web 应用加速</h1><p>默认情况下，Spring Boot Web 应用会装配一些功能组件 Bean。</p>
-<p>在大多数 Web 应用场景下，可以选择性地关闭一下自动装配的Spring 组件 Bean，以达到提升性能的目的。</p>
-<h2 id="配置项优化"><a href="#配置项优化" class="headerlink" title="配置项优化"></a>配置项优化</h2><h3 id="Spring-Boot-Web-应用加速-完整配置项"><a href="#Spring-Boot-Web-应用加速-完整配置项" class="headerlink" title="Spring Boot Web 应用加速 完整配置项"></a>Spring Boot Web 应用加速 完整配置项</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">management.add-application-context-header</span> = <span class="string">false</span></span><br><span class="line"><span class="meta">spring.mvc.formcontent.putfilter.enabled</span> = <span class="string">false</span></span><br><span class="line"></span><br><span class="line"><span class="meta">spring.autoconfigure.exclude</span> = <span class="string">org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration,\</span></span><br><span class="line">org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.JndiDataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.transaction.jta.JtaAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.WebSocketAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.WebSocketMessagingAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mail.MailSenderValidatorAutoConfiguration,\</span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceRepositoryAutoConfiguration,\</span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceWebFilterAutoConfiguration,\</span><br><span class="line"><span class="attr">org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration</span></span><br></pre></td></tr></table></figure>
-<h3 id="配置项汇总"><a href="#配置项汇总" class="headerlink" title="配置项汇总"></a>配置项汇总</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">spring.autoconfigure.exclude</span> = <span class="string">org.springframework.boot.actuate.autoconfigure.TraceRepositoryAutoConfiguration,\</span></span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceWebFilterAutoConfiguration,\</span><br><span class="line"><span class="attr">org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/04/29/2018-04-29-Programing-Java-Spring-Boot-App-speeded-up/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/2017-12-28-Programing-Java-Dubbo-Annotation-Driven/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/11/28/2017-12-28-Programing-Java-Dubbo-Annotation-Driven/" class="post-title-link" itemprop="url">Dubbo 注解驱动</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-11-28 15:28:13" itemprop="dateCreated datePublished" datetime="2017-11-28T15:28:13+08:00">2017-11-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/Dubbo/" itemprop="url" rel="index">
-                    <span itemprop="name">Dubbo</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Dubbo-注解驱动（Annotation-Driven）"><a href="#Dubbo-注解驱动（Annotation-Driven）" class="headerlink" title="Dubbo 注解驱动（Annotation-Driven）"></a>Dubbo 注解驱动（Annotation-Driven）</h1><h2 id="注解驱动（Annotation-Driven）"><a href="#注解驱动（Annotation-Driven）" class="headerlink" title="注解驱动（Annotation-Driven）"></a>注解驱动（Annotation-Driven）</h2><h3 id="DubboComponentScan"><a href="#DubboComponentScan" class="headerlink" title="@DubboComponentScan"></a><code>@DubboComponentScan</code></h3><h4 id="起始版本：-2-5-7"><a href="#起始版本：-2-5-7" class="headerlink" title="起始版本： 2.5.7"></a>起始版本： <code>2.5.7</code></h4><h4 id="lt-dubbo-annotation-gt-历史遗留问题"><a href="#lt-dubbo-annotation-gt-历史遗留问题" class="headerlink" title="&lt;dubbo:annotation&gt;历史遗留问题"></a><code>&lt;dubbo:annotation&gt;</code>历史遗留问题</h4><h5 id="1-注解支持不充分"><a href="#1-注解支持不充分" class="headerlink" title="1. 注解支持不充分"></a>1. 注解支持不充分</h5><p>在 Dubbo <code>2.5.7</code>之前的版本 ，Dubbo 提供了两个核心注解 <code>@Service</code> 以及 <code>@Reference</code>，分别用于 Dubbo 服务提供和 Dubbo 服务引用。</p>
-<p>其中，<code>@Service</code> 作为 XML 元素 <code>&lt;dubbo:service&gt;</code>的替代注解，与 Spring Framework <code>@org.springframework.stereotype.Service</code> 类似，用于服务提供方 Dubbo 服务暴露。与之相对应的<code>@Reference</code>，则是替代<code>&lt;dubbo:reference</code> 元素，类似于 Spring 中的 <code>@Autowired</code>。</p>
-<p><code>2.5.7</code> 之前的 Dubbo，与早期的 Spring Framework 2.5 存在类似的不足，即注解支持不够充分。注解需要和 XML 配置文件配合使用，如下所示：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:dubbo</span>=<span class="string">"http://code.alibabatech.com/schema/dubbo"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"annotation-provider"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">"127.0.0.1:4548"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:annotation</span> <span class="attr">package</span>=<span class="string">"com.alibaba.dubbo.config.spring.annotation.provider"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/11/28/2017-12-28-Programing-Java-Dubbo-Annotation-Driven/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/22/2017-11-22_Programing-Python-Basic-date-time-intro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/11/22/2017-11-22_Programing-Python-Basic-date-time-intro/" class="post-title-link" itemprop="url">Python-基础-日期和时间</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-11-22 13:47:33" itemprop="dateCreated datePublished" datetime="2017-11-22T13:47:33+08:00">2017-11-22</time>
+              <time title="创建时间：2019-10-10 11:27:37" itemprop="dateCreated datePublished" datetime="2019-10-10T11:27:37+08:00">2019-10-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -430,6 +248,12 @@
                     <span itemprop="name">Python</span>
                   </a>
                 </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">高级技术</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -444,15 +268,19 @@
 
       
           <hr>
-<p>Python程序可以通过多种方式来处理日期和时间。<br>日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。</p>
-<h2 id="什么是刻度？"><a href="#什么是刻度？" class="headerlink" title="什么是刻度？"></a>什么是刻度？</h2><p>时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。</p>
-<p>在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 <code>time.time()</code>返回当前系统时间，从1970年1月1日12点起来的秒数。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time;  <span class="comment"># This is required to include time module.</span></span><br><span class="line"></span><br><span class="line">ticks = time.time()</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Number of ticks since 12:00am, January 1, 1970:"</span>, ticks)</span><br></pre></td></tr></table></figure>
-<p>将产生一个结果，如下 -<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number of ticks since <span class="number">12</span>:<span class="number">00</span>am, January <span class="number">1</span>, <span class="number">1970</span>: <span class="number">1568018748.2947338</span></span><br></pre></td></tr></table></figure></p>
-<p>日期计算使用刻度线是很容易做到的。<br>然而，新纪元日期之前不能以这种形式表示。在未来的一个日期也不能表示这种方式, 分界点是在某个时候，在 UNIX和Windows上为 2038年。</p>
+<h2 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h2><p><code>Requests</code> 库就非常优雅，虽然不是原生python模块，但自己安装也非常简单，只需要使用以下命令即可：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
+<p>作为 GitHub上关注数最多的 Python 项目之一，使用的是 urllib3，继承了urllib2的所有特性。requests实现了 HTTP协议中绝大部分功能，它提供的功能包括 Keep-Alive、连接池、Cookie持久化、内容自动解压、HTTP代理、SSL认证、连接超时、Session等很多特性，最重要的是它同时兼容 python2 和 python3。</p>
+<p>同时，Requests对于HEAD, POST, PUT, PATCH, 和 DELETE方法的api同样简单。它可以处理多部分上传，同样支持自动转码，文档更好，还有更多的特性。</p>
+<blockquote>
+<p>值得注意的是，网络上有种言论是因为requests不支持异步，所以不推荐使用，但是随着 Python 语言本身的发展，现在已经可以很方便的将<code>requests</code>转为异步。</p>
+</blockquote>
+<h3 id="查看所安装-Requests-的版本"><a href="#查看所安装-Requests-的版本" class="headerlink" title="查看所安装 Requests 的版本"></a>查看所安装 Requests 的版本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>requests.__version__</span><br><span class="line"><span class="string">'2.21.0'</span></span><br></pre></td></tr></table></figure>
+<h2 id="常用的-Requests-方法及说明"><a href="#常用的-Requests-方法及说明" class="headerlink" title="常用的 Requests 方法及说明"></a>常用的 Requests 方法及说明</h2><h3 id="请求URL：GET"><a href="#请求URL：GET" class="headerlink" title="请求URL：GET"></a>请求URL：GET</h3><p>当我们导入requests模块之后就可以使用get命令来获取网页了，我们以自己的小专栏为例，测试一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>response = requests.get(<span class="string">'https://xiaozhuanlan.com/python_mastery'</span>)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/11/22/2017-11-22_Programing-Python-Basic-date-time-intro/#more" rel="contents">
+              <a class="btn" href="/2019/10/10/2019-10-10-Programing-Python-Advanded-Requests-intro/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -476,7 +304,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/19/2017-11-19_Programing-Python-Basic-Common-Terms-table/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/08/2019-09-08-Programing-JavaScript-Type-conversion-Introduction-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -490,7 +318,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2017/11/19/2017-11-19_Programing-Python-Basic-Common-Terms-table/" class="post-title-link" itemprop="url">Python-基础-常用术语对照表</a>
+            <a href="/2019/09/08/2019-09-08-Programing-JavaScript-Type-conversion-Introduction-2/" class="post-title-link" itemprop="url">你真的掌握变量和类型了吗（二）类型转换</a>
         </h1>
 
         <div class="post-meta">
@@ -500,7 +328,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-11-19 10:27:05" itemprop="dateCreated datePublished" datetime="2017-11-19T10:27:05+08:00">2017-11-19</time>
+              <time title="创建时间：2019-09-08 15:09:34" itemprop="dateCreated datePublished" datetime="2019-09-08T15:09:34+08:00">2019-09-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -514,8 +342,8 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
             </span>
@@ -531,204 +359,271 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<p>下面内容主要摘抄自<code>python</code> 官网，<a href="https://docs.python.org/3.7/glossary.html#glossary" target="_blank" rel="noopener">https://docs.python.org/3.7/glossary.html#glossary</a>，部分内容有删减。</p>
-<h3 id="2to3"><a href="#2to3" class="headerlink" title="2to3"></a>2to3</h3><p>一个将 <code>Python</code> 2.x 代码转换为 <code>Python</code> 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。</p>
-<p>2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools/scripts/2to3。参见 2to3 - 自动将 <code>Python</code> 2 代码转为 <code>Python</code> 3 代码。</p>
-<p>因为官方将在2020年不再支持 <code>Python</code> 2.x, 在遇到没有<code>Python</code> 2.X 版本 的code 的时候，可以尝试使用这个工具将代码转化成Python 的版本。</p>
-<h3 id="abstract-base-class-—-抽象基类"><a href="#abstract-base-class-—-抽象基类" class="headerlink" title="abstract base class — 抽象基类"></a>abstract base class — 抽象基类</h3><p>抽象基类简称 ABC，是对 duck-typing 的补充，它提供了一种定义接口的新方式，相比之下其他技巧例如 hasattr() 显得过于笨拙或有微妙错误（例如使用 魔术方法）。ABC 引入了虚拟子类，这种类并非继承自其他类，但却仍能被 isinstance() 和 issubclass() 所认可；详见 abc 模块文档。<code>Python</code> 自带许多内置的 ABC 用于实现数据结构（在 collections.abc 模块中）、数字（在 numbers 模块中）、流（在 io 模块中）、导入查找器和加载器（在 importlib.abc 模块中）。你可以使用 abc 模块来创建自己的 ABC。</p>
-<h3 id="argument-—-参数"><a href="#argument-—-参数" class="headerlink" title="argument — 参数"></a>argument — 参数</h3><p>在调用函数时传给 function （或 method ）的值。参数分为两种：</p>
+          <h2 id="六、还有哪些引用类型"><a href="#六、还有哪些引用类型" class="headerlink" title="六、还有哪些引用类型"></a>六、还有哪些引用类型</h2><blockquote>
+<p>在<code>ECMAScript</code>中，引用类型是一种数据结构，用于将数据和功能组织在一起。</p>
+</blockquote>
+<p>我们通常所说的对象，就是某个特定引用类型的实例。</p>
+<p>在<code>ECMAScript</code>关于类型的定义中，只给出了<code>Object</code>类型，实际上，我们平时使用的很多引用类型的变量，并不是由<code>Object</code>构造的，但是它们原型链的终点都是<code>Object</code>，这些类型都属于引用类型。</p>
 <ul>
-<li>关键字参数: 在函数调用中前面带有标识符（例如 name=）或者作为包含在前面带有 ** 的字典里的值传入。<br>  举例来说，3 和 5 在以下对 complex() 的调用中均属于关键字参数:  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">complex(real=<span class="number">3</span>, imag=<span class="number">5</span>)</span><br><span class="line">complex(**&#123;<span class="string">'real'</span>: <span class="number">3</span>, <span class="string">'imag'</span>: <span class="number">5</span>&#125;)</span><br></pre></td></tr></table></figure></li>
-<li>位置参数: 不属于关键字参数的参数。位置参数可出现于参数列表的开头以及/或者作为前面带有 * 的 iterable 里的元素被传入。<br>  举例来说，3 和 5 在以下调用中均属于位置参数:  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">complex(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">complex(*(<span class="number">3</span>, <span class="number">5</span>))</span><br></pre></td></tr></table></figure>
-参数会被赋值给函数体中对应的局部变量。有关赋值规则参见 调用 一节。根据语法，任何表达式都可用来表示一个参数；最终算出的值会被赋给对应的局部变量。</li>
+<li><code>Array</code> 数组</li>
+<li><code>Date</code> 日期</li>
+<li><code>RegExp</code> 正则</li>
+<li><code>Function</code> 函数</li>
 </ul>
-<p>另参见 parameter 术语表条目，常见问题中 参数与形参的区别 以及 PEP 362。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/11/19/2017-11-19_Programing-Python-Basic-Common-Terms-table/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/16/2017-11-16-Programing-becomer-a-coder-from-others/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/11/16/2017-11-16-Programing-becomer-a-coder-from-others/" class="post-title-link" itemprop="url">非科班出身，如何成为程序员？</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-11-16 16:09:52" itemprop="dateCreated datePublished" datetime="2017-11-16T16:09:52+08:00">2017-11-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">程序人生</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="非科班出身，如何成为程序员"><a href="#非科班出身，如何成为程序员" class="headerlink" title="非科班出身，如何成为程序员"></a>非科班出身，如何成为程序员</h2><blockquote>
-<p>本文是知乎的一篇回答</p>
-</blockquote>
-<p>身边有很多非科班出身的程序员，比如 sofish、粽神。当然我也是，所以决定结合自身经历强答一波。</p>
-<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><p>我本科学习的是「生物科学」，大学四年无非就是拿着 eppendorf 的实验枪，在超净台旁养着各种知名或不知名的微生物，有广为人知的「海拉细胞」有很多人没有听过的「毕赤酵母」，每逢寒暑假可能还会去山里或者某个海滨城市实习，在鸟巢旁边装一个微型摄像头，记录下喂食雏鸟的频率，去海边抓一些招潮蟹或者海月水母，也算乐在其中。我很享受大学这段时光，因为毕竟是我儿时的梦想，成为一个生物学家。</p>
-<p>毕业后，进入了北京水产科学研究所，主要工作是「养鱼」，每天固定时间给「小西伯利亚鲟」喂点吃的，给鱼缸换水。很不幸…，在一次换水的过程中水龙头我忘关了，结果水沿着鱼缸溢了出来，小鲟鱼也在想「外面的世界那么大，我想去看看」，都顺着鱼缸溢出的水推力，游到了鱼缸外面，等我发现时，这些小生命都散落在鱼缸周围，也不跳了。主任没有批评我把一缸鱼都养死了，但是也再让我去喂鱼了，给了我一份新的差事，通过毕赤酵母来表达出促性腺激素，促进鲟鱼快速性成熟。实验做了大概一年，有一些成果，毕竟在一年中成功过一次。后来觉得愧对这份工作，就跟主任请辞了，主任就介绍了上海的一份工作给我，去欧莱雅研发中心做实验。现在想想主任真是难得的人生导师。</p>
-<p>在欧莱雅工作了三年，每天也是重复相同的工作，工作内容只是从以前的养各种微生物变成了养「人造皮肤」，然后再把化妆品涂在人造皮肤上，看看化妆品对皮肤的效果，其实和大学拿老鼠、兔子做实验没什么区别，只是欧洲那边不让在活体上做化妆品实验。在欧莱雅的三年，慢慢消磨了我对「生物科学」的热情，重复的工作让我麻痹了我的思想。我决定做一些改变，那是2014年，我已经27了。</p>
-<h3 id="学习编程的动机"><a href="#学习编程的动机" class="headerlink" title="学习编程的动机"></a>学习编程的动机</h3><p>还得从 13 年年底说起，在欧莱雅工作期间，命运多舛，出了一次车祸，右胫腓骨粉碎骨折，当时还是女朋友的老婆放弃了东京的工作回国来照顾我，在床上躺了三四个月，老婆回上海后也找了一份广告公司的工作，做 SEM。到了14年，腿伤基本恢复，我重新回到欧莱雅工作，经历了人生变故（车祸），住院期间把这一生中的生离死别都看完了，开始思考起人生，更加热爱生命。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/11/16/2017-11-16-Programing-becomer-a-coder-from-others/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/15/2017-11-15_Programing-Python-Basic-flow-control/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/11/15/2017-11-15_Programing-Python-Basic-flow-control/" class="post-title-link" itemprop="url">Python-基础-时间控制</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-11-15 13:50:33" itemprop="dateCreated datePublished" datetime="2017-11-15T13:50:33+08:00">2017-11-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <hr>
-<p>这次主要介绍python 的基础流程控制。<br>包括 if 条件语句、for 循环 和 while 循环语句； continue 及 break 的用法等。<br>基本用法与 C 和 Java 差不多，无 switch 语句。</p>
-<hr>
-<h2 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h2><p>语法：<code>if(...):</code>, 括号内为一表达式，当为<code>True</code>（即成立）时，执行对应的代码段。</p>
+<h3 id="6-1-包装类型"><a href="#6-1-包装类型" class="headerlink" title="6.1 包装类型"></a>6.1 包装类型</h3><p>为了便于操作基本类型值，<code>ECMAScript</code>还提供了几个特殊的引用类型，他们是基本类型的包装类型：</p>
+<ul>
+<li><code>Boolean</code></li>
+<li><code>Number</code></li>
+<li><code>String</code></li>
+</ul>
+<p>注意包装类型和原始类型的区别：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">true</span> === <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>); <span class="comment">// false</span></span><br><span class="line"><span class="number">123</span> === <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">123</span>); <span class="comment">// false</span></span><br><span class="line"><span class="string">"ConardLi"</span> === <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"ConardLi"</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"ConardLi"</span>)); <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="string">"ConardLi"</span>); <span class="comment">// string</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>注意:所有条件语句后方都需加冒号 <code>:</code></p>
+<p>引用类型和包装类型的主要区别就是对象的生存期，使用 new 操作符创建的引用类型的实例，在执行流离开当前作用域之前都一直保存在内存中，而自基本类型则只存在于一行代码的执行瞬间，然后立即被销毁，这意味着我们不能在运行时为基本类型添加属性和方法。</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># if 语句实例</span></span><br><span class="line"><span class="string">''' 判断用户输入的整数是几位数（暂不考虑用户输入非整数）</span></span><br><span class="line"><span class="string">    为0               输出     It's zero.</span></span><br><span class="line"><span class="string">    个位数             输出     It's a number below 10</span></span><br><span class="line"><span class="string">    两位数             输出     It's a two-digit number</span></span><br><span class="line"><span class="string">    三位数级以上        输出     It's digit is more than two</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">user_input = input(<span class="string">"Please input a number: "</span>)</span><br><span class="line"><span class="comment"># 用户输入的类型为字符串，转换为整数类型</span></span><br><span class="line">n = int(user_input)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (n==<span class="number">0</span>):</span><br><span class="line">    print(<span class="string">"It's zero."</span>)</span><br><span class="line"><span class="keyword">elif</span> (n&lt;<span class="number">10</span>):</span><br><span class="line">    print(<span class="string">"It's a number below 10"</span>)</span><br><span class="line"><span class="keyword">elif</span> (n&lt;<span class="number">100</span>):</span><br><span class="line">    print(<span class="string">"It's a two-digit number"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"It's digit is more than two"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"ConardLi"</span>;</span><br><span class="line">name.color = <span class="string">"red"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(name.color); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<h3 id="6-2-装箱和拆箱"><a href="#6-2-装箱和拆箱" class="headerlink" title="6.2 装箱和拆箱"></a>6.2 装箱和拆箱</h3><ul>
+<li><p>装箱转换：把基本类型转换为对应的包装类型</p>
+</li>
+<li><p>拆箱操作：把引用类型转换为基本类型</p>
+</li>
+</ul>
+<p>既然原始类型不能扩展属性和方法，那么我们是如何使用原始类型调用方法的呢？</p>
+<p>每当我们操作一个基础类型时，后台就会自动创建一个包装类型的对象，从而让我们能够调用一些方法和属性，例如下面的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"ConardLi"</span>;</span><br><span class="line"><span class="keyword">var</span> name2 = name.substring(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>实际上发生了以下几个过程：</p>
+<ul>
+<li>创建一个<code>String</code>的包装类型实例</li>
+<li>在实例上调用<code>substring</code>方法</li>
+<li>销毁实例</li>
+</ul>
+<p>也就是说，我们使用基本类型调用方法，就会自动进行装箱和拆箱操作，相同的，我们使用<code>Number</code>和<code>Boolean</code>类型时，也会发生这个过程。</p>
+<p>从引用类型到基本类型的转换，也就是拆箱的过程中，会遵循<code>ECMAScript规范</code>规定的<code>toPrimitive</code>原则，一般会调用引用类型的<code>valueOf</code>和<code>toString</code>方法，你也可以直接重写<code>toPeimitive</code>方法。一般转换成不同类型的值遵循的原则不同，例如：</p>
+<ul>
+<li>引用类型转换为<code>Number</code>类型，先调用<code>valueOf</code>，再调用<code>toString</code></li>
+<li>引用类型转换为<code>String</code>类型，先调用<code>toString</code>，再调用<code>valueOf</code></li>
+</ul>
+<p>若<code>valueOf</code>和<code>toString</code>都不存在，或者没有返回基本类型，则抛出<code>TypeError</code>异常。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  valueOf: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"valueOf"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">123</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  toString: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"toString"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"ConardLi"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj - <span class="number">1</span>); <span class="comment">// valueOf   122</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;obj&#125;</span>ConardLi`</span>); <span class="comment">// toString  ConardLiConardLi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj2 = &#123;</span><br><span class="line">  [<span class="built_in">Symbol</span>.toPrimitive]: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"toPrimitive"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">123</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj2 - <span class="number">1</span>); <span class="comment">// valueOf   122</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj3 = &#123;</span><br><span class="line">  valueOf: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"valueOf"</span>);</span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  toString: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"toString"</span>);</span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj3 - <span class="number">1</span>);</span><br><span class="line"><span class="comment">// valueOf</span></span><br><span class="line"><span class="comment">// toString</span></span><br><span class="line"><span class="comment">// TypeError</span></span><br></pre></td></tr></table></figure>
+<p>除了程序中的自动拆箱和自动装箱，我们还可以手动进行拆箱和装箱操作。我们可以直接调用包装类型的<code>valueOf</code>或<code>toString</code>，实现拆箱操作：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="string">"123"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num.valueOf()); <span class="comment">//number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num.toString()); <span class="comment">//string</span></span><br></pre></td></tr></table></figure>
+<h2 id="七、类型转换"><a href="#七、类型转换" class="headerlink" title="七、类型转换"></a>七、类型转换</h2><p>因为<code>JavaScript</code>是弱类型的语言，所以类型转换发生非常频繁，上面我们说的装箱和拆箱其实就是一种类型转换。</p>
+<p>类型转换分为两种，隐式转换即程序自动进行的类型转换，强制转换即我们手动进行的类型转换。</p>
+<p>强制转换这里就不再多提及了，下面我们来看看让人头疼的可能发生隐式类型转换的几个场景，以及如何转换：</p>
+<h3 id="7-1-类型转换规则"><a href="#7-1-类型转换规则" class="headerlink" title="7.1 类型转换规则"></a>7.1 类型转换规则</h3><p>如果发生了隐式转换，那么各种类型互转符合下面的规则：</p>
+<p><img src="http://www.conardli.top/img/bl/bl_8_convert.png" alt></p>
+<h3 id="7-2-if-语句和逻辑语句"><a href="#7-2-if-语句和逻辑语句" class="headerlink" title="7.2 if 语句和逻辑语句"></a>7.2 if 语句和逻辑语句</h3><p>在<code>if</code>语句和逻辑语句中，如果只有单个变量，会先将变量转换为<code>Boolean</code>值，只有下面几种情况会转换成<code>false</code>，其余被转换成<code>true</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span>;</span><br><span class="line"><span class="literal">undefined</span>;</span><br><span class="line">(<span class="string">""</span>);</span><br><span class="line"><span class="literal">NaN</span>;</span><br><span class="line"><span class="number">0</span>;</span><br><span class="line"><span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="7-3-各种运数学算符"><a href="#7-3-各种运数学算符" class="headerlink" title="7.3 各种运数学算符"></a>7.3 各种运数学算符</h3><p>我们在对各种非<code>Number</code>类型运用数学运算符(<code>- * /</code>)时，会先将非<code>Number</code>类型转换为<code>Number</code>类型;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> - <span class="literal">true</span>; <span class="comment">// 0</span></span><br><span class="line"><span class="number">1</span> - <span class="literal">null</span>; <span class="comment">//  1</span></span><br><span class="line"><span class="number">1</span> * <span class="literal">undefined</span>; <span class="comment">//  NaN</span></span><br><span class="line"><span class="number">2</span> * [<span class="string">"5"</span>]; <span class="comment">//  10</span></span><br></pre></td></tr></table></figure>
+<p>注意<code>+</code>是个例外，执行<code>+</code>操作符时：</p>
+<ul>
+<li>1.当一侧为<code>String</code>类型，被识别为字符串拼接，并会优先将另一侧转换为字符串类型。</li>
+<li>2.当一侧为<code>Number</code>类型，另一侧为原始类型，则将原始类型转换为<code>Number</code>类型。</li>
+<li>3.当一侧为<code>Number</code>类型，另一侧为引用类型，将引用类型和<code>Number</code>类型转换成字符串后拼接。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">123</span> + <span class="string">"123"</span>; <span class="comment">// 123123   （规则1）</span></span><br><span class="line"><span class="number">123</span> + <span class="literal">null</span>; <span class="comment">// 123    （规则2）</span></span><br><span class="line"><span class="number">123</span> + <span class="literal">true</span>; <span class="comment">// 124    （规则2）</span></span><br><span class="line"><span class="number">123</span> + &#123;&#125;; <span class="comment">// 123[object Object]    （规则3）</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-4"><a href="#7-4" class="headerlink" title="7.4 =="></a>7.4 ==</h3><p>使用<code>==</code>时，若两侧类型相同，则比较结果和<code>===</code>相同，否则会发生隐式转换，使用<code>==</code>时发生的转换可以分为几种不同的情况（只考虑两侧类型不同）：</p>
+<ul>
+<li><strong>1.NaN</strong></li>
+</ul>
+<p><code>NaN</code>和其他任何类型比较永远返回<code>false</code>(包括和他自己)。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span> == <span class="literal">NaN</span>; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>2.Boolean</strong></li>
+</ul>
+<p><code>Boolean</code>和其他任何类型比较，<code>Boolean</code>首先被转换为<code>Number</code>类型。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">true</span> == <span class="number">1</span>; <span class="comment">// true</span></span><br><span class="line"><span class="literal">true</span> == <span class="string">"2"</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">true</span> == [<span class="string">"1"</span>]; <span class="comment">// true</span></span><br><span class="line"><span class="literal">true</span> == [<span class="string">"2"</span>]; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>可能会有零到多个 elif 部分，else 是可选的。</p>
+<p>这里注意一个可能会弄混的点：<code>undefined、null</code>和<code>Boolean</code>比较，虽然<code>undefined、null</code>和<code>false</code>都很容易被想象成假值，但是他们比较结果是<code>false</code>，原因是<code>false</code>首先被转换成<code>0</code>：</p>
 </blockquote>
-<p>关键字 “ elif ” 是 “else if ” 的缩写，这个可以有效地避免过深的缩进。<code>if ... elif ... elif ...</code> 序列于替代其它语言中的switch case语句。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span> == <span class="literal">false</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">false</span>; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>3.String 和 Number</strong></li>
+</ul>
+<p><code>String</code>和<code>Number</code>比较，先将<code>String</code>转换为<code>Number</code>类型。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">123</span> == <span class="string">"123"</span>; <span class="comment">// true</span></span><br><span class="line"><span class="string">""</span> == <span class="number">0</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>4.null 和 undefined</strong></li>
+</ul>
+<p><code>null == undefined</code>比较结果是<code>true</code>，除此之外，<code>null、undefined</code>和其他任何结果的比较值都为<code>false</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span>; <span class="comment">// true</span></span><br><span class="line"><span class="literal">null</span> == <span class="string">""</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> == <span class="number">0</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">false</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">undefined</span> == <span class="string">""</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">undefined</span> == <span class="number">0</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">undefined</span> == <span class="literal">false</span>; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>5.原始类型和引用类型</strong></li>
+</ul>
+<p>当原始类型和引用类型做比较时，对象类型会依照<code>ToPrimitive</code>规则转换为原始类型:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"[object Object]"</span> == &#123;&#125;; <span class="comment">// true</span></span><br><span class="line"><span class="string">"1,2,3"</span> == [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>来看看下面这个比较：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[] == ![]; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p><code>!</code>的优先级高于<code>==</code>，<code>![]</code>首先会被转换为<code>false</code>，然后根据上面第三点，<code>false</code>转换成<code>Number</code>类型<code>0</code>，左侧<code>[]</code>转换为<code>0</code>，两侧比较相等。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">([<span class="literal">null</span>] ==</span><br><span class="line">  <span class="literal">false</span>[<span class="literal">undefined</span>]) == <span class="comment">// true</span></span><br><span class="line">  <span class="literal">false</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>根据数组的<code>ToPrimitive</code>规则，数组元素为<code>null</code>或<code>undefined</code>时，该元素被当做空字符串处理，所以<code>[null]、[undefined]</code>都会被转换为<code>0</code>。</p>
+<p>所以，说了这么多，推荐使用<code>===</code>来判断两个值是否相等…</p>
+<h3 id="7-5-一道有意思的面试题"><a href="#7-5-一道有意思的面试题" class="headerlink" title="7.5 一道有意思的面试题"></a>7.5 一道有意思的面试题</h3><p>一道经典的面试题，如何让：<code>a == 1 &amp;&amp; a == 2 &amp;&amp; a == 3</code>。</p>
+<p>根据上面的拆箱转换，以及<code>==</code>的隐式转换，我们可以轻松写出答案：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  value: [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>],</span><br><span class="line">  valueOf: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.value.pop();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="八、判断-JavaScript-数据类型的方式"><a href="#八、判断-JavaScript-数据类型的方式" class="headerlink" title="八、判断 JavaScript 数据类型的方式"></a>八、判断 JavaScript 数据类型的方式</h2><h3 id="8-1-typeof"><a href="#8-1-typeof" class="headerlink" title="8.1 typeof"></a>8.1 typeof</h3><p><strong>适用场景</strong></p>
+<p><code>typeof</code>操作符可以准确判断一个变量是否为下面几个原始类型：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="string">"ConardLi"</span>; <span class="comment">// string</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">123</span>; <span class="comment">// number</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span>; <span class="comment">// boolean</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Symbol</span>(); <span class="comment">// symbol</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>; <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<p>你还可以用它来判断函数类型：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;; <span class="comment">// function</span></span><br></pre></td></tr></table></figure>
+<p><strong>不适用场景</strong></p>
+<p>当你用<code>typeof</code>来判断引用类型时似乎显得有些乏力了：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> []; <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> &#123;&#125;; <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> /^\d*$/; <span class="comment">// object</span></span><br></pre></td></tr></table></figure>
+<p>除函数外所有的引用类型都会被判定为<code>object</code>。</p>
+<p>另外<code>typeof null === &#39;object&#39;</code>也会让人感到头痛，这是在<code>JavaScript</code>初版就流传下来的<code>bug</code>，后面由于修改会造成大量的兼容问题就一直没有被修复…</p>
+<h3 id="8-2-instanceof"><a href="#8-2-instanceof" class="headerlink" title="8.2 instanceof"></a>8.2 instanceof</h3><p><code>instanceof</code>操作符可以帮助我们判断引用类型具体是什么类型的对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[] <span class="keyword">instanceof</span> <span class="built_in">Array</span>; <span class="comment">// true</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>() <span class="keyword">instanceof</span> <span class="built_in">Date</span>; <span class="comment">// true</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">RegExp</span>() <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>我们先来回顾下原型链的几条规则：</p>
+<ul>
+<li>1.所有引用类型都具有对象特性，即可以自由扩展属性</li>
+<li>2.所有引用类型都具有一个<code>__proto__</code>（隐式原型）属性，是一个普通对象</li>
+<li>3.所有的函数都具有<code>prototype</code>（显式原型）属性，也是一个普通对象</li>
+<li>4.所有引用类型<code>__proto__</code>值指向它构造函数的<code>prototype</code></li>
+<li>5.当试图得到一个对象的属性时，如果变量本身没有这个属性，则会去他的<code>__proto__</code>中去找</li>
+</ul>
+<p><code>[] instanceof Array</code>实际上是判断<code>Array.prototype</code>是否在<code>[]</code>的原型链上。</p>
+<p>所以，使用<code>instanceof</code>来检测数据类型，不会很准确，这不是它设计的初衷：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[] <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;  <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>另外，使用<code>instanceof</code>也不能检测基本数据类型，所以<code>instanceof</code>并不是一个很好的选择。</p>
+<h3 id="8-3-toString"><a href="#8-3-toString" class="headerlink" title="8.3 toString"></a>8.3 toString</h3><p>上面我们在拆箱操作中提到了<code>toString</code>函数，我们可以调用它实现从引用类型的转换。</p>
+<blockquote>
+<p>每一个引用类型都有<code>toString</code>方法，默认情况下，<code>toString()</code>方法被每个<code>Object</code>对象继承。如果此方法在自定义对象中未被覆盖，<code>toString()</code> 返回 <code>&quot;[object type]&quot;</code>，其中<code>type</code>是对象的类型。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;;</span><br><span class="line">obj.toString(); <span class="comment">// [object Object]</span></span><br></pre></td></tr></table></figure>
+<p>注意，上面提到了<code>如果此方法在自定义对象中未被覆盖</code>，<code>toString</code>才会达到预想的效果，事实上，大部分引用类型比如<code>Array、Date、RegExp</code>等都重写了<code>toString</code>方法。</p>
+<p>我们可以直接调用<code>Object</code>原型上未被覆盖的<code>toString()</code>方法，使用<code>call</code>来改变<code>this</code>指向来达到我们想要的效果。</p>
+<p><img src="http://www.conardli.top/img/bl/bl_9_jc.png" alt></p>
+<h3 id="8-4-jquery"><a href="#8-4-jquery" class="headerlink" title="8.4 jquery"></a>8.4 jquery</h3><p>我们来看看<code>jquery</code>源码中如何进行类型判断：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> class2type = &#123;&#125;;</span><br><span class="line">jQuery.each( <span class="string">"Boolean Number String Function Array Date RegExp Object Error Symbol"</span>.split( <span class="string">" "</span> ),</span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"> i, name </span>) </span>&#123;</span><br><span class="line">	class2type[ <span class="string">"[object "</span> + name + <span class="string">"]"</span> ] = name.toLowerCase();</span><br><span class="line">&#125; );</span><br><span class="line"></span><br><span class="line">type: <span class="function"><span class="keyword">function</span>(<span class="params"> obj </span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ( obj == <span class="literal">null</span> ) &#123;</span><br><span class="line">		<span class="keyword">return</span> obj + <span class="string">""</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">typeof</span> obj === <span class="string">"object"</span> || <span class="keyword">typeof</span> obj === <span class="string">"function"</span> ?</span><br><span class="line">		class2type[<span class="built_in">Object</span>.prototype.toString.call(obj) ] || <span class="string">"object"</span> :</span><br><span class="line">		<span class="keyword">typeof</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">isFunction: <span class="function"><span class="keyword">function</span>(<span class="params"> obj </span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> jQuery.type(obj) === <span class="string">"function"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>原始类型直接使用<code>typeof</code>，引用类型使用<code>Object.prototype.toString.call</code>取得类型，借助一个<code>class2type</code>对象将字符串多余的代码过滤掉，例如<code>[object function]</code>将得到<code>array</code>，然后在后面的类型判断，如<code>isFunction</code>直接可以使用<code>jQuery.type(obj) === &quot;function&quot;</code>这样的判断。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.ecma-international.org/ecma-262/9.0/index.html" target="_blank" rel="noopener">http://www.ecma-international.org/ecma-262/9.0/index.html</a></li>
+<li><a href="https://while.dev/articles/explaining-truthy-falsy-null-0-and-undefined-in-typescript/" target="_blank" rel="noopener">https://while.dev/articles/explaining-truthy-falsy-null-0-and-undefined-in-typescript/</a></li>
+<li><a href="https://github.com/mqyqingfeng/Blog/issues/28" target="_blank" rel="noopener">https://github.com/mqyqingfeng/Blog/issues/28</a></li>
+<li><a href="https://juejin.im/post/5bc5c752f265da0a9a399a62" target="_blank" rel="noopener">https://juejin.im/post/5bc5c752f265da0a9a399a62</a></li>
+<li><a href="https://juejin.im/post/5bbda2b36fb9a05cfd27f55e" target="_blank" rel="noopener">https://juejin.im/post/5bbda2b36fb9a05cfd27f55e</a></li>
+<li>《JS 高级程序设计》</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>希望你阅读本篇文章后可以达到以下几点：</p>
+<ul>
+<li>了解<code>JavaScript</code>中的变量在内存中的具体存储形式，可对应实际场景</li>
+<li>搞懂小数计算不精确的底层原因</li>
+<li>了解可能发生隐式类型转换的场景以及转换原则</li>
+<li>掌握判断<code>JavaScript</code>数据类型的方式和底层原理</li>
+</ul>
+<p>文中如有错误，欢迎在评论区指正，如果这篇文章帮助到了你，欢迎点赞和关注。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/03/2019-09-03-Programing-JavaScript-Type-conversion-Introduction-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/03/2019-09-03-Programing-JavaScript-Type-conversion-Introduction-1/" class="post-title-link" itemprop="url">你真的掌握变量和类型了吗（一）数据类型</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-03 15:06:26" itemprop="dateCreated datePublished" datetime="2019-09-03T15:06:26+08:00">2019-09-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>变量和类型是学习<code>JavaScript</code>最先接触到的东西，但是往往看起来最简单的东西往往还隐藏着很多你不了解、或者容易犯错的知识，比如下面几个问题：</p>
+<ul>
+<li><code>JavaScript</code>中的变量在内存中的具体存储形式是什么？</li>
+<li><code>0.1+0.2</code>为什么不等于<code>0.3</code>?发生小数计算错误的具体原因是什么？</li>
+<li><code>Symbol</code>的特点，以及实际应用场景是什么？</li>
+<li><code>[] == ![]</code>、<code>[undefined] == false</code>为什么等于<code>true</code>?代码中何时会发生隐式类型转换？转换的规则是什么？</li>
+<li>如何精确的判断变量的类型？</li>
+</ul>
+<p>如果你还不能很好的解答上面的问题，那说明你还没有完全掌握这部分的知识，那么请好好阅读下面的文章吧。</p>
+<p>本文从底层原理到实际应用详细介绍了<code>JavaScript</code>中的变量和类型相关知识。</p>
+<h2 id="一、JavaScript数据类型"><a href="#一、JavaScript数据类型" class="headerlink" title="一、JavaScript数据类型"></a>一、JavaScript数据类型</h2><p><a href="http://www.ecma-international.org/ecma-262/9.0/index.html" target="_blank" rel="noopener">ECMAScript标准</a>规定了<code>7</code>种数据类型，其把这<code>7</code>种数据类型又分为两种：原始类型和对象类型。</p>
+<p><strong>原始类型</strong></p>
+<ul>
+<li><code>Null</code>：只包含一个值：<code>null</code></li>
+<li><code>Undefined</code>：只包含一个值：<code>undefined</code></li>
+<li><code>Boolean</code>：包含两个值：<code>true</code>和<code>false</code></li>
+<li><code>Number</code>：整数或浮点数，还有一些特殊值（<code>-Infinity</code>、<code>+Infinity</code>、<code>NaN</code>）</li>
+<li><code>String</code>：一串表示文本值的字符序列</li>
+<li><code>Symbol</code>：一种实例是唯一且不可改变的数据类型</li>
+</ul>
+<p>(在<code>es10</code>中加入了第七种原始类型<code>BigInt</code>，现已被最新<code>Chrome</code>支持)</p>
+<p><strong>对象类型</strong></p>
+<ul>
+<li><code>Object</code>：自己分一类丝毫不过分，除了常用的<code>Object</code>，<code>Array</code>、<code>Function</code>等都属于特殊的对象</li>
+</ul>
+<h2 id="二、为什么区分原始类型和对象类型"><a href="#二、为什么区分原始类型和对象类型" class="headerlink" title="二、为什么区分原始类型和对象类型"></a>二、为什么区分原始类型和对象类型</h2><h3 id="2-1-不可变性"><a href="#2-1-不可变性" class="headerlink" title="2.1 不可变性"></a>2.1 不可变性</h3><p>上面所提到的原始类型，在<code>ECMAScript</code>标准中，它们被定义为<code>primitive values</code>，即原始值，代表值本身是不可被改变的。</p>
+<p>以字符串为例，我们在调用操作字符串的方法时，没有任何方法是可以直接改变字符串的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'ConardLi'</span>;</span><br><span class="line">str.slice(<span class="number">1</span>);</span><br><span class="line">str.substr(<span class="number">1</span>);</span><br><span class="line">str.trim(<span class="number">1</span>);</span><br><span class="line">str.toLowerCase(<span class="number">1</span>);</span><br><span class="line">str[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str);  <span class="comment">// ConardLi</span></span><br></pre></td></tr></table></figure>
+<p>在上面的代码中我们对<code>str</code>调用了几个方法，无一例外，这些方法都在原字符串的基础上产生了一个新字符串，而非直接去改变<code>str</code>，这就印证了字符串的不可变性。</p>
+<p>那么，当我们继续调用下面的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str += <span class="string">'6'</span></span><br><span class="line"><span class="built_in">console</span>.log(str);  <span class="comment">// ConardLi6</span></span><br></pre></td></tr></table></figure>
+<p>你会发现，<code>str</code>的值被改变了，这不就打脸了字符串的不可变性么？其实不然，我们从内存上来理解：</p>
+<p>在<code>JavaScript</code>中，每一个变量在内存中都需要一个空间来存储。</p>
+<p>内存空间又被分为两种，栈内存与堆内存。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/11/15/2017-11-15_Programing-Python-Basic-flow-control/#more" rel="contents">
+              <a class="btn" href="/2019/09/03/2019-09-03-Programing-JavaScript-Type-conversion-Introduction-1/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -752,7 +647,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/2017-11-14_Programing-Python-Basic-dirt-intro/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/01/2019-09-01-Programing-JavaScript-How-to-Write-a-stunning-deep-copy-of-the-interviewer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -766,7 +661,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2017/11/14/2017-11-14_Programing-Python-Basic-dirt-intro/" class="post-title-link" itemprop="url">Python-Basic-dirt_intro</a>
+            <a href="/2019/09/01/2019-09-01-Programing-JavaScript-How-to-Write-a-stunning-deep-copy-of-the-interviewer/" class="post-title-link" itemprop="url">如何写出一个惊艳面试官的深拷贝</a>
         </h1>
 
         <div class="post-meta">
@@ -776,7 +671,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-11-14 13:45:57" itemprop="dateCreated datePublished" datetime="2017-11-14T13:45:57+08:00">2017-11-14</time>
+              <time title="创建时间：2019-09-01 14:59:01" itemprop="dateCreated datePublished" datetime="2019-09-01T14:59:01+08:00">2019-09-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -790,8 +685,8 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
             </span>
@@ -807,20 +702,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<p>每个键是从它的值由冒号(:)，即在项目之间用逗号隔开，整个东西是包含在大括号中。没有任何项目一个空字典只写两个大括号，就像这样：<code>{}</code>.</p>
-<p>键在一个字典中是唯一的，而值则可以重复。字典的值可以是任何类型，但键必须是不可变的数据的类型，例如：字符串，数字或元组这样的类型。</p>
-<h2 id="访问字典中的值"><a href="#访问字典中的值" class="headerlink" title="访问字典中的值"></a>访问字典中的值</h2><p>要访问字典元素，你可以使用方括号和对应键，以获得其对应的值。下面是一个简单的例子 -</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Saul'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'Third'</span>&#125;</span><br><span class="line"></span><br><span class="line">print(<span class="string">"dict['Name']: "</span>, dict[<span class="string">'Name'</span>])</span><br><span class="line">print(<span class="string">"dict['Age']: "</span>, dict[<span class="string">'Age'</span>])</span><br></pre></td></tr></table></figure>
-<p>当执行上面的代码，它产生以下结果 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dict[<span class="string">'Name'</span>]:  Saul</span><br><span class="line">dict[<span class="string">'Age'</span>]:  <span class="number">7</span></span><br></pre></td></tr></table></figure>
-<p>如果我们试图使用一个键，但这是不字典访问数据项的一部分，我们会得到一个错误如下 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Saul'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'Third'</span>&#125;;</span><br><span class="line">print(<span class="string">"dict['Alice']: "</span>, dict[<span class="string">'Alice'</span>])</span><br></pre></td></tr></table></figure>
-<p>当执行上面的代码，它产生以下结果 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dict[<span class="string">'Saul'</span>]:</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">4</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(<span class="string">"dict['Alice']: "</span>, dict[<span class="string">'Alice'</span>])</span><br><span class="line">KeyError: <span class="string">'Alice'</span></span><br></pre></td></tr></table></figure>
+          <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>最近经常看到很多<code>JavaScript</code>手写代码的文章总结，里面提供了很多<code>JavaScript Api</code>的手写实现。</p>
+<p>里面的题目实现大多类似，而且说实话很多代码在我看来是非常简陋的，如果我作为面试官，看到这样的代码，在我心里是不会合格的，本篇文章我拿最简单的深拷贝来讲一讲。</p>
+<p>看本文之前先问自己三个问题：</p>
+<ul>
+<li><p>你真的理解什么是深拷贝吗？</p>
+</li>
+<li><p>在面试官眼里，什么样的深拷贝才算合格？</p>
+</li>
+<li><p>什么样的深拷贝能让面试官感到惊艳？</p>
+</li>
+</ul>
+<p>本文由浅入深，带你一步一步实现一个惊艳面试官的深拷贝。</p>
+<h2 id="深拷贝和浅拷贝的定义"><a href="#深拷贝和浅拷贝的定义" class="headerlink" title="深拷贝和浅拷贝的定义"></a>深拷贝和浅拷贝的定义</h2><p>深拷贝已经是一个老生常谈的话题了，也是现在前端面试的高频题目，但是令我吃惊的是有很多同学还没有搞懂深拷贝和浅拷贝的区别和定义。例如前几天给我提<code>issue</code>的同学：</p>
+<p><img src="https://i.loli.net/2019/08/30/8U5e2I6lmzBHcW9.jpg" alt></p>
+<p>很明显这位同学把拷贝和赋值搞混了，如果你还对赋值、对象在内存中的存储、变量和类型等等有什么疑问，可以看看我这篇文章：<br><a href="https://juejin.im/post/5cec1bcff265da1b8f1aa08f" target="_blank" rel="noopener">https://juejin.im/post/5cec1bcff265da1b8f1aa08f</a> 。</p>
+<p>你只要少搞明白<code>拷贝</code>和<code>赋值</code>的区别。</p>
+<p>我们来明确一下深拷贝和浅拷贝的定义：</p>
+<p>浅拷贝：</p>
+<p><img src="https://i.loli.net/2019/08/30/N3CB7obYhn5Lvxz.jpg" alt></p>
+<blockquote>
+<p>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。</p>
+</blockquote>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/11/14/2017-11-14_Programing-Python-Basic-dirt-intro/#more" rel="contents">
+              <a class="btn" href="/2019/09/01/2019-09-01-Programing-JavaScript-How-to-Write-a-stunning-deep-copy-of-the-interviewer/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -844,7 +750,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/13/2017-11-13_Programing-Python-Basic-IO-intro/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/27/2019-05-27-Programing-JavaScript-moblie-develop-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -858,7 +764,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2017/11/13/2017-11-13_Programing-Python-Basic-IO-intro/" class="post-title-link" itemprop="url">Python-基础- I/O 简介</a>
+            <a href="/2019/05/27/2019-05-27-Programing-JavaScript-moblie-develop-2/" class="post-title-link" itemprop="url">移动端适配总结（二）应用篇</a>
         </h1>
 
         <div class="post-meta">
@@ -868,7 +774,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-11-13 13:44:24" itemprop="dateCreated datePublished" datetime="2017-11-13T13:44:24+08:00">2017-11-13</time>
+              <time title="创建时间：2019-05-27 15:28:41" itemprop="dateCreated datePublished" datetime="2019-05-27T15:28:41+08:00">2019-05-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -882,8 +788,8 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
             </span>
@@ -899,18 +805,303 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>这里只讲述基本的 I/O 函数，更多函数请参考Python标准文档。</p>
-<blockquote>
-<p>Python 3.x I/O 标准文档位置  <a href="https://docs.python.org/3/library/io.html" target="_blank" rel="noopener">https://docs.python.org/3/library/io.html</a></p>
-</blockquote>
-<hr>
-<h2 id="打印到屏幕"><a href="#打印到屏幕" class="headerlink" title="打印到屏幕"></a>打印到屏幕</h2><p>最简单的输出方法是用<code>print</code>函数，你可以给它传递零个或多个用逗号隔开的表达式。此函数把你传递的表达式转换成一个字符串表达式，并将结果写到标准输出如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*- </span></span><br><span class="line">print(<span class="string">"hello world"</span>)</span><br></pre></td></tr></table></figure>
-<p>你的标准屏幕上会产生以下结果：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-e87780fd91230718.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hello world"></p>
-<h2 id="读取键盘输入"><a href="#读取键盘输入" class="headerlink" title="读取键盘输入"></a>读取键盘输入</h2><p>Python 3 提供了内置函数从标准输入读入一行文本，默认的标准输入是键盘。</p>
+          <h2 id="五、1px问题"><a href="#五、1px问题" class="headerlink" title="五、1px问题"></a>五、1px问题</h2><p>为了适配各种屏幕，我们写代码时一般使用设备独立像素来对页面进行布局。</p>
+<p>而在设备像素比大于<code>1</code>的屏幕上，我们写的<code>1px</code>实际上是被多个物理像素渲染，这就会出现<code>1px</code>在有些屏幕上看起来很粗的现象。</p>
+<h3 id="5-1-border-image"><a href="#5-1-border-image" class="headerlink" title="5.1 border-image"></a>5.1 border-image</h3><p>基于<code>media</code>查询判断不同的设备像素比给定不同的<code>border-image</code>：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border_1px</span>&#123;</span><br><span class="line">   <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> @<span class="keyword">media</span> only screen and (-webkit-min-device-pixel-ratio:<span class="number">2</span>)&#123;</span><br><span class="line">     <span class="selector-class">.border_1px</span>&#123;</span><br><span class="line">         <span class="attribute">border-bottom</span>: none;</span><br><span class="line">         <span class="attribute">border-width</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">1px</span> <span class="number">0</span>;</span><br><span class="line">         <span class="attribute">border-image</span>: <span class="built_in">url</span>(../img/1pxline.png) <span class="number">0</span> <span class="number">0</span> <span class="number">2</span> <span class="number">0</span> stretch;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-2-background-image"><a href="#5-2-background-image" class="headerlink" title="5.2 background-image"></a>5.2 background-image</h3><p>和<code>border-image</code>类似，准备一张符合条件的边框背景图，模拟在背景上。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border_1px</span>&#123;</span><br><span class="line">   <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> @<span class="keyword">media</span> only screen and (-webkit-min-device-pixel-ratio:<span class="number">2</span>)&#123;</span><br><span class="line">     <span class="selector-class">.border_1px</span>&#123;</span><br><span class="line">         <span class="attribute">background</span>: <span class="built_in">url</span>(../img/1pxline.png) repeat-x left bottom;</span><br><span class="line">         <span class="attribute">background-size</span>: <span class="number">100%</span> <span class="number">1px</span>;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>上面两种都需要单独准备图片，而且圆角不是很好处理，但是可以应对大部分场景。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/11/13/2017-11-13_Programing-Python-Basic-IO-intro/#more" rel="contents">
+              <a class="btn" href="/2019/05/27/2019-05-27-Programing-JavaScript-moblie-develop-2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/22/2019-05-22-Programing-JavaScript-moblie-develop-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/05/22/2019-05-22-Programing-JavaScript-moblie-develop-1/" class="post-title-link" itemprop="url">移动端适配总结（一）原理篇</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-22 15:26:14" itemprop="dateCreated datePublished" datetime="2019-05-22T15:26:14+08:00">2019-05-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>移动端适配，是我们在开发中经常会遇到的，这里面可能会遇到非常多的问题：</p>
+<ul>
+<li><code>1px</code>问题</li>
+<li><code>UI</code>图完美适配方案</li>
+<li><code>iPhoneX</code>适配方案</li>
+<li>横屏适配</li>
+<li>高清屏图片模糊问题</li>
+<li>…</li>
+</ul>
+<p>上面这些问题可能我们在开发中已经知道如何解决，但是问题产生的原理，以及解决方案的原理可能会模糊不清。在解决这些问题的过程中，我们往往会遇到非常多的概念：像素、分辨率、<code>PPI</code>、<code>DPI</code>、<code>DP</code>、<code>DIP</code>、<code>DPR</code>、视口等等，你真的能分清这些概念的意义吗？</p>
+<p>本文将从移动端适配的基础概念出发，探究移动端适配各种问题的解决方案和实现原理。</p>
+<h2 id="一、英寸"><a href="#一、英寸" class="headerlink" title="一、英寸"></a>一、英寸</h2><p>一般用英寸描述屏幕的物理大小，如电脑显示器的<code>17</code>、<code>22</code>，手机显示器的<code>4.8</code>、<code>5.7</code>等使用的单位都是英寸。</p>
+<p>需要注意，上面的尺寸都是屏幕对角线的长度：</p>
+<p><img src="https://i.loli.net/2019/05/17/5cddefa632f3247082.png" alt></p>
+<p>英寸(<code>inch</code>,缩写为<code>in</code>)在荷兰语中的本意是大拇指，一英寸就是指甲底部普通人拇指的宽度。</p>
+<p>英寸和厘米的换算：<code>1英寸 = 2.54 厘米</code></p>
+<h2 id="二、分辨率"><a href="#二、分辨率" class="headerlink" title="二、分辨率"></a>二、分辨率</h2><h3 id="2-1-像素"><a href="#2-1-像素" class="headerlink" title="2.1 像素"></a>2.1 像素</h3><p>像素即一个小方块，它具有特定的位置和颜色。</p>
+<p>图片、电子屏幕（手机、电脑）就是由无数个具有特定颜色和特定位置的小方块拼接而成。</p>
+<p>像素可以作为图片或电子屏幕的最小组成单位。</p>
+<p>下面我们使用<code>sketch</code>打开一张图片：</p>
+<p><img src="https://i.loli.net/2019/05/17/5cddefd18987943848.png" alt></p>
+<p>将这些图片放大即可看到这些像素点：</p>
+<p><img src="https://i.loli.net/2019/05/17/5cddefb8d84ab76156.png" alt></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/05/22/2019-05-22-Programing-JavaScript-moblie-develop-1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/17/2019-05-17-Programing-JavaScript-use-js-develop-desk-app-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/05/17/2019-05-17-Programing-JavaScript-use-js-develop-desk-app-5/" class="post-title-link" itemprop="url">用JS开发桌面应用（五）终篇</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-17 15:23:28" itemprop="dateCreated datePublished" datetime="2019-05-17T15:23:28+08:00">2019-05-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="十一、扩展能力"><a href="#十一、扩展能力" class="headerlink" title="十一、扩展能力"></a>十一、扩展能力</h2><p><img src="http://www.conardli.top/img/electron/el_4_iot.jpg" alt></p>
+<p>在很多情况下，你的应用程序要和外部设备进行交互，一般情况下厂商会为你提供硬件设备的开发包，这些开发包基本上都是通过<code>C++</code> 编写，在使用<code>electron</code>开发的情况下，我们并不具备直接调用<code>C++</code>代码的能力，我们可以利用<code>node-ffi</code>来实现这一功能。</p>
+<p><code>node-ffi</code>提供了一组强大的工具，用于在<code>Node.js</code>环境中使用纯<code>JavaScript</code>调用动态链接库接口。它可以用来为库构建接口绑定，而不需要使用任何<code>C++</code>代码。</p>
+<blockquote>
+<p>注意<code>node-ffi</code>并不能直接调用<code>C++</code>代码，你需要将<code>C++</code>代码编译为动态链接库：在 <code>Windows</code>下是 <code>Dll</code> ，在 <code>Mac OS</code>下是 <code>dylib</code> <code>，Linux</code> 是 <code>so</code> 。</p>
+<p><code>node-ffi</code> 加载 <code>Library</code>是有限制的，只能处理 <code>C</code>风格的 <code>Library</code>。 </p>
+</blockquote>
+<p>下面是一个简单的实例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ffi = <span class="built_in">require</span>(<span class="string">'ffi'</span>);</span><br><span class="line"><span class="keyword">const</span> ref = <span class="built_in">require</span>(<span class="string">'ref'</span>);</span><br><span class="line"><span class="keyword">const</span> SHORT_CODE = ref.refType(<span class="string">'short'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> DLL = <span class="keyword">new</span> ffi.Library(<span class="string">'test.dll'</span>, &#123;</span><br><span class="line">    Test_CPP_Method: [<span class="string">'int'</span>, [<span class="string">'string'</span>,SHORT_CODE]], </span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">testCppMethod(str: <span class="built_in">String</span>, <span class="attr">num</span>: number): <span class="keyword">void</span> &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> result: any = DLL.Test_CPP_Method(str, num);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'调用失败～'</span>,error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.testCppMethod(<span class="string">'ConardLi'</span>,<span class="number">123</span>);</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/05/17/2019-05-17-Programing-JavaScript-use-js-develop-desk-app-5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/13/2019-05-13-Programing-JavaScript-use-js-develop-desk-app-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/05/13/2019-05-13-Programing-JavaScript-use-js-develop-desk-app-4/" class="post-title-link" itemprop="url">用JS开发桌面应用（四）程序保护</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-13 15:21:03" itemprop="dateCreated datePublished" datetime="2019-05-13T15:21:03+08:00">2019-05-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="十、程序保护"><a href="#十、程序保护" class="headerlink" title="十、程序保护"></a>十、程序保护</h2><p><a href="https://segmentfault.com/a/1190000007503495" target="_blank" rel="noopener">https://segmentfault.com/a/1190000007503495</a></p>
+<p><img src="http://www.conardli.top/img/electron/el_22_protect.gif" alt></p>
+<h3 id="10-1-崩溃"><a href="#10-1-崩溃" class="headerlink" title="10.1 崩溃"></a>10.1 崩溃</h3><p>崩溃监控是每个客户端程序必备的保护功能，当程序崩溃时我们一般期望做到两件事：</p>
+<ul>
+<li>1.上传崩溃日志，及时报警</li>
+<li>2.监控程序崩溃，提示用户重启程序</li>
+</ul>
+<p><code>electron</code>为我们提供给了<code>crashReporter</code>来帮助我们记录崩溃日志，我们可以通过<code>crashReporter.start</code>来创建一个崩溃报告器：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; crashReporter &#125; = <span class="built_in">require</span>(<span class="string">"electron"</span>);</span><br><span class="line">crashReporter.start(&#123;</span><br><span class="line">  productName: <span class="string">"YourName"</span>,</span><br><span class="line">  companyName: <span class="string">"YourCompany"</span>,</span><br><span class="line">  submitURL: <span class="string">"https://your-domain.com/url-to-submit"</span>,</span><br><span class="line">  uploadToServer: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>当程序发生崩溃时，崩溃报日志将被储存在临时文件夹中名为<code>YourName Crashes</code>的文件文件夹中。<code>submitURL</code>用于指定你的崩溃日志上传服务器。 在启动崩溃报告器之前，您可以通过调用<code>app.setPath(&#39;temp&#39;, &#39;my/custom/temp&#39;)</code>API 来自定义这些临时文件的保存路径。你还可以通过<code>crashReporter.getLastCrashReport()</code>来获取上次崩溃报告的日期和<code>ID</code>。</p>
+<p>我们可以通过<code>webContents</code>的<code>crashed</code>来监听渲染进程的崩溃，另外经测试有些主进程的崩溃也会触发该事件。所以我们可以根据主<code>window</code>是否被销毁来判断进行不同的重启逻辑，下面使整个崩溃监控的逻辑：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; BrowserWindow, crashReporter, dialog &#125; <span class="keyword">from</span> <span class="string">"electron"</span>;</span><br><span class="line"><span class="comment">// 开启进程崩溃记录</span></span><br><span class="line">crashReporter.start(&#123;</span><br><span class="line">  productName: <span class="string">"electron-react"</span>,</span><br><span class="line">  companyName: <span class="string">"ConardLi"</span>,</span><br><span class="line">  submitURL: <span class="string">"http://xxx.com"</span>, <span class="comment">// 上传崩溃日志的接口</span></span><br><span class="line">  uploadToServer: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reloadWindow</span>(<span class="params">mainWin</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (mainWin.isDestroyed()) &#123;</span><br><span class="line">    app.relaunch();</span><br><span class="line">    app.exit(<span class="number">0</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 销毁其他窗口</span></span><br><span class="line">    BrowserWindow.getAllWindows().forEach(<span class="function"><span class="params">w</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (w.id !== mainWin.id) w.destroy();</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">const</span> options = &#123;</span><br><span class="line">      type: <span class="string">"info"</span>,</span><br><span class="line">      title: <span class="string">"渲染器进程崩溃"</span>,</span><br><span class="line">      message: <span class="string">"这个进程已经崩溃."</span>,</span><br><span class="line">      buttons: [<span class="string">"重载"</span>, <span class="string">"关闭"</span>]</span><br><span class="line">    &#125;;</span><br><span class="line">    dialog.showMessageBox(options, index =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (index === <span class="number">0</span>) mainWin.reload();</span><br><span class="line">      <span class="keyword">else</span> mainWin.close();</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> mainWindow = BrowserWindow.fromId(global.mainId);</span><br><span class="line">  mainWindow.webContents.on(<span class="string">"crashed"</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> errorMessage = crashReporter.getLastCrashReport();</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">"程序崩溃了！"</span>, errorMessage); <span class="comment">// 可单独上传日志</span></span><br><span class="line">    reloadWindow(mainWindow);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/05/13/2019-05-13-Programing-JavaScript-use-js-develop-desk-app-4/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -934,7 +1125,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -980,20 +1171,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

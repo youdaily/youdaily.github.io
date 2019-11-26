@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="You的日常" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="九、打印很多情况下程序中使用的打印都是用户无感知的。并且想要灵活的控制打印内容，往往需要借助打印机给我们提供的api再进行开发，这种开发方式非常繁琐，并且开发难度较大。第一次在业务中用到Electron其实就是用到它的打印功能，这里就多介绍一些。 Electron提供的打印api可以非常灵活的控制打印设置的显示，并且可以通过html来书写打印内容。Electron提供了两种方式进行打印，一种是直接">
+<meta name="keywords" content="编程技术,JavaScript,高级技术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用JS开发桌面应用（三）打印篇">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;05&#x2F;09&#x2F;2019-05-09-Programing-JavaScript-use-js-develop-desk-app-3&#x2F;index.html">
+<meta property="og:site_name" content="You的日常">
+<meta property="og:description" content="九、打印很多情况下程序中使用的打印都是用户无感知的。并且想要灵活的控制打印内容，往往需要借助打印机给我们提供的api再进行开发，这种开发方式非常繁琐，并且开发难度较大。第一次在业务中用到Electron其实就是用到它的打印功能，这里就多介绍一些。 Electron提供的打印api可以非常灵活的控制打印设置的显示，并且可以通过html来书写打印内容。Electron提供了两种方式进行打印，一种是直接">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_23_print.gif">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_24_print.png">
+<meta property="og:updated_time" content="2019-11-25T07:22:11.617Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_23_print.gif">
+
+<link rel="canonical" href="http://yoursite.com/2019/05/09/2019-05-09-Programing-JavaScript-use-js-develop-desk-app-3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>用JS开发桌面应用（三）打印篇 | You的日常</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">You的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">You的日常，我们的日常</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/09/2019-05-09-Programing-JavaScript-use-js-develop-desk-app-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          用JS开发桌面应用（三）打印篇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-09 15:18:14" itemprop="dateCreated datePublished" datetime="2019-05-09T15:18:14+08:00">2019-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="九、打印"><a href="#九、打印" class="headerlink" title="九、打印"></a>九、打印</h2><p>很多情况下程序中使用的打印都是用户无感知的。并且想要灵活的控制打印内容，往往需要借助打印机给我们提供的<code>api</code>再进行开发，这种开发方式非常繁琐，并且开发难度较大。第一次在业务中用到<code>Electron</code>其实就是用到它的打印功能，这里就多介绍一些。</p>
+<p><code>Electron</code>提供的打印api可以非常灵活的控制打印设置的显示，并且可以通过html来书写打印内容。<code>Electron</code>提供了两种方式进行打印，一种是直接调用打印机打印，一种是打印到<code>pdf</code>。</p>
+<p>并且有两种对象可以调用打印：</p>
+<ul>
+<li>通过<code>window</code>的<code>webcontent</code>对象，使用此种方式需要单独开出一个打印的窗口，可以将该窗口隐藏，但是通信调用相对复杂。</li>
+<li>使用页面的<code>webview</code>元素调用打印，可以将<code>webview</code>隐藏在调用的页面中，通信方式比较简单。</li>
+</ul>
+<p>上面两种方式同时拥有<code>print</code>和<code>printToPdf</code>方法。</p>
+<p><img src="http://www.conardli.top/img/electron/el_23_print.gif" alt></p>
+<h3 id="9-1-调用系统打印"><a href="#9-1-调用系统打印" class="headerlink" title="9.1 调用系统打印"></a>9.1 调用系统打印</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">contents.print([options], [callback])；</span><br></pre></td></tr></table></figure>
+<p>打印配置(options)中只有简单的三个配置：</p>
+<ul>
+<li><code>silent</code>：打印时是否不展示打印配置（是否静默打印）</li>
+<li><code>printBackground</code>：是否打印背景</li>
+<li><code>deviceName</code>：打印机设备名称</li>
+</ul>
+<p>首先要将我们使用的打印机名称配置好，并且要在调用打印前首先要判断打印机是否可用。</p>
+<p>使用<code>webContents</code>的<code>getPrinters</code>方法可获取当前设备已经配置的打印机列表，注意配置过不是可用，只是在此设备上安装过驱动。</p>
+<p>通过<code>getPrinters</code>获取到的打印机对象：<a href="https://electronjs.org/docs/api/structures/printer-info" target="_blank" rel="noopener">https://electronjs.org/docs/api/structures/printer-info</a></p>
+<p>我们这里只管关心两个，<code>name</code>和<code>status</code>，<code>status</code>为<code>0</code>时表示打印机可用。</p>
+<p><code>print</code>的第二个参数<code>callback</code>是用于判断打印任务是否发出的回调，而不是打印任务完成后的回调。所以一般打印任务发出，回调函数即会调用并返回参数<code>true</code>。这个回调并不能判断打印是否真的成功了。</p>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>.state.curretnPrinter) &#123;</span><br><span class="line">  mainWindow.webContents.print(&#123;</span><br><span class="line">    silent: silent, <span class="attr">printBackground</span>: <span class="literal">true</span>, <span class="attr">deviceName</span>: <span class="keyword">this</span>.state.curretnPrinter</span><br><span class="line">  &#125;, () =&gt; &#123; &#125;)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  remote.dialog.showErrorBox(<span class="string">'错误'</span>, <span class="string">'请先选择一个打印机！'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="9-2-打印到PDF"><a href="#9-2-打印到PDF" class="headerlink" title="9.2 打印到PDF"></a>9.2 打印到PDF</h3><p><code>printToPdf</code>的用法基本和<code>print</code>相同，但是<code>print</code>的配置项非常少，而<code>printToPdf</code>则扩展了很多属性。这里翻了一下源码发现还有很多没有被贴进api的，大概有三十几个包括可以对打印的margin，打印页眉页脚等进行配置。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">contents.printToPDF(options, callback)</span><br></pre></td></tr></table></figure>
+<p><code>callback</code>函数在打印失败或打印成功后调用，可获取打印失败信息或包含<code>PDF</code>数据的缓冲区。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> pdfPath = path.join(os.tmpdir(), <span class="string">'webviewPrint.pdf'</span>);</span><br><span class="line"><span class="keyword">const</span> webview = <span class="built_in">document</span>.getElementById(<span class="string">'printWebview'</span>);</span><br><span class="line"><span class="keyword">const</span> renderHtml = <span class="string">'我是被临时插入webview的内容...'</span>;</span><br><span class="line">webview.executeJavaScript(<span class="string">'document.documentElement.innerHTML =`'</span> + renderHtml + <span class="string">'`;'</span>);</span><br><span class="line">webview.printToPDF(&#123;&#125;, (err, data) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err, data);</span><br><span class="line">  fs.writeFile(pdfPath, data, (error) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (error) <span class="keyword">throw</span> error</span><br><span class="line">    shell.openExternal(<span class="string">`file://<span class="subst">$&#123;pdfPath&#125;</span>`</span>)</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">webviewPdfPath</span>: pdfPath &#125;)</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个例子中的打印是使用<code>webview</code>完成的，通过调用<code>executeJavaScript</code>方法可动态向<code>webview</code>插入打印内容。</p>
+</blockquote>
+<h3 id="9-3-两种打印方案的选择"><a href="#9-3-两种打印方案的选择" class="headerlink" title="9.3 两种打印方案的选择"></a>9.3 两种打印方案的选择</h3><p>上面提到，使用<code>webview</code>和<code>webcontent</code>都可以调用打印功能，使用<code>webcontent</code>打印，首先要有一个打印窗口，这个窗口不能随时打印随时创建，比较耗费性能。可以将它在程序运行时启动好，并做好事件监听。</p>
+<p>此过程需和调用打印的进行做好通信，大致过程如下：</p>
+<p><img src="http://www.conardli.top/img/electron/el_24_print.png" alt></p>
+<p>可见通信非常繁琐，使用<code>webview</code>进行打印可实现同样的效果但是通信方式会变得简单，因为渲染进程和<code>webview</code>通信不需要经过主进程，通过如下方式即可：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> webview = <span class="built_in">document</span>.querySelector(<span class="string">'webview'</span>)</span><br><span class="line">webview.addEventListener(<span class="string">'ipc-message'</span>, (event) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(event.channel)</span><br><span class="line">&#125;)</span><br><span class="line">webview.send(<span class="string">'ping'</span>)；</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123;ipcRenderer&#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line">ipcRenderer.on(<span class="string">'ping'</span>, () =&gt; &#123;</span><br><span class="line">  ipcRenderer.sendToHost(<span class="string">'pong'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="9-4-打印功能封装"><a href="#9-4-打印功能封装" class="headerlink" title="9.4 打印功能封装"></a>9.4 打印功能封装</h3><p>下面是几个针对常用打印功能的工具函数封装。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取系统打印机列表</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">getPrinters</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> printers = [];</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> contents = remote.getCurrentWindow().webContents;</span><br><span class="line">    printers = contents.getPrinters();</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">'getPrintersError'</span>, e);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> printers;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取系统默认打印机</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">getDefaultPrinter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> getPrinters().find(<span class="function"><span class="params">element</span> =&gt;</span> element.isDefault);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 检测是否安装了某个打印驱动</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">checkDriver</span>(<span class="params">driverMame</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> getPrinters().find(<span class="function"><span class="params">element</span> =&gt;</span> (element.options[<span class="string">"printer-make-and-model"</span>] || <span class="string">''</span>).includes(driverMame));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 根据打印机名称获取打印机对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">getPrinterByName</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> getPrinters().find(<span class="function"><span class="params">element</span> =&gt;</span> element.name === name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>希望你阅读本篇文章后可以达到以下几点：</p>
+<ul>
+<li>了解<code>Electron</code>的基本运行原理</li>
+<li>掌握<code>Electron</code>开发的核心基础知识</li>
+<li>了解<code>Electron</code>关于弹框、打印、保护、打包等功能的基本使用</li>
+</ul>
+<p>文中如有错误，欢迎在评论区指正，如果这篇文章帮助到了你，欢迎点赞和关注。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"># 编程技术</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" rel="tag"># 高级技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/05/06/2019-05-06-Programing-JavaScript-use-js-develop-desk-app-2/" rel="next" title="用JS开发桌面应用（二）- 应用篇">
+                  <i class="fa fa-chevron-left"></i> 用JS开发桌面应用（二）- 应用篇
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/05/13/2019-05-13-Programing-JavaScript-use-js-develop-desk-app-4/" rel="prev" title="用JS开发桌面应用（四）程序保护">
+                  用JS开发桌面应用（四）程序保护 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#九、打印"><span class="nav-number">1.</span> <span class="nav-text">九、打印</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-调用系统打印"><span class="nav-number">1.1.</span> <span class="nav-text">9.1 调用系统打印</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-打印到PDF"><span class="nav-number">1.2.</span> <span class="nav-text">9.2 打印到PDF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-两种打印方案的选择"><span class="nav-number">1.3.</span> <span class="nav-text">9.3 两种打印方案的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4-打印功能封装"><span class="nav-number">1.4.</span> <span class="nav-text">9.4 打印功能封装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">2.</span> <span class="nav-text">小结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="You的日常"
+      src="/images/avatar-youDaily.jpg">
+  <p class="site-author-name" itemprop="name">You的日常</p>
+  <div class="site-description" itemprop="description">Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/youdaily" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;youdaily" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCJoHHCT90Di7_gRZ88sFaGw" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCJoHHCT90Di7_gRZ88sFaGw" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">You的日常</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '3ded7c8301b626225867',
+      clientSecret: '766c6428decc1ccf8dd1381ab21492978884105b',
+      repo: 'youdaily.github.io',
+      owner: 'YouDaily',
+      admin: ['You的日常'],
+      id: 'b0104cf2af43a979b54775ec25a7b694',
+        language: 'zh-CN',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+    </div>
+</body>
+</html>

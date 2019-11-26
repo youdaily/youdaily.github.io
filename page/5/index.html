@@ -206,7 +206,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/03/2016-12-03-Programing-Python-Basic-ABC-Module/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/2017-11-14_Programing-Python-Basic-dirt-intro/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -220,7 +220,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016/12/03/2016-12-03-Programing-Python-Basic-ABC-Module/" class="post-title-link" itemprop="url">Python 中 ABC 模块使用</a>
+            <a href="/2017/11/14/2017-11-14_Programing-Python-Basic-dirt-intro/" class="post-title-link" itemprop="url">Python-Basic-dirt_intro</a>
         </h1>
 
         <div class="post-meta">
@@ -230,7 +230,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-03 14:33:00" itemprop="dateCreated datePublished" datetime="2016-12-03T14:33:00+08:00">2016-12-03</time>
+              <time title="创建时间：2017-11-14 13:45:57" itemprop="dateCreated datePublished" datetime="2017-11-14T13:45:57+08:00">2017-11-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -261,12 +261,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="1-abc模块作用"><a href="#1-abc模块作用" class="headerlink" title="1.abc模块作用"></a>1.abc模块作用</h2><p>Python本身不提供抽象类和接口机制，要想实现抽象类，可以借助abc模块。ABC是Abstract Base Class的缩写。</p>
-<h2 id="2-模块中的类和函数"><a href="#2-模块中的类和函数" class="headerlink" title="2.模块中的类和函数"></a>2.模块中的类和函数</h2><h3 id="abc-ABCMeta"><a href="#abc-ABCMeta" class="headerlink" title="abc.ABCMeta"></a>abc.ABCMeta</h3><p>这是用来生成抽象基础类的元类。由它生成的类可以被直接继承。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> abc <span class="keyword">import</span> ABCMeta</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyABC</span>:</span></span><br><span class="line">    __metaclass__ = ABCMeta</span><br><span class="line"></span><br><span class="line">MyABC.register(tuple)</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> issubclass(tuple, MyABC)</span><br><span class="line"><span class="keyword">assert</span> isinstance((), MyABC)</span><br></pre></td></tr></table></figure>
+          <hr>
+<p>每个键是从它的值由冒号(:)，即在项目之间用逗号隔开，整个东西是包含在大括号中。没有任何项目一个空字典只写两个大括号，就像这样：<code>{}</code>.</p>
+<p>键在一个字典中是唯一的，而值则可以重复。字典的值可以是任何类型，但键必须是不可变的数据的类型，例如：字符串，数字或元组这样的类型。</p>
+<h2 id="访问字典中的值"><a href="#访问字典中的值" class="headerlink" title="访问字典中的值"></a>访问字典中的值</h2><p>要访问字典元素，你可以使用方括号和对应键，以获得其对应的值。下面是一个简单的例子 -</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Saul'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'Third'</span>&#125;</span><br><span class="line"></span><br><span class="line">print(<span class="string">"dict['Name']: "</span>, dict[<span class="string">'Name'</span>])</span><br><span class="line">print(<span class="string">"dict['Age']: "</span>, dict[<span class="string">'Age'</span>])</span><br></pre></td></tr></table></figure>
+<p>当执行上面的代码，它产生以下结果 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dict[<span class="string">'Name'</span>]:  Saul</span><br><span class="line">dict[<span class="string">'Age'</span>]:  <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<p>如果我们试图使用一个键，但这是不字典访问数据项的一部分，我们会得到一个错误如下 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Saul'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'Third'</span>&#125;;</span><br><span class="line">print(<span class="string">"dict['Alice']: "</span>, dict[<span class="string">'Alice'</span>])</span><br></pre></td></tr></table></figure>
+<p>当执行上面的代码，它产生以下结果 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dict[<span class="string">'Saul'</span>]:</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">4</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(<span class="string">"dict['Alice']: "</span>, dict[<span class="string">'Alice'</span>])</span><br><span class="line">KeyError: <span class="string">'Alice'</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2016/12/03/2016-12-03-Programing-Python-Basic-ABC-Module/#more" rel="contents">
+              <a class="btn" href="/2017/11/14/2017-11-14_Programing-Python-Basic-dirt-intro/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -290,7 +298,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/23/2016-11-23_Programing-Hexo-Paging-function/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/13/2017-11-13_Programing-Python-Basic-IO-intro/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -304,7 +312,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016/11/23/2016-11-23_Programing-Hexo-Paging-function/" class="post-title-link" itemprop="url">Programing-Hexo-Paging_function</a>
+            <a href="/2017/11/13/2017-11-13_Programing-Python-Basic-IO-intro/" class="post-title-link" itemprop="url">Python-基础- I/O 简介</a>
         </h1>
 
         <div class="post-meta">
@@ -314,7 +322,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-11-23 16:13:06" itemprop="dateCreated datePublished" datetime="2016-11-23T16:13:06+08:00">2016-11-23</time>
+              <time title="创建时间：2017-11-13 13:44:24" itemprop="dateCreated datePublished" datetime="2017-11-13T13:44:24+08:00">2017-11-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -328,8 +336,8 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
             </span>
@@ -345,11 +353,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>我们在搭建完Hexo + Github pages的博客后，会发现他的主页会默认显示很多的文章（默认 10 篇），而我们也许需要自定义分页进行管理主页博客的显示数量。</p>
-<p>因此，本教程教会大家，如何设置主页的文章显示数量.</p>
+          <p>这里只讲述基本的 I/O 函数，更多函数请参考Python标准文档。</p>
+<blockquote>
+<p>Python 3.x I/O 标准文档位置  <a href="https://docs.python.org/3/library/io.html" target="_blank" rel="noopener">https://docs.python.org/3/library/io.html</a></p>
+</blockquote>
+<hr>
+<h2 id="打印到屏幕"><a href="#打印到屏幕" class="headerlink" title="打印到屏幕"></a>打印到屏幕</h2><p>最简单的输出方法是用<code>print</code>函数，你可以给它传递零个或多个用逗号隔开的表达式。此函数把你传递的表达式转换成一个字符串表达式，并将结果写到标准输出如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*- </span></span><br><span class="line">print(<span class="string">"hello world"</span>)</span><br></pre></td></tr></table></figure>
+<p>你的标准屏幕上会产生以下结果：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-e87780fd91230718.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hello world"></p>
+<h2 id="读取键盘输入"><a href="#读取键盘输入" class="headerlink" title="读取键盘输入"></a>读取键盘输入</h2><p>Python 3 提供了内置函数从标准输入读入一行文本，默认的标准输入是键盘。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2016/11/23/2016-11-23_Programing-Hexo-Paging-function/#more" rel="contents">
+              <a class="btn" href="/2017/11/13/2017-11-13_Programing-Python-Basic-IO-intro/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -373,7 +388,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/22/2016-11-22_Programing-Hexo-Hexo_blog_read_more_button/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/12/2017-11-12_Programing-Python-Basic-use-yield/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -387,7 +402,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016/11/22/2016-11-22_Programing-Hexo-Hexo_blog_read_more_button/" class="post-title-link" itemprop="url">Programing-Hexo-Hexo_blog_read_more_button</a>
+            <a href="/2017/11/12/2017-11-12_Programing-Python-Basic-use-yield/" class="post-title-link" itemprop="url">Python-基础-`yeild` 关键字使用</a>
         </h1>
 
         <div class="post-meta">
@@ -397,7 +412,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-11-22 15:01:47" itemprop="dateCreated datePublished" datetime="2016-11-22T15:01:47+08:00">2016-11-22</time>
+              <time title="创建时间：2017-11-12 13:49:11" itemprop="dateCreated datePublished" datetime="2017-11-12T13:49:11+08:00">2017-11-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -411,8 +426,8 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
             </span>
@@ -428,12 +443,478 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>我们在搭建好博客后，肯定是第一时间写一篇文章测试一下啦！但是细心的你一定会发现一个问题，那就是——主页为什么会展示每一篇文章的所有内容？而不是首页只展示文章的部分内容，再提供一个阅读全文的按钮呢？</p>
-<p>本篇博客就是帮助各个同学实现阅读全文的功能，同时根据自己的使用经验给出意见和建议。要实现阅读全文，目前存在两种方法，我们会一个个讨论，评价其优缺点的。</p>
-<h2 id="方法一：配置文件设置"><a href="#方法一：配置文件设置" class="headerlink" title="方法一：配置文件设置"></a>方法一：配置文件设置</h2><p>首先我们需要找到Hexo所使用主题的主配置文件_config.yml，注意此处不是Hexo的主配置文件，而是主题的。博主所使用的是NexT主题，因此在此以此为例。</p>
+          <hr>
+<p>大家在阅读 Python 代码时，经常遇到带有 <code>yield</code> 的函数，通常此时我们都需要去想想这个<code>yield</code> 是个什么东西？这一段代码在讲什么事情呢？</p>
+<p>那我们这里就来好好讲讲这个 <code>yield</code>。</p>
+<p><code>yield</code> 是 Python 设计之初就保留的关键字之一。</p>
+<p>在 Python 中被称之为 <code>generator</code>(中文翻译是 <code>“生成器”</code>)，那什么是 <code>generator</code> 呢 ？</p>
+<p>我们先抛开 <code>generator</code>，以一个常见的编程题目来展示 <code>yield</code> 的概念。</p>
+<hr>
+<h2 id="从生成斐波那契数列开始"><a href="#从生成斐波那契数列开始" class="headerlink" title="从生成斐波那契数列开始"></a>从生成斐波那契数列开始</h2><p>斐波那契（Fibonacci）数列是一个非常简单的递归数列，除第一个和第二个数外，任意一个数都可由前两个数相加得到。</p>
+<p>用计算机程序输出斐波那契数列的前 N 个数是一个非常简单的问题，许多初学者都可以轻易写出如下函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出斐波那契数列前 N 个数第一版</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fab</span><span class="params">(max)</span>:</span></span><br><span class="line">    n, a, b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> n &lt; max:</span><br><span class="line">       print(b)</span><br><span class="line">       a, b = b, a + b</span><br><span class="line">       n = n + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">fab(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<p>将上面的内容保存为 <code>.py</code> 后缀的文件，然后执行 ，我们可以得到如下输出：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-03a4c82710ec33e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果1"></p>
+<p>结果没有问题，但有经验的开发者会指出，直接在 fab 函数中用 print 打印数字会导致该函数可复用性较差，因为 fab 函数返回 None，其他函数无法获得该函数生成的数列。</p>
+<p>要提高 fab 函数的可复用性，最好不要直接打印出数列，而是返回一个 List。</p>
+<p>以下是 fab 函数改写后的第二个版本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出斐波那契数列前 N 个数第二版</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fab</span><span class="params">(max)</span>:</span> </span><br><span class="line">    n, a, b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span> </span><br><span class="line">    L = [] </span><br><span class="line">    <span class="keyword">while</span> n &lt; max: </span><br><span class="line">        L.append(b) </span><br><span class="line">        a, b = b, a + b </span><br><span class="line">        n = n + <span class="number">1</span> </span><br><span class="line">    <span class="keyword">return</span> L</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> fab(<span class="number">5</span>):</span><br><span class="line">    print(n)</span><br></pre></td></tr></table></figure>
+<p>执行 ，我们可以得到如下输出：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-4c63ee7aa08c18ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果2"></p>
+<p>改写后的 fab 函数通过返回 List 能满足复用性的要求，但是更有经验的开发者会指出，该函数在运行中占用的内存会随着参数 max 的增大而增大，如果要控制内存占用，最好不要用 List</p>
+<p>来保存中间结果，而是通过 iterable 对象来迭代。例如，在 Python 中，<code>range()</code> 不返回 List，而是返回一个 <code>iterable</code>(中文翻译 <code>“可迭代的对象”</code>) 对象。</p>
+<p>例如下面的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过 iterable 对象来迭代</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>是在每次迭代中返回下一个数值，内存空间占用很小。</p>
+<p>我们可以利用 <code>iterable</code> 的特性，把 fab 函数改写为一个支持 <code>iterable</code> 的 class，以下是第三个版本的 Fab：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出斐波那契数列前 N 个数第三版</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fab</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, max)</span>:</span></span><br><span class="line">       self.max = max</span><br><span class="line">       self.n, self.a, self.b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">       <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span> </span><br><span class="line">        <span class="keyword">if</span> self.n &lt; self.max:</span><br><span class="line">           r = self.b</span><br><span class="line">           self.a, self.b = self.b, self.a + self.b</span><br><span class="line">           self.n = self.n + <span class="number">1</span></span><br><span class="line">           <span class="keyword">return</span> r</span><br><span class="line">        <span class="keyword">raise</span> StopIteration()</span><br><span class="line"><span class="comment"># Fab 类通过 next() 不断返回数列的下一个数，内存占用始终为常数：</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> Fab(<span class="number">5</span>):</span><br><span class="line">    print(n)</span><br></pre></td></tr></table></figure>
+<p>执行 ，我们可以得到如下输出：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-6f51a320b6673d3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果3"></p>
+<p>然而，使用 class 改写的这个版本，代码远远没有第一版的 fab 函数来得简洁。</p>
+<p>如果我们想要保持第一版 fab 函数的简洁性，同时又要获得 <code>iterable</code> 的效果，<code>yield</code> 就派上用场了。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2016/11/22/2016-11-22_Programing-Hexo-Hexo_blog_read_more_button/#more" rel="contents">
+              <a class="btn" href="/2017/11/12/2017-11-12_Programing-Python-Basic-use-yield/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/11/2017-11-11_Programing-Python-Basic-use-random/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/11/11/2017-11-11_Programing-Python-Basic-use-random/" class="post-title-link" itemprop="url">Programing-Python-Basic-use_random</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-11 16:03:23" itemprop="dateCreated datePublished" datetime="2017-11-11T16:03:23+08:00">2017-11-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一-获得-a-b-之间的随机整数"><a href="#一-获得-a-b-之间的随机整数" class="headerlink" title="一 获得[a, b]之间的随机整数"></a>一 获得[a, b]之间的随机整数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">print(random.randint(<span class="number">1</span>, <span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="二-从一个非空序列中随机挑选一个元素"><a href="#二-从一个非空序列中随机挑选一个元素" class="headerlink" title="二 从一个非空序列中随机挑选一个元素"></a>二 从一个非空序列中随机挑选一个元素</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">print(random.choice([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/11/11/2017-11-11_Programing-Python-Basic-use-random/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/05/2017-11-05_Programing-Python-Basic-what-is-PEP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/11/05/2017-11-05_Programing-Python-Basic-what-is-PEP/" class="post-title-link" itemprop="url">Python-基础-PEP 是什么？</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-05 13:56:46" itemprop="dateCreated datePublished" datetime="2017-11-05T13:56:46+08:00">2017-11-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="PEP-是什么？"><a href="#PEP-是什么？" class="headerlink" title="PEP 是什么？"></a>PEP 是什么？</h2><p>Python的 PEP 文档是一组不断发展的标准文档，PEP是 <code>Python Enhancement Proposal</code>的首字母缩写。就像TCPIP协议使用RFC来组织起不断发展的通信标准一样，PEP也是类似的用于发展Python的一组文档。</p>
+<p>PEP的全称是Python Enhancement Proposals，其中Enhancement是增强改进的意思，Proposals则可译为提案或建议书，所以合起来，比较常见的翻译是 Python 增强提案或 Python 改进建议书。Python 核心开发者主要通过邮件列表讨论问题、提议、计划等，PEP 通常是汇总了多方信息，经过了部分核心开发者 review 和认可，最终形成的正式文档，起到了对外公示的作用。</p>
+<p>PEP文档越多，说明 Python 社区越活跃，发展良好。</p>
+<h2 id="PEP-的类型"><a href="#PEP-的类型" class="headerlink" title="PEP 的类型"></a>PEP 的类型</h2><p>每个PEP都有对应的类型（PEP Status Key）：</p>
+<p>A – Accepted (Standards Track only) or Active proposal 已接受（仅限标准跟踪）或有效提案<br>D – Deferred proposal延期提案<br>F – Final proposal 最终提案<br>P – Provisional proposal 暂定提案<br>R – Rejected proposal 拒绝提案<br>S – Superseded proposal 被取代的提案<br>W – Withdrawn proposal 撤回提案</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1940331-ffd775233a9043a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="PEP Status"></p>
+<h2 id="几个特殊的PEP"><a href="#几个特殊的PEP" class="headerlink" title="几个特殊的PEP"></a>几个特殊的PEP</h2><h3 id="PEP-0"><a href="#PEP-0" class="headerlink" title="PEP 0"></a>PEP 0</h3><p><a href="https://www.python.org/dev/peps/" target="_blank" rel="noopener">https://www.python.org/dev/peps/</a></p>
+<p>这个文档是属于Information类的PEP文档，是所有PEP文档的索引。</p>
+<h3 id="PEP-1"><a href="#PEP-1" class="headerlink" title="PEP 1"></a>PEP 1</h3><p><a href="https://www.python.org/dev/peps/pep-0001/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0001/</a></p>
+<p>这个文档讲了PEP的目的和指引。</p>
+<p>在PEP 1中的开头，就说明了PEP文档分成3个类型：</p>
+<ol>
+<li>标准，当然是Python语言的标准；</li>
+<li>信息类；</li>
+<li>过程类，记录Python语言发展过程中的一些信息。</li>
+</ol>
+<h3 id="PEP-8"><a href="#PEP-8" class="headerlink" title="PEP 8"></a>PEP 8</h3><p><a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0008/</a></p>
+<p>PEP 8号文档，是Python官方出的编程规范.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/11/05/2017-11-05_Programing-Python-Basic-what-is-PEP/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/25/2017-10-15-Programing-JavaScript-Variables-and-scoping-in-ECMAScript-6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/10/25/2017-10-15-Programing-JavaScript-Variables-and-scoping-in-ECMAScript-6/" class="post-title-link" itemprop="url">ES6 里的变量和作用域</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-10-25 14:51:12" itemprop="dateCreated datePublished" datetime="2017-10-25T14:51:12+08:00">2017-10-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在本文将有大量的例子介绍在ES6中作用域和变量的使用方法</p>
+<h2 id="1-块级作用域的let和const"><a href="#1-块级作用域的let和const" class="headerlink" title="1.块级作用域的let和const"></a>1.块级作用域的let和const</h2><p>让<code>let</code>和<code>const</code>创造块级作用域，他仅仅存在于包裹他们的最内层的块。下面代码演示了使用<code>let</code>修饰的<code>tmp变量</code>仅仅存在于最里层的<code>if</code>申明里。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> tmp = <span class="number">123</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">// tmp未定义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相比之下，用var申明的变量在函数级作用域</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/10/25/2017-10-15-Programing-JavaScript-Variables-and-scoping-in-ECMAScript-6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/14/2017-10-14-Programing-JavaScript-what-you-need-to-know-about-block-scope-let/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/10/14/2017-10-14-Programing-JavaScript-what-you-need-to-know-about-block-scope-let/" class="post-title-link" itemprop="url">你需要知道的块级作用域 - let</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-10-14 14:48:37" itemprop="dateCreated datePublished" datetime="2017-10-14T14:48:37+08:00">2017-10-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>变量声明在任何语言中都是非常基础的东西，理解变量在作用域下如何工作是非常重要的事情。</p>
+<p>在大多数语言中，如 <code>Python</code>，他有两个作用域:局部 和 全局。如下，变量定义在代码开头部分则为全局变量，在函数里面声明变量则为局部变量。</p>
+<p>JavaScript也很相似，看以下例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Python</span></span><br><span class="line">x = <span class="number">1</span> <span class="comment"># 全局变量</span></span><br><span class="line">y = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    s = a + b <span class="comment"># 局部变量</span></span><br><span class="line">    <span class="keyword">return</span> s</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JavaScript</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;  <span class="comment">// 全局变量</span></span><br><span class="line"><span class="keyword">var</span> y = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> s = a + b;  <span class="comment">// 局部变量</span></span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以C语言为基础而衍生出来的语言(JavaScript, PHP)一般是块级作用域，但JavaScript却不是，当你在一个函数体内声明一个变量，他会在父级或者全局来寻找这个变量，这种行为叫做<code>变量提升</code>，与其他语言不同，JavaScript会在<code>for循环</code>外面使用这些变量。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/10/14/2017-10-14-Programing-JavaScript-what-you-need-to-know-about-block-scope-let/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/13/2017-10-13-Programing-JavaScript-arrow-functions-and-their-scope/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，领域涵盖爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/10/13/2017-10-13-Programing-JavaScript-arrow-functions-and-their-scope/" class="post-title-link" itemprop="url">ES6 箭头函数和它的作用域</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-10-13 14:44:01" itemprop="dateCreated datePublished" datetime="2017-10-13T14:44:01+08:00">2017-10-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在ES6很多很棒的新特性中, 箭头函数 (或者大箭头函数)就是其中值得关注的一个! 它不仅仅是很棒很酷, 它很好的利用了作用域, 快捷方便的在现在使用以前我们用的技术, 减少了很多代码……但是如果你不了解箭头函数原理的话可能就有点难以理解. 所以,让我们来看下箭头函数, 就是现在!</p>
+<h2 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h2><p>你可以自己去学习和尝试下, 你可以简单的把示例程序代码复制到你的浏览器控制台下. 现在, 推荐使用Firefox(22+)开发者工具, Firefox(22+)开发者工具现在支持箭头函数,你也可以使用谷歌浏览器. 如果你使用谷歌浏览器, 你必须要做下列两件事:</p>
+<ul>
+<li>- 在谷歌浏览器中地址栏中输入：”about:flags”, 找到 “使用体验性Javascript”选项，开启使用。</li>
+<li>- 在函数的开头加上”use strict”,然后再在你的谷歌浏览中测试箭头函数吧(提示：请用谷歌浏览器v38,我当时就是被浏览器版本坑了):</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">    "use strict"</span>;</span><br><span class="line">    <span class="comment">// use arrow functions here</span></span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+<p>幸运的是后面会有越来越多的浏览器支持ES6特性. 现在你完成了所有准备工作, 让我们继续深入它吧!</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/10/13/2017-10-13-Programing-JavaScript-arrow-functions-and-their-scope/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -457,7 +938,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -503,20 +984,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
