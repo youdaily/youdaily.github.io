@@ -47,7 +47,7 @@
 </script>
 
   <meta name="description" content="这里只讲述基本的 I&#x2F;O 函数，更多函数请参考Python标准文档。  Python 3.x I&#x2F;O 标准文档位置  https:&#x2F;&#x2F;docs.python.org&#x2F;3&#x2F;library&#x2F;io.html   打印到屏幕最简单的输出方法是用print函数，你可以给它传递零个或多个用逗号隔开的表达式。此函数把你传递的表达式转换成一个字符串表达式，并将结果写到标准输出如下： 12# -*- coding:">
-<meta name="keywords" content="Python,基础技术,编程技术">
+<meta name="keywords" content="基础技术,编程技术,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python-基础- I&#x2F;O 简介">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2017&#x2F;11&#x2F;13&#x2F;2017-11-13_Programing-Python-Basic-IO-intro&#x2F;index.html">
@@ -259,6 +259,27 @@
             </span>
 
           
+            <span id="/2017/11/13/2017-11-13_Programing-Python-Basic-IO-intro/" class="post-meta-item leancloud_visitors" data-flag-title="Python-基础- I/O 简介" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2017/11/13/2017-11-13_Programing-Python-Basic-IO-intro/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2017/11/13/2017-11-13_Programing-Python-Basic-IO-intro/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -563,9 +584,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Python/" rel="tag"># Python</a>
               <a href="/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/" rel="tag"># 基础技术</a>
               <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"># 编程技术</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
           </div>
 
         
@@ -597,7 +618,7 @@
 
           </div>
           
-    <div class="comments" id="gitalk-container"></div>
+    <div class="comments" id="comments"></div>
 
         </div>
           
@@ -813,22 +834,31 @@ window.addEventListener('pjax:success', () => {
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: '3ded7c8301b626225867',
-      clientSecret: '766c6428decc1ccf8dd1381ab21492978884105b',
-      repo: 'youdaily.github.io',
-      owner: 'YouDaily',
-      admin: ['You的日常'],
-      id: 'b59220ef602290e3a84972da0e7883b5',
-        language: 'zh-CN',
-      distractionFreeMode: 'true'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+    appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
 </script>
 
     </div>

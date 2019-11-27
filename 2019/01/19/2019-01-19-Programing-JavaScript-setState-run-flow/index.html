@@ -47,7 +47,7 @@
 </script>
 
   <meta name="description" content="一.几个开发中经常会遇到的问题以下几个问题是我们在实际开发中经常会遇到的场景，下面用几个简单的示例代码来还原一下。 1.setState 是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以?1.1 钩子函数和 React 合成事件中的setState 现在有两个组件 123456789101112componentDidMount() &amp;#123;  console.log(&amp;apos;pa">
-<meta name="keywords" content="编程技术,React,JavaScript">
+<meta name="keywords" content="编程技术,JavaScript,React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="setState的执行机制">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;01&#x2F;19&#x2F;2019-01-19-Programing-JavaScript-setState-run-flow&#x2F;index.html">
@@ -255,6 +255,27 @@
             </span>
 
           
+            <span id="/2019/01/19/2019-01-19-Programing-JavaScript-setState-run-flow/" class="post-meta-item leancloud_visitors" data-flag-title="setState的执行机制" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/01/19/2019-01-19-Programing-JavaScript-setState-run-flow/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/01/19/2019-01-19-Programing-JavaScript-setState-run-flow/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -354,8 +375,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"># 编程技术</a>
-              <a href="/tags/React/" rel="tag"># React</a>
               <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/React/" rel="tag"># React</a>
           </div>
 
         
@@ -387,7 +408,7 @@
 
           </div>
           
-    <div class="comments" id="gitalk-container"></div>
+    <div class="comments" id="comments"></div>
 
         </div>
           
@@ -603,22 +624,31 @@ window.addEventListener('pjax:success', () => {
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: '3ded7c8301b626225867',
-      clientSecret: '766c6428decc1ccf8dd1381ab21492978884105b',
-      repo: 'youdaily.github.io',
-      owner: 'YouDaily',
-      admin: ['You的日常'],
-      id: '3a1001ed365f23cf9b6f578f65b012e3',
-        language: 'zh-CN',
-      distractionFreeMode: 'true'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+    appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
 </script>
 
     </div>

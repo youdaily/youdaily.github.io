@@ -47,7 +47,7 @@
 </script>
 
   <meta name="description" content="大家在阅读 Python 代码时，经常遇到带有 yield 的函数，通常此时我们都需要去想想这个yield 是个什么东西？这一段代码在讲什么事情呢？ 那我们这里就来好好讲讲这个 yield。 yield 是 Python 设计之初就保留的关键字之一。 在 Python 中被称之为 generator(中文翻译是 “生成器”)，那什么是 generator 呢 ？ 我们先抛开 generator，">
-<meta name="keywords" content="Python,基础技术,编程技术">
+<meta name="keywords" content="基础技术,编程技术,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python-基础-&#96;yeild&#96; 关键字使用">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2017&#x2F;11&#x2F;12&#x2F;2017-11-12_Programing-Python-Basic-use-yield&#x2F;index.html">
@@ -255,6 +255,27 @@
             </span>
 
           
+            <span id="/2017/11/12/2017-11-12_Programing-Python-Basic-use-yield/" class="post-meta-item leancloud_visitors" data-flag-title="Python-基础-`yeild` 关键字使用" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2017/11/12/2017-11-12_Programing-Python-Basic-use-yield/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2017/11/12/2017-11-12_Programing-Python-Basic-use-yield/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -323,9 +344,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Python/" rel="tag"># Python</a>
               <a href="/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/" rel="tag"># 基础技术</a>
               <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"># 编程技术</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
           </div>
 
         
@@ -357,7 +378,7 @@
 
           </div>
           
-    <div class="comments" id="gitalk-container"></div>
+    <div class="comments" id="comments"></div>
 
         </div>
           
@@ -573,22 +594,31 @@ window.addEventListener('pjax:success', () => {
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: '3ded7c8301b626225867',
-      clientSecret: '766c6428decc1ccf8dd1381ab21492978884105b',
-      repo: 'youdaily.github.io',
-      owner: 'YouDaily',
-      admin: ['You的日常'],
-      id: '16168a8a61f0ada5f3c1e696e5a57df3',
-        language: 'zh-CN',
-      distractionFreeMode: 'true'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+    appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
 </script>
 
     </div>

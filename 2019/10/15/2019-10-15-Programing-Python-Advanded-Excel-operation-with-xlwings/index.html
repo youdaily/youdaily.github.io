@@ -47,7 +47,7 @@
 </script>
 
   <meta name="description" content="Python-高级-实用-操作 Excel缘起Excel 是我们日常工作学习中都会使用到的很重要的工具。但是处理过程中难免会遇到重复的操作，同时面对大量数据时手工操作也可能因为误操作导致错误发生。我们刚好在学习 Python, 那有没有办法通过 code 来读取 Excel 文件。 答案是肯定的，下面我们就使用 Python 来进行操作 Excel 文件。 模块选择熟悉 Python 世界的读者">
-<meta name="keywords" content="Python,编程技术,高级技术">
+<meta name="keywords" content="编程技术,Python,高级技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python-高级-实用-操作 Excel">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;15&#x2F;2019-10-15-Programing-Python-Advanded-Excel-operation-with-xlwings&#x2F;index.html">
@@ -259,6 +259,27 @@
             </span>
 
           
+            <span id="/2019/10/15/2019-10-15-Programing-Python-Advanded-Excel-operation-with-xlwings/" class="post-meta-item leancloud_visitors" data-flag-title="Python-高级-实用-操作 Excel" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/10/15/2019-10-15-Programing-Python-Advanded-Excel-operation-with-xlwings/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/15/2019-10-15-Programing-Python-Advanded-Excel-operation-with-xlwings/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -328,8 +349,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Python/" rel="tag"># Python</a>
               <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"># 编程技术</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
               <a href="/tags/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" rel="tag"># 高级技术</a>
           </div>
 
@@ -362,7 +383,7 @@
 
           </div>
           
-    <div class="comments" id="gitalk-container"></div>
+    <div class="comments" id="comments"></div>
 
         </div>
           
@@ -578,22 +599,31 @@ window.addEventListener('pjax:success', () => {
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: '3ded7c8301b626225867',
-      clientSecret: '766c6428decc1ccf8dd1381ab21492978884105b',
-      repo: 'youdaily.github.io',
-      owner: 'YouDaily',
-      admin: ['You的日常'],
-      id: '1b45d4db34c51cf510958970d358bb2d',
-        language: 'zh-CN',
-      distractionFreeMode: 'true'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+    appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
 </script>
 
     </div>

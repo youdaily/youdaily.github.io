@@ -47,7 +47,7 @@
 </script>
 
   <meta name="description" content="我们在搭建好博客后，肯定是第一时间写一篇文章测试一下啦！但是细心的你一定会发现一个问题，那就是——主页为什么会展示每一篇文章的所有内容？而不是首页只展示文章的部分内容，再提供一个阅读全文的按钮呢？ 本篇博客就是帮助各个同学实现阅读全文的功能，同时根据自己的使用经验给出意见和建议。要实现阅读全文，目前存在两种方法，我们会一个个讨论，评价其优缺点的。 方法一：配置文件设置首先我们需要找到Hexo所使用">
-<meta name="keywords" content="基础技术,编程技术,Hexo">
+<meta name="keywords" content="Hexo,基础技术,编程技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Programing-Hexo-Hexo_blog_read_more_button">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2016&#x2F;11&#x2F;22&#x2F;2016-11-22_Programing-Hexo-Hexo_blog_read_more_button&#x2F;index.html">
@@ -254,6 +254,27 @@
             </span>
 
           
+            <span id="/2016/11/22/2016-11-22_Programing-Hexo-Hexo_blog_read_more_button/" class="post-meta-item leancloud_visitors" data-flag-title="Programing-Hexo-Hexo_blog_read_more_button" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/11/22/2016-11-22_Programing-Hexo-Hexo_blog_read_more_button/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/11/22/2016-11-22_Programing-Hexo-Hexo_blog_read_more_button/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -281,9 +302,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
               <a href="/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/" rel="tag"># 基础技术</a>
               <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"># 编程技术</a>
-              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
           </div>
 
         
@@ -312,7 +333,7 @@
 
           </div>
           
-    <div class="comments" id="gitalk-container"></div>
+    <div class="comments" id="comments"></div>
 
         </div>
           
@@ -528,22 +549,31 @@ window.addEventListener('pjax:success', () => {
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: '3ded7c8301b626225867',
-      clientSecret: '766c6428decc1ccf8dd1381ab21492978884105b',
-      repo: 'youdaily.github.io',
-      owner: 'YouDaily',
-      admin: ['You的日常'],
-      id: 'db39e85cd677ed527083b2b603af0937',
-        language: 'zh-CN',
-      distractionFreeMode: 'true'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+    appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
 </script>
 
     </div>
