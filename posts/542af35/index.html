@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="You的日常" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="非科班出身，如何成为程序员 本文是知乎的一篇回答  身边有很多非科班出身的程序员，比如 sofish、粽神。当然我也是，所以决定结合自身经历强答一波。 关于我我本科学习的是「生物科学」，大学四年无非就是拿着 eppendorf 的实验枪，在超净台旁养着各种知名或不知名的微生物，有广为人知的「海拉细胞」有很多人没有听过的「毕赤酵母」，每逢寒暑假可能还会去山里或者某个海滨城市实习，在鸟巢旁边装一个微型">
+<meta name="keywords" content="编程技术,程序人生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="非科班出身，如何成为程序员？">
+<meta property="og:url" content="https:&#x2F;&#x2F;youdaily.github.io&#x2F;posts&#x2F;542af35&#x2F;index.html">
+<meta property="og:site_name" content="You的日常">
+<meta property="og:description" content="非科班出身，如何成为程序员 本文是知乎的一篇回答  身边有很多非科班出身的程序员，比如 sofish、粽神。当然我也是，所以决定结合自身经历强答一波。 关于我我本科学习的是「生物科学」，大学四年无非就是拿着 eppendorf 的实验枪，在超净台旁养着各种知名或不知名的微生物，有广为人知的「海拉细胞」有很多人没有听过的「毕赤酵母」，每逢寒暑假可能还会去山里或者某个海滨城市实习，在鸟巢旁边装一个微型">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-22T08:28:21.530Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://youdaily.github.io/posts/542af35/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>非科班出身，如何成为程序员？ | You的日常</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">You的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">You的日常，我们的日常</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/542af35/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          非科班出身，如何成为程序员？
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-16 16:09:52" itemprop="dateCreated datePublished" datetime="2017-11-16T16:09:52+08:00">2017-11-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/" itemprop="url" rel="index">
+                    <span itemprop="name">程序人生</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/542af35/" class="post-meta-item leancloud_visitors" data-flag-title="非科班出身，如何成为程序员？" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/542af35/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/542af35/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="非科班出身，如何成为程序员"><a href="#非科班出身，如何成为程序员" class="headerlink" title="非科班出身，如何成为程序员"></a>非科班出身，如何成为程序员</h2><blockquote>
+<p>本文是知乎的一篇回答</p>
+</blockquote>
+<p>身边有很多非科班出身的程序员，比如 sofish、粽神。当然我也是，所以决定结合自身经历强答一波。</p>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><p>我本科学习的是「生物科学」，大学四年无非就是拿着 eppendorf 的实验枪，在超净台旁养着各种知名或不知名的微生物，有广为人知的「海拉细胞」有很多人没有听过的「毕赤酵母」，每逢寒暑假可能还会去山里或者某个海滨城市实习，在鸟巢旁边装一个微型摄像头，记录下喂食雏鸟的频率，去海边抓一些招潮蟹或者海月水母，也算乐在其中。我很享受大学这段时光，因为毕竟是我儿时的梦想，成为一个生物学家。</p>
+<p>毕业后，进入了北京水产科学研究所，主要工作是「养鱼」，每天固定时间给「小西伯利亚鲟」喂点吃的，给鱼缸换水。很不幸…，在一次换水的过程中水龙头我忘关了，结果水沿着鱼缸溢了出来，小鲟鱼也在想「外面的世界那么大，我想去看看」，都顺着鱼缸溢出的水推力，游到了鱼缸外面，等我发现时，这些小生命都散落在鱼缸周围，也不跳了。主任没有批评我把一缸鱼都养死了，但是也再让我去喂鱼了，给了我一份新的差事，通过毕赤酵母来表达出促性腺激素，促进鲟鱼快速性成熟。实验做了大概一年，有一些成果，毕竟在一年中成功过一次。后来觉得愧对这份工作，就跟主任请辞了，主任就介绍了上海的一份工作给我，去欧莱雅研发中心做实验。现在想想主任真是难得的人生导师。</p>
+<p>在欧莱雅工作了三年，每天也是重复相同的工作，工作内容只是从以前的养各种微生物变成了养「人造皮肤」，然后再把化妆品涂在人造皮肤上，看看化妆品对皮肤的效果，其实和大学拿老鼠、兔子做实验没什么区别，只是欧洲那边不让在活体上做化妆品实验。在欧莱雅的三年，慢慢消磨了我对「生物科学」的热情，重复的工作让我麻痹了我的思想。我决定做一些改变，那是2014年，我已经27了。</p>
+<h3 id="学习编程的动机"><a href="#学习编程的动机" class="headerlink" title="学习编程的动机"></a>学习编程的动机</h3><p>还得从 13 年年底说起，在欧莱雅工作期间，命运多舛，出了一次车祸，右胫腓骨粉碎骨折，当时还是女朋友的老婆放弃了东京的工作回国来照顾我，在床上躺了三四个月，老婆回上海后也找了一份广告公司的工作，做 SEM。到了14年，腿伤基本恢复，我重新回到欧莱雅工作，经历了人生变故（车祸），住院期间把这一生中的生离死别都看完了，开始思考起人生，更加热爱生命。</p>
+<a id="more"></a>
+<p>老婆是做 SEM 工作的，其中很大一部分工作是做 SEO，也就是搜索引擎优化，文科出生的她（日语系）自然对 HTML标记语言、JS代码感到陌生，学习起来也有些吃苦，在区分 CSS 属性 color 和 background 也会疑惑。出于对她回国照顾我的感恩，以及责任。我从图书馆借了一本书「15天掌握HTML\CSS\JS」，开始学习起前端来，那时候我还不知道有前端这个职业，也不是为了转行做前端，仅仅是想自己学会了，然后帮她解决问题。</p>
+<p>也许看了这本书，让我对当时欧莱雅的工作有了更深入的思考，在欧莱雅，我每天工作内容相同，做实验、处理实验数据，写 report。实验之余看看 paper。而学习 HTML\CSS\JS 可以创造不同网站，然后分享给世界各地浏览你网站的人。写网站比做实验似乎更能够给我带来成就感和满足感。于是我决定正式学习 web development，成为一个前端工程师，那是2014年八月，我已经27岁了。</p>
+<h3 id="非科班出身怎么学习编程"><a href="#非科班出身怎么学习编程" class="headerlink" title="非科班出身怎么学习编程"></a>非科班出身怎么学习编程</h3><p>才发现，写到这儿才进入正题，正式开始学习编程是在2014年九月，我并没有辞掉当时的工作，我是白天工作，晚上回家学习，周一到周五每天大概学习5~6个小时左右，周末全天学习。我习惯每个月给自己制定一些任务和目标，然后按照自己的目标前进，比如下面是我2014年九月份制定的一些计划：</p>
+<blockquote>
+<p>九月份：《javascript》高级程序设计 + 慕课网练习（每天保证两小时coding）</p>
+<p>十月份：学习 CSS2 和 CSS3，并对 javascript 的学习做个回顾，教材包括《精通CSS》，《javascript DOM编程艺术》，《javascript语言精粹》外加慕课网每天至少两小时coding！</p>
+<p>十一月份：学习javascript库，jquery、prototype、html5。主要学习书籍《Javascript模式》、《锋利的jQuery》、《html5程序设计》、photoshop学习。</p>
+<p>十二月份：主要任务是设计个人网站，主要书籍《精通javascript》、《编写可维护的Javascript》。</p>
+</blockquote>
+<p>这儿我并不是向大家推荐学习书籍，以及个人的计划，因为那是 2014 年制定的，可能已经不再适合现在入门学习者了，再者，推荐前端书籍的知乎问题不胜枚举。</p>
+<p>周末的时候习惯带个电脑去普陀区图书馆，上海市的图书馆周末也挺多人的，所以不得不很早就去占座，突然又有了回到大学的感觉，关于电脑当时也是下了血本，游说当时还是女朋友的老婆，把他从日本带回来的十几万日元去中国银行换了人民币，然后买了一台 Macbook Pro。</p>
+<p>2015年，我决定转行了，做一个前端工程师，那一年工作也忙了，学习的时间少了许多，为了找工作，我用 NodeJs + jQuery 搭建了一个多人博客系统，然后将自己的实现思路和技术栈连同博客地址发到了知乎和 NodeJs 社区，当然也附上了个人简历和邮箱地址，主要想看看以现在的水平，能不能够找到一份前端工作了。</p>
+<p>那是15年八月，当时小鱼 sofish，推荐我去饿了么面试（估计是在 Nodejs 社区看到我发的帖子），但是由于知识体系的不健全，面试官可能觉得学习曲线会太陡，最终没有过初试，因为当时我还不知道 Promise，也不懂 Angular，更不会 Loopback。</p>
+<p>于是我决定先找一份实习的工作，很幸运一家做 CRM 的公司愿意收留我，开的工资是4.5k，一下回到了刚毕业的水平，但是我很感谢这家公司，它给了我很大的学习空间，因为在这之前，我都是一个人在摸索，自学。甚至不知道真正的前端工程师到底做什么工作，而这家公司给了我机会，给我分配了导师，甚至在入职三个月内不用做任何业务，而是全身心学习。正是这三个月，我构建前自己的前端知识体系，从 JS 基础到 Angular 框架，从 HTML 到 CSS，从 Grunt 到 webpack，从NodeJs 到 Mongodb。在这三个月的学习期间，每天坚持早上九点到公司，晚上十点下班，每天坚持写周报，总结一天的学习，每个月完成一个小项目，三个月期间，自己写了一个所输及所得的 markdown 编辑器，写了一个 CSS selector 的 parser，通过 websocket 做了一个聊天工具。</p>
+<p>当然，这三个月我也放弃了很多，因为刚入职，我放弃了和刚结婚老婆去度蜜月，两个人的蜜月，变成了她独自旅游。到现在也感到愧疚，争取明年补上。</p>
+<p>三个月后，评级转正，当时的职级是 P5，我感到很欣慰，三个月的努力学习有了回报。和之前边工作边学习的离散学习完全不同，当然全职的效率更高，当然薪资也从4.5k 涨到了12k，说实话，对于刚入门的我，我很满意这薪资了。在这公司我工作了两年，合作和独立完成了几个项目，职级后来也再升了两级。在今年七月，我选择了离开，主要原因还是考虑个人发展，以及对饿了么的眷顾。</p>
+<p>对的，我又参加了饿了么的面试，顺利入职饿了么前端工程师，感到很欣慰。好像实现了一个长久的夙愿。</p>
+<h3 id="我为什么感到焦虑"><a href="#我为什么感到焦虑" class="headerlink" title="我为什么感到焦虑"></a>我为什么感到焦虑</h3><p>转行后，我无时不感到焦虑，毕竟是一个大龄转行程序员，身边的同事都是九零后甚至九五后，我无时不刻不在想我怎么规划我的职业，怎么做得更好，怎么缩短与科班出身的同事之间的差距。我没有后悔过转行，也没有后悔过那八年生物生涯（大学四年工作四年），毕竟那八年的生物学习，我快乐过，我不完整实现了儿时的梦想。</p>
+
+    </div>
+
+    <div>
+        
+        <div>
+    
+        <div style="text-align:center;color: #cccccc;font-size:20px;">------ 本文结束 谢谢阅读------</div>
+    
+</div>
+
+        
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+          <div>    
+            
+            <ul class="post-copyright">
+              <li class="post-copyright-link">
+                <strong>本文作者：</strong>
+                <a href="/" title="You的日常">You的日常 | 微信公众号【you的日常】</a>
+              </li>
+
+              <li class="post-copyright-link">
+                <strong>本文标题：</strong>
+                <a href="https://youdaily.github.io/posts/542af35/" title="非科班出身，如何成为程序员？">非科班出身，如何成为程序员？</a>
+              </li>
+
+              <li class="post-copyright-link">
+                <strong>本文链接：</strong>
+                <a href="https://youdaily.github.io/posts/542af35/" title="非科班出身，如何成为程序员？">https://youdaily.github.io/posts/542af35/</a>
+              </li>
+
+              <li class="post-copyright-date">
+                  <strong>发布时间：</strong>2017年11月16日
+              </li>  
+
+              <li class="post-copyright-license">
+                <strong>版权声明： </strong>
+                本文由 You的日常 原创，采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" rel="license" target="_blank">保留署名-非商业性使用-禁止演绎 4.0-国际许可协议，转载请保留以上声明信息！</a>
+              </li>
+            </ul>
+          
+        </div>
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"># 编程技术</a>
+              <a href="/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/" rel="tag"># 程序人生</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/1baee55b/" rel="next" title="Python-基础-时间控制">
+                  <i class="fa fa-chevron-left"></i> Python-基础-时间控制
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/posts/ceaa499f/" rel="prev" title="Python-基础-常用术语对照表">
+                  Python-基础-常用术语对照表 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#非科班出身，如何成为程序员"><span class="nav-number">1.</span> <span class="nav-text">非科班出身，如何成为程序员</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于我"><span class="nav-number">1.1.</span> <span class="nav-text">关于我</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习编程的动机"><span class="nav-number">1.2.</span> <span class="nav-text">学习编程的动机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非科班出身怎么学习编程"><span class="nav-number">1.3.</span> <span class="nav-text">非科班出身怎么学习编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我为什么感到焦虑"><span class="nav-number">1.4.</span> <span class="nav-text">我为什么感到焦虑</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="You的日常"
+      src="/images/avatar-youDaily.jpg">
+  <p class="site-author-name" itemprop="name">You的日常</p>
+  <div class="site-description" itemprop="description">Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/youdaily" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;youdaily" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCJoHHCT90Di7_gRZ88sFaGw" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCJoHHCT90Di7_gRZ88sFaGw" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">You的日常</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+    appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+    </div>
+</body>
+</html>
