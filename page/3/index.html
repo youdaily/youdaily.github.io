@@ -207,6 +207,252 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/f2db7507/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/f2db7507/" class="post-title-link" itemprop="url">移动端适配总结（一）原理篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-22 15:26:14" itemprop="dateCreated datePublished" datetime="2019-05-22T15:26:14+08:00">2019-05-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/f2db7507/" class="post-meta-item leancloud_visitors" data-flag-title="移动端适配总结（一）原理篇" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/f2db7507/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/f2db7507/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>移动端适配，是我们在开发中经常会遇到的，这里面可能会遇到非常多的问题：</p>
+<ul>
+<li><code>1px</code>问题</li>
+<li><code>UI</code>图完美适配方案</li>
+<li><code>iPhoneX</code>适配方案</li>
+<li>横屏适配</li>
+<li>高清屏图片模糊问题</li>
+<li>…</li>
+</ul>
+<p>上面这些问题可能我们在开发中已经知道如何解决，但是问题产生的原理，以及解决方案的原理可能会模糊不清。在解决这些问题的过程中，我们往往会遇到非常多的概念：像素、分辨率、<code>PPI</code>、<code>DPI</code>、<code>DP</code>、<code>DIP</code>、<code>DPR</code>、视口等等，你真的能分清这些概念的意义吗？</p>
+<p>本文将从移动端适配的基础概念出发，探究移动端适配各种问题的解决方案和实现原理。</p>
+<h2 id="一、英寸"><a href="#一、英寸" class="headerlink" title="一、英寸"></a>一、英寸</h2><p>一般用英寸描述屏幕的物理大小，如电脑显示器的<code>17</code>、<code>22</code>，手机显示器的<code>4.8</code>、<code>5.7</code>等使用的单位都是英寸。</p>
+<p>需要注意，上面的尺寸都是屏幕对角线的长度：</p>
+<p><img src="https://i.loli.net/2019/05/17/5cddefa632f3247082.png" alt></p>
+<p>英寸(<code>inch</code>,缩写为<code>in</code>)在荷兰语中的本意是大拇指，一英寸就是指甲底部普通人拇指的宽度。</p>
+<p>英寸和厘米的换算：<code>1英寸 = 2.54 厘米</code></p>
+<h2 id="二、分辨率"><a href="#二、分辨率" class="headerlink" title="二、分辨率"></a>二、分辨率</h2><h3 id="2-1-像素"><a href="#2-1-像素" class="headerlink" title="2.1 像素"></a>2.1 像素</h3><p>像素即一个小方块，它具有特定的位置和颜色。</p>
+<p>图片、电子屏幕（手机、电脑）就是由无数个具有特定颜色和特定位置的小方块拼接而成。</p>
+<p>像素可以作为图片或电子屏幕的最小组成单位。</p>
+<p>下面我们使用<code>sketch</code>打开一张图片：</p>
+<p><img src="https://i.loli.net/2019/05/17/5cddefd18987943848.png" alt></p>
+<p>将这些图片放大即可看到这些像素点：</p>
+<p><img src="https://i.loli.net/2019/05/17/5cddefb8d84ab76156.png" alt></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/f2db7507/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+        
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/83385321/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/83385321/" class="post-title-link" itemprop="url">用JS开发桌面应用（五）终篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-17 15:23:28" itemprop="dateCreated datePublished" datetime="2019-05-17T15:23:28+08:00">2019-05-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/83385321/" class="post-meta-item leancloud_visitors" data-flag-title="用JS开发桌面应用（五）终篇" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/83385321/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/83385321/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="十一、扩展能力"><a href="#十一、扩展能力" class="headerlink" title="十一、扩展能力"></a>十一、扩展能力</h2><p><img src="http://www.conardli.top/img/electron/el_4_iot.jpg" alt></p>
+<p>在很多情况下，你的应用程序要和外部设备进行交互，一般情况下厂商会为你提供硬件设备的开发包，这些开发包基本上都是通过<code>C++</code> 编写，在使用<code>electron</code>开发的情况下，我们并不具备直接调用<code>C++</code>代码的能力，我们可以利用<code>node-ffi</code>来实现这一功能。</p>
+<p><code>node-ffi</code>提供了一组强大的工具，用于在<code>Node.js</code>环境中使用纯<code>JavaScript</code>调用动态链接库接口。它可以用来为库构建接口绑定，而不需要使用任何<code>C++</code>代码。</p>
+<blockquote>
+<p>注意<code>node-ffi</code>并不能直接调用<code>C++</code>代码，你需要将<code>C++</code>代码编译为动态链接库：在 <code>Windows</code>下是 <code>Dll</code> ，在 <code>Mac OS</code>下是 <code>dylib</code> <code>，Linux</code> 是 <code>so</code> 。</p>
+<p><code>node-ffi</code> 加载 <code>Library</code>是有限制的，只能处理 <code>C</code>风格的 <code>Library</code>。 </p>
+</blockquote>
+<p>下面是一个简单的实例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ffi = <span class="built_in">require</span>(<span class="string">'ffi'</span>);</span><br><span class="line"><span class="keyword">const</span> ref = <span class="built_in">require</span>(<span class="string">'ref'</span>);</span><br><span class="line"><span class="keyword">const</span> SHORT_CODE = ref.refType(<span class="string">'short'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> DLL = <span class="keyword">new</span> ffi.Library(<span class="string">'test.dll'</span>, &#123;</span><br><span class="line">    Test_CPP_Method: [<span class="string">'int'</span>, [<span class="string">'string'</span>,SHORT_CODE]], </span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">testCppMethod(str: <span class="built_in">String</span>, <span class="attr">num</span>: number): <span class="keyword">void</span> &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> result: any = DLL.Test_CPP_Method(str, num);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'调用失败～'</span>,error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.testCppMethod(<span class="string">'ConardLi'</span>,<span class="number">123</span>);</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/83385321/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+        
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/4619bb3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -835,7 +1081,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/d5c9d9b6/">
+    <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/28fa54f2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar-youDaily.jpg">
@@ -849,7 +1095,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/d5c9d9b6/" class="post-title-link" itemprop="url">深入分析虚拟DOM的渲染原理和特性</a>
+            <a href="/posts/28fa54f2/" class="post-title-link" itemprop="url">Vue3和Vue2中响应式编程的不同</a>
         </h2>
 
         <div class="post-meta">
@@ -859,7 +1105,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-01-22 15:44:04" itemprop="dateCreated datePublished" datetime="2019-01-22T15:44:04+08:00">2019-01-22</time>
+              <time title="创建时间：2019-02-19 11:51:53" itemprop="dateCreated datePublished" datetime="2019-02-19T11:51:53+08:00">2019-02-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -880,7 +1126,7 @@
             </span>
 
           
-            <span id="/posts/d5c9d9b6/" class="post-meta-item leancloud_visitors" data-flag-title="深入分析虚拟DOM的渲染原理和特性" title="热度">
+            <span id="/posts/28fa54f2/" class="post-meta-item leancloud_visitors" data-flag-title="Vue3和Vue2中响应式编程的不同" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -896,8 +1142,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/d5c9d9b6/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/d5c9d9b6/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/28fa54f2/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/28fa54f2/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -912,278 +1158,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><code>React</code>的虚拟<code>DOM</code>和<code>Diff</code>算法是<code>React</code>的非常重要的核心特性，这部分源码也非常复杂，理解这部分知识的原理对更深入的掌握<code>React</code>是非常必要的。</p>
-<p>本来想将虚拟<code>DOM</code>和<code>Diff</code>算法放到一篇文章，写完虚拟<code>DOM</code>发现文章已经很长了，所以本篇只分析虚拟<code>DOM</code>。</p>
-<p>本篇文章从源码出发，分析虚拟<code>DOM</code>的核心渲染原理（首次渲染），以及<code>React</code>对它做的性能优化点。</p>
-<p>说实话<code>React</code>源码真的很难读 😅，如果本篇文章帮助到了你，那么请给个赞 👍 支持一下吧。</p>
-<h2 id="开发中的常见问题"><a href="#开发中的常见问题" class="headerlink" title="开发中的常见问题"></a>开发中的常见问题</h2><ul>
-<li>为何必须引用<code>React</code></li>
-<li>自定义的<code>React</code>组件为何必须大写</li>
-<li><code>React</code>如何防止<code>XSS</code></li>
-<li><code>React</code>的<code>Diff</code>算法和其他的<code>Diff</code>算法有何区别</li>
-<li><code>key</code>在<code>React</code>中的作用</li>
-<li>如何写出高性能的<code>React</code>组件</li>
-</ul>
-<p>如果你对上面几个问题还存在疑问，说明你对<code>React</code>的虚拟<code>DOM</code>以及<code>Diff</code>算法实现原理还有所欠缺，那么请好好阅读本篇文章吧。</p>
-<p>首先我们来看看到底什么是虚拟<code>DOM</code>:</p>
-<h2 id="虚拟-DOM"><a href="#虚拟-DOM" class="headerlink" title="虚拟 DOM"></a>虚拟 DOM</h2><p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/虚拟dom.png" alt="image"></p>
-<p>在原生的<code>JavaScript</code>程序中，我们直接对<code>DOM</code>进行创建和更改，而<code>DOM</code>元素通过我们监听的事件和我们的应用程序进行通讯。</p>
-<p>而<code>React</code>会先将你的代码转换成一个<code>JavaScript</code>对象，然后这个<code>JavaScript</code>对象再转换成真实<code>DOM</code>。这个<code>JavaScript</code>对象就是所谓的虚拟<code>DOM</code>。</p>
-<p>比如下面一段<code>html</code>代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>Hello ConardLi<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>橘子<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/d5c9d9b6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-        
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/d68f155c/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/d68f155c/" class="post-title-link" itemprop="url">setState的执行机制</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-01-19 15:38:56" itemprop="dateCreated datePublished" datetime="2019-01-19T15:38:56+08:00">2019-01-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/posts/d68f155c/" class="post-meta-item leancloud_visitors" data-flag-title="setState的执行机制" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-              <span>℃</span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/d68f155c/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/d68f155c/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="一-几个开发中经常会遇到的问题"><a href="#一-几个开发中经常会遇到的问题" class="headerlink" title="一.几个开发中经常会遇到的问题"></a>一.几个开发中经常会遇到的问题</h2><p>以下几个问题是我们在实际开发中经常会遇到的场景，下面用几个简单的示例代码来还原一下。</p>
-<h4 id="1-setState-是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以"><a href="#1-setState-是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以" class="headerlink" title="1.setState 是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以?"></a>1.setState 是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以?</h4><p>1.1 钩子函数和 React 合成事件中的<code>setState</code></p>
-<p>现在有两个组件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount() &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'parent componentDidMount'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">render() &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;SetState2&gt;<span class="xml"><span class="tag">&lt;/<span class="name">SetState2</span>&gt;</span></span></span><br><span class="line">      &lt;SetState&gt;<span class="xml"><span class="tag">&lt;/<span class="name">SetState</span>&gt;</span></span></span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-<p>组件内部放入同样的代码，并在<code>Setstate1</code>中的<code>componentDidMount</code>中放入一段同步延时代码，打印延时时间：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">componentWillUpdate() &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'componentWillUpdate'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">componentDidUpdate() &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'componentDidUpdate'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">componentDidMount() &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'SetState调用setState'</span>);</span><br><span class="line">  <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">    index: <span class="keyword">this</span>.state.index + <span class="number">1</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'state'</span>, <span class="keyword">this</span>.state.index);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'SetState调用setState'</span>);</span><br><span class="line">  <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">    index: <span class="keyword">this</span>.state.index + <span class="number">1</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'state'</span>, <span class="keyword">this</span>.state.index);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>下面是执行结果：<br></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/d68f155c/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-        
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/bf1cac5c/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/bf1cac5c/" class="post-title-link" itemprop="url">2019-01-11-Programing-React-event-handler</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-01-11 15:36:33" itemprop="dateCreated datePublished" datetime="2019-01-11T15:36:33+08:00">2019-01-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/posts/bf1cac5c/" class="post-meta-item leancloud_visitors" data-flag-title="2019-01-11-Programing-React-event-handler" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-              <span>℃</span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/bf1cac5c/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/bf1cac5c/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="关于-React-事件的疑问"><a href="#关于-React-事件的疑问" class="headerlink" title="关于 React 事件的疑问"></a>关于 React 事件的疑问</h2><ul>
-<li><p>1.为什么要手动绑定<code>this</code></p>
-</li>
-<li><p>2.<code>React</code>事件和原生事件有什么区别</p>
-</li>
-<li><p>3.<code>React</code>事件和原生事件的执行顺序，可以混用吗</p>
-</li>
-<li><p>4.<code>React</code>事件如何解决跨浏览器兼容</p>
-</li>
-<li><p>5.什么是合成事件</p>
-</li>
-</ul>
-<p>下面是我阅读过源码后，将所有的执行流程总结出来的流程图，不会贴代码，如果你想阅读代码看看具体是如何实现的，可以根据流程图去源码里寻找。</p>
-<h2 id="事件注册"><a href="#事件注册" class="headerlink" title="事件注册"></a>事件注册</h2><p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/事件注册.png" alt="image"></p>
+          <p><code>Vue.js</code> 核心团队已经开始讨论将在 Vue3 中改变的实现了。API 不会有变化，但响应式机制将会有所不用。这意味着什么，对你来说有什么意义？</p>
+<h2 id="Vue-2-的响应式"><a href="#Vue-2-的响应式" class="headerlink" title="Vue 2 的响应式"></a>Vue 2 的响应式</h2><p>Vue.js 2 中的响应式是通过 <code>Object.defineProperty</code> 方法定义 <code>getter</code> 和 <code>setter</code> 完成的。我们来把 Vue 中做的事情简化出一个版本。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">    enumerable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    <span class="keyword">get</span>:function()&#123;</span><br><span class="line">       <span class="keyword">return</span> value;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>:function(newValue)&#123;</span><br><span class="line">        <span class="keyword">if</span>(value !== newValue)&#123;</span><br><span class="line">           value = newValue;</span><br><span class="line">           tellTheWorldIhaveChanged(); <span class="comment">//somebody is watching!</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>使用形如这样的结构，当我们每次对属性进行更改时，它都会去通知需要知道这里有变化的观察者和依赖。这个属性的设置（注：指 <code>defineProperty</code>）是在我们的初始化模型(注：<code>this.data</code>)和我们显式调用 <code>Vue.set/vm.$set</code> 时工作的。</p>
+<p>但是，通过这样的设置使下面内容需要额外处理：</p>
+<h3 id="1-按索引更新数组元素"><a href="#1-按索引更新数组元素" class="headerlink" title="1. 按索引更新数组元素"></a>1. 按索引更新数组元素</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    names:[]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">this</span>.persons[<span class="number">0</span>] = <span class="string">'John Elway'</span>;</span><br></pre></td></tr></table></figure>
+<p>你很可能已经意识到以上代码不会触发更新。事实上，Vue 详细的指南 中明确地提到关于数组的警告。为啥会这样呢？因为数组的 <code>setter</code> 属性无法拦截检测通过索引的赋值。</p>
+<p>一个处理办法是使用 <code>Vue.set</code> 方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.set(<span class="keyword">this</span>.names, <span class="number">0</span>, <span class="string">'John Elway'</span>);</span><br></pre></td></tr></table></figure>
+<p>并且 Vue 也对一些数组方法做了足够的包装，我们可以直接使用 Array 方法直接更新数组对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.names.push(<span class="string">'John Elway'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="2-动态添加属性"><a href="#2-动态添加属性" class="headerlink" title="2. 动态添加属性"></a>2. 动态添加属性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    names:[]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.$data.lastAddedName = <span class="string">'John Elway'</span>;</span><br></pre></td></tr></table></figure>
+<p>这可能是最好的例子，对吧？我可能应该知道某个属性已经存在，但有些情况下我们或许并不知道属性名称。</p>
+<p>JavaScript 提供 <code>loosed-typedness</code> 允许我们轻松添加属性。然而，Vue 响应式并不清楚我们添加了什么。</p>
+<blockquote>
+<p>放着我来！ —— Vue.set</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.set(<span class="keyword">this</span>.$data,<span class="string">'lastAddedName'</span>,<span class="string">'John Elway'</span>);</span><br></pre></td></tr></table></figure>
+<p>如果我们能有一种避免所有 <code>Vue.set</code> 使用情况并把索引操作还给我们的方法.</p>
+<h2 id="Vue-3-的响应式"><a href="#Vue-3-的响应式" class="headerlink" title="Vue 3 的响应式"></a>Vue 3 的响应式</h2><p>Welcome to 通过代理 (Proxy) 实现响应式的世界。</p>
+<p>Proxy 是在 ES6 或者称 ES2015 中引进的特性，他们已经出现一段时间，因此我确信大家已经了解他们了，但可能不会在生产环境中使用。<br>因为 Proxy 也是无法shim 的特性，没有 <code>polyfill</code>，也无法在浏览器中 <code>fake</code> 实现。</p>
+<p>幸运的是，它的语法并不荒谬。事实上，他也算有些熟悉。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = &#123;</span><br><span class="line">   names:[]</span><br><span class="line">&#125;;</span><br><span class="line">data.names = <span class="keyword">new</span> <span class="built_in">Proxy</span>(data.names,&#123;</span><br><span class="line">    <span class="keyword">set</span>:function(obj, prop, value)&#123;</span><br><span class="line">            <span class="keyword">if</span>(obj[prop] !== value)&#123;</span><br><span class="line">                obj[prop] = value;</span><br><span class="line">                tellTheWorldIhaveChanged();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这里 <code>proxy</code> 不仅拦截前面提到的数组索引赋值，还会在调用数组方法时触发，不再需要包装方法。</p>
+<p>那么关于动态添加属性呢？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data = <span class="keyword">new</span> <span class="built_in">Proxy</span>(data,&#123;</span><br><span class="line">    <span class="keyword">set</span>:function(obj, prop, value)&#123;</span><br><span class="line">            <span class="keyword">if</span>(obj[prop] !== value)&#123;</span><br><span class="line">                obj[prop] = value;</span><br><span class="line">                tellTheWorldIhaveChanged();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;);</span><br><span class="line">data.lastAddedName = <span class="string">'John Elway'</span>; <span class="comment">//tellTheWorldIhaveChanged()</span></span><br></pre></td></tr></table></figure>
+<p>OMG. Awesome! 让我们赶紧让它快点发布吧！</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>我在 Vue 2.5 发布之前就开始简短的写了。Vue 3 并没有被过多讨论，但由于上面提到的变化，我真的很期待它。话虽如此，我还是无法在近期的工作项目中使用它。Why? Vue3 没有对 IE 的兼容性，Babel 也不能解决这个问题。</p>
+<p>但是，这种重构依然有长期优势：</p>
 <ul>
-<li>组件装载 / 更新。</li>
-<li>通过<code>lastProps</code>、<code>nextProps</code>判断是否新增、删除事件分别调用事件注册、卸载方法。</li>
-<li>调用<code>EventPluginHub</code>的<code>enqueuePutListener</code>进行事件存储</li>
-<li>获取<code>document</code>对象。</li>
-<li>根据事件名称（如<code>onClick</code>、<code>onCaptureClick</code>）判断是进行冒泡还是捕获。</li>
-<li>判断是否存在<code>addEventListener</code>方法，否则使用<code>attachEvent</code>（兼容 IE）。</li>
-<li>给<code>document</code>注册原生事件回调为<code>dispatchEvent</code>（统一的事件分发机制）。</li>
+<li>简化源码 - 这种重构使得团队去掉数组方法包装并减少需要做的类型检查</li>
+<li>新手更易上手 - 从响应式中获取的警告有助于 Vue 新手，这将消除社区论坛一整类的问题</li>
+<li>更好的性能 - 我见到一些人们建议这样做来提升响应式的速度，它其实已经非常快了，我还没在这一点上被说服</li>
 </ul>
-<h2 id="事件存储"><a href="#事件存储" class="headerlink" title="事件存储"></a>事件存储</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/bf1cac5c/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+<p>感谢阅读！如果你发现了任何错误，请联系我.</p>
+<h2 id="2019-03-19-Update"><a href="#2019-03-19-Update" class="headerlink" title="2019-03-19 Update"></a>2019-03-19 Update</h2><p>似乎使用 <code>Proxy</code> 的版本将附加 <code>-next</code> (像ES-next) 到当前版本号，而不是用 Vue 3。这种更新可能最早出现在 Vue 2.6 和 Vue2.6-next 中。这将消除对 API 中可用内容的混淆。</p>
+
       
     </div>
 
@@ -1206,7 +1217,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1252,20 +1263,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1278,6 +1289,9 @@
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
         <a href="https://github.com/youdaily" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;youdaily" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/e8c3cb999dc5" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;e8c3cb999dc5" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i>简书</a>
       </span>
       <span class="links-of-author-item">
         <a href="https://www.youtube.com/channel/UCJoHHCT90Di7_gRZ88sFaGw" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCJoHHCT90Di7_gRZ88sFaGw" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
@@ -1302,7 +1316,7 @@
 
 <div class="copyright">
   
-  &copy; 2016 – 
+  &copy; 2016 ~
   <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
@@ -1311,9 +1325,11 @@
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
-  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">全站共143.9k字</span>
+</div>
 
         
 

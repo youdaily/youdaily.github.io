@@ -207,6 +207,380 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/99af2b46/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/99af2b46/" class="post-title-link" itemprop="url">内存管理速成手册</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-05 15:52:35" itemprop="dateCreated datePublished" datetime="2017-08-05T15:52:35+08:00">2017-08-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/99af2b46/" class="post-meta-item leancloud_visitors" data-flag-title="内存管理速成手册" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/99af2b46/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/99af2b46/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="内存管理速成手册"><a href="#内存管理速成手册" class="headerlink" title="内存管理速成手册"></a>内存管理速成手册</h2><blockquote>
+<p><a href="https://hacks.mozilla.org/2017/06/a-crash-course-in-memory-management/" target="_blank" rel="noopener">原文地址</a></p>
+<p>_这是本系列文章中的第一篇：</p>
+</blockquote>
+<ol>
+<li><em>内存管理速成手册</em></li>
+<li><em>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</em></li>
+<li><em>使用 Atomics 来在 SharedArrayBuffers 中避免竞用条件</em></li>
+</ol>
+<p>在弄懂 <code>ArrayBuffer</code> 和 <code>SharedArrayBuffer</code> 为什么添加到 JavaScript 之前，你首先需要了解一些关于内存管理的知识。你可以把机器中的内存比喻成一组箱子，就像我把内存想象成办公室内部的信箱一样，或者是为学龄前儿童准备的用于存储杂物的小房间，如果你想给某位孩子准备一些礼物，你可以将物品放到某个箱子里。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_01.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_01-500x353.png" alt="A column of boxes with a child putting something in one of the boxes"></a></p>
+<p>在每个箱子旁边都有一个与之对应的数字，这就是内存地址。正是因为有了地址，你才能够告诉别人你为其准备动物品存放的位置。每个箱子具有相同的尺寸，也因此每个内存箱子也具有相同的容量来存储信息。箱子的尺寸是根据不同的机器而定的。箱子的尺寸被称作「字长」。它通常被标识为「32 位」或者「64 位」。但是为了简单的展示，在本文中我们使用「8 位」的字长。（译者注：一个字长包含 8 个二进制位，也就是说一个内存单元的容量是 8 位）</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_02.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_02-500x121.png" alt="A box with 8 smaller boxes in it"></a></p>
+<p>如果你打算将数字 2 放进其中一个内存箱子里，这将非常容易做到，因为数字可以很容易通过二进制来表示。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_03.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_03-500x229.png" alt="The number two, converted to binary 00000010 and put inside the boxes"></a></p>
+<p>倘若我们想放入内存箱子中的不是数字，而比如是字母「H」，怎么办呢？我们需要通过某种方法将其转化成可以使用数字来表示。为了完成此项工作，我们需要编码。类似于 <a href="https://en.wikipedia.org/wiki/UTF-8" target="_blank" rel="noopener">UTF-8</a> 。同时我们需要某种工具来按照 UTF-8 中的对应关系将字符转化成数字…比如说一个编码环。有了编码和编码环后，我们就可以将任意字符存入到内存箱子中了。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_04.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_04-500x277.png" alt="The letter H, put through an encoder ring to get 72, which is then converted to binary and put in the boxes"></a></p>
+<p>当我们打算将我们存入内存箱子中的信息取出时，我们需要将其放入一个解码器中，通过解码器将存放的数字转换成字母「H」。当你使用 JavaScript 工作时，你无须关心内存是怎样分配和使用的，因为在 JavaScript 中内存是自动管理的，内存管理和你的代码完全隔离。这意味着你不能够直接操作内存。JS 引擎将作为中介的角色，帮我们管理内存。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_05.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_05-500x371.png" alt="A column of boxes with a rope in front of it and the JS engine standing at that rope like a bouncer"></a></p>
+<p>让我们一些 JS 代码，比如在 React 中，我们需要创建一个变量并对其赋值。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_06.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_06-500x373.png" alt="Same as above, with React asking the JS engine to create a variable"></a></p>
+<p>JS 引擎的工作就是通过编码器将变量名转换成二进制表示。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_07.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_07-500x370.png" alt="The JS engine using an encoder ring to convert the string to binary"></a></p>
+<p>然后在内存中找到闲余的空间用来存放上面转换后的二进制表示。这一过程被称作分配内存。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_08.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_08-500x367.png" alt="The JS engine finding space for the binary in the column of boxes"></a></p>
+<p>接下来，JS 引擎会跟踪该变量并判断在程序中该变量是否还能够获取到。如果该变量不能够再被获取到，那么该内存箱子将会被回收再利用，以便 JS 引擎能够分配新的值到该内存中。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_09.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_09-500x379.png" alt="The garbage collector clearing out the memory"></a></p>
+<p>JS 引擎监听变量所代表的字符串、对象、以及内存中的其他数据类型的数据，当这些值不能再被获取到的时候，JS 引擎将会把它们清除出内存，这一过程被称作「垃圾回收」。比如 JavaScript 语言，代码不能够直接操纵内存，被称作自动内存管理语言。这一自动内存管理机制会使得开发变得相对简单。但是自动内存管理也会带来一些头疼的地方。比如自动内存管理可能会带来性能不可预测。而手动进行内存管理的语言就不会有这些问题。比如，通过 C 语言内存管理的方式来写 React 代码（当然，通过<a href="https://hacks.mozilla.org/2017/02/a-cartoon-intro-to-webassembly/" target="_blank" rel="noopener">WebAssembly</a> 已经使得其<a href="https://www.youtube.com/watch?v=3GHJ4cbxsVQ" target="_blank" rel="noopener">成为现实</a>）。C 语言没有 JavaScript 自动内存管理的这一层功能抽象。所以，你可以直接操作内存，你可以从内存中对去数据，你也可以操作内存将数据存入内存中。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_10.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_10-500x360.png" alt="A WebAssembly version of React working with memory directly"></a></p>
+<p>当你讲其它语言比如 C 语言传递给 WebAssembly，你使用的工具将会添加一些代码到 WebAssembly 中，比如，将添加对字节进行编码和解码的代码。这些代码被称作运行时环境。运行时环境也将像 JS 引擎在 JavaScript 语言中的作用一样，处理一些与之相同的工作。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_11.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_11-500x361.png" alt="An encoder ring being shipped down as part of the .wasm file"></a></p>
+<p>但是对于手动内存管理的语言来说，运行时环境并不包含垃圾回收。这就意味着你必须手动来进行垃圾回收，即使是手动内存管理的语言，你通常也可以从该语言运行时环境中获取一些帮助。比如，在 C 语言中，C 语言运行时将会跟踪那些未被使用的内存，并将内存地址存储在一个链表中，该列表被称作「free list」。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_12.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_12-500x360.png" alt="A free list next to the column of boxes, listing which boxes are free right now"></a></p>
+<p>你可以使用 <code>malloc</code> 函数（memory allocate 简写）来请求运行时环境来寻找能够存放你数据的内存地址。这会使得这些内存地址从「free list」中移除。当你使用数据完成工作后，你必须通过<code>free</code>函数来讲该内存释放。</p>
+<p>这样该内存地址将会被重新添加至「free list」中。你必须知道什么时候该调用这些函数。这也是为什么称为手动内存管理的原因所在 -- 你完全自己管理程序中的内存。作为开发者，断定什么时候该清除内存是一件相当困难的事。</p>
+<p>如果在错误的时间点清除内存，将导致程序 bug，甚至一些安全漏洞。如果不对不在使用的内存进行处理，又将导致内存用尽。这也就是为什么现代语言都是用自动内存管理的原因 -- 避免人为错误。但是这也将会产生一些性能上的问题。</p>
+<p>将在<a href="https://hacks.mozilla.org/2017/06/a-cartoon-intro-to-arraybuffers-and-sharedarraybuffers/" target="_blank" rel="noopener">下一篇</a>对此进行说明。</p>
+
+      
+    </div>
+
+    <div>
+        
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/53e3c1ba/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/53e3c1ba/" class="post-title-link" itemprop="url">ES6 实现自己的 Promise</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-04-01 16:14:31" itemprop="dateCreated datePublished" datetime="2017-04-01T16:14:31+08:00">2017-04-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/53e3c1ba/" class="post-meta-item leancloud_visitors" data-flag-title="ES6 实现自己的 Promise" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/53e3c1ba/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/53e3c1ba/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一、JavaScript-异步编程背景"><a href="#一、JavaScript-异步编程背景" class="headerlink" title="一、JavaScript 异步编程背景"></a>一、JavaScript 异步编程背景</h2><p>​ 从去年 ES2015 发布至今，已经过去了一年多，ES2015 发布的新的语言特性中最为流行的也就莫过于 Promise 了，Promise 使得如今 JavaScript 异步编程如此轻松惬意，甚至慢慢遗忘了曾经那不堪回首的痛楚。</p>
+<p>其实从 JavaScript 诞生，JavaScript 中的异步编程就已经出现，例如点击鼠标、敲击键盘这些事件的处理函数都是异步的，时间到了 2009 年，Node.js 横空出世，在整个 Node.js 的实现中，将回调模式的异步编程机制发挥的淋漓尽致，Node 的流行也是的越来越多的 JavaScripter 开始了异步编程，但是回调模式的副作用也慢慢展现在人们眼前，错误处理不够优雅以及嵌套回调带来的“回调地狱”。</p>
+<p>这些副作用使得人们从回调模式的温柔乡中慢慢清醒过来，开始寻找更为优雅的异步编程模式，路漫漫其修远兮、吾将上下而求索。时间到了 2015 年，Promise 拯救那些苦苦探索的先驱。行使它历史使命的时代似乎已经到来。</p>
+<p>​每个事物的诞生有他的历史使命，更有其历史成因，促进其被那些探索的先驱们所发现。<br>了解 nodejs 或者熟悉浏览器的人都知道，JavaScript 引擎是基于事件循环或单线程这两个特性的。更为甚者在浏览器中，更新 UI(也就是浏览器重绘、重拍页面布局)和执行 JavaScript 代码也在一个单线程中，可想而知，一个线程就相当于只有一条马路，如果一辆马车抛锚在路上了阻塞了马路，那么别的马车也就拥堵在了那儿，这个单线程容易被阻塞是一个道理，单线程也只能允许某一时间点只能够执行一段代码。<br>同时，JavaScript 没有想它的哥哥姐姐们那么财大气粗，像 Java 或者 C++，一个线程不够，那么再加一个线程，这样就能够同时执行多段代码了，但是这样就会带来的隐患就是状态不容易维护，JavaScript 选择了单线程非阻塞式的方式，也就是异步编程的方式，就像上面的马车抛锚在了路上，那么把马车推到路边的维修站，让其他马车先过去，等马车修好了再回到马路上继续行驶，这就是单线程非阻塞方式。正如 Promise 的工作方式一样，通过 Promise 去向服务器发起一个请求，毕竟请求有网络开销，不可能马上就返回请求结果的，这个时候 Promise 就处于 pending 状态，但是其并不会阻塞其他代码的执行，当请求返回时，修改 Promise 状态为 fulfilled 或者 rejected（失败请求）。同时执行绑定到这两个状态上面的“处理函数”。这就是异步编程的模式，也就是 Promise 兢兢业业的工作方式，在下面一个部分将详细讨论 Promise。</p>
+<h2 id="二、Promise-基础"><a href="#二、Promise-基础" class="headerlink" title="二、Promise 基础"></a>二、Promise 基础</h2><p>​ 怎么一句话解释 Promise 呢？Promise 可以代指那些尚未完成的一些操作，但是其在未来的某个时间会返回某一特定的结果。</p>
+<p>​ 当创建一个 Promise 实例后，其代表一个未知的值，在将来的某个时间会返回一个成功的返回值，或者失败的返回值，我们可以为这些返回值添加处理函数，当值返回时，处理函数被调用。Promise 总是处于下面三种状态之一：</p>
+<ul>
+<li>pending： Promise 的初始状态，也就是未被 fulfilled 或者 rejected 的状态。</li>
+<li>fulfilled： 意味着 promise 代指的操作已经成功完成。</li>
+<li>rejected：意味着 promise 代指的操作由于某些原因失败。</li>
+</ul>
+<p>一个处于 pending 状态的 promise 可能由于某个成功返回值而发展为 fulfilled 状态，也有可能因为某些错误而进入 rejected 状态，无论是进入 fulfilled 状态或者 rejected 状态，绑定到这两种状态上面的处理函数就会被执行。并且进入 fulfilled 或者 rejected 状态也就不能再返回 pending 状态了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/53e3c1ba/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+        
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/e2b7f0f8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/e2b7f0f8/" class="post-title-link" itemprop="url">Git 修改历史记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-03-24 15:43:11" itemprop="dateCreated datePublished" datetime="2017-03-24T15:43:11+08:00">2017-03-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/e2b7f0f8/" class="post-meta-item leancloud_visitors" data-flag-title="Git 修改历史记录" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/e2b7f0f8/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/e2b7f0f8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="聊聊-Git-「改变历史」"><a href="#聊聊-Git-「改变历史」" class="headerlink" title="聊聊 Git 「改变历史」"></a>聊聊 Git 「改变历史」</h2><p>在本篇文章中，聊聊 Git 怎么改变历史记录。</p>
+<h2 id="重写最后一次提交"><a href="#重写最后一次提交" class="headerlink" title="重写最后一次提交"></a>重写最后一次提交</h2><p>在我们开发的过程中，我们经常会遇到这样的问题，当我们进行了一次「冲动」的 Git 提交后。发现我们的 commit 信息有误，或者我们把不应该这次提交的文件添加到了此次提交中，或者有的文件忘记提交了，怎么办？这些问题都可以通过如下命令来进行弥补。</p>
+<blockquote>
+<p>git commit —amend</p>
+</blockquote>
+<p>举个例子，在一个刚初始化的 Git 仓库中，有如下两个文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">total 0</span><br><span class="line">-rw-r--r--  1 ransixi  staff     0B  9 19 16:35 should-commit.js</span><br><span class="line">-rw-r--r--  1 ransixi  staff     0B  9 19 16:35 should-not-commit.js</span><br></pre></td></tr></table></figure>
+<p>其中 should-commit.js 文件应该被提交，而 should-not-commit.js 不应该被提交，但是由于「冲动」，我把 should-not-commit.js 文件提交了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 其实应该添加 should-commit.js 文件</span></span><br><span class="line">git add should-not-commit.js</span><br><span class="line"><span class="meta">#</span><span class="bash"> 啊哈，由于笔误，我把 commit 写成了 commmit</span></span><br><span class="line">git commit -m 'commmit 1'</span><br></pre></td></tr></table></figure>
+<p>通过 git log 命令打印下当前的历史提交记录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">commit fba6199e7fd5f325cc0bfcec4c599c93603d48f8 (HEAD -&gt; master)</span><br><span class="line">Author: ran.luo03 &lt;ran.luo03@ele.me&gt;</span><br><span class="line">Date:   Tue Sep 19 16:49:57 2017 +0800</span><br><span class="line"></span><br><span class="line">    commmit 1</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/e2b7f0f8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+        
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/ac02993c/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -787,121 +1161,11 @@ git config [--global] user.email &quot;[email address]&quot;
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/80029118/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/80029118/" class="post-title-link" itemprop="url">Programing-Hexo-Hexo_blog_read_more_button</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-11-22 15:01:47" itemprop="dateCreated datePublished" datetime="2016-11-22T15:01:47+08:00">2016-11-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/posts/80029118/" class="post-meta-item leancloud_visitors" data-flag-title="Programing-Hexo-Hexo_blog_read_more_button" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-              <span>℃</span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/80029118/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/80029118/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>我们在搭建好博客后，肯定是第一时间写一篇文章测试一下啦！但是细心的你一定会发现一个问题，那就是——主页为什么会展示每一篇文章的所有内容？而不是首页只展示文章的部分内容，再提供一个阅读全文的按钮呢？</p>
-<p>本篇博客就是帮助各个同学实现阅读全文的功能，同时根据自己的使用经验给出意见和建议。要实现阅读全文，目前存在两种方法，我们会一个个讨论，评价其优缺点的。</p>
-<h2 id="方法一：配置文件设置"><a href="#方法一：配置文件设置" class="headerlink" title="方法一：配置文件设置"></a>方法一：配置文件设置</h2><p>首先我们需要找到Hexo所使用主题的主配置文件_config.yml，注意此处不是Hexo的主配置文件，而是主题的。博主所使用的是NexT主题，因此在此以此为例。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/80029118/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-        
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -947,20 +1211,20 @@ git config [--global] user.email &quot;[email address]&quot;
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -973,6 +1237,9 @@ git config [--global] user.email &quot;[email address]&quot;
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
         <a href="https://github.com/youdaily" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;youdaily" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/e8c3cb999dc5" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;e8c3cb999dc5" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i>简书</a>
       </span>
       <span class="links-of-author-item">
         <a href="https://www.youtube.com/channel/UCJoHHCT90Di7_gRZ88sFaGw" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCJoHHCT90Di7_gRZ88sFaGw" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
@@ -997,7 +1264,7 @@ git config [--global] user.email &quot;[email address]&quot;
 
 <div class="copyright">
   
-  &copy; 2016 – 
+  &copy; 2016 ~
   <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
@@ -1006,9 +1273,11 @@ git config [--global] user.email &quot;[email address]&quot;
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
   </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
-  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">全站共143.9k字</span>
+</div>
 
         
 
