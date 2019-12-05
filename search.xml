@@ -6111,8 +6111,8 @@ $ git archives
 <p>因此，本教程教会大家，如何设置主页的文章显示数量.</p>
 <a id="more"></a>
 <hr>
-<p>首先我们找到Hexo的根配置文件_config.yml，注意不是主题的配置文件。<br>然后按照下面图片中的内容搜索：per_page，在图片中对应位置修改数字即可<br><img src="/posts/undefined/hexoPerPage-01.jpg" class title="设定"></p>
-<p>之后我们就可以在我们的博客主页看到分页的效果啦！<br><img src="/posts/undefined/hexoPerPage-02.jpg" class title="结果"></p>
+<p>首先我们找到Hexo的根配置文件_config.yml，注意不是主题的配置文件。<br>然后按照下面图片中的内容搜索：per_page，在图片中对应位置修改数字即可<br><img src="/posts/9dca7c5/hexoPerPage-01.jpg" class title="设定"></p>
+<p>之后我们就可以在我们的博客主页看到分页的效果啦！<br><img src="/posts/9dca7c5/hexoPerPage-02.jpg" class title="结果"></p>
 ]]></content>
       <categories>
         <category>编程技术</category>
@@ -6131,10 +6131,10 @@ $ git archives
 <p>本篇博客就是帮助各个同学实现阅读全文的功能，同时根据自己的使用经验给出意见和建议。要实现阅读全文，目前存在两种方法，我们会一个个讨论，评价其优缺点的。</p>
 <h2 id="方法一：配置文件设置"><a href="#方法一：配置文件设置" class="headerlink" title="方法一：配置文件设置"></a>方法一：配置文件设置</h2><p>首先我们需要找到Hexo所使用主题的主配置文件_config.yml，注意此处不是Hexo的主配置文件，而是主题的。博主所使用的是NexT主题，因此在此以此为例。</p>
 <a id="more"></a>
-<p>方法一是搜索此处的 <code>auto_excerpt</code>，将 <code>enable</code> 改为 true，就自动可以对每一篇文章进行分割了，length 属性就是定义显示的字符数量。<br><img src="/posts/undefined/auto_excerpt_setting.png" class title="auto_excerpt_setting"></p>
+<p>方法一是搜索此处的 <code>auto_excerpt</code>，将 <code>enable</code> 改为 true，就自动可以对每一篇文章进行分割了，length 属性就是定义显示的字符数量。<br><img src="/posts/80029118/auto_excerpt_setting.png" class title="auto_excerpt_setting"></p>
 <p>但是不得不说，很不建议使用此方法，主要原因是：</p>
 <p>作者不能灵活控制显示内容，只能固定遵循字数设置<br>会丢失Markdown语法的格式，只显示纯文本<br>对！没错！Markdown的格式会全部丢失，所以整个首页的博客预览会非常难看。而主题作者推荐的做法也写的非常明显了，就是在图片中红框当中的内容。</p>
-<h2 id="方法二：手动分割文章"><a href="#方法二：手动分割文章" class="headerlink" title="方法二：手动分割文章"></a>方法二：手动分割文章</h2><p>在文章当中需要分割的位置手动插入以下语句即可：<br><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- more --&gt;</span></span></span><br></pre></td></tr></table></figure><br>效果还是很不错的，如图所示：<br><img src="/posts/undefined/read-more.png" class title="read more 按键"></p>
+<h2 id="方法二：手动分割文章"><a href="#方法二：手动分割文章" class="headerlink" title="方法二：手动分割文章"></a>方法二：手动分割文章</h2><p>在文章当中需要分割的位置手动插入以下语句即可：<br><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- more --&gt;</span></span></span><br></pre></td></tr></table></figure><br>效果还是很不错的，如图所示：<br><img src="/posts/80029118/read-more.png" class title="read more 按键"></p>
 ]]></content>
       <categories>
         <category>编程技术</category>
