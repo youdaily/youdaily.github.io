@@ -2625,7 +2625,7 @@
       </tags>
   </entry>
   <entry>
-    <title>2019-01-25-Programing-程序员必读的六本书</title>
+    <title>程序员必读的六本书</title>
     <url>/posts/606c77fb/</url>
     <content><![CDATA[<p>作为一名程序员，日常的工作除了上班撸代码就是加班撸代码了。撸码其实不难，无非询问Google，StackOverflow，解决方法和demo一箩筐，可是撸的一手好代码着实不易。无独有偶，码农一抓一大把，优秀的程序员却不易寻觅。优秀的程序员既不可能出自各种天花乱坠的培训机构，更不可能来自挖掘机摇篮山东布鲁斯特，大多数优秀的程序员有一个共同点，那就是自学。</p>
 <p>为什么是自学呢？首先大学的教育不可能让你成为专家级别的程序员，其次为了能从团队脱颖而出必然付出更多的努力来学习。自学其实是一种很强有力的能力，一旦掌握，许多技术和问题都可以轻松搞定。</p>
@@ -3201,6 +3201,101 @@
         <tag>编程技术</tag>
         <tag>Python</tag>
         <tag>高级技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>彻底搞懂 volatile 关键字</title>
+    <url>/posts/f40ec33b/</url>
+    <content><![CDATA[<p>对于 <code>volatile</code> 这个关键字，相信很多朋友都听说过，甚至使用过，这个关键字虽然字面上理解起来比较简单，但是要用好起来却不是一件容易的事。</p>
+<p>这篇文章将从多个方面来讲解 <code>volatile</code>，让你对它更加理解。</p>
+<h2 id="计算机中为什么会出现线程不安全的问题"><a href="#计算机中为什么会出现线程不安全的问题" class="headerlink" title="计算机中为什么会出现线程不安全的问题"></a>计算机中为什么会出现线程不安全的问题</h2><p>volatile 既然是与线程安全有关的问题，那我们先来了解一下计算机在处理数据的过程中为什么会出现线程不安全的问题。</p>
+<p>大家都知道，计算机在执行程序时，每条指令都是在 CPU 中执行的，而执行指令过程中会涉及到数据的读取和写入。由于程序运行过程中的临时数据是存放在主存（物理内存）当中的，这时就存在一个问题，由于 CPU 执行速度很快，而从内存读取数据和向内存写入数据的过程跟 CPU 执行指令的速度比起来要慢的多，因此如果任何时候对数据的操作都要通过和内存的交互来进行，会大大降低指令执行的速度。</p>
+<p>为了处理这个问题，在 CPU 里面就有了高速缓存( Cache )的概念。当程序在运行过程中，会将运算需要的数据从主存复制一份到CPU的高速缓存当中，那么 CPU 进行计算时就可以直接从它的高速缓存读取数据和向其中写入数据，当运算结束之后，再将高速缓存中的数据刷新到主存当中。</p>
+<p>我举个简单的例子，比如cpu在执行下面这段代码的时候,</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">t = t + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>会先从高速缓存中查看是否有t的值，如果有，则直接拿来使用，如果没有，则会从主存中读取，读取之后会复制一份存放在高速缓存中方便下次使用。之后cup进行对t加1操作，然后把数据写入高速缓存，最后会把高速缓存中的数据刷新到主存中。</p>
+<p>这一过程在单线程运行是没有问题的，但是在多线程中运行就会有问题了。在多核 CPU 中，每条线程可能运行于不同的 CPU 中，因此每个线程运行时有自己的高速缓存（对单核 CPU 来说，其实也会出现这种问题，只不过是以线程调度的形式来分别执行的，本次讲解以多核 CPU 为主）。这时就会出现同一个变量在两个高速缓存中的值不一致问题了。</p>
+<p>例如：</p>
+<p>两个线程分别读取了t的值，假设此时t的值为0，并且把t的值存到了各自的高速缓存中，然后线程1对t进行了加1操作，此时t的值为1，并且把t的值写回到主存中。但是线程2中高速缓存的值还是0，进行加1操作之后，t的值还是为1，然后再把t的值写回主存。</p>
+<p>此时，就出现了线程不安全问题了。</p>
+<h2 id="Java中的线程安全问题"><a href="#Java中的线程安全问题" class="headerlink" title="Java中的线程安全问题"></a>Java中的线程安全问题</h2><p>上面那种线程安全问题，可能对于不同的操作系统会有不同的处理机制，例如Windows操作系统和Linux的操作系统的处理方法可能会不同。</p>
+<p>我们都知道，Java 是一种夸平台的语言，因此 Java 这种语言在处理线程安全问题的时候，会有自己的处理机制，例如 <code>volatile</code> 关键字，<code>synchronized</code> 关键字，并且这种机制适用于各种平台。</p>
+<p>Java 内存模型规定所有的变量都是存在主存当中（类似于前面说的物理内存），每个线程都有自己的工作内存（类似于前面的高速缓存）。线程对变量的所有操作都必须在工作内存中进行，而不能直接对主存进行操作。并且每个线程不能访问其他线程的工作内存。</p>
+<p>由于 Java 中的每个线程有自己的工作空间，这种工作空间相当于上面所说的高速缓存，因此多个线程在处理一个共享变量的时候，就会出现线程安全问题。</p>
+<p>这里简单解释下共享变量，上面我们所说的t就是一个共享变量，也就是说，能够被多个线程访问到的变量，我们称之为共享变量。在 Java 中共享变量包括实例变量，静态变量，数组元素。他们都被存放在堆内存中。</p>
+<h2 id="volatile关键字"><a href="#volatile关键字" class="headerlink" title="volatile关键字"></a>volatile关键字</h2><p>上面扯了一大堆，都没提到 <code>volatile</code> 关键字的作用，下面开始讲解 <code>volatile</code> 关键字是如何保证线程安全问题的。</p>
+<h3 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h3><p>什么是可见性？<br>意思就是说，在多线程环境下，某个共享变量如果被其中一个线程给修改了，其他线程能够立即知道这个共享变量已经被修改了，当其他线程要读取这个变量的时候，最终会去内存中读取，而不是从自己的工作空间中读取</p>
+<p>例如我们上面说的，当线程1对t进行了加1操作并把数据写回到主存之后，线程2就会知道它自己工作空间内的t已经被修改了，当它要执行加1操作之后，就会去主存中读取。这样，两边的数据就能一致了。</p>
+<p>假如一个变量被声明为 <code>volatile</code>，那么这个变量就具有了可见性的性质了。这就是 <code>volatile</code> 关键的作用之一了。</p>
+<h4 id="volatile保证变量可见性的原理"><a href="#volatile保证变量可见性的原理" class="headerlink" title="volatile保证变量可见性的原理"></a>volatile保证变量可见性的原理</h4><p>当一个变量被声明为 <code>volatile</code> 时，在编译成会变指令的时候，会多出下面一行：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="number">0x00bbacde</span>: lock add1 $<span class="number">0x0</span>,(%esp);</span><br></pre></td></tr></table></figure>
+<p>这句指令的意思就是在寄存器执行一个加0的空操作。不过这条指令的前面有一个 lock (锁)前缀。</p>
+<p>当处理器在处理拥有 lock 前缀的指令时：</p>
+<p>在之前的处理中，lock 会导致传输数据的总线被锁定，其他处理器都不能访问总线，从而保证处理 lock 指令的处理器能够独享操作数据所在的内存区域，而不会被其他处理所干扰。</p>
+<p>但由于总线被锁住，其他处理器都会被堵住，从而影响了多处理器的执行效率。为了解决这个问题，在后来的处理器中，处理器遇到 lock 指令时不会再锁住总线，而是会检查数据所在的内存区域，如果该数据是在处理器的内部缓存中，则会锁定此缓存区域，处理完后把缓存写回到主存中，并且会利用缓存一致性协议来保证其他处理器中的缓存数据的一致性。</p>
+<h4 id="缓存一致性协议"><a href="#缓存一致性协议" class="headerlink" title="缓存一致性协议"></a>缓存一致性协议</h4><p>刚才我在说可见性的时候，说“如果一个共享变量被一个线程修改了之后，当其他线程要读取这个变量的时候，最终会去内存中读取，而不是从自己的工作空间中读取”，实际上是这样的：</p>
+<p>线程中的处理器会一直在总线上嗅探其内部缓存中的内存地址在其他处理器的操作情况，一旦嗅探到某处处理器打算修改其内存地址中的值，而该内存地址刚好也在自己的内部缓存中，那么处理器就会强制让自己对该缓存地址的无效。所以当该处理器要访问该数据的时候，由于发现自己缓存的数据无效了，就会去主存中访问。</p>
+<h3 id="有序性"><a href="#有序性" class="headerlink" title="有序性"></a>有序性</h3><p>实际上，当我们把代码写好之后，虚拟机不一定会按照我们写的代码的顺序来执行。例如对于下面的两句代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p>对于这两句代码，你会发现无论是先执行a = 1还是执行b = 2，都不会对a,b最终的值造成影响。所以虚拟机在编译的时候，是有可能把他们进行重排序的。</p>
+<p>为什么要进行重排序呢？</p>
+<p>你想啊，假如执行 <code>int a = 1</code> 这句代码需要100ms的时间，但执行 <code>int b = 2</code> 这句代码需要1ms的时间，并且先执行哪句代码并不会对 a,b 最终的值造成影响。那当然是先执行 <code>int b = 2</code> 这句代码了。</p>
+<p>所以，虚拟机在进行代码编译优化的时候，对于那些改变顺序之后不会对最终变量的值造成影响的代码，是有可能将他们进行重排序的。</p>
+<p>那么重排序之后真的不会对代码造成影响吗？</p>
+<p>实际上，对于有些代码进行重排序之后，虽然对变量的值没有造成影响，但有可能会出现线程安全问题的。具体请看下面的代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NoVisibility</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> ready;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> number;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Reader</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(!ready)&#123;</span><br><span class="line">            Thread.yield();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(number);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Reader().start();</span><br><span class="line">        number = <span class="number">42</span>;</span><br><span class="line">        ready = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码最终打印的一定是 42 吗？如果没有重排序的话，打印的确实会是 42 ，但如果 <code>number = 42</code> 和 <code>ready = true</code> 被进行了重排序，颠倒了顺序，那么就有可能打印出0了，而不是42。（因为number的初始值会是0).</p>
+<p>因此，重排序是有可能导致线程安全问题的。</p>
+<p>如果一个变量被声明 <code>volatile</code> 的话，那么这个变量不会被进行重排序，也就是说，虚拟机会保证这个变量之前的代码一定会比它先执行，而之后的代码一定会比它慢执行。</p>
+<p>例如把上面中的number声明为 <code>volatile</code>，那么number = 42一定会比ready = true先执行。</p>
+<p>不过这里需要注意的是，虚拟机只是保证这个变量之前的代码一定比它先执行，但并没有保证这个变量之前的代码不可以重排序。之后的也一样。</p>
+<p><code>volatile</code> 关键字能够保证代码的有序性，这个也是 <code>volatile</code> 关键字的作用。</p>
+<p>总结一下，一个被 <code>volatile</code> 声明的变量主要有以下两种特性保证保证线程安全。</p>
+<ul>
+<li>可见性。</li>
+<li>有序性。</li>
+</ul>
+<h2 id="volatile-真的能完全保证一个变量的线程安全吗"><a href="#volatile-真的能完全保证一个变量的线程安全吗" class="headerlink" title="volatile 真的能完全保证一个变量的线程安全吗"></a>volatile 真的能完全保证一个变量的线程安全吗</h2><p>我们通过上面的讲解，发现 <code>volatile</code> 关键字还是挺有用的，不但能够保证变量的可见性，还能保证代码的有序性。</p>
+<p>那么，它真的能够保证一个变量在多线程环境下都能被正确的使用吗？</p>
+<p>答案是否定的。原因是因为 Java 里面的运算并非是原子操作。</p>
+<h3 id="原子操作"><a href="#原子操作" class="headerlink" title="原子操作"></a>原子操作</h3><p>原子操作：即一个操作或者多个操作 要么全部执行并且执行的过程不会被任何因素打断，要么就都不执行。</p>
+<p>也就是说，处理器要嘛把这组操作全部执行完，中间不允许被其他操作所打断，要嘛这组操作不要执行。</p>
+<p>刚才说Java里面的运行并非是原子操作。我举个例子，例如这句代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = b + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>处理器在处理代码的时候，需要处理以下三个操作：</p>
+<ul>
+<li>从内存中读取 <code>b</code> 的值。</li>
+<li>进行 <code>a = b + 1</code> 这个运算</li>
+<li>把 <code>a</code> 的值写回到内存中<br>而这三个操作处理器是不一定就会连续执行的，有可能执行了第一个操作之后，处理器就跑去执行别的操作的。</li>
+</ul>
+<h2 id="证明-volatile-无法保证线程安全的例子"><a href="#证明-volatile-无法保证线程安全的例子" class="headerlink" title="证明 volatile 无法保证线程安全的例子"></a>证明 volatile 无法保证线程安全的例子</h2><p>由于Java中的运算并非是原子操作，所以导致 <code>volatile</code> 声明的变量无法保证线程安全。</p>
+<p>对于这句话，我给大家举个例子。代码如下:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keyword">int</span> t = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        Thread[] threads = <span class="keyword">new</span> Thread[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">            <span class="comment">//每个线程对t进行1000次加1的操作</span></span><br><span class="line">            threads[i] <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()&#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">1000</span>; j++)&#123;</span><br><span class="line">                        t = t + <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            threads[i].start();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//等待所有累加线程都结束</span></span><br><span class="line">        <span class="keyword">while</span>(Thread.activeCount() &gt; <span class="number">1</span>)&#123;</span><br><span class="line">            Thread.yield();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//打印t的值</span></span><br><span class="line">        System.out.println(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最终的打印结果会是 <code>1000 * 10 = 10000</code> 吗？</p>
+<p>答案是否定的。</p>
+<p>问题就出现在 <code>t = t + 1</code> 这句代码中。我们来分析一下</p>
+<p>例如：</p>
+<p>线程1读取了 <code>t</code> 的值，假如 <code>t = 0</code> 。之后线程2读取了<code>t</code> 的值，此时 <code>t = 0</code>。</p>
+<p>然后线程1执行了加1的操作，此时 <code>t = 1</code>。但是这个时候，处理器还没有把 <code>t = 1</code> 的值写回主存中。这个时候处理器跑去执行线程2，注意，刚才线程2已经读取了<code>t</code> 的值，所以这个时候并不会再去读取 <code>t</code> 的值了，所以此时 <code>t</code> 的值还是0，然后线程2执行了对 <code>t</code> 的加1操作，此时 <code>t =1</code> 。</p>
+<p>这个时候，就出现了线程安全问题了，两个线程都对t执行了加1操作，但t的值却是1。所以说，<code>volatile</code> 关键字并不一定能够保证变量的安全性。</p>
+<h2 id="什么情况下volatile能够保证线程安全"><a href="#什么情况下volatile能够保证线程安全" class="headerlink" title="什么情况下volatile能够保证线程安全"></a>什么情况下volatile能够保证线程安全</h2><p>刚才虽然说，volatile关键字不一定能够保证线程安全的问题，其实，在大多数情况下 <code>volatile</code> 还是可以保证变量的线程安全问题的。</p>
+<p>所以，在满足以下两个条件的情况下，<code>volatile</code> 就能保证变量的线程安全问题：</p>
+<ul>
+<li>运算结果并不依赖变量的当前值，或者能够确保只有单一的线程修改变量的值。</li>
+<li>变量不需要与其他状态变量共同参与不变约束。</li>
+</ul>
+<p>讲到这里，关于 <code>volatile</code> 关键字的就算讲完了。如果有哪里讲的不对的地方，非常欢迎你的指点。</p>
+]]></content>
+      <categories>
+        <category>编程技术</category>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>基础技术</tag>
+        <tag>编程技术</tag>
+        <tag>Java</tag>
+        <tag>volatile</tag>
       </tags>
   </entry>
   <entry>
@@ -6004,6 +6099,50 @@ b45959e HEAD@{2}: revert: Revert &quot;add img&quot;
         <tag>基础技术</tag>
         <tag>编程技术</tag>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>这就是观察者模式</title>
+    <url>/posts/6384eeef/</url>
+    <content><![CDATA[<p>观察者模式是软件设计模式中的一种，使用也比较普遍，尤其是在GUI编程中。关于设计模式的文章，网络上写的都比较多，而且很多文章写的也不错，虽然说有一种重复早轮子的嫌疑，但此轮子非彼轮子，侧重点不同，思路也不同，讲述方式也不近相同。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>关于定义，最准确的莫过于Head First设计模式中写到的。</p>
+<p>观察者模式定义了一个一对多的依赖关系，让一个或多个观察者对象监听一个主题对象。这样一来，当被观察者状态发生改变时，需要通知相应的观察者，使这些观察者对象能够自动更新。</p>
+<h2 id="关键要素"><a href="#关键要素" class="headerlink" title="关键要素"></a>关键要素</h2><h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>主题是观察者观察的对象，一个主题必须具备下面三个特征。</p>
+<p>持有监听的观察者的引用<br>支持增加和删除观察者<br>主题状态改变，通知观察者<br>观察者<br>当主题发生变化，收到通知进行具体的处理是观察者必须具备的特征。</p>
+<p>为什么要用这种模式<br>这里举一个例子来说明，牛奶送奶站就是主题，订奶客户为监听者，客户从送奶站订阅牛奶后，会每天收到牛奶。如果客户不想订阅了，可以取消，以后就不会收到牛奶。</p>
+<h2 id="松耦合"><a href="#松耦合" class="headerlink" title="松耦合"></a>松耦合</h2><p>观察者增加或删除无需修改主题的代码，只需调用主题对应的增加或者删除的方法即可。<br>主题只负责通知观察者，但无需了解观察者如何处理通知。举个例子，送奶站只负责送递牛奶，不关心客户是喝掉还是洗脸。<br>观察者只需等待主题通知，无需观察主题相关的细节。还是那个例子，客户只需关心送奶站送到牛奶，不关心牛奶由哪个快递人员，使用何种交通工具送达。<br>通知不错过<br>由于被动接受，正常情况下不会错过主题的改变通知。而主动获取的话，由于时机选取问题，可能导致错过某些状态。</p>
+<h2 id="Java实现"><a href="#Java实现" class="headerlink" title="Java实现"></a>Java实现</h2><p>Java中有观察者模式使用的API</p>
+<p>java.util.Observable 这是一个类，而非接口，主题需要继承这个类。<br>java.util.Observer 这是一个接口，监听者需要实现这个接口。<br>示例代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Observable;</span><br><span class="line"><span class="keyword">import</span> java.util.Observer;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainRoot</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Observer consumer = <span class="keyword">new</span> Consumer();</span><br><span class="line">      MilkProvider provider = <span class="keyword">new</span> MilkProvider();</span><br><span class="line">      provider.addObserver(consumer);</span><br><span class="line">      provider.milkProduced();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MilkProvider</span> <span class="keyword">extends</span> <span class="title">Observable</span> </span>&#123;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">milkProduced</span><span class="params">()</span> </span>&#123;</span><br><span class="line">          setChanged();<span class="comment">//状态改变，必须调用</span></span><br><span class="line">          notifyObservers();</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Consumer</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Observable arg0, Object arg1)</span> </span>&#123;</span><br><span class="line">          System.out.println(<span class="string">"Consumer update..."</span> + arg0 + <span class="string">";arg1="</span> + arg1);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码完成了</p>
+<p>将consumer加入主题provider的观察者行列<br>provider设置状态变化，通知持有的观察者<br>观察者consumer收到通知，打印日志处理<br>setChanged为何物<br>其实上述代码中存在这样一处代码setChanged();，如果在通知之前没有调用这个方法，观察者是收不到通知的，这是为什么呢</p>
+<p>这里我们看一下setChanged的源码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">setChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    changed = <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>很简单，然后找一下谁使用changed这个值</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">boolean</span> <span class="title">hasChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> changed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>notifyObservers的代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">(Object data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> size = <span class="number">0</span>;</span><br><span class="line">    Observer[] arrays = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (hasChanged()) &#123;</span><br><span class="line">          clearChanged();</span><br><span class="line">          size = observers.size();</span><br><span class="line">          arrays = <span class="keyword">new</span> Observer[size];</span><br><span class="line">          observers.toArray(arrays);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (arrays != <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">for</span> (Observer observer : arrays) &#123;</span><br><span class="line">          observer.update(<span class="keyword">this</span>, data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是为什么要加入这样一个开关呢？可能原因大致有三点</p>
+<p>1.筛选有效通知，只有有效通知可以调用setChanged。比如，我的微信朋友圈一条状态，好友A点赞，后续该状态的点赞和评论并不是每条都通知A，只有A的好友触发的操作才会通知A。</p>
+<p>2.便于撤销通知操作，在主题中，我们可以设置很多次setChanged，但是在最后由于某种原因需要取消通知，我们可以使用clearChanged轻松解决问题。</p>
+<p>3.主动权控制，由于setChanged为protected,而notifyObservers方法为public，这就导致存在外部随意调用notifyObservers的可能，但是外部无法调用setChanged，因此真正的控制权应该在主题这里。</p>
+<p>主动获取<br>观察者模式即所谓的推送方式，然而推送并非完美无缺。比如主题变化会推送大量的数据，而其中的一些观察者只需要某项数据，此时观察者就需要在具体实现中花费时间筛选数据。</p>
+<p>这确实是个问题，想要解决也不难，需要主题为某些数据提供getter方法，观察者只需调用getter取数据处理即可。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MilkProvider</span> <span class="keyword">extends</span> <span class="title">Observable</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">milkProduced</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    setChanged();<span class="comment">//状态改变，必须调用</span></span><br><span class="line">    notifyObservers();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getPrice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2.5f</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Consumer</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Observable arg0, Object arg1)</span> </span>&#123;</span><br><span class="line">      MilkProvider provider = (MilkProvider)arg0;</span><br><span class="line">      System.out.println(<span class="string">"milk price ="</span> + provider.getPrice());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="不足与隐患"><a href="#不足与隐患" class="headerlink" title="不足与隐患"></a>不足与隐患</h2><p>主要的问题表现在内存管理上，主要由以下两点:</p>
+<ul>
+<li>主题持有观察者的引用，如果未正常处理从主题中删除观察者，会导致观察者无法被回收。</li>
+<li>如果观察者具体实现代码有问题，会导致主题和观察者对象形成循环引用，在某些采用引用计数的垃圾回收器可能导致无法回收。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>编程技术</category>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>基础技术</tag>
+        <tag>编程技术</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
