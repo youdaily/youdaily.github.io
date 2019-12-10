@@ -49,7 +49,7 @@
 </script>
 
   <meta name="description" content="我们在搭建好博客后，肯定是第一时间写一篇文章测试一下啦！但是细心的你一定会发现一个问题，那就是——主页为什么会展示每一篇文章的所有内容？而不是首页只展示文章的部分内容，再提供一个阅读全文的按钮呢？ 本篇博客就是帮助各个同学实现阅读全文的功能，同时根据自己的使用经验给出意见和建议。要实现阅读全文，目前存在两种方法，我们会一个个讨论，评价其优缺点的。 方法一：配置文件设置首先我们需要找到Hexo所使用">
-<meta name="keywords" content="基础技术,编程技术,Hexo">
+<meta name="keywords" content="Hexo,基础技术,编程技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Programing-Hexo-Hexo_blog_read_more_button">
 <meta property="og:url" content="https:&#x2F;&#x2F;youdaily.github.io&#x2F;posts&#x2F;80029118&#x2F;index.html">
@@ -289,7 +289,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>我们在搭建好博客后，肯定是第一时间写一篇文章测试一下啦！但是细心的你一定会发现一个问题，那就是——主页为什么会展示每一篇文章的所有内容？而不是首页只展示文章的部分内容，再提供一个阅读全文的按钮呢？</p>
+        <div id="vip-container"><p>我们在搭建好博客后，肯定是第一时间写一篇文章测试一下啦！但是细心的你一定会发现一个问题，那就是——主页为什么会展示每一篇文章的所有内容？而不是首页只展示文章的部分内容，再提供一个阅读全文的按钮呢？</p>
 <p>本篇博客就是帮助各个同学实现阅读全文的功能，同时根据自己的使用经验给出意见和建议。要实现阅读全文，目前存在两种方法，我们会一个个讨论，评价其优缺点的。</p>
 <h2 id="方法一：配置文件设置"><a href="#方法一：配置文件设置" class="headerlink" title="方法一：配置文件设置"></a>方法一：配置文件设置</h2><p>首先我们需要找到Hexo所使用主题的主配置文件_config.yml，注意此处不是Hexo的主配置文件，而是主题的。博主所使用的是NexT主题，因此在此以此为例。</p>
 <a id="more"></a>
@@ -300,7 +300,23 @@
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- more --&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p>效果还是很不错的，如图所示：</p>
 <img src="/posts/80029118/read-more.png" class title="read more 按键">
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
     </div>
 
     <div>
@@ -347,9 +363,9 @@
           
         </div>
           <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
               <a href="/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/" rel="tag"># 基础技术</a>
               <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"># 编程技术</a>
-              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
           </div>
 
         
@@ -484,7 +500,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站共149.6k字</span>
+  <span class="post-count">全站共153.6k字</span>
 </div>
 
         

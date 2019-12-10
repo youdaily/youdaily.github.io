@@ -292,7 +292,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Dubbo-注解驱动（Annotation-Driven）"><a href="#Dubbo-注解驱动（Annotation-Driven）" class="headerlink" title="Dubbo 注解驱动（Annotation-Driven）"></a>Dubbo 注解驱动（Annotation-Driven）</h1><h2 id="注解驱动（Annotation-Driven）"><a href="#注解驱动（Annotation-Driven）" class="headerlink" title="注解驱动（Annotation-Driven）"></a>注解驱动（Annotation-Driven）</h2><h3 id="DubboComponentScan"><a href="#DubboComponentScan" class="headerlink" title="@DubboComponentScan"></a><code>@DubboComponentScan</code></h3><h4 id="起始版本：-2-5-7"><a href="#起始版本：-2-5-7" class="headerlink" title="起始版本： 2.5.7"></a>起始版本： <code>2.5.7</code></h4><h4 id="lt-dubbo-annotation-gt-历史遗留问题"><a href="#lt-dubbo-annotation-gt-历史遗留问题" class="headerlink" title="&lt;dubbo:annotation&gt;历史遗留问题"></a><code>&lt;dubbo:annotation&gt;</code>历史遗留问题</h4><h5 id="1-注解支持不充分"><a href="#1-注解支持不充分" class="headerlink" title="1. 注解支持不充分"></a>1. 注解支持不充分</h5><p>在 Dubbo <code>2.5.7</code>之前的版本 ，Dubbo 提供了两个核心注解 <code>@Service</code> 以及 <code>@Reference</code>，分别用于 Dubbo 服务提供和 Dubbo 服务引用。</p>
+        <div id="vip-container"><h1 id="Dubbo-注解驱动（Annotation-Driven）"><a href="#Dubbo-注解驱动（Annotation-Driven）" class="headerlink" title="Dubbo 注解驱动（Annotation-Driven）"></a>Dubbo 注解驱动（Annotation-Driven）</h1><h2 id="注解驱动（Annotation-Driven）"><a href="#注解驱动（Annotation-Driven）" class="headerlink" title="注解驱动（Annotation-Driven）"></a>注解驱动（Annotation-Driven）</h2><h3 id="DubboComponentScan"><a href="#DubboComponentScan" class="headerlink" title="@DubboComponentScan"></a><code>@DubboComponentScan</code></h3><h4 id="起始版本：-2-5-7"><a href="#起始版本：-2-5-7" class="headerlink" title="起始版本： 2.5.7"></a>起始版本： <code>2.5.7</code></h4><h4 id="lt-dubbo-annotation-gt-历史遗留问题"><a href="#lt-dubbo-annotation-gt-历史遗留问题" class="headerlink" title="&lt;dubbo:annotation&gt;历史遗留问题"></a><code>&lt;dubbo:annotation&gt;</code>历史遗留问题</h4><h5 id="1-注解支持不充分"><a href="#1-注解支持不充分" class="headerlink" title="1. 注解支持不充分"></a>1. 注解支持不充分</h5><p>在 Dubbo <code>2.5.7</code>之前的版本 ，Dubbo 提供了两个核心注解 <code>@Service</code> 以及 <code>@Reference</code>，分别用于 Dubbo 服务提供和 Dubbo 服务引用。</p>
 <p>其中，<code>@Service</code> 作为 XML 元素 <code>&lt;dubbo:service&gt;</code>的替代注解，与 Spring Framework <code>@org.springframework.stereotype.Service</code> 类似，用于服务提供方 Dubbo 服务暴露。与之相对应的<code>@Reference</code>，则是替代<code>&lt;dubbo:reference</code> 元素，类似于 Spring 中的 <code>@Autowired</code>。</p>
 <p><code>2.5.7</code> 之前的 Dubbo，与早期的 Spring Framework 2.5 存在类似的不足，即注解支持不够充分。注解需要和 XML 配置文件配合使用，如下所示：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:dubbo</span>=<span class="string">"http://code.alibabatech.com/schema/dubbo"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"annotation-provider"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">"127.0.0.1:4548"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:annotation</span> <span class="attr">package</span>=<span class="string">"com.alibaba.dubbo.config.spring.annotation.provider"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -392,7 +392,23 @@
 <p>问题版本：<code>2.5.7</code>、<code>2.5.8</code></p>
 <p>问题详情：<a href="https://github.com/alibaba/dubbo/issues/1120" target="_blank" rel="noopener">https://github.com/alibaba/dubbo/issues/1120</a></p>
 <p>修复版本：<code>2.5.9</code>（下个版本）</p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
     </div>
 
     <div>
@@ -580,7 +596,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站共149.6k字</span>
+  <span class="post-count">全站共153.6k字</span>
 </div>
 
         

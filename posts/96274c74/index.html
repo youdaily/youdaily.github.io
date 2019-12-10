@@ -302,7 +302,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="通过漫画形式来解释-ArrayBuffers-和-SharedArrayBuffers"><a href="#通过漫画形式来解释-ArrayBuffers-和-SharedArrayBuffers" class="headerlink" title="通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers"></a>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</h1><p>这是本系列三篇文章中的第二篇：</p>
+        <div id="vip-container"><h1 id="通过漫画形式来解释-ArrayBuffers-和-SharedArrayBuffers"><a href="#通过漫画形式来解释-ArrayBuffers-和-SharedArrayBuffers" class="headerlink" title="通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers"></a>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</h1><p>这是本系列三篇文章中的第二篇：</p>
 <ol>
 <li><em>内存管理速成手册</em></li>
 <li><em>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</em></li>
@@ -344,7 +344,23 @@
 <p>SharedArrayBuffers 在 Safari（Safari 10.1）中已经可以使用。Firefox 和 Chrome 也将在今年的七八月发布的版本中包含此项功能。Edge 浏览器计划在今年的秋天完成此项功能的更新。但是即使所有主流浏览器都已经支持 SharedArrayBuffers，我们也不希望应用程序开发人员直接使用它。</p>
 <p>实际上，我们发对这样做。你应该在其之上进行抽象，使用更高层的一些库。我们所期待的是框架或库的开发者们能够创建一些工具库，这些工具库能够帮助我们更方便、安全的使用 SharedArrayBuffer。除此之外，一旦 SharedArrayBuffers 在平台上实现，WebAssembly 可以使用它来实现多线程。到时候，你就能够向 Rust 语言一样使用并发的抽象层，它将无所畏惧得将并发作为其主要目标。在下一篇文章中，我们将解释工具（<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics" target="_blank" rel="noopener">Atomics</a> ）以及工具开发者是怎样来实现这一抽象层并如何避免竞用条件的。</p>
 <p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_15.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_15-500x335.png" alt="Layer diagram showing SharedArrayBuffer + Atomics as the foundation, and JS libaries and WebAssembly threading building on top"></a></p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
     </div>
 
     <div>
@@ -531,7 +547,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站共149.6k字</span>
+  <span class="post-count">全站共153.6k字</span>
 </div>
 
         

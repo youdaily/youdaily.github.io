@@ -286,7 +286,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-abc模块作用"><a href="#1-abc模块作用" class="headerlink" title="1.abc模块作用"></a>1.abc模块作用</h2><p>Python本身不提供抽象类和接口机制，要想实现抽象类，可以借助abc模块。ABC是Abstract Base Class的缩写。</p>
+        <div id="vip-container"><h2 id="1-abc模块作用"><a href="#1-abc模块作用" class="headerlink" title="1.abc模块作用"></a>1.abc模块作用</h2><p>Python本身不提供抽象类和接口机制，要想实现抽象类，可以借助abc模块。ABC是Abstract Base Class的缩写。</p>
 <h2 id="2-模块中的类和函数"><a href="#2-模块中的类和函数" class="headerlink" title="2.模块中的类和函数"></a>2.模块中的类和函数</h2><h3 id="abc-ABCMeta"><a href="#abc-ABCMeta" class="headerlink" title="abc.ABCMeta"></a>abc.ABCMeta</h3><p>这是用来生成抽象基础类的元类。由它生成的类可以被直接继承。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> abc <span class="keyword">import</span> ABCMeta</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyABC</span>:</span></span><br><span class="line">    __metaclass__ = ABCMeta</span><br><span class="line"></span><br><span class="line">MyABC.register(tuple)</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> issubclass(tuple, MyABC)</span><br><span class="line"><span class="keyword">assert</span> isinstance((), MyABC)</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -299,7 +299,23 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span>:</span></span><br><span class="line">    __metaclass__ = ABCMeta</span><br><span class="line"><span class="meta">    @abstractproperty</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">my_abstract_property</span><span class="params">(self)</span>:</span></span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
 <p>上例只是只读属性，如果是读写属性，可以如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span>:</span></span><br><span class="line">    __metaclass__ = ABCMeta</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getx</span><span class="params">(self)</span>:</span> ...</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setx</span><span class="params">(self, value)</span>:</span> ...</span><br><span class="line">    x = abstractproperty(getx, setx)</span><br></pre></td></tr></table></figure>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
     </div>
 
     <div>
@@ -486,7 +502,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站共149.6k字</span>
+  <span class="post-count">全站共153.6k字</span>
 </div>
 
         

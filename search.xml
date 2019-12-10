@@ -3,7 +3,7 @@
   <entry>
     <title>每日一文：剩男现象</title>
     <url>/posts/db7d6965/</url>
-    <content><![CDATA[<h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>在中国，30岁以上的未婚男性被称作「剩男」，指的是还没有找到妻子的「剩下的男士」——而在一个性别越发失衡的国家里，这已经成为一大问题。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>在中国，30岁以上的未婚男性被称作「剩男」，指的是还没有找到妻子的「剩下的男士」——而在一个性别越发失衡的国家里，这已经成为一大问题。</p>
 <p>1980年，中国新生儿男女比例仍处于正常区间。但到了90年，比例增加了但也没到很严重的程度，而 2000 的人口普查资料更显示，当年新生儿性男女比例失衡不但达到历史新高，第三胎男女比例更高达 6 : 1。</p>
 <a id="more"></a>
 <h2 id="计划生育政策"><a href="#计划生育政策" class="headerlink" title="计划生育政策"></a>计划生育政策</h2><p><img src="https://upload-images.jianshu.io/upload_images/1940331-e0890c8eb8c1be1d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
@@ -43,7 +43,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>日常生活</category>
         <category>公众号</category>
@@ -58,7 +74,7 @@
   <entry>
     <title>深入理解 Python 字典的实现过程</title>
     <url>/posts/f8a39f2f/</url>
-    <content><![CDATA[<h2 id="Python-字典"><a href="#Python-字典" class="headerlink" title="Python 字典"></a>Python 字典</h2><p>字典是一种内置于 Python 中非常有用的数据类型，总的来说它是一些由键（key）索引的对象，这里的 key 是必须是不可变的。 以下是一个简单的字典用法示例：</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="Python-字典"><a href="#Python-字典" class="headerlink" title="Python 字典"></a>Python 字典</h2><p>字典是一种内置于 Python 中非常有用的数据类型，总的来说它是一些由键（key）索引的对象，这里的 key 是必须是不可变的。 以下是一个简单的字典用法示例：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = &#123;<span class="string">'fengsp'</span>: <span class="number">10</span>, <span class="string">'amy'</span>: <span class="number">12</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d[<span class="string">'fengsp'</span>]</span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> d[<span class="string">'fengsp'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.keys()</span><br><span class="line">[<span class="string">'amy'</span>]</span><br></pre></td></tr></table></figure>
 <p>通常我们会多次的检索一个值（value），因此通过 key 来检索一个对象的过程必须是个非常快速的操作。对于 CPython 本身，多种语法特性都是在字典的帮助下支持的，例如，类实例就是使用字典来储存实例属性，可见字典的性能至关重要。</p>
 <a id="more"></a>
@@ -86,7 +102,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -101,7 +133,7 @@
   <entry>
     <title>网易裁员事件-《网易裁员，让保安把身患绝症的我赶出公司。我在网易亲身经历的噩梦》</title>
     <url>/posts/b8422409/</url>
-    <content><![CDATA[<p>以下为《网易裁员，让保安把身患绝症的我赶出公司。我在网易亲身经历的噩梦！》全文内容：</p>
+    <content><![CDATA[<div id="vip-container"><p>以下为《网易裁员，让保安把身患绝症的我赶出公司。我在网易亲身经历的噩梦！》全文内容：</p>
 <p>我是网易的一名游戏策划。14年从上海交大毕业后就进入网易工作，5年里，我和大部分网易员工一样以“网易人”的称号为傲。</p>
 <p>直到18年底开始传出网易毁约应届生、年前最后一天裁员、威胁员工的消息时，仍不愿相信这是网易的所为，更想不到不久后我就会在身患绝症的情况下亲身经历逼迫、算计、监视、陷害、威胁，甚至被保安赶出公司。</p>
 <h2 id="01-患病"><a href="#01-患病" class="headerlink" title="01 患病"></a>01 患病</h2><p>这5年里，除了某段时间经常在后半夜两三点钟下班，主管说第二天早上可以请病假晚到一会儿之外，我请病假的次数屈指可数。</p>
@@ -396,7 +428,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>日常生活</category>
       </categories>
@@ -408,7 +456,7 @@
   <entry>
     <title>今日一文：妈妈的手套</title>
     <url>/posts/a735f994/</url>
-    <content><![CDATA[<h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>昨天晚上给妈妈打电话的时候，妈妈说预报里面说：明天家里要下雪了，你那边冷吗？你要多穿点衣服，不要冻着啦！</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>昨天晚上给妈妈打电话的时候，妈妈说预报里面说：明天家里要下雪了，你那边冷吗？你要多穿点衣服，不要冻着啦！</p>
 <h2 id="妈妈的手套"><a href="#妈妈的手套" class="headerlink" title="妈妈的手套"></a>妈妈的手套</h2><p><img src="https://upload-images.jianshu.io/upload_images/1940331-fed24a8c6ace4bf3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="手套"></p>
 <blockquote>
 <p>图文无关</p>
@@ -429,7 +477,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>日常生活</category>
         <category>公众号</category>
@@ -444,7 +508,7 @@
   <entry>
     <title>今日一文：国足又输球了</title>
     <url>/posts/39a2d06b/</url>
-    <content><![CDATA[<h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>11 月 14 日晚，中国男足又输球了。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>11 月 14 日晚，中国男足又输球了。</p>
 <h2 id="比赛相关"><a href="#比赛相关" class="headerlink" title="比赛相关"></a>比赛相关</h2><p>11 月 14 日晚，2022 年世界杯亚洲区预选赛预赛阶段（四十强赛）A组的一场关键战役在此间打响，中国男足和叙利亚队伍的比赛正式上演。此前，中国队已踢过三场小组赛，分别以 <strong>5:0</strong> 和 <strong>7:0</strong> 战胜了马尔代夫和关岛，以 <strong>0:0</strong> 踢平菲律宾队。</p>
 <p>比赛中中国男足在上半场扳平比分后，下半场因为一粒乌龙球以 <strong>1:2</strong> 遗憾负于小组最强对手叙利亚队，目前在小组中仅以净胜球优势排在第二位。</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/1940331-11f7aa4a650f9008?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="国足比分"></p>
@@ -472,7 +536,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>日常生活</category>
         <category>公众号</category>
@@ -487,7 +567,7 @@
   <entry>
     <title>今日一文：三罢对香港经济的影响</title>
     <url>/posts/9bb99421/</url>
-    <content><![CDATA[<h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>我们都知道，最近香港的局势不太稳定，暴徒们恶意破坏的行径，已经严重影响到香港居民的方方面面。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>我们都知道，最近香港的局势不太稳定，暴徒们恶意破坏的行径，已经严重影响到香港居民的方方面面。</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/1940331-41ab7b2376308e2c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="一条满是砖块垃圾的马路"></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/1940331-c28106337cf53a62?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在沙田，一列火车因抗议者的扰乱而暂停服务，乘客被迫下车"></p>
 <p>我们都知道，动荡的社会环境中，社会生产活动肯定会受到影响，这些影响最后将以经济数据的形式呈现出来。8 月份开始的 “三罢（罢工、罢课、罢市）” 活动，更是将对经济的影响放大了。这篇文章里，我们将尝试从香港政府已经公布的经济数据中，去发现暴力活动对香港经济造成的影响。</p>
@@ -522,7 +602,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>日常生活</category>
         <category>公众号</category>
@@ -537,7 +633,7 @@
   <entry>
     <title>今日一文：矛盾的日本人</title>
     <url>/posts/223d2e53/</url>
-    <content><![CDATA[<h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>早上的时候，因为工作需要和日本的客户开了个会，就是我们作为方案提供方，想客户推广公司的产品，我基本全程 <code>打酱油</code>，主讲的另外的两个同事。主要通过英语进行讲解，日本那边有一个英语翻译，复杂将双方的意思进行传达。会议讲述的内容是已经在很多场合下讲过很多次了，客户也没有问特别深奥的问题，整个过程下来感觉也没有给客户留下特别的印象。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>早上的时候，因为工作需要和日本的客户开了个会，就是我们作为方案提供方，想客户推广公司的产品，我基本全程 <code>打酱油</code>，主讲的另外的两个同事。主要通过英语进行讲解，日本那边有一个英语翻译，复杂将双方的意思进行传达。会议讲述的内容是已经在很多场合下讲过很多次了，客户也没有问特别深奥的问题，整个过程下来感觉也没有给客户留下特别的印象。</p>
 <p>会上的一件小事，却让我感到有点吃惊。</p>
 <p>既然是推广，那肯定会有答疑环节，日方的翻译和同事就一个问题讨论了几分钟了，突然有个声音出现，说着日语，然后那个翻译很快地就用几句话结束了交谈。</p>
 <p>我还在郁闷，这是怎么回事呢？怎么突然就结束啦。正当我还在疑惑的时候，旁边的同事说道：“1个小时过的真快，这就结束了”。</p>
@@ -571,7 +667,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>日常生活</category>
         <category>公众号</category>
@@ -586,7 +698,7 @@
   <entry>
     <title>副业赚钱？ 我用自己的教训来给你指路</title>
     <url>/posts/e8927964/</url>
-    <content><![CDATA[<p><code>副业赚钱</code>, 是每个人读梦寐以求的，毕竟 <code>躺着就能把钱挣了</code> 还是很舒服的。</p>
+    <content><![CDATA[<div id="vip-container"><p><code>副业赚钱</code>, 是每个人读梦寐以求的，毕竟 <code>躺着就能把钱挣了</code> 还是很舒服的。</p>
 <p>最近在不断的总结和反思着一个多月以来的 <code>折腾之旅</code> , 得到了下面的几点教训。这里分享出来给大家参考。</p>
 <h2 id="涉及的东西太多"><a href="#涉及的东西太多" class="headerlink" title="涉及的东西太多"></a>涉及的东西太多</h2><p>自从 9 月份开始说要开始自己的折腾之旅开始，先后试过下面平台及方向。</p>
 <div class="table-container">
@@ -722,7 +834,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>日常生活</category>
         <category>公众号</category>
@@ -737,7 +865,7 @@
   <entry>
     <title>使用Python Flask 实现 RESTful API</title>
     <url>/posts/1d89d585/</url>
-    <content><![CDATA[<p>在工作学习中，我们经常会需要将自己的开发成果对外提供服务，此时的选择很多，但是什么才是最高效的呢？</p>
+    <content><![CDATA[<div id="vip-container"><p>在工作学习中，我们经常会需要将自己的开发成果对外提供服务，此时的选择很多，但是什么才是最高效的呢？</p>
 <p>想必聪明的你，已经想到了：通过 <code>API</code> 的方式对外提供服务。既然我们在学习 Python 过程中，那我们就使用 Python 来实现自己的 API 吧。</p>
 <p>下面将从下面几个方面进行讲解：</p>
 <ul>
@@ -974,7 +1102,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -989,7 +1133,7 @@
   <entry>
     <title>Python-高级-实用-操作 Excel</title>
     <url>/posts/dd3965e6/</url>
-    <content><![CDATA[<h1 id="Python-高级-实用-操作-Excel"><a href="#Python-高级-实用-操作-Excel" class="headerlink" title="Python-高级-实用-操作 Excel"></a>Python-高级-实用-操作 Excel</h1><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>Excel 是我们日常工作学习中都会使用到的很重要的工具。但是处理过程中难免会遇到重复的操作，同时面对大量数据时手工操作也可能因为误操作导致错误发生。我们刚好在学习 Python, 那有没有办法通过 code 来读取 Excel 文件。</p>
+    <content><![CDATA[<div id="vip-container"><h1 id="Python-高级-实用-操作-Excel"><a href="#Python-高级-实用-操作-Excel" class="headerlink" title="Python-高级-实用-操作 Excel"></a>Python-高级-实用-操作 Excel</h1><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>Excel 是我们日常工作学习中都会使用到的很重要的工具。但是处理过程中难免会遇到重复的操作，同时面对大量数据时手工操作也可能因为误操作导致错误发生。我们刚好在学习 Python, 那有没有办法通过 code 来读取 Excel 文件。</p>
 <p>答案是肯定的，下面我们就使用 Python 来进行操作 Excel 文件。</p>
 <h2 id="模块选择"><a href="#模块选择" class="headerlink" title="模块选择"></a>模块选择</h2><p>熟悉 Python 世界的读者，就会明白：在 Python 的世界里，做一件事情，官方建议只有一种方法。但是现实中，大佬太多，互相之间看不上别人做的东西，重复造轮子的现象比较严重。</p>
 <p>如果百度或google 一下：“Python Excel”, 下面的几个第三方模块库常常出现在推荐列表中</p>
@@ -1041,7 +1185,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -1056,7 +1216,7 @@
   <entry>
     <title>Python-高级-爬虫-Requests 库高级使用</title>
     <url>/posts/3c355061/</url>
-    <content><![CDATA[<h2 id="Headers（定制请求头）"><a href="#Headers（定制请求头）" class="headerlink" title="Headers（定制请求头）"></a>Headers（定制请求头）</h2><h3 id="什么是Headers请求头呢？"><a href="#什么是Headers请求头呢？" class="headerlink" title="什么是Headers请求头呢？"></a>什么是Headers请求头呢？</h3><p>请求头就是访问网页时的各种简单的证明信息，里面包含了很多内容。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="Headers（定制请求头）"><a href="#Headers（定制请求头）" class="headerlink" title="Headers（定制请求头）"></a>Headers（定制请求头）</h2><h3 id="什么是Headers请求头呢？"><a href="#什么是Headers请求头呢？" class="headerlink" title="什么是Headers请求头呢？"></a>什么是Headers请求头呢？</h3><p>请求头就是访问网页时的各种简单的证明信息，里面包含了很多内容。</p>
 <p>比如你要获取信息的格式、访问的时间、是否用了代理（使用透明代理时浏览器依旧会发送你的真实IP，只有高匿代理才不会）、浏览器标识（User-Agent）等。</p>
 <p>提示：给大家举一个非常直白的例子，浏览器就像是你的专属外卖配送员，各网站就像外卖商家，配送员到商家取餐时，需要提供订单号、我是谁的配送员、要取什么餐等等信息。</p>
 <p>这里以chrome浏览器为例，首先 F12 打开调试模式，然后访问一个网站，将会在NetWork下看到对目标网页的请求信息，如下图：<br><img src="https://images.xiaozhuanlan.com/photo/2019/b2f2ccdcfc8c21bd8cf347564f09ec12.png" alt></p>
@@ -1103,7 +1263,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -1118,7 +1294,7 @@
   <entry>
     <title>Python-高级-爬虫-Requests 库基础使用</title>
     <url>/posts/c1efdcfc/</url>
-    <content><![CDATA[<h2 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h2><p><code>Requests</code> 库就非常优雅，虽然不是原生python模块，但自己安装也非常简单，只需要使用以下命令即可：</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h2><p><code>Requests</code> 库就非常优雅，虽然不是原生python模块，但自己安装也非常简单，只需要使用以下命令即可：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
 <p>作为 GitHub上关注数最多的 Python 项目之一，使用的是 urllib3，继承了urllib2的所有特性。requests实现了 HTTP协议中绝大部分功能，它提供的功能包括 Keep-Alive、连接池、Cookie持久化、内容自动解压、HTTP代理、SSL认证、连接超时、Session等很多特性，最重要的是它同时兼容 python2 和 python3。</p>
 <p>同时，Requests对于HEAD, POST, PUT, PATCH, 和 DELETE方法的api同样简单。它可以处理多部分上传，同样支持自动转码，文档更好，还有更多的特性。</p>
@@ -1156,7 +1332,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -1171,7 +1363,7 @@
   <entry>
     <title>你真的掌握变量和类型了吗（二）类型转换</title>
     <url>/posts/5a507748/</url>
-    <content><![CDATA[<h2 id="六、还有哪些引用类型"><a href="#六、还有哪些引用类型" class="headerlink" title="六、还有哪些引用类型"></a>六、还有哪些引用类型</h2><blockquote>
+    <content><![CDATA[<div id="vip-container"><h2 id="六、还有哪些引用类型"><a href="#六、还有哪些引用类型" class="headerlink" title="六、还有哪些引用类型"></a>六、还有哪些引用类型</h2><blockquote>
 <p>在<code>ECMAScript</code>中，引用类型是一种数据结构，用于将数据和功能组织在一起。</p>
 </blockquote>
 <p>我们通常所说的对象，就是某个特定引用类型的实例。</p>
@@ -1328,7 +1520,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -1342,7 +1550,7 @@
   <entry>
     <title>你真的掌握变量和类型了吗（一）数据类型</title>
     <url>/posts/f20134e9/</url>
-    <content><![CDATA[<h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>变量和类型是学习<code>JavaScript</code>最先接触到的东西，但是往往看起来最简单的东西往往还隐藏着很多你不了解、或者容易犯错的知识，比如下面几个问题：</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>变量和类型是学习<code>JavaScript</code>最先接触到的东西，但是往往看起来最简单的东西往往还隐藏着很多你不了解、或者容易犯错的知识，比如下面几个问题：</p>
 <ul>
 <li><code>JavaScript</code>中的变量在内存中的具体存储形式是什么？</li>
 <li><code>0.1+0.2</code>为什么不等于<code>0.3</code>?发生小数计算错误的具体原因是什么？</li>
@@ -1570,7 +1778,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -1584,7 +1808,7 @@
   <entry>
     <title>如何写出一个惊艳面试官的深拷贝</title>
     <url>/posts/5e503604/</url>
-    <content><![CDATA[<h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>最近经常看到很多<code>JavaScript</code>手写代码的文章总结，里面提供了很多<code>JavaScript Api</code>的手写实现。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>最近经常看到很多<code>JavaScript</code>手写代码的文章总结，里面提供了很多<code>JavaScript Api</code>的手写实现。</p>
 <p>里面的题目实现大多类似，而且说实话很多代码在我看来是非常简陋的，如果我作为面试官，看到这样的代码，在我心里是不会合格的，本篇文章我拿最简单的深拷贝来讲一讲。</p>
 <p>看本文之前先问自己三个问题：</p>
 <ul>
@@ -1794,7 +2018,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -1808,7 +2048,7 @@
   <entry>
     <title>移动端适配总结（二）应用篇</title>
     <url>/posts/3fe27fe1/</url>
-    <content><![CDATA[<h2 id="五、1px问题"><a href="#五、1px问题" class="headerlink" title="五、1px问题"></a>五、1px问题</h2><p>为了适配各种屏幕，我们写代码时一般使用设备独立像素来对页面进行布局。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="五、1px问题"><a href="#五、1px问题" class="headerlink" title="五、1px问题"></a>五、1px问题</h2><p>为了适配各种屏幕，我们写代码时一般使用设备独立像素来对页面进行布局。</p>
 <p>而在设备像素比大于<code>1</code>的屏幕上，我们写的<code>1px</code>实际上是被多个物理像素渲染，这就会出现<code>1px</code>在有些屏幕上看起来很粗的现象。</p>
 <h3 id="5-1-border-image"><a href="#5-1-border-image" class="headerlink" title="5.1 border-image"></a>5.1 border-image</h3><p>基于<code>media</code>查询判断不同的设备像素比给定不同的<code>border-image</code>：</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.border_1px</span>&#123;</span><br><span class="line">   <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> @<span class="keyword">media</span> only screen and (-webkit-min-device-pixel-ratio:<span class="number">2</span>)&#123;</span><br><span class="line">     <span class="selector-class">.border_1px</span>&#123;</span><br><span class="line">         <span class="attribute">border-bottom</span>: none;</span><br><span class="line">         <span class="attribute">border-width</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">1px</span> <span class="number">0</span>;</span><br><span class="line">         <span class="attribute">border-image</span>: <span class="built_in">url</span>(../img/1pxline.png) <span class="number">0</span> <span class="number">0</span> <span class="number">2</span> <span class="number">0</span> stretch;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
@@ -1932,7 +2172,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -1946,7 +2202,7 @@
   <entry>
     <title>移动端适配总结（一）原理篇</title>
     <url>/posts/f2db7507/</url>
-    <content><![CDATA[<h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>移动端适配，是我们在开发中经常会遇到的，这里面可能会遇到非常多的问题：</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>移动端适配，是我们在开发中经常会遇到的，这里面可能会遇到非常多的问题：</p>
 <ul>
 <li><code>1px</code>问题</li>
 <li><code>UI</code>图完美适配方案</li>
@@ -2132,7 +2388,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -2146,7 +2418,7 @@
   <entry>
     <title>用JS开发桌面应用（五）终篇</title>
     <url>/posts/83385321/</url>
-    <content><![CDATA[<h2 id="十一、扩展能力"><a href="#十一、扩展能力" class="headerlink" title="十一、扩展能力"></a>十一、扩展能力</h2><p><img src="http://www.conardli.top/img/electron/el_4_iot.jpg" alt></p>
+    <content><![CDATA[<div id="vip-container"><h2 id="十一、扩展能力"><a href="#十一、扩展能力" class="headerlink" title="十一、扩展能力"></a>十一、扩展能力</h2><p><img src="http://www.conardli.top/img/electron/el_4_iot.jpg" alt></p>
 <p>在很多情况下，你的应用程序要和外部设备进行交互，一般情况下厂商会为你提供硬件设备的开发包，这些开发包基本上都是通过<code>C++</code> 编写，在使用<code>electron</code>开发的情况下，我们并不具备直接调用<code>C++</code>代码的能力，我们可以利用<code>node-ffi</code>来实现这一功能。</p>
 <p><code>node-ffi</code>提供了一组强大的工具，用于在<code>Node.js</code>环境中使用纯<code>JavaScript</code>调用动态链接库接口。它可以用来为库构建接口绑定，而不需要使用任何<code>C++</code>代码。</p>
 <blockquote>
@@ -2209,7 +2481,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -2223,7 +2511,7 @@
   <entry>
     <title>用JS开发桌面应用（四）程序保护</title>
     <url>/posts/4619bb3/</url>
-    <content><![CDATA[<h2 id="十、程序保护"><a href="#十、程序保护" class="headerlink" title="十、程序保护"></a>十、程序保护</h2><p><a href="https://segmentfault.com/a/1190000007503495" target="_blank" rel="noopener">https://segmentfault.com/a/1190000007503495</a></p>
+    <content><![CDATA[<div id="vip-container"><h2 id="十、程序保护"><a href="#十、程序保护" class="headerlink" title="十、程序保护"></a>十、程序保护</h2><p><a href="https://segmentfault.com/a/1190000007503495" target="_blank" rel="noopener">https://segmentfault.com/a/1190000007503495</a></p>
 <p><img src="http://www.conardli.top/img/electron/el_22_protect.gif" alt></p>
 <h3 id="10-1-崩溃"><a href="#10-1-崩溃" class="headerlink" title="10.1 崩溃"></a>10.1 崩溃</h3><p>崩溃监控是每个客户端程序必备的保护功能，当程序崩溃时我们一般期望做到两件事：</p>
 <ul>
@@ -2247,7 +2535,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -2261,7 +2565,7 @@
   <entry>
     <title>用JS开发桌面应用（三）打印篇</title>
     <url>/posts/b58ea4c6/</url>
-    <content><![CDATA[<h2 id="九、打印"><a href="#九、打印" class="headerlink" title="九、打印"></a>九、打印</h2><p>很多情况下程序中使用的打印都是用户无感知的。并且想要灵活的控制打印内容，往往需要借助打印机给我们提供的<code>api</code>再进行开发，这种开发方式非常繁琐，并且开发难度较大。第一次在业务中用到<code>Electron</code>其实就是用到它的打印功能，这里就多介绍一些。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="九、打印"><a href="#九、打印" class="headerlink" title="九、打印"></a>九、打印</h2><p>很多情况下程序中使用的打印都是用户无感知的。并且想要灵活的控制打印内容，往往需要借助打印机给我们提供的<code>api</code>再进行开发，这种开发方式非常繁琐，并且开发难度较大。第一次在业务中用到<code>Electron</code>其实就是用到它的打印功能，这里就多介绍一些。</p>
 <p><code>Electron</code>提供的打印api可以非常灵活的控制打印设置的显示，并且可以通过html来书写打印内容。<code>Electron</code>提供了两种方式进行打印，一种是直接调用打印机打印，一种是打印到<code>pdf</code>。</p>
 <p>并且有两种对象可以调用打印：</p>
 <ul>
@@ -2308,7 +2612,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -2322,7 +2642,7 @@
   <entry>
     <title>用JS开发桌面应用（二）- 应用篇</title>
     <url>/posts/b363c4cb/</url>
-    <content><![CDATA[<h2 id="五、窗口"><a href="#五、窗口" class="headerlink" title="五、窗口"></a>五、窗口</h2><h3 id="5-1-BrowserWindow"><a href="#5-1-BrowserWindow" class="headerlink" title="5.1 BrowserWindow"></a>5.1 BrowserWindow</h3><p>主进程模块<code>BrowserWindow</code>用于创建和控制浏览器窗口。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="五、窗口"><a href="#五、窗口" class="headerlink" title="五、窗口"></a>五、窗口</h2><h3 id="5-1-BrowserWindow"><a href="#5-1-BrowserWindow" class="headerlink" title="5.1 BrowserWindow"></a>5.1 BrowserWindow</h3><p>主进程模块<code>BrowserWindow</code>用于创建和控制浏览器窗口。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mainWindow = <span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">  width: <span class="number">1000</span>,</span><br><span class="line">  height: <span class="number">800</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br><span class="line">mainWindow.loadURL(<span class="string">"http://www.conardli.top/"</span>);</span><br></pre></td></tr></table></figure>
 <p>你可以在<a href="https://electronjs.org/docs/api/browser-window#new-browserwindowoptions" target="_blank" rel="noopener">这里</a>查看它所有的构造参数。</p>
 <p><img src="http://www.conardli.top/img/electron/el_13_window.gif" alt></p>
@@ -2426,7 +2746,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -2440,7 +2776,7 @@
   <entry>
     <title>用JS开发桌面应用（一）原理篇</title>
     <url>/posts/c60ba4c3/</url>
-    <content><![CDATA[<h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>使用<code>Electron</code>开发客户端程序已经有一段时间了，整体感觉还是非常不错的，其中也遇到了一些坑点，本文旨在从【运行原理】到【实际应用】对<code>Electron</code>进行一次系统性的总结。【多图，长文预警～】</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>使用<code>Electron</code>开发客户端程序已经有一段时间了，整体感觉还是非常不错的，其中也遇到了一些坑点，本文旨在从【运行原理】到【实际应用】对<code>Electron</code>进行一次系统性的总结。【多图，长文预警～】</p>
 <p>另外<code>electron-react</code>还可作为使用<code>Electron + React + Mobx + Webpack</code>技术栈的脚手架工程。</p>
 <h2 id="一、桌面应用程序"><a href="#一、桌面应用程序" class="headerlink" title="一、桌面应用程序"></a>一、桌面应用程序</h2><p><img src="http://www.conardli.top/img/electron/el_1_app.jpg" alt></p>
 <blockquote>
@@ -2596,7 +2932,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -2610,7 +2962,7 @@
   <entry>
     <title>《张扬的日生活》 写在专题开始前</title>
     <url>/posts/769ff974/</url>
-    <content><![CDATA[<p>有感于生活，最近准备新开一个专题，主要描述来源于生活并高于生活的日常生活。</p>
+    <content><![CDATA[<div id="vip-container"><p>有感于生活，最近准备新开一个专题，主要描述来源于生活并高于生活的日常生活。</p>
 <p>既然是来源于日常生活，那就免不了柴米油盐，免不了柴米油盐，免不了蒜皮小事，免不了流水账。</p>
 <p>篇幅不会太长，每篇 600 字左右吧。不会有太多的写作技法，只是最基本的白描，不带任何感情色彩的白描。</p>
 <p>先简单对几个重要人物做个脸谱化的设定，后续提到新人物的时候再进行补充说明。</p>
@@ -2627,7 +2979,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>日常生活</category>
         <category>简书</category>
@@ -2641,7 +3009,7 @@
   <entry>
     <title>Vue3和Vue2中响应式编程的不同</title>
     <url>/posts/28fa54f2/</url>
-    <content><![CDATA[<p><code>Vue.js</code> 核心团队已经开始讨论将在 Vue3 中改变的实现了。API 不会有变化，但响应式机制将会有所不用。这意味着什么，对你来说有什么意义？</p>
+    <content><![CDATA[<div id="vip-container"><p><code>Vue.js</code> 核心团队已经开始讨论将在 Vue3 中改变的实现了。API 不会有变化，但响应式机制将会有所不用。这意味着什么，对你来说有什么意义？</p>
 <h2 id="Vue-2-的响应式"><a href="#Vue-2-的响应式" class="headerlink" title="Vue 2 的响应式"></a>Vue 2 的响应式</h2><p>Vue.js 2 中的响应式是通过 <code>Object.defineProperty</code> 方法定义 <code>getter</code> 和 <code>setter</code> 完成的。我们来把 Vue 中做的事情简化出一个版本。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">    enumerable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    <span class="keyword">get</span>:function()&#123;</span><br><span class="line">       <span class="keyword">return</span> value;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>:function(newValue)&#123;</span><br><span class="line">        <span class="keyword">if</span>(value !== newValue)&#123;</span><br><span class="line">           value = newValue;</span><br><span class="line">           tellTheWorldIhaveChanged(); <span class="comment">//somebody is watching!</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -2681,7 +3049,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -2695,7 +3079,7 @@
   <entry>
     <title>程序员必读的六本书</title>
     <url>/posts/606c77fb/</url>
-    <content><![CDATA[<p>作为一名程序员，日常的工作除了上班撸代码就是加班撸代码了。撸码其实不难，无非询问Google，StackOverflow，解决方法和demo一箩筐，可是撸的一手好代码着实不易。无独有偶，码农一抓一大把，优秀的程序员却不易寻觅。优秀的程序员既不可能出自各种天花乱坠的培训机构，更不可能来自挖掘机摇篮山东布鲁斯特，大多数优秀的程序员有一个共同点，那就是自学。</p>
+    <content><![CDATA[<div id="vip-container"><p>作为一名程序员，日常的工作除了上班撸代码就是加班撸代码了。撸码其实不难，无非询问Google，StackOverflow，解决方法和demo一箩筐，可是撸的一手好代码着实不易。无独有偶，码农一抓一大把，优秀的程序员却不易寻觅。优秀的程序员既不可能出自各种天花乱坠的培训机构，更不可能来自挖掘机摇篮山东布鲁斯特，大多数优秀的程序员有一个共同点，那就是自学。</p>
 <p>为什么是自学呢？首先大学的教育不可能让你成为专家级别的程序员，其次为了能从团队脱颖而出必然付出更多的努力来学习。自学其实是一种很强有力的能力，一旦掌握，许多技术和问题都可以轻松搞定。</p>
 <p>中学物理常客牛顿曾说，”如果我比别人看得更远，那是因为我站在巨人的肩上“。他山之石，可以攻玉。阅读大师巨匠的作品无疑是最有效的自学方式之一。业界知名的Bob大叔是代码整洁和面向对象编程的坚定支持推进者，其在这方面的著作可以称得上权威。Martin Fowler同样名声在外，他的关于重构的著作《重构—-改善既有代码的设计》 应该是人手一本。阅读诸如上面两位大家的著作，对技术提到大有裨益。</p>
 <p>本文讲列举六本业界牛人的著作，也是编程书籍中经典的经典，这几本书并非简单的教程书籍，而是教给你方法和思想来解决现实遇到的问题，提高编码的技艺和境界。</p>
@@ -2714,7 +3098,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>程序人生</category>
@@ -2727,7 +3127,7 @@
   <entry>
     <title>深入分析虚拟DOM的渲染原理和特性</title>
     <url>/posts/d5c9d9b6/</url>
-    <content><![CDATA[<h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><code>React</code>的虚拟<code>DOM</code>和<code>Diff</code>算法是<code>React</code>的非常重要的核心特性，这部分源码也非常复杂，理解这部分知识的原理对更深入的掌握<code>React</code>是非常必要的。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><code>React</code>的虚拟<code>DOM</code>和<code>Diff</code>算法是<code>React</code>的非常重要的核心特性，这部分源码也非常复杂，理解这部分知识的原理对更深入的掌握<code>React</code>是非常必要的。</p>
 <p>本来想将虚拟<code>DOM</code>和<code>Diff</code>算法放到一篇文章，写完虚拟<code>DOM</code>发现文章已经很长了，所以本篇只分析虚拟<code>DOM</code>。</p>
 <p>本篇文章从源码出发，分析虚拟<code>DOM</code>的核心渲染原理（首次渲染），以及<code>React</code>对它做的性能优化点。</p>
 <p>说实话<code>React</code>源码真的很难读 😅，如果本篇文章帮助到了你，那么请给个赞 👍 支持一下吧。</p>
@@ -2960,7 +3360,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -2974,7 +3390,7 @@
   <entry>
     <title>setState的执行机制</title>
     <url>/posts/d68f155c/</url>
-    <content><![CDATA[<h2 id="一-几个开发中经常会遇到的问题"><a href="#一-几个开发中经常会遇到的问题" class="headerlink" title="一.几个开发中经常会遇到的问题"></a>一.几个开发中经常会遇到的问题</h2><p>以下几个问题是我们在实际开发中经常会遇到的场景，下面用几个简单的示例代码来还原一下。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="一-几个开发中经常会遇到的问题"><a href="#一-几个开发中经常会遇到的问题" class="headerlink" title="一.几个开发中经常会遇到的问题"></a>一.几个开发中经常会遇到的问题</h2><p>以下几个问题是我们在实际开发中经常会遇到的场景，下面用几个简单的示例代码来还原一下。</p>
 <h4 id="1-setState-是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以"><a href="#1-setState-是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以" class="headerlink" title="1.setState 是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以?"></a>1.setState 是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以?</h4><p>1.1 钩子函数和 React 合成事件中的<code>setState</code></p>
 <p>现在有两个组件</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">componentDidMount() &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'parent componentDidMount'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">render() &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;SetState2&gt;<span class="xml"><span class="tag">&lt;/<span class="name">SetState2</span>&gt;</span></span></span><br><span class="line">      &lt;SetState&gt;<span class="xml"><span class="tag">&lt;/<span class="name">SetState</span>&gt;</span></span></span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
@@ -3056,7 +3472,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -3070,7 +3502,7 @@
   <entry>
     <title>Programing-React-event-handler</title>
     <url>/posts/bf1cac5c/</url>
-    <content><![CDATA[<h2 id="关于-React-事件的疑问"><a href="#关于-React-事件的疑问" class="headerlink" title="关于 React 事件的疑问"></a>关于 React 事件的疑问</h2><ul>
+    <content><![CDATA[<div id="vip-container"><h2 id="关于-React-事件的疑问"><a href="#关于-React-事件的疑问" class="headerlink" title="关于 React 事件的疑问"></a>关于 React 事件的疑问</h2><ul>
 <li><p>1.为什么要手动绑定<code>this</code></p>
 </li>
 <li><p>2.<code>React</code>事件和原生事件有什么区别</p>
@@ -3175,7 +3607,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -3189,7 +3637,7 @@
   <entry>
     <title>Python-高级-使用MongoDB</title>
     <url>/posts/1ac10d5d/</url>
-    <content><![CDATA[<hr>
+    <content><![CDATA[<div id="vip-container"><hr>
 <h2 id="Python使用MongoDB"><a href="#Python使用MongoDB" class="headerlink" title="Python使用MongoDB"></a>Python使用MongoDB</h2><p>MongoDB相对于传统的关系型数据库，可以存储JSON数据，非常适合存储数据抓取返回的JSON数据。<br>今天主要学习的是使用Python连接MongoDB，并进行增删改查的操作。</p>
 <blockquote>
 <p>MongoDB 的安装及使用，请参照官方文档。<br><a href="https://api.mongodb.com/python/current/installation.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/installation.html</a></p>
@@ -3209,7 +3657,23 @@
 <h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><p>pyMongo还支持创建索引，可以进一步提升查询的性能，示例：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">result = db.profiles.create_index([(<span class="string">'user_id'</span>, pymongo.ASCENDING)],unique=<span class="literal">True</span>)</span><br><span class="line">sorted(list(db.profiles.index_information()))</span><br></pre></td></tr></table></figure>
 <h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p><a href="https://api.mongodb.com/python/current/tutorial.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/tutorial.html</a><br><a href="https://docs.mongodb.com/manual/indexes/" target="_blank" rel="noopener">https://docs.mongodb.com/manual/indexes/</a></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -3224,7 +3688,7 @@
   <entry>
     <title>Python-高级-Numpy简介</title>
     <url>/posts/c131969b/</url>
-    <content><![CDATA[<h2 id="Numpy-是什么？"><a href="#Numpy-是什么？" class="headerlink" title="Numpy 是什么？"></a><code>Numpy</code> 是什么？</h2><p><code>Numpy</code> 是 Python 中科学计算的核心库。它提供了一个高性能的多维数组对象，以及用于处理这些数组的工具。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="Numpy-是什么？"><a href="#Numpy-是什么？" class="headerlink" title="Numpy 是什么？"></a><code>Numpy</code> 是什么？</h2><p><code>Numpy</code> 是 Python 中科学计算的核心库。它提供了一个高性能的多维数组对象，以及用于处理这些数组的工具。</p>
 <blockquote>
 <p>如果您已经熟悉 <code>MATLAB</code> ，那么您可能会发现本教程对 <code>Numpy</code> 入门非常有用。</p>
 </blockquote>
@@ -3276,7 +3740,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -3291,7 +3771,7 @@
   <entry>
     <title>彻底搞懂 volatile 关键字</title>
     <url>/posts/f40ec33b/</url>
-    <content><![CDATA[<p>对于 <code>volatile</code> 这个关键字，相信很多朋友都听说过，甚至使用过，这个关键字虽然字面上理解起来比较简单，但是要用好起来却不是一件容易的事。</p>
+    <content><![CDATA[<div id="vip-container"><p>对于 <code>volatile</code> 这个关键字，相信很多朋友都听说过，甚至使用过，这个关键字虽然字面上理解起来比较简单，但是要用好起来却不是一件容易的事。</p>
 <p>这篇文章将从多个方面来讲解 <code>volatile</code>，让你对它更加理解。</p>
 <h2 id="计算机中为什么会出现线程不安全的问题"><a href="#计算机中为什么会出现线程不安全的问题" class="headerlink" title="计算机中为什么会出现线程不安全的问题"></a>计算机中为什么会出现线程不安全的问题</h2><p>volatile 既然是与线程安全有关的问题，那我们先来了解一下计算机在处理数据的过程中为什么会出现线程不安全的问题。</p>
 <p>大家都知道，计算机在执行程序时，每条指令都是在 CPU 中执行的，而执行指令过程中会涉及到数据的读取和写入。由于程序运行过程中的临时数据是存放在主存（物理内存）当中的，这时就存在一个问题，由于 CPU 执行速度很快，而从内存读取数据和向内存写入数据的过程跟 CPU 执行指令的速度比起来要慢的多，因此如果任何时候对数据的操作都要通过和内存的交互来进行，会大大降低指令执行的速度。</p>
@@ -3371,7 +3851,23 @@
 <li>变量不需要与其他状态变量共同参与不变约束。</li>
 </ul>
 <p>讲到这里，关于 <code>volatile</code> 关键字的就算讲完了。如果有哪里讲的不对的地方，非常欢迎你的指点。</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Java</category>
@@ -3386,7 +3882,7 @@
   <entry>
     <title>聊一聊 Flask 的 jsonify</title>
     <url>/posts/6356bc2e/</url>
-    <content><![CDATA[<p>首先我们来看一段 Python 代码</p>
+    <content><![CDATA[<div id="vip-container"><p>首先我们来看一段 Python 代码</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, jsonify</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">tasks = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 python_mastery 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/python_mastery'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 pythonml 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/pythonml'</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/api/v1.0/tasks', methods=['GET'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_tasks</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'tasks'</span>: tasks&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 <p>在这段代码里面，我们看到了今天的主角 <code>jsonify</code>。</p>
 <p>Flask 框架里，可以用 <code>jsonify</code> 返回 json 数据，但是为什么不用 <code>Python</code> 自带的 <code>json</code> 模块返回 JSON 数据呢？</p>
@@ -3421,7 +3917,23 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">data = &#123;<span class="string">'name'</span>: <span class="string">'lilei'</span>, <span class="string">'age'</span>: <span class="number">30</span>&#125;</span><br><span class="line"></span><br><span class="line">print(json.dumps(data, separators=(<span class="string">','</span>, <span class="string">':'</span>)))</span><br><span class="line">print(json.dumps(data))</span><br></pre></td></tr></table></figure>
 <p>输出结果为<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;&quot;name&quot;:&quot;lilei&quot;,&quot;age&quot;:30&#125;</span><br><span class="line">&#123;&quot;name&quot;: &quot;lilei&quot;, &quot;age&quot;: 30&#125;</span><br></pre></td></tr></table></figure></p>
 <p>只需要在 <code>dumps</code> 参数里指定   <code>separators</code> 即可，其实在 <code>jsonify</code> 里就是这么干的。</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -3436,7 +3948,7 @@
   <entry>
     <title>Spring Boot Web 应用加速</title>
     <url>/posts/b532d94d/</url>
-    <content><![CDATA[<h1 id="Spring-Boot-Web-应用加速"><a href="#Spring-Boot-Web-应用加速" class="headerlink" title="Spring Boot Web 应用加速"></a>Spring Boot Web 应用加速</h1><p>默认情况下，Spring Boot Web 应用会装配一些功能组件 Bean。</p>
+    <content><![CDATA[<div id="vip-container"><h1 id="Spring-Boot-Web-应用加速"><a href="#Spring-Boot-Web-应用加速" class="headerlink" title="Spring Boot Web 应用加速"></a>Spring Boot Web 应用加速</h1><p>默认情况下，Spring Boot Web 应用会装配一些功能组件 Bean。</p>
 <p>在大多数 Web 应用场景下，可以选择性地关闭一下自动装配的Spring 组件 Bean，以达到提升性能的目的。</p>
 <h2 id="配置项优化"><a href="#配置项优化" class="headerlink" title="配置项优化"></a>配置项优化</h2><h3 id="Spring-Boot-Web-应用加速-完整配置项"><a href="#Spring-Boot-Web-应用加速-完整配置项" class="headerlink" title="Spring Boot Web 应用加速 完整配置项"></a>Spring Boot Web 应用加速 完整配置项</h3><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="meta">management.add-application-context-header</span> = <span class="string">false</span></span><br><span class="line"><span class="meta">spring.mvc.formcontent.putfilter.enabled</span> = <span class="string">false</span></span><br><span class="line"></span><br><span class="line"><span class="meta">spring.autoconfigure.exclude</span> = <span class="string">org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration,\</span></span><br><span class="line">org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.JndiDataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.transaction.jta.JtaAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.WebSocketAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.WebSocketMessagingAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mail.MailSenderValidatorAutoConfiguration,\</span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceRepositoryAutoConfiguration,\</span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceWebFilterAutoConfiguration,\</span><br><span class="line"><span class="attr">org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration</span></span><br></pre></td></tr></table></figure>
 <h3 id="配置项汇总"><a href="#配置项汇总" class="headerlink" title="配置项汇总"></a>配置项汇总</h3><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="meta">spring.autoconfigure.exclude</span> = <span class="string">org.springframework.boot.actuate.autoconfigure.TraceRepositoryAutoConfiguration,\</span></span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceWebFilterAutoConfiguration,\</span><br><span class="line"><span class="attr">org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration</span></span><br></pre></td></tr></table></figure>
@@ -3495,7 +4007,23 @@
 <li>配置项</li>
 </ul>
 <p>按目前最新的 Spring Boot 1.5.2.RELEASE 版本中实现，也没有提供类似<br><code>spring.mvc.formcontent.putfilter.enabled</code> 这样的配置项关闭，无法关闭。</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Java</category>
@@ -3511,7 +4039,7 @@
   <entry>
     <title>Android Gradle实用技巧-批量控制生成的APK文件名</title>
     <url>/posts/a456434/</url>
-    <content><![CDATA[<p>在讲批量修改APK文件名之前，我们讲一下关于Android Gradle插件集成的Task任务问题。普通的Java工程比较简单，因为它有一个有限的任务集合，而且它的属性或者方法都是Java Gradle插件添加的，比较固定，而且我们访问任务以及任务里的方法和属性都比较方便，比如classes这个编译Java源代码的任务，我们通过project.tasks.classes就可以访问它，非常快捷。</p>
+    <content><![CDATA[<div id="vip-container"><p>在讲批量修改APK文件名之前，我们讲一下关于Android Gradle插件集成的Task任务问题。普通的Java工程比较简单，因为它有一个有限的任务集合，而且它的属性或者方法都是Java Gradle插件添加的，比较固定，而且我们访问任务以及任务里的方法和属性都比较方便，比如classes这个编译Java源代码的任务，我们通过project.tasks.classes就可以访问它，非常快捷。</p>
 <p>但是对于Android工程，就不行了，Android工程相对与Java工程来说，要复杂的多，因为它有很多相同的任务，这些任务的名字都是通过Build Types和Product Flavors 生成的，是动态的创建和生成的，而且时机比较靠后，如果你还像原来一样在某个闭包里通过project.tasks获取一个任务，会提示找不到该任务，因为还没有生成。</p>
 <p>既然要修改生成的Apk文件名，那么我们就要修改Android Gradle打包的输出，为了解决上面提到的问题（不限于此），android对象为我们提供了2个属性：</p>
 <ul>
@@ -3529,7 +4057,23 @@
 <p>applicationVariants是一个DomainObjectCollection集合，我们可以通过all方法进行遍历，遍历的每一个variant都是一个生成的产物，针对示例，共有googleRelease和googleDebug两个产物，所以遍历的variant共有googleRelease和googleDebug。</p>
 <p>applicationVariants中的variant都是ApplicationVariant，通过查看源代码，可以看到它有一个outputs作为它的输出，每一个ApplicationVariant至少有一个输出，也可以有多个，所以这里的outputs属性是一个List集合，我们再遍历它，如果它的名字是以.apk结尾的话那么就是我们要修改的apk名字了，然后我们就可以根据需求，修改成我们想要的名字。</p>
 <p>我这里修改的是以项目名<em>渠道名_v版本名称</em>构建日期.apk格式生成的文件名，这样通过文件名就可以了解该apk的基本信息，比如什么渠道，什么版本，什么时候构建的等等，最后生成的示例apk名字为App_google_v1.0_20170217.apk，大家可以运行测试一下，注意buildTime这个我们自定义的返回日期格式的方法。</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Android</category>
@@ -3545,7 +4089,7 @@
   <entry>
     <title>Android Gradle实用技巧-自动生成版本信息</title>
     <url>/posts/cab84e7e/</url>
-    <content><![CDATA[<p>每一个 App 都会有一个版本号，这样用户就知道自己安装的应用是哪个版本，是不是最新版，有了问题，也可以找客服报上自己的版本，让客服有针对性的帮用户解决问题。</p>
+    <content><![CDATA[<div id="vip-container"><p>每一个 App 都会有一个版本号，这样用户就知道自己安装的应用是哪个版本，是不是最新版，有了问题，也可以找客服报上自己的版本，让客服有针对性的帮用户解决问题。</p>
 <p>一般的版本有三部分构成：major.minor.patch，第一个是主版本号，第二个是副版本号，第三位补丁号，这种我们常见的见识 1.0.0 这样的，当然也有两位的 1.0，对应 major.minor，这里我们以三位为例。</p>
 <p>原始的版本信息配置方式<br>最开始的时候我们都是配置在 build 文件里的，如下：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">compileSdkVersion <span class="number">23</span></span><br><span class="line">buildToolsVersion <span class="string">"23.0.1"</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        applicationId <span class="string">"com.youdaily.app"</span></span><br><span class="line">        minSdkVersion <span class="number">14</span></span><br><span class="line">        targetSdkVersion <span class="number">23</span></span><br><span class="line">        versionCode <span class="number">1</span></span><br><span class="line">        versionName <span class="string">"1.0.0"</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -3584,7 +4128,23 @@
 <li>记得不会在自己运行调试的时候让你的版本信息自增哦，如何控制呢？就是要区分是真正的打包发版，还是平时的调试、测试，有很多办法来区分的。</li>
 </ul>
 <p>动态获取生成版本信息的思路都大同小异，只是信息来源不一样，比如 git tag，比如 version 配置等等，你自己的业务项目中还可以从其他更多的渠道来生成，这也是因为 gradle 的灵活，我们才可以随心所欲的做到这么多。</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Android</category>
@@ -3600,7 +4160,7 @@
   <entry>
     <title>Android Gradle实用技巧-隐藏Android签名文件和密钥信息</title>
     <url>/posts/1f2db1d3/</url>
-    <content><![CDATA[<h2 id="什么是Gradle"><a href="#什么是Gradle" class="headerlink" title="什么是Gradle"></a>什么是Gradle</h2><p>Gradle是一款非常优秀的构建系统工具，它使用可以配置的DSL语言描述构建流程，同时允许我们使用原生的Java和Groovy编码的方式进行构建，所以相比Ant、Maven这些非常灵活。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="什么是Gradle"><a href="#什么是Gradle" class="headerlink" title="什么是Gradle"></a>什么是Gradle</h2><p>Gradle是一款非常优秀的构建系统工具，它使用可以配置的DSL语言描述构建流程，同时允许我们使用原生的Java和Groovy编码的方式进行构建，所以相比Ant、Maven这些非常灵活。</p>
 <p>在Gradle中，大部分的构建都是通过Gradle的插件来完成的，插件是Gradle非常好的一个设计，Gradle提供了一个核心可以扩展的平台，然后通过插件来扩展Gradle的能力，灵活方便。</p>
 <p>Gradle本身提供了非常多的插件，比如java，war，scala等，可以满足我们的绝大多数需求。如果内置的插件不能满足需求，可以使用第三方开发的插件，甚至自己开发可以满足自己需求的插件。</p>
 <p>Gradle官网：<code>https://gradle.org/</code><br>Gradle文档：<code>https://gradle.org/docs</code><br>Gradle插件：<code>https://plugins.gradle.org/</code></p>
@@ -3636,7 +4196,23 @@
 <p>关键的逻辑就是在signingConfigs中加了判断代码，如果签名信息四要素中的任何一个没有获取到，就使用默认的签名信息，这样当我们在打包服务器进行打包的时候就会使用正式发布的签名，因为我们已经在服务器上配置了签名信息的环境变量；当每个开发者自己生成Release包的时候，因为本机没有配置，就使用默认的签名。</p>
 <p>假如有的开发者有时候也需要使用正式发布的签名打正式的包，用于升级测试等目的，也是可以做到的，比如Jenkins，给每个开发者开放一个账号，他们自己新建个Job就可以打正式的包了，打了之后可以在生成的构建里下载。</p>
 <p>这里要隐藏我们的签名信息，既能保证签名信息的安全性，又可以进行正式的打包，其中的关键点是一个专有的打包服务器，如果你们公司还没有的话，赶紧试试吧，好处多多，从这个小技巧也可以看到Gradle的灵活性，我们和编写Java代码一样编写我们的构建打包流程。</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Android</category>
@@ -3652,7 +4228,7 @@
   <entry>
     <title>Dubbo 注解驱动</title>
     <url>/posts/a8db4150/</url>
-    <content><![CDATA[<h1 id="Dubbo-注解驱动（Annotation-Driven）"><a href="#Dubbo-注解驱动（Annotation-Driven）" class="headerlink" title="Dubbo 注解驱动（Annotation-Driven）"></a>Dubbo 注解驱动（Annotation-Driven）</h1><h2 id="注解驱动（Annotation-Driven）"><a href="#注解驱动（Annotation-Driven）" class="headerlink" title="注解驱动（Annotation-Driven）"></a>注解驱动（Annotation-Driven）</h2><h3 id="DubboComponentScan"><a href="#DubboComponentScan" class="headerlink" title="@DubboComponentScan"></a><code>@DubboComponentScan</code></h3><h4 id="起始版本：-2-5-7"><a href="#起始版本：-2-5-7" class="headerlink" title="起始版本： 2.5.7"></a>起始版本： <code>2.5.7</code></h4><h4 id="lt-dubbo-annotation-gt-历史遗留问题"><a href="#lt-dubbo-annotation-gt-历史遗留问题" class="headerlink" title="&lt;dubbo:annotation&gt;历史遗留问题"></a><code>&lt;dubbo:annotation&gt;</code>历史遗留问题</h4><h5 id="1-注解支持不充分"><a href="#1-注解支持不充分" class="headerlink" title="1. 注解支持不充分"></a>1. 注解支持不充分</h5><p>在 Dubbo <code>2.5.7</code>之前的版本 ，Dubbo 提供了两个核心注解 <code>@Service</code> 以及 <code>@Reference</code>，分别用于 Dubbo 服务提供和 Dubbo 服务引用。</p>
+    <content><![CDATA[<div id="vip-container"><h1 id="Dubbo-注解驱动（Annotation-Driven）"><a href="#Dubbo-注解驱动（Annotation-Driven）" class="headerlink" title="Dubbo 注解驱动（Annotation-Driven）"></a>Dubbo 注解驱动（Annotation-Driven）</h1><h2 id="注解驱动（Annotation-Driven）"><a href="#注解驱动（Annotation-Driven）" class="headerlink" title="注解驱动（Annotation-Driven）"></a>注解驱动（Annotation-Driven）</h2><h3 id="DubboComponentScan"><a href="#DubboComponentScan" class="headerlink" title="@DubboComponentScan"></a><code>@DubboComponentScan</code></h3><h4 id="起始版本：-2-5-7"><a href="#起始版本：-2-5-7" class="headerlink" title="起始版本： 2.5.7"></a>起始版本： <code>2.5.7</code></h4><h4 id="lt-dubbo-annotation-gt-历史遗留问题"><a href="#lt-dubbo-annotation-gt-历史遗留问题" class="headerlink" title="&lt;dubbo:annotation&gt;历史遗留问题"></a><code>&lt;dubbo:annotation&gt;</code>历史遗留问题</h4><h5 id="1-注解支持不充分"><a href="#1-注解支持不充分" class="headerlink" title="1. 注解支持不充分"></a>1. 注解支持不充分</h5><p>在 Dubbo <code>2.5.7</code>之前的版本 ，Dubbo 提供了两个核心注解 <code>@Service</code> 以及 <code>@Reference</code>，分别用于 Dubbo 服务提供和 Dubbo 服务引用。</p>
 <p>其中，<code>@Service</code> 作为 XML 元素 <code>&lt;dubbo:service&gt;</code>的替代注解，与 Spring Framework <code>@org.springframework.stereotype.Service</code> 类似，用于服务提供方 Dubbo 服务暴露。与之相对应的<code>@Reference</code>，则是替代<code>&lt;dubbo:reference</code> 元素，类似于 Spring 中的 <code>@Autowired</code>。</p>
 <p><code>2.5.7</code> 之前的 Dubbo，与早期的 Spring Framework 2.5 存在类似的不足，即注解支持不够充分。注解需要和 XML 配置文件配合使用，如下所示：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:dubbo</span>=<span class="string">"http://code.alibabatech.com/schema/dubbo"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"annotation-provider"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">"127.0.0.1:4548"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:annotation</span> <span class="attr">package</span>=<span class="string">"com.alibaba.dubbo.config.spring.annotation.provider"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -3752,7 +4328,23 @@
 <p>问题版本：<code>2.5.7</code>、<code>2.5.8</code></p>
 <p>问题详情：<a href="https://github.com/alibaba/dubbo/issues/1120" target="_blank" rel="noopener">https://github.com/alibaba/dubbo/issues/1120</a></p>
 <p>修复版本：<code>2.5.9</code>（下个版本）</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Java</category>
@@ -3768,7 +4360,7 @@
   <entry>
     <title>Python-基础-日期和时间</title>
     <url>/posts/8d323c45/</url>
-    <content><![CDATA[<hr>
+    <content><![CDATA[<div id="vip-container"><hr>
 <p>Python程序可以通过多种方式来处理日期和时间。<br>日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。</p>
 <h2 id="什么是刻度？"><a href="#什么是刻度？" class="headerlink" title="什么是刻度？"></a>什么是刻度？</h2><p>时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。</p>
 <p>在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 <code>time.time()</code>返回当前系统时间，从1970年1月1日12点起来的秒数。</p>
@@ -3986,7 +4578,23 @@
 </div>
 <h2 id="其它模块和功能："><a href="#其它模块和功能：" class="headerlink" title="其它模块和功能："></a>其它模块和功能：</h2><p>如果你有兴趣，那么在这里你会发现其他重要的模块和功能的列表，包括在Python日期和时间的使用：</p>
 <p>datetime模块<br><a href="https://docs.python.org/3/library/datetime.html#module-datetime" target="_blank" rel="noopener">https://docs.python.org/3/library/datetime.html#module-datetime</a></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -4000,7 +4608,7 @@
   <entry>
     <title>Python-基础-常用术语对照表</title>
     <url>/posts/ceaa499f/</url>
-    <content><![CDATA[<hr>
+    <content><![CDATA[<div id="vip-container"><hr>
 <p>下面内容主要摘抄自<code>python</code> 官网，<a href="https://docs.python.org/3.7/glossary.html#glossary" target="_blank" rel="noopener">https://docs.python.org/3.7/glossary.html#glossary</a>，部分内容有删减。</p>
 <h3 id="2to3"><a href="#2to3" class="headerlink" title="2to3"></a>2to3</h3><p>一个将 <code>Python</code> 2.x 代码转换为 <code>Python</code> 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。</p>
 <p>2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools/scripts/2to3。参见 2to3 - 自动将 <code>Python</code> 2 代码转为 <code>Python</code> 3 代码。</p>
@@ -4095,7 +4703,23 @@
 <h3 id="universal-newlines-—-通用换行"><a href="#universal-newlines-—-通用换行" class="headerlink" title="universal newlines — 通用换行"></a>universal newlines — 通用换行</h3><p>一种解读文本流的方式，将以下所有符号都识别为行结束标志：Unix 的行结束约定 ‘\n’、Windows 的约定 ‘\r\n’ 以及旧版 Macintosh 的约定 ‘\r’。<br>参见 PEP 278 和 PEP 3116 和 bytes.splitlines() 了解更多用法说明。</p>
 <h3 id="virtual-machine-—-虚拟机"><a href="#virtual-machine-—-虚拟机" class="headerlink" title="virtual machine — 虚拟机"></a>virtual machine — 虚拟机</h3><p>一台完全通过软件定义的计算机。<br><code>Python</code> 虚拟机可执行字节码编译器所生成的 bytecode。</p>
 <h3 id="Zen-of-Python-—-Python-之禅"><a href="#Zen-of-Python-—-Python-之禅" class="headerlink" title="Zen of Python — Python 之禅"></a>Zen of <code>Python</code> — <code>Python</code> 之禅</h3><p>列出 <code>Python</code> 设计的原则与哲学，有助于理解与使用这种语言。<br>定义在PEP 8 中。<br>每个版本的具体内容，可能会有差。查看当前版本的具体内容可在交互模式提示符中输入 “import this”。</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -4109,7 +4733,7 @@
   <entry>
     <title>非科班出身，如何成为程序员？</title>
     <url>/posts/542af35/</url>
-    <content><![CDATA[<h2 id="非科班出身，如何成为程序员"><a href="#非科班出身，如何成为程序员" class="headerlink" title="非科班出身，如何成为程序员"></a>非科班出身，如何成为程序员</h2><blockquote>
+    <content><![CDATA[<div id="vip-container"><h2 id="非科班出身，如何成为程序员"><a href="#非科班出身，如何成为程序员" class="headerlink" title="非科班出身，如何成为程序员"></a>非科班出身，如何成为程序员</h2><blockquote>
 <p>本文是知乎的一篇回答</p>
 </blockquote>
 <p>身边有很多非科班出身的程序员，比如 sofish、粽神。当然我也是，所以决定结合自身经历强答一波。</p>
@@ -4136,7 +4760,23 @@
 <p>三个月后，评级转正，当时的职级是 P5，我感到很欣慰，三个月的努力学习有了回报。和之前边工作边学习的离散学习完全不同，当然全职的效率更高，当然薪资也从4.5k 涨到了12k，说实话，对于刚入门的我，我很满意这薪资了。在这公司我工作了两年，合作和独立完成了几个项目，职级后来也再升了两级。在今年七月，我选择了离开，主要原因还是考虑个人发展，以及对饿了么的眷顾。</p>
 <p>对的，我又参加了饿了么的面试，顺利入职饿了么前端工程师，感到很欣慰。好像实现了一个长久的夙愿。</p>
 <h3 id="我为什么感到焦虑"><a href="#我为什么感到焦虑" class="headerlink" title="我为什么感到焦虑"></a>我为什么感到焦虑</h3><p>转行后，我无时不感到焦虑，毕竟是一个大龄转行程序员，身边的同事都是九零后甚至九五后，我无时不刻不在想我怎么规划我的职业，怎么做得更好，怎么缩短与科班出身的同事之间的差距。我没有后悔过转行，也没有后悔过那八年生物生涯（大学四年工作四年），毕竟那八年的生物学习，我快乐过，我不完整实现了儿时的梦想。</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>程序人生</category>
@@ -4149,7 +4789,7 @@
   <entry>
     <title>Python-基础-时间控制</title>
     <url>/posts/1baee55b/</url>
-    <content><![CDATA[<hr>
+    <content><![CDATA[<div id="vip-container"><hr>
 <p>这次主要介绍python 的基础流程控制。<br>包括 if 条件语句、for 循环 和 while 循环语句； continue 及 break 的用法等。<br>基本用法与 C 和 Java 差不多，无 switch 语句。</p>
 <hr>
 <h2 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h2><p>语法：<code>if(...):</code>, 括号内为一表达式，当为<code>True</code>（即成立）时，执行对应的代码段。</p>
@@ -4177,7 +4817,23 @@
 <h2 id="break-、-continue"><a href="#break-、-continue" class="headerlink" title="break 、 continue"></a>break 、 continue</h2><p><code>break</code> 用法和 C 中的类似，直接跳出循环，执行循环后的语句</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i=<span class="number">1</span></span><br><span class="line"><span class="keyword">while</span>(i&lt;<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">3</span>):</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    print(i)</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
 <p><code>continue</code> 用法也是从C中借鉴来的，跳出当前循环，并执行下一次循环<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i=<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">6</span>):</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">3</span>):</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -4191,7 +4847,7 @@
   <entry>
     <title>Python 基础介绍</title>
     <url>/posts/f1801302/</url>
-    <content><![CDATA[<hr>
+    <content><![CDATA[<div id="vip-container"><hr>
 <p>每个键是从它的值由冒号(:)，即在项目之间用逗号隔开，整个东西是包含在大括号中。没有任何项目一个空字典只写两个大括号，就像这样：<code>{}</code>.</p>
 <p>键在一个字典中是唯一的，而值则可以重复。字典的值可以是任何类型，但键必须是不可变的数据的类型，例如：字符串，数字或元组这样的类型。</p>
 <h2 id="访问字典中的值"><a href="#访问字典中的值" class="headerlink" title="访问字典中的值"></a>访问字典中的值</h2><p>要访问字典元素，你可以使用方括号和对应键，以获得其对应的值。下面是一个简单的例子 -</p>
@@ -4322,7 +4978,23 @@
 </tbody>
 </table>
 </div>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -4336,7 +5008,7 @@
   <entry>
     <title>Python-基础- I/O 简介</title>
     <url>/posts/8a836e57/</url>
-    <content><![CDATA[<p>这里只讲述基本的 I/O 函数，更多函数请参考Python标准文档。</p>
+    <content><![CDATA[<div id="vip-container"><p>这里只讲述基本的 I/O 函数，更多函数请参考Python标准文档。</p>
 <blockquote>
 <p>Python 3.x I/O 标准文档位置  <a href="https://docs.python.org/3/library/io.html" target="_blank" rel="noopener">https://docs.python.org/3/library/io.html</a></p>
 </blockquote>
@@ -4621,7 +5293,23 @@
 <li><a href="https://docs.python.org/3/tutorial/inputoutput.html" target="_blank" rel="noopener">File 对象方法</a>: file 对象提供了操作文件的一系列方法。</li>
 <li><a href="https://docs.python.org/3/library/os.html" target="_blank" rel="noopener">OS 对象方法</a>: 提供了处理文件及目录的一系列方法。</li>
 </ul>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -4635,7 +5323,7 @@
   <entry>
     <title>Python-基础-`yeild` 关键字使用</title>
     <url>/posts/e140dc3c/</url>
-    <content><![CDATA[<hr>
+    <content><![CDATA[<div id="vip-container"><hr>
 <p>大家在阅读 Python 代码时，经常遇到带有 <code>yield</code> 的函数，通常此时我们都需要去想想这个<code>yield</code> 是个什么东西？这一段代码在讲什么事情呢？</p>
 <p>那我们这里就来好好讲讲这个 <code>yield</code>。</p>
 <p><code>yield</code> 是 Python 设计之初就保留的关键字之一。</p>
@@ -4684,7 +5372,23 @@
 <p>好的方法是利用固定长度的缓冲区来不断读取文件内容。通过 <code>yield</code>，我们不再需要编写读文件的迭代类，就可以轻松实现文件读取：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用 yield 读取文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_file</span><span class="params">(filepath)</span>:</span></span><br><span class="line">    BLOCK_SIZE = <span class="number">2048</span></span><br><span class="line">    <span class="keyword">with</span> open(filepath, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            block = f.read(BLOCK_SIZE)</span><br><span class="line">            <span class="keyword">if</span> block:</span><br><span class="line">                <span class="keyword">yield</span> block</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
 <p>以上内容介绍了 <code>yield</code> 的基本概念和用法。</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -4698,13 +5402,29 @@
   <entry>
     <title>Python 中获取随机数</title>
     <url>/posts/7575f203/</url>
-    <content><![CDATA[<h2 id="一-获得-a-b-之间的随机整数"><a href="#一-获得-a-b-之间的随机整数" class="headerlink" title="一 获得[a, b]之间的随机整数"></a>一 获得[a, b]之间的随机整数</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">print(random.randint(<span class="number">1</span>, <span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<div id="vip-container"><h2 id="一-获得-a-b-之间的随机整数"><a href="#一-获得-a-b-之间的随机整数" class="headerlink" title="一 获得[a, b]之间的随机整数"></a>一 获得[a, b]之间的随机整数</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">print(random.randint(<span class="number">1</span>, <span class="number">10</span>))</span><br></pre></td></tr></table></figure>
 <h2 id="二-从一个非空序列中随机挑选一个元素"><a href="#二-从一个非空序列中随机挑选一个元素" class="headerlink" title="二 从一个非空序列中随机挑选一个元素"></a>二 从一个非空序列中随机挑选一个元素</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">print(random.choice([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>或<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从0～9中随机取一整数</span></span><br><span class="line">print(random.choice(range(<span class="number">10</span>)))</span><br></pre></td></tr></table></figure></p>
 <h2 id="三-按指定基数递增的集合中获取随机数"><a href="#三-按指定基数递增的集合中获取随机数" class="headerlink" title="三 按指定基数递增的集合中获取随机数"></a>三 按指定基数递增的集合中获取随机数</h2><p>基数缺省值为1<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment"># randrange([start,]stop[,step]) 取不到stop对应的值</span></span><br><span class="line">print(random.randrange(<span class="number">1</span>, <span class="number">7</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure></p>
 <h2 id="四-随机打乱列表的元素"><a href="#四-随机打乱列表的元素" class="headerlink" title="四 随机打乱列表的元素"></a>四 随机打乱列表的元素</h2><p>就地修改，返回值为None<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">lst = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">random.shuffle(lst)</span><br><span class="line">print(lst)</span><br></pre></td></tr></table></figure></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -4718,7 +5438,7 @@
   <entry>
     <title>Python-基础-PEP 是什么？</title>
     <url>/posts/e6966298/</url>
-    <content><![CDATA[<h2 id="PEP-是什么？"><a href="#PEP-是什么？" class="headerlink" title="PEP 是什么？"></a>PEP 是什么？</h2><p>Python的 PEP 文档是一组不断发展的标准文档，PEP是 <code>Python Enhancement Proposal</code>的首字母缩写。就像TCPIP协议使用RFC来组织起不断发展的通信标准一样，PEP也是类似的用于发展Python的一组文档。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="PEP-是什么？"><a href="#PEP-是什么？" class="headerlink" title="PEP 是什么？"></a>PEP 是什么？</h2><p>Python的 PEP 文档是一组不断发展的标准文档，PEP是 <code>Python Enhancement Proposal</code>的首字母缩写。就像TCPIP协议使用RFC来组织起不断发展的通信标准一样，PEP也是类似的用于发展Python的一组文档。</p>
 <p>PEP的全称是Python Enhancement Proposals，其中Enhancement是增强改进的意思，Proposals则可译为提案或建议书，所以合起来，比较常见的翻译是 Python 增强提案或 Python 改进建议书。Python 核心开发者主要通过邮件列表讨论问题、提议、计划等，PEP 通常是汇总了多方信息，经过了部分核心开发者 review 和认可，最终形成的正式文档，起到了对外公示的作用。</p>
 <p>PEP文档越多，说明 Python 社区越活跃，发展良好。</p>
 <h2 id="PEP-的类型"><a href="#PEP-的类型" class="headerlink" title="PEP 的类型"></a>PEP 的类型</h2><p>每个PEP都有对应的类型（PEP Status Key）：</p>
@@ -4769,7 +5489,23 @@
 <li>PEP 3333 — Python Web Server Gateway Interface v1.0.1，Web开发</li>
 <li>PEP 8000 — Python Language Governance Proposal Overview，GvR老爹推出决策层后，事关新决策方案</li>
 </ul>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -4783,7 +5519,7 @@
   <entry>
     <title>ES6 里的变量和作用域</title>
     <url>/posts/bb59d0e4/</url>
-    <content><![CDATA[<p>在本文将有大量的例子介绍在ES6中作用域和变量的使用方法</p>
+    <content><![CDATA[<div id="vip-container"><p>在本文将有大量的例子介绍在ES6中作用域和变量的使用方法</p>
 <h2 id="1-块级作用域的let和const"><a href="#1-块级作用域的let和const" class="headerlink" title="1.块级作用域的let和const"></a>1.块级作用域的let和const</h2><p>让<code>let</code>和<code>const</code>创造块级作用域，他仅仅存在于包裹他们的最内层的块。下面代码演示了使用<code>let</code>修饰的<code>tmp变量</code>仅仅存在于最里层的<code>if</code>申明里。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> tmp = <span class="number">123</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">// tmp未定义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>相比之下，用var申明的变量在函数级作用域</p>
@@ -4867,7 +5603,23 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123; <span class="comment">// 进入新的作用域</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> identity = <span class="function"><span class="params">x</span> =&gt;</span> x;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//这儿是`MyClass`的TDZ</span></span><br><span class="line">    <span class="keyword">let</span> inst = <span class="keyword">new</span> MyClass(); <span class="comment">// ReferenceError</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//注意 `extends`</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> <span class="keyword">extends</span> <span class="title">identity</span>(<span class="title">Object</span>) </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="8-扩展阅读"><a href="#8-扩展阅读" class="headerlink" title="8.扩展阅读"></a>8.扩展阅读</h2><p>1.<a href="http://www.2ality.com/2014/08/es6-today.html" target="_blank" rel="noopener">Using ECMAScript 6 today</a></p>
 <p>2.<a href="http://www.2ality.com/2015/01/es6-destructuring.html" target="_blank" rel="noopener">Destructuring and parameter handling in ECMAScript 6</a></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -4882,7 +5634,7 @@
   <entry>
     <title>你需要知道的块级作用域 - let</title>
     <url>/posts/1317c8d9/</url>
-    <content><![CDATA[<p>变量声明在任何语言中都是非常基础的东西，理解变量在作用域下如何工作是非常重要的事情。</p>
+    <content><![CDATA[<div id="vip-container"><p>变量声明在任何语言中都是非常基础的东西，理解变量在作用域下如何工作是非常重要的事情。</p>
 <p>在大多数语言中，如 <code>Python</code>，他有两个作用域:局部 和 全局。如下，变量定义在代码开头部分则为全局变量，在函数里面声明变量则为局部变量。</p>
 <p>JavaScript也很相似，看以下例子：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Python</span></span><br><span class="line">x = <span class="number">1</span> <span class="comment"># 全局变量</span></span><br><span class="line">y = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    s = a + b <span class="comment"># 局部变量</span></span><br><span class="line">    <span class="keyword">return</span> s</span><br></pre></td></tr></table></figure>
@@ -4904,7 +5656,23 @@
 <p>注： Michał Gołębiowski 指出在各个浏览器的规范不一样，使用时可能会出现bug。在当前还未正式流行开，这种情况可能会持续到2015年中旬。</p>
 <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>声明变量虽然简单,但在JavaScript语言中会让初学者头痛的。<br><code>let</code>声明变量更直观,符合基于c的语言.</p>
 <p>var应该停止使用,只有这样，没有变量提示的<code>let</code>才能正在运用到未来。</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -4918,7 +5686,7 @@
   <entry>
     <title>ES6 箭头函数和它的作用域</title>
     <url>/posts/ca83b426/</url>
-    <content><![CDATA[<p>在ES6很多很棒的新特性中, 箭头函数 (或者大箭头函数)就是其中值得关注的一个! 它不仅仅是很棒很酷, 它很好的利用了作用域, 快捷方便的在现在使用以前我们用的技术, 减少了很多代码……但是如果你不了解箭头函数原理的话可能就有点难以理解. 所以,让我们来看下箭头函数, 就是现在!</p>
+    <content><![CDATA[<div id="vip-container"><p>在ES6很多很棒的新特性中, 箭头函数 (或者大箭头函数)就是其中值得关注的一个! 它不仅仅是很棒很酷, 它很好的利用了作用域, 快捷方便的在现在使用以前我们用的技术, 减少了很多代码……但是如果你不了解箭头函数原理的话可能就有点难以理解. 所以,让我们来看下箭头函数, 就是现在!</p>
 <h2 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h2><p>你可以自己去学习和尝试下, 你可以简单的把示例程序代码复制到你的浏览器控制台下. 现在, 推荐使用Firefox(22+)开发者工具, Firefox(22+)开发者工具现在支持箭头函数,你也可以使用谷歌浏览器. 如果你使用谷歌浏览器, 你必须要做下列两件事:</p>
 <ul>
 <li>- 在谷歌浏览器中地址栏中输入：”about:flags”, 找到 “使用体验性Javascript”选项，开启使用。</li>
@@ -4999,7 +5767,23 @@
 <li>- <a href="http://kangax.github.io/compat-table/es6/" target="_blank" rel="noopener">ES6 Compatibility Table</a></li>
 </ul>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>尽管大家可能会认为使用箭头函数会降低你代码的可读性，但是由于它对作用域的特殊处理，它能让我们能很好的处理this的指向问题。箭头函数加上let关键字的使用，将会让我们javascript代码上一个层次！尽量多使用箭头函数，你可以再你的浏览器测试你写的箭头函数代码，大家可以再评论区留下你对箭头函数的想法和使用方案！我希望大家能享受这篇文章，就像你会不就的将来享受箭头函数带给你的快乐.</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -5014,7 +5798,7 @@
   <entry>
     <title>Redux 框架简介</title>
     <url>/posts/7535073a/</url>
-    <content><![CDATA[<h2 id="redux简介"><a href="#redux简介" class="headerlink" title="redux简介"></a>redux简介</h2><p>Redux 是一个改变状态(state)的模型，这个模型通过一个单向操作的方式来改变状态。现在网上教程一言不合上来就是 Redux + React 的综合运用，经常搞的人一脸懵逼。其实 Redux 和 React 完全解耦，并不是 Redux 非得和 React结合才能使用，而只是 React 结合 Redux 会事半功倍。本系列主要也讲得这个。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="redux简介"><a href="#redux简介" class="headerlink" title="redux简介"></a>redux简介</h2><p>Redux 是一个改变状态(state)的模型，这个模型通过一个单向操作的方式来改变状态。现在网上教程一言不合上来就是 Redux + React 的综合运用，经常搞的人一脸懵逼。其实 Redux 和 React 完全解耦，并不是 Redux 非得和 React结合才能使用，而只是 React 结合 Redux 会事半功倍。本系列主要也讲得这个。</p>
 <p>对于日益复杂的 Javascript 应用来说，Javascript 需要管理非常多的 state。包括本地尚未持久化到数据库的数据、UI状态等等，而且这些状态有可能是相互关联的，一个状态的改变可能会引起另外一个状态的变化，如果用命令式编程将会变得异常复杂以及难以维护。Redux 作为一个专门关联 state 的框架应用而生，而这种单向数据流的思想也让 Redux 成为一个现代框架。</p>
 <p><img src="http://img4.tbcdn.cn/L1/461/1/3db24afe31e7218b4ac6cc74497204250b2f5f3a" alt="redux介绍"></p>
 <a id="more"></a>
@@ -5055,7 +5839,23 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> ActionTypes = &#123;</span><br><span class="line">  INIT: <span class="string">'@@redux/INIT'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>会对当前 state 初始化。</p>
 <p>至此，我们使用 Redux 编写了一个无 React 的例子。也对 Redux 有了一个基本的认知。</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -5070,7 +5870,7 @@
   <entry>
     <title>Java数组定义、使用、以及数组内存分析详解</title>
     <url>/posts/d7e44753/</url>
-    <content><![CDATA[<p>本文主要是从容器概念到数组概念再到数组的三种定义以及各种情况的数组内存分析，以及一些数组常用的遍历以及反转、取最大值等操作。旨在全面性了解java数组。</p>
+    <content><![CDATA[<div id="vip-container"><p>本文主要是从容器概念到数组概念再到数组的三种定义以及各种情况的数组内存分析，以及一些数组常用的遍历以及反转、取最大值等操作。旨在全面性了解java数组。</p>
 <h2 id="1、什么是容器"><a href="#1、什么是容器" class="headerlink" title="1、什么是容器"></a>1、什么是容器</h2><p>在讲数组之前，很有必要来谈谈容器的概念 所谓容器就是将多个数据存储到一起，每个数据称为该容器的元素。</p>
 <blockquote>
 <p>生活中的容器：水杯，衣柜，教室</p>
@@ -5140,7 +5940,23 @@
 <p>总结: 方法的参数为基本类型时,传递的是数据值. 方法的参数为引用类型时,传递的是地址值.</p>
 </blockquote>
 <p>相信各位已经将上面的代码 copy 到 eclipse 或者 idea 中运行了，是不是结果很意外？而且对总结不是很理解？这位童靴，我估计你可能是忽略了这一点：数组是引用类型，数组本身元素类型没有影响的，就像数组元素全是int，数组依旧是引用类型！</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Java</category>
@@ -5154,7 +5970,7 @@
   <entry>
     <title>ES6 Generator 基础指南</title>
     <url>/posts/c44a1663/</url>
-    <content><![CDATA[<h3 id="ES6-Generator-基础指南"><a href="#ES6-Generator-基础指南" class="headerlink" title="ES6 Generator 基础指南"></a>ES6 Generator 基础指南</h3><blockquote>
+    <content><![CDATA[<div id="vip-container"><h3 id="ES6-Generator-基础指南"><a href="#ES6-Generator-基础指南" class="headerlink" title="ES6 Generator 基础指南"></a>ES6 Generator 基础指南</h3><blockquote>
 <p>本文翻译自：<a href="https://davidwalsh.name/es6-generators" target="_blank" rel="noopener">The Basics Of ES6 Generators</a></p>
 <p>由于个人能力有限，翻译中难免有纰漏和错误，望不吝指正</p>
 </blockquote>
@@ -5233,7 +6049,23 @@
 <li>异步代码怎么和 generator 函数协同工作？</li>
 </ol>
 <p>这些问题，或者其他的问题都将在随后的文章中覆盖，敬请期待。</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -5248,7 +6080,7 @@
   <entry>
     <title>ES6 Generator 基础指南</title>
     <url>/posts/c44a1663/</url>
-    <content><![CDATA[<h3 id="ES6-Generator-基础指南"><a href="#ES6-Generator-基础指南" class="headerlink" title="ES6 Generator 基础指南"></a>ES6 Generator 基础指南</h3><blockquote>
+    <content><![CDATA[<div id="vip-container"><h3 id="ES6-Generator-基础指南"><a href="#ES6-Generator-基础指南" class="headerlink" title="ES6 Generator 基础指南"></a>ES6 Generator 基础指南</h3><blockquote>
 <p>本文翻译自：<a href="https://davidwalsh.name/es6-generators" target="_blank" rel="noopener">The Basics Of ES6 Generators</a></p>
 </blockquote>
 <p>JavaScript ES6(译者注：ECMAScript 2015)中最令人兴奋的特性之一莫过于<strong>Generator</strong>函数，它是一种全新的函数类型。它的名字有些奇怪，初见其功能时甚至更会有些陌生。本篇文章旨在解释其基本工作原理，并帮助你理解为什么 Generator 将在未来 JS 中发挥强大作用。</p>
@@ -5326,7 +6158,23 @@
 <li>异步代码怎么和 generator 函数协同工作？</li>
 </ol>
 <p>这些问题，或者其他的问题都将在随后的文章中覆盖，敬请期待。</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -5341,7 +6189,7 @@
   <entry>
     <title>「体能训练理论」之金字塔</title>
     <url>/posts/73fbe37/</url>
-    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>体能，人体基础运动能力的统称，人体的本质属性，它支撑着日常生活工作的需要，也支撑着运动技战术的表现。 </p>
+    <content><![CDATA[<div id="vip-container"><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>体能，人体基础运动能力的统称，人体的本质属性，它支撑着日常生活工作的需要，也支撑着运动技战术的表现。 </p>
 <p>体能思路，是指导我们设计实施体能训练的思维方式，分析逻辑。</p>
 <h2 id="金字塔"><a href="#金字塔" class="headerlink" title="金字塔"></a>金字塔</h2><p>体能训练是一门实践科学，实践先于理论，而理论印证实践。体能训练有四大基础学科，分别是运动解剖学、运动生理学、运动生物力学和运动训练学。</p>
 <p>五大运动素质对应生理学和运动训练学；动力链对应解剖学和运动生物力学；功能性对应着生理和生物力。而金字塔则对应了它们全部！或者说金字塔其实是诸学科在体能训练中的交汇，它囊括了所有之前的理论，并且赋予了更深层的意义。</p>
@@ -5382,7 +6230,23 @@
 <li><a href="https://zhuanlan.zhihu.com/p/20801623" target="_blank" rel="noopener">《体能训练之金字塔》</a></li>
 </ul>
 </blockquote>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>日常生活</category>
         <category>锻炼</category>
@@ -5395,7 +6259,7 @@
   <entry>
     <title>「体能训练理论」之动力链</title>
     <url>/posts/4113901c/</url>
-    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>与其说体能训练是一种行为，不如说体能训练是一种程序。只要符合逻辑，就可以自由组合。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>与其说体能训练是一种行为，不如说体能训练是一种程序。只要符合逻辑，就可以自由组合。</p>
 <h2 id="动力链"><a href="#动力链" class="headerlink" title="动力链"></a>动力链</h2><p>如果说 <strong>五大运动素质</strong>（力量、速度、耐力、灵敏、柔韧）代表了体能的宏观表现，那么动力链理论则阐释了人体解剖结构在运动中的客观规律，这二者同为人体的本质属性。</p>
 <p>动力链这一理论早在1875年就被提出过，当时的定义还很简单，就是指几个相邻的关节所组成的复杂动作单元。后来在不断地实践与研究中，动力链理论也不断的升级，越来越清晰，越来越客观，也越来越复杂，并且逐渐成为了体能训练师们必备的思考工具之一。</p>
 <p>来看看动力链的英文解释:</p>
@@ -5481,7 +6345,23 @@
 <blockquote>
 <p>转自 <a href="https://zhuanlan.zhihu.com/p/20774747" target="_blank" rel="noopener">《体能训练之动力链》</a></p>
 </blockquote>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>日常生活</category>
         <category>锻炼</category>
@@ -5494,7 +6374,7 @@
   <entry>
     <title>「体能训练理论」之功能性</title>
     <url>/posts/16d824e2/</url>
-    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>体能训练是一种开源的程序它所依仗的并不是固有的方法手段，而是能够贯穿始终的逻辑，它是一种指导实践的思维方式，我们管它叫“体能思路”。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>体能训练是一种开源的程序它所依仗的并不是固有的方法手段，而是能够贯穿始终的逻辑，它是一种指导实践的思维方式，我们管它叫“体能思路”。</p>
 <p>体能思路有两个方向，一个是原点，一个是过程。所谓原点我们认为是人体的本质属性，比如之前我们分享的五大运动素质以及动力链理论。所谓过程是我们分析问题实现目的的思考方向以及逻辑，它主要体现在接下来要跟大家分享的功能性原则和金字塔。</p>
 <p>今天先来说功能性原则。</p>
 <h2 id="功能性"><a href="#功能性" class="headerlink" title="功能性"></a>功能性</h2><p>我们所说的功能性是一种解决问题的思维方式，而功能性训练则定义了一种多关节参与，多平面运动的复杂练习。功能性训练是具体的，比较好理解，我就不赘述了，也不评价其优劣，因为在“功能性”的思维方式下，只存在目标之下的合适与否。</p>
@@ -5546,7 +6426,23 @@
 <blockquote>
 <p>转自<a href="https://zhuanlan.zhihu.com/p/20786373" target="_blank" rel="noopener">《体能训练之功能性》</a></p>
 </blockquote>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>日常生活</category>
         <category>锻炼</category>
@@ -5559,7 +6455,7 @@
   <entry>
     <title>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</title>
     <url>/posts/96274c74/</url>
-    <content><![CDATA[<h1 id="通过漫画形式来解释-ArrayBuffers-和-SharedArrayBuffers"><a href="#通过漫画形式来解释-ArrayBuffers-和-SharedArrayBuffers" class="headerlink" title="通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers"></a>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</h1><p>这是本系列三篇文章中的第二篇：</p>
+    <content><![CDATA[<div id="vip-container"><h1 id="通过漫画形式来解释-ArrayBuffers-和-SharedArrayBuffers"><a href="#通过漫画形式来解释-ArrayBuffers-和-SharedArrayBuffers" class="headerlink" title="通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers"></a>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</h1><p>这是本系列三篇文章中的第二篇：</p>
 <ol>
 <li><em>内存管理速成手册</em></li>
 <li><em>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</em></li>
@@ -5601,7 +6497,23 @@
 <p>SharedArrayBuffers 在 Safari（Safari 10.1）中已经可以使用。Firefox 和 Chrome 也将在今年的七八月发布的版本中包含此项功能。Edge 浏览器计划在今年的秋天完成此项功能的更新。但是即使所有主流浏览器都已经支持 SharedArrayBuffers，我们也不希望应用程序开发人员直接使用它。</p>
 <p>实际上，我们发对这样做。你应该在其之上进行抽象，使用更高层的一些库。我们所期待的是框架或库的开发者们能够创建一些工具库，这些工具库能够帮助我们更方便、安全的使用 SharedArrayBuffer。除此之外，一旦 SharedArrayBuffers 在平台上实现，WebAssembly 可以使用它来实现多线程。到时候，你就能够向 Rust 语言一样使用并发的抽象层，它将无所畏惧得将并发作为其主要目标。在下一篇文章中，我们将解释工具（<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics" target="_blank" rel="noopener">Atomics</a> ）以及工具开发者是怎样来实现这一抽象层并如何避免竞用条件的。</p>
 <p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_15.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_15-500x335.png" alt="Layer diagram showing SharedArrayBuffer + Atomics as the foundation, and JS libaries and WebAssembly threading building on top"></a></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -5615,7 +6527,7 @@
   <entry>
     <title>内存管理速成手册</title>
     <url>/posts/99af2b46/</url>
-    <content><![CDATA[<h2 id="内存管理速成手册"><a href="#内存管理速成手册" class="headerlink" title="内存管理速成手册"></a>内存管理速成手册</h2><blockquote>
+    <content><![CDATA[<div id="vip-container"><h2 id="内存管理速成手册"><a href="#内存管理速成手册" class="headerlink" title="内存管理速成手册"></a>内存管理速成手册</h2><blockquote>
 <p><a href="https://hacks.mozilla.org/2017/06/a-crash-course-in-memory-management/" target="_blank" rel="noopener">原文地址</a></p>
 <p>_这是本系列文章中的第一篇：</p>
 </blockquote>
@@ -5652,7 +6564,23 @@
 <p>这样该内存地址将会被重新添加至「free list」中。你必须知道什么时候该调用这些函数。这也是为什么称为手动内存管理的原因所在 -- 你完全自己管理程序中的内存。作为开发者，断定什么时候该清除内存是一件相当困难的事。</p>
 <p>如果在错误的时间点清除内存，将导致程序 bug，甚至一些安全漏洞。如果不对不在使用的内存进行处理，又将导致内存用尽。这也就是为什么现代语言都是用自动内存管理的原因 -- 避免人为错误。但是这也将会产生一些性能上的问题。</p>
 <p>将在<a href="https://hacks.mozilla.org/2017/06/a-cartoon-intro-to-arraybuffers-and-sharedarraybuffers/" target="_blank" rel="noopener">下一篇</a>对此进行说明。</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -5666,7 +6594,7 @@
   <entry>
     <title>Android 学习笔记：ANR的定位和修正</title>
     <url>/posts/114824d5/</url>
-    <content><![CDATA[<p>请在微信(wechat):you的日常，关注我吧，每天给你不一样的好看。</p>
+    <content><![CDATA[<div id="vip-container"><p>请在微信(wechat):you的日常，关注我吧，每天给你不一样的好看。</p>
 <p>ANR（Application Not Responding）即应用无响应。可以通过查看/data/anr/traces.txt查看ANR信息。</p>
 <h2 id="一、ANR的类型"><a href="#一、ANR的类型" class="headerlink" title="一、ANR的类型"></a>一、ANR的类型</h2><p>ANR一般有三种类型</p>
 <ul>
@@ -5701,7 +6629,23 @@
 <p>8、Service忙导致超时无响应</p>
 <p>9、其他线程持有锁，导致主线程等待超时</p>
 <p>10、其它线程终止或崩溃导致主线程一直等待</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Android</category>
@@ -5715,7 +6659,7 @@
   <entry>
     <title>Linux 常用命令</title>
     <url>/posts/817c7d82/</url>
-    <content><![CDATA[<h2 id="linux-常用网络命令"><a href="#linux-常用网络命令" class="headerlink" title="linux 常用网络命令"></a>linux 常用网络命令</h2><p>本文将简单的介绍下Linux中的命令及其使用方法。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="linux-常用网络命令"><a href="#linux-常用网络命令" class="headerlink" title="linux 常用网络命令"></a>linux 常用网络命令</h2><p>本文将简单的介绍下Linux中的命令及其使用方法。</p>
 <h3 id="ping-lt-host-gt"><a href="#ping-lt-host-gt" class="headerlink" title="ping &lt; host &gt;"></a>ping &lt; host &gt;</h3><p>发送 ICMP echo 消息（一个包）到主机.</p>
 <h3 id="telnet-port"><a href="#telnet-port" class="headerlink" title="telnet  [port]"></a>telnet <host> [port]</host></h3><p>与主机在指定的端口通信.</p>
 <p>常用端口：</p>
@@ -5753,7 +6697,23 @@
 <li>tcpmt -p [port] -s [bytes] target_host：发送 TCP 流量。</li>
 <li>tcptarget -p [port]：接收 TCP 流量。</li>
 </ul>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Linux</category>
@@ -5767,7 +6727,7 @@
   <entry>
     <title>ES6 实现自己的 Promise</title>
     <url>/posts/53e3c1ba/</url>
-    <content><![CDATA[<h2 id="一、JavaScript-异步编程背景"><a href="#一、JavaScript-异步编程背景" class="headerlink" title="一、JavaScript 异步编程背景"></a>一、JavaScript 异步编程背景</h2><p>​ 从去年 ES2015 发布至今，已经过去了一年多，ES2015 发布的新的语言特性中最为流行的也就莫过于 Promise 了，Promise 使得如今 JavaScript 异步编程如此轻松惬意，甚至慢慢遗忘了曾经那不堪回首的痛楚。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="一、JavaScript-异步编程背景"><a href="#一、JavaScript-异步编程背景" class="headerlink" title="一、JavaScript 异步编程背景"></a>一、JavaScript 异步编程背景</h2><p>​ 从去年 ES2015 发布至今，已经过去了一年多，ES2015 发布的新的语言特性中最为流行的也就莫过于 Promise 了，Promise 使得如今 JavaScript 异步编程如此轻松惬意，甚至慢慢遗忘了曾经那不堪回首的痛楚。</p>
 <p>其实从 JavaScript 诞生，JavaScript 中的异步编程就已经出现，例如点击鼠标、敲击键盘这些事件的处理函数都是异步的，时间到了 2009 年，Node.js 横空出世，在整个 Node.js 的实现中，将回调模式的异步编程机制发挥的淋漓尽致，Node 的流行也是的越来越多的 JavaScripter 开始了异步编程，但是回调模式的副作用也慢慢展现在人们眼前，错误处理不够优雅以及嵌套回调带来的“回调地狱”。</p>
 <p>这些副作用使得人们从回调模式的温柔乡中慢慢清醒过来，开始寻找更为优雅的异步编程模式，路漫漫其修远兮、吾将上下而求索。时间到了 2015 年，Promise 拯救那些苦苦探索的先驱。行使它历史使命的时代似乎已经到来。</p>
 <p>​每个事物的诞生有他的历史使命，更有其历史成因，促进其被那些探索的先驱们所发现。<br>了解 nodejs 或者熟悉浏览器的人都知道，JavaScript 引擎是基于事件循环或单线程这两个特性的。更为甚者在浏览器中，更新 UI(也就是浏览器重绘、重拍页面布局)和执行 JavaScript 代码也在一个单线程中，可想而知，一个线程就相当于只有一条马路，如果一辆马车抛锚在路上了阻塞了马路，那么别的马车也就拥堵在了那儿，这个单线程容易被阻塞是一个道理，单线程也只能允许某一时间点只能够执行一段代码。<br>同时，JavaScript 没有想它的哥哥姐姐们那么财大气粗，像 Java 或者 C++，一个线程不够，那么再加一个线程，这样就能够同时执行多段代码了，但是这样就会带来的隐患就是状态不容易维护，JavaScript 选择了单线程非阻塞式的方式，也就是异步编程的方式，就像上面的马车抛锚在了路上，那么把马车推到路边的维修站，让其他马车先过去，等马车修好了再回到马路上继续行驶，这就是单线程非阻塞方式。正如 Promise 的工作方式一样，通过 Promise 去向服务器发起一个请求，毕竟请求有网络开销，不可能马上就返回请求结果的，这个时候 Promise 就处于 pending 状态，但是其并不会阻塞其他代码的执行，当请求返回时，修改 Promise 状态为 fulfilled 或者 rejected（失败请求）。同时执行绑定到这两个状态上面的“处理函数”。这就是异步编程的模式，也就是 Promise 兢兢业业的工作方式，在下面一个部分将详细讨论 Promise。</p>
@@ -5812,7 +6772,23 @@
 <p>如果我们的 <code>Promise polyfill</code> 是考虑支持多平台，那么首要考虑的就是浏览器环境或 Node.js 环境，其实在这两个平台，原生 Promise 都是支持两个事件的。就拿浏览器端举例：</p>
 <p>unhandledrejection: 在一个事件循环中，如果我们没有对 promise 返回的错误进行处理，那么就会在 window 对象上面触发该事件。<br>rejectionhandled:如果在一个事件循环后，我们才去对 promise 返回的错误进行处理，那么就会在 window 对象上面监听到此事件。<br>关于这两个事件以及 node.js 平台上面类似的事件请参考 Nicholas C. Zakas 新书</p>
 <p>Promise 能够很棒的处理异步编程，要想学好它我认为最好的方法就是亲自动手去实现一个自己的 Promise。</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -5827,7 +6803,7 @@
   <entry>
     <title>Git 修改历史记录</title>
     <url>/posts/e2b7f0f8/</url>
-    <content><![CDATA[<h2 id="聊聊-Git-「改变历史」"><a href="#聊聊-Git-「改变历史」" class="headerlink" title="聊聊 Git 「改变历史」"></a>聊聊 Git 「改变历史」</h2><p>在本篇文章中，聊聊 Git 怎么改变历史记录。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="聊聊-Git-「改变历史」"><a href="#聊聊-Git-「改变历史」" class="headerlink" title="聊聊 Git 「改变历史」"></a>聊聊 Git 「改变历史」</h2><p>在本篇文章中，聊聊 Git 怎么改变历史记录。</p>
 <h2 id="重写最后一次提交"><a href="#重写最后一次提交" class="headerlink" title="重写最后一次提交"></a>重写最后一次提交</h2><p>在我们开发的过程中，我们经常会遇到这样的问题，当我们进行了一次「冲动」的 Git 提交后。发现我们的 commit 信息有误，或者我们把不应该这次提交的文件添加到了此次提交中，或者有的文件忘记提交了，怎么办？这些问题都可以通过如下命令来进行弥补。</p>
 <blockquote>
 <p>git commit —amend</p>
@@ -5934,21 +6910,37 @@
 <h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>当我还沉浸在改变历史的成就中难以自拔的时候，身边大佬的一句话让我清醒过来：「历史（记录）没有因你而变，而只是改变了历史（记录）的呈现方式」。当我查阅了.git/objects 中的关于记录 commit 的文件后，才发现我还是<code>too young too simple</code>。我并没有改变或删除这些记录 commit 的文件，而只是生成了一些新的 commit 文件，尽然以为我改变了历史记录，可笑！这也是我们为什么能够恢复到改变历史记录前状态的原因，关于 Git 中 hash、commit、history 的实质，请参考 <a href="https://zhuanlan.zhihu.com/p/27474934" target="_blank" rel="noopener">git inside —simplified —part ‘1’</a>。</p>
 <p><strong>Warning</strong></p>
 <p>改变历史提交提交记录并非完美，你需要遵循如下准则，只要没有其他开发人员获取到你版本库的副本，或者没有共享你的提交记录，那么你就可以尽情的完善你的提交记录，可以修改提交信息，合并或者拆分多个提交，对多个提交进行排序等等。不过，记住一点，如果你的版本库已经公开，并且其他开发人员已经共享了你的提交记录，那么你就不应该重写、修改该版本库中的任意部分。否则，你的合作者会埋怨你，你的家人和朋友也会嘲笑你、抛弃你。</p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Git</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>基础技术</tag>
         <tag>编程技术</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
     <title>React 学习 - 开发环境搭建</title>
     <url>/posts/ac02993c/</url>
-    <content><![CDATA[<h2 id="1-安装-Yarn"><a href="#1-安装-Yarn" class="headerlink" title="1. 安装 Yarn"></a>1. 安装 Yarn</h2><p>包管理可以用 npm 或者 yarn，好多人推荐 yarn，我这里就用这个了</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="1-安装-Yarn"><a href="#1-安装-Yarn" class="headerlink" title="1. 安装 Yarn"></a>1. 安装 Yarn</h2><p>包管理可以用 npm 或者 yarn，好多人推荐 yarn，我这里就用这个了</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew update</span><br><span class="line">brew install yarn</span><br></pre></td></tr></table></figure>
 <h2 id="2-初始化项目文件夹"><a href="#2-初始化项目文件夹" class="headerlink" title="2. 初始化项目文件夹"></a>2. 初始化项目文件夹</h2><p>首先要做的是创建一个工程目录，然后在目录中执行 yarn 初始化即可</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yarn init</span><br></pre></td></tr></table></figure>
@@ -6005,7 +6997,23 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yarn install</span><br><span class="line">yarn start</span><br></pre></td></tr></table></figure>
 <p>即可开启一个 Web App 的开发了</p>
 <h2 id="Refer"><a href="#Refer" class="headerlink" title="Refer"></a>Refer</h2><p><a href="https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel" target="_blank" rel="noopener">Setup a React Environment Using webpack and Babel</a></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>JavaScript</category>
@@ -6019,7 +7027,7 @@
   <entry>
     <title>Linux 启动过程详解</title>
     <url>/posts/5af447cc/</url>
-    <content><![CDATA[<h2 id="linux-系统启动过程"><a href="#linux-系统启动过程" class="headerlink" title="linux 系统启动过程"></a>linux 系统启动过程</h2><p><img src="https://i.loli.net/2019/12/09/rsebBQuPFC8NaHE.png" alt="20191209163140.png"></p>
+    <content><![CDATA[<div id="vip-container"><h2 id="linux-系统启动过程"><a href="#linux-系统启动过程" class="headerlink" title="linux 系统启动过程"></a>linux 系统启动过程</h2><p><img src="https://i.loli.net/2019/12/09/rsebBQuPFC8NaHE.png" alt="20191209163140.png"></p>
 <p>文章主要介绍了Linux 系统启动过程。</p>
 <hr>
 <ol>
@@ -6075,7 +7083,23 @@
 <p>如果是图形界面的 linux， 会有 display manager 的服务负责检测显示屏和启动 X-server。display manager 也负责图形界面的用户登陆，以及启动正确的桌面环境。</p>
 </li>
 </ol>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Linux</category>
@@ -6089,7 +7113,7 @@
   <entry>
     <title>Git 代码回滚回的正确姿势</title>
     <url>/posts/3e8c4612/</url>
-    <content><![CDATA[<h1 id="git-revert-和-git-reset-的区别"><a href="#git-revert-和-git-reset-的区别" class="headerlink" title="git revert 和 git reset 的区别"></a><strong>git revert</strong> 和 <strong>git reset</strong> 的区别</h1><p> 先看图：</p>
+    <content><![CDATA[<div id="vip-container"><h1 id="git-revert-和-git-reset-的区别"><a href="#git-revert-和-git-reset-的区别" class="headerlink" title="git revert 和 git reset 的区别"></a><strong>git revert</strong> 和 <strong>git reset</strong> 的区别</h1><p> 先看图：</p>
 <p><img src="https://ww3.sinaimg.cn/large/006tNbRwgy1fcr9tu6vdjj30t30ez0y8.jpg" alt></p>
 <p><strong>sourceTree</strong> 中 <strong>revert</strong> 译为<strong><code>提交回滚</code></strong>，作用为忽略你指定的版本，然后提交一个新的版本。新的版本中已近删除了你所指定的版本。</p>
 <p><strong>reset</strong> 为 <strong>重置到这次提交</strong>，将内容重置到指定的版本。<code>git reset</code> 命令后面是需要加2种参数的：<code>–-hard</code> 和 <code>–-soft</code>。这条命令默认情况下是 <code>-–soft</code>。</p>
@@ -6113,21 +7137,37 @@ b45959e HEAD@{2}: revert: Revert &quot;add img&quot;
 0f67bb7 HEAD@{5}: revert: Revert &quot;add img&quot;
 </code></pre><p>找到你操作的id如：<code>b45959e</code>，就可以回退到这个版本</p>
 <pre><code>$ git reset --hard b45959e
-</code></pre>]]></content>
+</code></pre></div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Git</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>基础技术</tag>
         <tag>编程技术</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
     <title>这就是观察者模式</title>
     <url>/posts/6384eeef/</url>
-    <content><![CDATA[<p>观察者模式是软件设计模式中的一种，使用也比较普遍，尤其是在GUI编程中。关于设计模式的文章，网络上写的都比较多，而且很多文章写的也不错，虽然说有一种重复早轮子的嫌疑，但此轮子非彼轮子，侧重点不同，思路也不同，讲述方式也不近相同。</p>
+    <content><![CDATA[<div id="vip-container"><p>观察者模式是软件设计模式中的一种，使用也比较普遍，尤其是在GUI编程中。关于设计模式的文章，网络上写的都比较多，而且很多文章写的也不错，虽然说有一种重复早轮子的嫌疑，但此轮子非彼轮子，侧重点不同，思路也不同，讲述方式也不近相同。</p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>关于定义，最准确的莫过于Head First设计模式中写到的。</p>
 <p>观察者模式定义了一个一对多的依赖关系，让一个或多个观察者对象监听一个主题对象。这样一来，当被观察者状态发生改变时，需要通知相应的观察者，使这些观察者对象能够自动更新。</p>
 <h2 id="关键要素"><a href="#关键要素" class="headerlink" title="关键要素"></a>关键要素</h2><h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>主题是观察者观察的对象，一个主题必须具备下面三个特征。</p>
@@ -6157,7 +7197,23 @@ b45959e HEAD@{2}: revert: Revert &quot;add img&quot;
 <li>主题持有观察者的引用，如果未正常处理从主题中删除观察者，会导致观察者无法被回收。</li>
 <li>如果观察者具体实现代码有问题，会导致主题和观察者对象形成循环引用，在某些采用引用计数的垃圾回收器可能导致无法回收。</li>
 </ul>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>设计模式</category>
@@ -6171,7 +7227,7 @@ b45959e HEAD@{2}: revert: Revert &quot;add img&quot;
   <entry>
     <title>Git 基础命令使用</title>
     <url>/posts/af968315/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<div id="vip-container"><blockquote>
 <p>随便整理的一些自用的Git指令</p>
 </blockquote>
 <h1 id="GitHub创建仓库提示代码"><a href="#GitHub创建仓库提示代码" class="headerlink" title="GitHub创建仓库提示代码"></a>GitHub创建仓库提示代码</h1><pre><code>echo &quot;# 项目名&quot; &gt;&gt; README.md
@@ -6399,21 +7455,37 @@ $ git stash
 $ git stash pop
 </code></pre><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><pre><code># 生成一个可供发布的压缩包
 $ git archives
-</code></pre>]]></content>
+</code></pre></div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Git</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>基础技术</tag>
         <tag>编程技术</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
     <title>Python 中 ABC 模块使用</title>
     <url>/posts/93b16f14/</url>
-    <content><![CDATA[<h2 id="1-abc模块作用"><a href="#1-abc模块作用" class="headerlink" title="1.abc模块作用"></a>1.abc模块作用</h2><p>Python本身不提供抽象类和接口机制，要想实现抽象类，可以借助abc模块。ABC是Abstract Base Class的缩写。</p>
+    <content><![CDATA[<div id="vip-container"><h2 id="1-abc模块作用"><a href="#1-abc模块作用" class="headerlink" title="1.abc模块作用"></a>1.abc模块作用</h2><p>Python本身不提供抽象类和接口机制，要想实现抽象类，可以借助abc模块。ABC是Abstract Base Class的缩写。</p>
 <h2 id="2-模块中的类和函数"><a href="#2-模块中的类和函数" class="headerlink" title="2.模块中的类和函数"></a>2.模块中的类和函数</h2><h3 id="abc-ABCMeta"><a href="#abc-ABCMeta" class="headerlink" title="abc.ABCMeta"></a>abc.ABCMeta</h3><p>这是用来生成抽象基础类的元类。由它生成的类可以被直接继承。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> abc <span class="keyword">import</span> ABCMeta</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyABC</span>:</span></span><br><span class="line">    __metaclass__ = ABCMeta</span><br><span class="line"></span><br><span class="line">MyABC.register(tuple)</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> issubclass(tuple, MyABC)</span><br><span class="line"><span class="keyword">assert</span> isinstance((), MyABC)</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -6426,7 +7498,23 @@ $ git archives
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span>:</span></span><br><span class="line">    __metaclass__ = ABCMeta</span><br><span class="line"><span class="meta">    @abstractproperty</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">my_abstract_property</span><span class="params">(self)</span>:</span></span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
 <p>上例只是只读属性，如果是读写属性，可以如下：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span>:</span></span><br><span class="line">    __metaclass__ = ABCMeta</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getx</span><span class="params">(self)</span>:</span> ...</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setx</span><span class="params">(self, value)</span>:</span> ...</span><br><span class="line">    x = abstractproperty(getx, setx)</span><br></pre></td></tr></table></figure>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Python</category>
@@ -6440,27 +7528,43 @@ $ git archives
   <entry>
     <title>Programing-Hexo-Paging_function</title>
     <url>/posts/9dca7c5/</url>
-    <content><![CDATA[<p>我们在搭建完Hexo + Github pages的博客后，会发现他的主页会默认显示很多的文章（默认 10 篇），而我们也许需要自定义分页进行管理主页博客的显示数量。</p>
+    <content><![CDATA[<div id="vip-container"><p>我们在搭建完Hexo + Github pages的博客后，会发现他的主页会默认显示很多的文章（默认 10 篇），而我们也许需要自定义分页进行管理主页博客的显示数量。</p>
 <p>因此，本教程教会大家，如何设置主页的文章显示数量.</p>
 <a id="more"></a>
 <hr>
 <p>首先我们找到Hexo的根配置文件_config.yml，注意不是主题的配置文件。<br>然后按照下面图片中的内容搜索：per_page，在图片中对应位置修改数字即可<br><img src="/posts/9dca7c5/hexoPerPage-01.jpg" class title="设定"></p>
 <p>之后我们就可以在我们的博客主页看到分页的效果啦！<br><img src="/posts/9dca7c5/hexoPerPage-02.jpg" class title="结果"></p>
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Hexo</category>
       </categories>
       <tags>
+        <tag>Hexo</tag>
         <tag>基础技术</tag>
         <tag>编程技术</tag>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
     <title>Programing-Hexo-Hexo_blog_read_more_button</title>
     <url>/posts/80029118/</url>
-    <content><![CDATA[<p>我们在搭建好博客后，肯定是第一时间写一篇文章测试一下啦！但是细心的你一定会发现一个问题，那就是——主页为什么会展示每一篇文章的所有内容？而不是首页只展示文章的部分内容，再提供一个阅读全文的按钮呢？</p>
+    <content><![CDATA[<div id="vip-container"><p>我们在搭建好博客后，肯定是第一时间写一篇文章测试一下啦！但是细心的你一定会发现一个问题，那就是——主页为什么会展示每一篇文章的所有内容？而不是首页只展示文章的部分内容，再提供一个阅读全文的按钮呢？</p>
 <p>本篇博客就是帮助各个同学实现阅读全文的功能，同时根据自己的使用经验给出意见和建议。要实现阅读全文，目前存在两种方法，我们会一个个讨论，评价其优缺点的。</p>
 <h2 id="方法一：配置文件设置"><a href="#方法一：配置文件设置" class="headerlink" title="方法一：配置文件设置"></a>方法一：配置文件设置</h2><p>首先我们需要找到Hexo所使用主题的主配置文件_config.yml，注意此处不是Hexo的主配置文件，而是主题的。博主所使用的是NexT主题，因此在此以此为例。</p>
 <a id="more"></a>
@@ -6471,15 +7575,31 @@ $ git archives
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- more --&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p>效果还是很不错的，如图所示：</p>
 <img src="/posts/80029118/read-more.png" class title="read more 按键">
-]]></content>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		]]></content>
       <categories>
         <category>编程技术</category>
         <category>Hexo</category>
       </categories>
       <tags>
+        <tag>Hexo</tag>
         <tag>基础技术</tag>
         <tag>编程技术</tag>
-        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>

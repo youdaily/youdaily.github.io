@@ -299,7 +299,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="内存管理速成手册"><a href="#内存管理速成手册" class="headerlink" title="内存管理速成手册"></a>内存管理速成手册</h2><blockquote>
+        <div id="vip-container"><h2 id="内存管理速成手册"><a href="#内存管理速成手册" class="headerlink" title="内存管理速成手册"></a>内存管理速成手册</h2><blockquote>
 <p><a href="https://hacks.mozilla.org/2017/06/a-crash-course-in-memory-management/" target="_blank" rel="noopener">原文地址</a></p>
 <p>_这是本系列文章中的第一篇：</p>
 </blockquote>
@@ -336,7 +336,23 @@
 <p>这样该内存地址将会被重新添加至「free list」中。你必须知道什么时候该调用这些函数。这也是为什么称为手动内存管理的原因所在 -- 你完全自己管理程序中的内存。作为开发者，断定什么时候该清除内存是一件相当困难的事。</p>
 <p>如果在错误的时间点清除内存，将导致程序 bug，甚至一些安全漏洞。如果不对不在使用的内存进行处理，又将导致内存用尽。这也就是为什么现代语言都是用自动内存管理的原因 -- 避免人为错误。但是这也将会产生一些性能上的问题。</p>
 <p>将在<a href="https://hacks.mozilla.org/2017/06/a-cartoon-intro-to-arraybuffers-and-sharedarraybuffers/" target="_blank" rel="noopener">下一篇</a>对此进行说明。</p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
     </div>
 
     <div>
@@ -523,7 +539,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站共149.6k字</span>
+  <span class="post-count">全站共153.6k字</span>
 </div>
 
         

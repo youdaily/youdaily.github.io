@@ -286,7 +286,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="一、JavaScript-异步编程背景"><a href="#一、JavaScript-异步编程背景" class="headerlink" title="一、JavaScript 异步编程背景"></a>一、JavaScript 异步编程背景</h2><p>​ 从去年 ES2015 发布至今，已经过去了一年多，ES2015 发布的新的语言特性中最为流行的也就莫过于 Promise 了，Promise 使得如今 JavaScript 异步编程如此轻松惬意，甚至慢慢遗忘了曾经那不堪回首的痛楚。</p>
+        <div id="vip-container"><h2 id="一、JavaScript-异步编程背景"><a href="#一、JavaScript-异步编程背景" class="headerlink" title="一、JavaScript 异步编程背景"></a>一、JavaScript 异步编程背景</h2><p>​ 从去年 ES2015 发布至今，已经过去了一年多，ES2015 发布的新的语言特性中最为流行的也就莫过于 Promise 了，Promise 使得如今 JavaScript 异步编程如此轻松惬意，甚至慢慢遗忘了曾经那不堪回首的痛楚。</p>
 <p>其实从 JavaScript 诞生，JavaScript 中的异步编程就已经出现，例如点击鼠标、敲击键盘这些事件的处理函数都是异步的，时间到了 2009 年，Node.js 横空出世，在整个 Node.js 的实现中，将回调模式的异步编程机制发挥的淋漓尽致，Node 的流行也是的越来越多的 JavaScripter 开始了异步编程，但是回调模式的副作用也慢慢展现在人们眼前，错误处理不够优雅以及嵌套回调带来的“回调地狱”。</p>
 <p>这些副作用使得人们从回调模式的温柔乡中慢慢清醒过来，开始寻找更为优雅的异步编程模式，路漫漫其修远兮、吾将上下而求索。时间到了 2015 年，Promise 拯救那些苦苦探索的先驱。行使它历史使命的时代似乎已经到来。</p>
 <p>​每个事物的诞生有他的历史使命，更有其历史成因，促进其被那些探索的先驱们所发现。<br>了解 nodejs 或者熟悉浏览器的人都知道，JavaScript 引擎是基于事件循环或单线程这两个特性的。更为甚者在浏览器中，更新 UI(也就是浏览器重绘、重拍页面布局)和执行 JavaScript 代码也在一个单线程中，可想而知，一个线程就相当于只有一条马路，如果一辆马车抛锚在路上了阻塞了马路，那么别的马车也就拥堵在了那儿，这个单线程容易被阻塞是一个道理，单线程也只能允许某一时间点只能够执行一段代码。<br>同时，JavaScript 没有想它的哥哥姐姐们那么财大气粗，像 Java 或者 C++，一个线程不够，那么再加一个线程，这样就能够同时执行多段代码了，但是这样就会带来的隐患就是状态不容易维护，JavaScript 选择了单线程非阻塞式的方式，也就是异步编程的方式，就像上面的马车抛锚在了路上，那么把马车推到路边的维修站，让其他马车先过去，等马车修好了再回到马路上继续行驶，这就是单线程非阻塞方式。正如 Promise 的工作方式一样，通过 Promise 去向服务器发起一个请求，毕竟请求有网络开销，不可能马上就返回请求结果的，这个时候 Promise 就处于 pending 状态，但是其并不会阻塞其他代码的执行，当请求返回时，修改 Promise 状态为 fulfilled 或者 rejected（失败请求）。同时执行绑定到这两个状态上面的“处理函数”。这就是异步编程的模式，也就是 Promise 兢兢业业的工作方式，在下面一个部分将详细讨论 Promise。</p>
@@ -331,7 +331,23 @@
 <p>如果我们的 <code>Promise polyfill</code> 是考虑支持多平台，那么首要考虑的就是浏览器环境或 Node.js 环境，其实在这两个平台，原生 Promise 都是支持两个事件的。就拿浏览器端举例：</p>
 <p>unhandledrejection: 在一个事件循环中，如果我们没有对 promise 返回的错误进行处理，那么就会在 window 对象上面触发该事件。<br>rejectionhandled:如果在一个事件循环后，我们才去对 promise 返回的错误进行处理，那么就会在 window 对象上面监听到此事件。<br>关于这两个事件以及 node.js 平台上面类似的事件请参考 Nicholas C. Zakas 新书</p>
 <p>Promise 能够很棒的处理异步编程，要想学好它我认为最好的方法就是亲自动手去实现一个自己的 Promise。</p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
     </div>
 
     <div>
@@ -519,7 +535,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站共149.6k字</span>
+  <span class="post-count">全站共153.6k字</span>
 </div>
 
         
