@@ -5940,9 +5940,9 @@
         <category>Git</category>
       </categories>
       <tags>
+        <tag>Git</tag>
         <tag>基础技术</tag>
         <tag>编程技术</tag>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -6119,9 +6119,9 @@ b45959e HEAD@{2}: revert: Revert &quot;add img&quot;
         <category>Git</category>
       </categories>
       <tags>
+        <tag>Git</tag>
         <tag>基础技术</tag>
         <tag>编程技术</tag>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -6405,9 +6405,9 @@ $ git archives
         <category>Git</category>
       </categories>
       <tags>
+        <tag>Git</tag>
         <tag>基础技术</tag>
         <tag>编程技术</tag>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -6452,9 +6452,9 @@ $ git archives
         <category>Hexo</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>基础技术</tag>
         <tag>编程技术</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -6477,9 +6477,9 @@ $ git archives
         <category>Hexo</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>基础技术</tag>
         <tag>编程技术</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
