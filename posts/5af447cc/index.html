@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="You的日常" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="linux 系统启动过程 文章主要介绍了Linux 系统启动过程。   操作系统运行的代码是在硬盘上的，最终要跑到内存和 CPU 上，才能被我们使用。 Linux 内核(Kernel) 通过Boot loader 的帮助加载到内存中。 &amp;gt; 加载关系： Boot Loader —-&amp;gt; Linux Kernel Boot Loader 位于启动盘的第一个扇区，功能是引导 Linux 系统.">
+<meta name="keywords" content="基础技术,编程技术,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 启动过程详解">
+<meta property="og:url" content="https:&#x2F;&#x2F;youdaily.github.io&#x2F;posts&#x2F;5af447cc&#x2F;index.html">
+<meta property="og:site_name" content="You的日常">
+<meta property="og:description" content="linux 系统启动过程 文章主要介绍了Linux 系统启动过程。   操作系统运行的代码是在硬盘上的，最终要跑到内存和 CPU 上，才能被我们使用。 Linux 内核(Kernel) 通过Boot loader 的帮助加载到内存中。 &amp;gt; 加载关系： Boot Loader —-&amp;gt; Linux Kernel Boot Loader 位于启动盘的第一个扇区，功能是引导 Linux 系统.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;09&#x2F;rsebBQuPFC8NaHE.png">
+<meta property="og:updated_time" content="2019-12-09T08:39:38.398Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;09&#x2F;rsebBQuPFC8NaHE.png">
+
+<link rel="canonical" href="https://youdaily.github.io/posts/5af447cc/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Linux 启动过程详解 | You的日常</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">You的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">You的日常，我们的日常</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/5af447cc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          Linux 启动过程详解
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-02-11 16:28:40" itemprop="dateCreated datePublished" datetime="2017-02-11T16:28:40+08:00">2017-02-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/5af447cc/" class="post-meta-item leancloud_visitors" data-flag-title="Linux 启动过程详解" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/5af447cc/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/5af447cc/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="linux-系统启动过程"><a href="#linux-系统启动过程" class="headerlink" title="linux 系统启动过程"></a>linux 系统启动过程</h2><p><img src="https://i.loli.net/2019/12/09/rsebBQuPFC8NaHE.png" alt="20191209163140.png"></p>
+<p>文章主要介绍了Linux 系统启动过程。</p>
+<hr>
+<ol>
+<li>操作系统运行的代码是在硬盘上的，最终要跑到内存和 CPU 上，才能被我们使用。</li>
+<li>Linux 内核(Kernel) 通过Boot loader 的帮助加载到内存中。 &gt; 加载关系： Boot Loader —-&gt; Linux Kernel</li>
+<li>Boot Loader 位于启动盘的第一个扇区，功能是引导 Linux 系统.</li>
+</ol>
+<a id="more"></a>
+<ol>
+<li>Boot Loader 通过BIOS 启动。BIOS 是“Base Input / Output System” 的首字母组成。 &gt; 加载关系： BIOS —-&gt; Boot Loader<br>BIOS 是嵌在主板上的固件，计算机启动时候的约定就是启动 BIOS 开始执行。</li>
+<li><p>总结一下 Linux 的启动过程：</p>
+<p> 5.1. 摁下电源键，BIOS（Basic Input/Output System）启动初始化硬件的工作，包括屏幕和键盘，内存检测，这个过程也被成为 POST（Power On Self Test），然后按照 CMOS RAM 中设置的启动设备查找顺序，来寻找可启动设备 。注：BIOS 程序嵌在主板的 ROM 芯片上的。</p>
+<p> 5.2. POST 过程结束后，系统的控制权从 BISO 转交到 boot loader。Boot loader 一般存储在系统的硬盘上（传统的 BIOS/MBR 系统），或者 EFI 分区上（最近的 EFI 系统）。这个时候机器不能获取外部的存储或者网络信息，一些重要的值（日期、时间、其他外部值）都是从 CMOS 里读取。CMOS 在计算机断电后也能工作的设备，Boot Loader 会在后面讲解。</p>
+<p> 5.3. Boot Loader 选择要启动的操作系统，加载内核镜像和初始化 RAM disk 到内存。系统的内核开始运行，直到关机为止。</p>
+</li>
+<li><p>摁下电源键的时候，计算机的一些寄存器被设置初值，指令寄存器 CS:IP 指向 BIOS 的第一条指令。BIOS 掌握控制权，来执行硬件检测的程序，BIOS 在结束自己生命之前会寻找可启动设备。</p>
+<p> BIOS 怎么知道哪些设备室可以启动的呢？如果计算机要从一个不能启动的设置加载系统，会发生严重的错误。启动设备的第一个扇区的末尾两个字节一定是：0x55 和 0xAA，这两个魔法数就是区分可启动设备和不可启动设备的关键。</p>
+<p> 可以使用 <code>sudo head -c 512 /dev/sda | hd</code> 可以看到第一个扇区的内容，注意最后两个字符。</p>
+<p> 在本机执行的结果如下：</p>
+<pre><code> /home/youdaily [youdaily@youdaily-Pad-Edge-E431] [8:38]
+ &gt; sudo head -c 512 /dev/sda | hd
+ [sudo] password for youdaily: 
+ 00000000  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+ *
+ 000001c0  01 00 ee fe ff ff 01 00  00 00 2f 60 38 3a 00 00  |........../`8:..|
+ 000001d0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+ *
+ 000001f0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 55 aa  |..............U.|
+ 00000200
+
+ /home/youdaily [youdaily@youdaily-Pad-Edge-E431] [9:01]
+ &gt;
+</code></pre><p> BIOS 如果找不到可启动设备的话，就会报No Bootable Device Error。</p>
+</li>
+<li><p>对于使用 BIOS/MBR 模式的系统来说，Boot Loader 位于硬盘的第一个扇区，也称为 MBR（Master Boot Record），主引导记录。MBR 只有 512 字节，主要工作就是检查分区表，并找到可以启动的分区，一旦找到启动分区，就在该分区里找到后面的 Boot Loader – 比如 GRUB，把它加载到内存（RAM）。</p>
+<p> MBR 这么有限的字节空间里，主要包括了三部分的内容：</p>
+<pre><code> 7.1. 第1-446字节： bootstrap code，启动操作系统的代码
+
+ 7.2. 第447-510字节： 分区表，指示系统盘的位置。
+
+ 7.3. 第511-512字节： 主引导记录签名，魔法数：0x55AA
+</code></pre><p> 对于使用 EFI/UEFI 模式的系统来说，UEFI 固件读取 Boot Manager 的数据来决定启动哪一个 UEFI 应用，已经找到它的位置。该固件然后启动 UEFI 应用，比如 GRUB。</p>
+</li>
+<li><p>现在的控制权都到了 GRUB 启动程序的手里，GRUB 根据你选择的系统（多系统的情况会有界面出现让用户选择，只有一个系统的情况会直接选择该系统），把系统的内核加载到内存开始运行，同时也会初始化 RAM disk 文件系统（initramfs）到内存，供内核使用，并把控制权交给内核。</p>
+</li>
+<li>内核一般都是压缩的，所以它的首要任务是解压缩，然后检查和分析系统的硬件并初始化内核里的硬件驱动程序。此时内核的文件系统还不能使用，此时文件系统使用的是BootLoader 加载进内存的<code>initramfs</code> 程序。<br>内核被加载到内存后首要工作是：初始化和配置机器的内存、处理器、存储设备等，内核也会启动一些用户态的程序。</li>
+<li>initramfs 包含的一些程序和二进制文件，会执行一系列的动作，保证 root 文件系统 mount 到系统。这里动作包括，为需要的文件系统提供内核的功能，以及使用 udev（User Device） 工具来发现和加载硬盘的驱动程序。 等到 root 文件系统找到后，它会检查错误然后 mount 到系统。<br>mount 程序告诉操作系统某个文件系统可以使用，并把它加载到文件系统的某个路径（mount point）。如果这些动作都成功的话，initramfs 就会从内存中清除，init 程序（位于 /sbin/init）开始执行。</li>
+<li><p>init 处理挂载（mount）工作，是整个的文件系统正常运行的枢纽。需要注意的时，如果在访问存储设备的时候，需要的硬件驱动，必须在 initramfs 阶段都加载好。<br>除了上面那个主要的任务外，init 也负责保持系统一直运行和在 shutdown 系统的清理工作，还有用户登入和登出的工作。</p>
+<p>到目前为止，内核程序准备好了所有的硬件资源，也把文件系统都挂载好了。它运行了 /sbin/init 程序，也就是第一个系统进程（之前运行的程序都不是 OS 级别的，不在 OS 的管辖范围），它的进程号(pid)就是 1。</p>
+<p>第一个启动的程序当然也肩负着比较重要的责任：把系统需要其他程序都启动起来。传统的 System V UNIX 工作模式下，这个过程是遍历 runlevels 序列的程序脚本，来启动或者停止预先定义的服务（service）。</p>
+</li>
+<li><p>init 程序负责用户的登入和登出。如果是服务器 linux 或者其他文本模式的 linux，init 就会启动 getty 程序来接受用户输入的用户名和密码来验证用户。</p>
+<p>如果是图形界面的 linux， 会有 display manager 的服务负责检测显示屏和启动 X-server。display manager 也负责图形界面的用户登陆，以及启动正确的桌面环境。</p>
+</li>
+</ol>
+
+    </div>
+
+    <div>
+        
+        <div>
+    
+        <div style="text-align:center;color: #cccccc;font-size:20px;">------ 本文结束<i class="fa fa-paw"></i>谢谢阅读------</div>
+    
+</div>
+
+        
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+          <div>    
+            
+            <ul class="post-copyright">
+              <li class="post-copyright-link">
+                <strong>本文作者：</strong>
+                <a href="/" title="You的日常">You的日常 | 微信公众号【you的日常】</a>
+              </li>
+
+              <li class="post-copyright-link">
+                <strong>本文标题：</strong>
+                <a href="https://youdaily.github.io/posts/5af447cc/" title="Linux 启动过程详解">Linux 启动过程详解</a>
+              </li>
+
+              <li class="post-copyright-link">
+                <strong>本文链接：</strong>
+                <a href="https://youdaily.github.io/posts/5af447cc/" title="Linux 启动过程详解">https://youdaily.github.io/posts/5af447cc/</a>
+              </li>
+
+              <li class="post-copyright-license">
+                <strong>版权声明： </strong>
+                本文由 You的日常 原创，采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" rel="license" target="_blank">保留署名-非商业性使用-禁止演绎 4.0-国际许可协议，转载请保留以上声明信息！</a>
+              </li>
+            </ul>
+          
+        </div>
+          <div class="post-tags">
+              <a href="/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/" rel="tag"># 基础技术</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"># 编程技术</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/3e8c4612/" rel="next" title="Git 代码回滚回的正确姿势">
+                  <i class="fa fa-chevron-left"></i> Git 代码回滚回的正确姿势
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/posts/ac02993c/" rel="prev" title="React 学习 - 开发环境搭建">
+                  React 学习 - 开发环境搭建 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-系统启动过程"><span class="nav-number">1.</span> <span class="nav-text">linux 系统启动过程</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="You的日常"
+      src="/images/avatar-youDaily.jpg">
+  <p class="site-author-name" itemprop="name">You的日常</p>
+  <div class="site-description" itemprop="description">Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/youdaily" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;youdaily" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/e8c3cb999dc5" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;e8c3cb999dc5" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCJoHHCT90Di7_gRZ88sFaGw" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCJoHHCT90Di7_gRZ88sFaGw" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 ~
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">You的日常</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">全站共149.6k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+    appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+    placeholder: "(请留下您的意见吧：)",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+    </div>
+</body>
+</html>

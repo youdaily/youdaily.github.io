@@ -290,8 +290,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<p>在工作学习中，我们经常会需要将自己的开发成果对外提供服务，此时的选择很多，但是什么才是最高效的呢？</p>
+          <p>在工作学习中，我们经常会需要将自己的开发成果对外提供服务，此时的选择很多，但是什么才是最高效的呢？</p>
 <p>想必聪明的你，已经想到了：通过 <code>API</code> 的方式对外提供服务。既然我们在学习 Python 过程中，那我们就使用 Python 来实现自己的 API 吧。</p>
 <p>下面将从下面几个方面进行讲解：</p>
 <ul>
@@ -424,8 +423,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<h1 id="Python-高级-实用-操作-Excel"><a href="#Python-高级-实用-操作-Excel" class="headerlink" title="Python-高级-实用-操作 Excel"></a>Python-高级-实用-操作 Excel</h1><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>Excel 是我们日常工作学习中都会使用到的很重要的工具。但是处理过程中难免会遇到重复的操作，同时面对大量数据时手工操作也可能因为误操作导致错误发生。我们刚好在学习 Python, 那有没有办法通过 code 来读取 Excel 文件。</p>
+          <h1 id="Python-高级-实用-操作-Excel"><a href="#Python-高级-实用-操作-Excel" class="headerlink" title="Python-高级-实用-操作 Excel"></a>Python-高级-实用-操作 Excel</h1><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>Excel 是我们日常工作学习中都会使用到的很重要的工具。但是处理过程中难免会遇到重复的操作，同时面对大量数据时手工操作也可能因为误操作导致错误发生。我们刚好在学习 Python, 那有没有办法通过 code 来读取 Excel 文件。</p>
 <p>答案是肯定的，下面我们就使用 Python 来进行操作 Excel 文件。</p>
 <h2 id="模块选择"><a href="#模块选择" class="headerlink" title="模块选择"></a>模块选择</h2><p>熟悉 Python 世界的读者，就会明白：在 Python 的世界里，做一件事情，官方建议只有一种方法。但是现实中，大佬太多，互相之间看不上别人做的东西，重复造轮子的现象比较严重。</p>
 <p>如果百度或google 一下：“Python Excel”, 下面的几个第三方模块库常常出现在推荐列表中</p>
@@ -559,8 +557,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<h2 id="Headers（定制请求头）"><a href="#Headers（定制请求头）" class="headerlink" title="Headers（定制请求头）"></a>Headers（定制请求头）</h2><h3 id="什么是Headers请求头呢？"><a href="#什么是Headers请求头呢？" class="headerlink" title="什么是Headers请求头呢？"></a>什么是Headers请求头呢？</h3><p>请求头就是访问网页时的各种简单的证明信息，里面包含了很多内容。</p>
+          <h2 id="Headers（定制请求头）"><a href="#Headers（定制请求头）" class="headerlink" title="Headers（定制请求头）"></a>Headers（定制请求头）</h2><h3 id="什么是Headers请求头呢？"><a href="#什么是Headers请求头呢？" class="headerlink" title="什么是Headers请求头呢？"></a>什么是Headers请求头呢？</h3><p>请求头就是访问网页时的各种简单的证明信息，里面包含了很多内容。</p>
 <p>比如你要获取信息的格式、访问的时间、是否用了代理（使用透明代理时浏览器依旧会发送你的真实IP，只有高匿代理才不会）、浏览器标识（User-Agent）等。</p>
 <p>提示：给大家举一个非常直白的例子，浏览器就像是你的专属外卖配送员，各网站就像外卖商家，配送员到商家取餐时，需要提供订单号、我是谁的配送员、要取什么餐等等信息。</p>
 <p>这里以chrome浏览器为例，首先 F12 打开调试模式，然后访问一个网站，将会在NetWork下看到对目标网页的请求信息，如下图：<br><img src="https://images.xiaozhuanlan.com/photo/2019/b2f2ccdcfc8c21bd8cf347564f09ec12.png" alt></p>
@@ -685,8 +682,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<h2 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h2><p><code>Requests</code> 库就非常优雅，虽然不是原生python模块，但自己安装也非常简单，只需要使用以下命令即可：</p>
+          <h2 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h2><p><code>Requests</code> 库就非常优雅，虽然不是原生python模块，但自己安装也非常简单，只需要使用以下命令即可：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
 <p>作为 GitHub上关注数最多的 Python 项目之一，使用的是 urllib3，继承了urllib2的所有特性。requests实现了 HTTP协议中绝大部分功能，它提供的功能包括 Keep-Alive、连接池、Cookie持久化、内容自动解压、HTTP代理、SSL认证、连接超时、Session等很多特性，最重要的是它同时兼容 python2 和 python3。</p>
 <p>同时，Requests对于HEAD, POST, PUT, PATCH, 和 DELETE方法的api同样简单。它可以处理多部分上传，同样支持自动转码，文档更好，还有更多的特性。</p>
@@ -957,6 +953,9 @@
 <li>掌握判断<code>JavaScript</code>数据类型的方式和底层原理</li>
 </ul>
 <p>文中如有错误，欢迎在评论区指正，如果这篇文章帮助到了你，欢迎点赞和关注。</p>
+<hr>
+<p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
+<p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
 
       
     </div>
@@ -1410,14 +1409,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -1475,7 +1474,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站共151k字</span>
+  <span class="post-count">全站共149.6k字</span>
 </div>
 
         

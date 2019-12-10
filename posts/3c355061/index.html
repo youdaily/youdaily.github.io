@@ -46,20 +46,21 @@
   };
 </script>
 
-  <meta name="description" content="Headers（定制请求头）什么是Headers请求头呢？请求头就是访问网页时的各种简单的证明信息，里面包含了很多内容。 比如你要获取信息的格式、访问的时间、是否用了代理（使用透明代理时浏览器依旧会发送你的真实IP，只有高匿代理才不会）、浏览器标识（User-Agent）等。 提示：给大家举一个非常直白的例子，浏览器就像是你的专属外卖配送员，各网站就像外卖商家，配送员到商家取餐时，需要提供订单号">
+  <meta name="description" content="Headers（定制请求头）什么是Headers请求头呢？请求头就是访问网页时的各种简单的证明信息，里面包含了很多内容。 比如你要获取信息的格式、访问的时间、是否用了代理（使用透明代理时浏览器依旧会发送你的真实IP，只有高匿代理才不会）、浏览器标识（User-Agent）等。 提示：给大家举一个非常直白的例子，浏览器就像是你的专属外卖配送员，各网站就像外卖商家，配送员到商家取餐时，需要提供订单号、">
 <meta name="keywords" content="编程技术,Python,高级技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python-高级-爬虫-Requests 库高级使用">
 <meta property="og:url" content="https:&#x2F;&#x2F;youdaily.github.io&#x2F;posts&#x2F;3c355061&#x2F;index.html">
 <meta property="og:site_name" content="You的日常">
-<meta property="og:description" content="Headers（定制请求头）什么是Headers请求头呢？请求头就是访问网页时的各种简单的证明信息，里面包含了很多内容。 比如你要获取信息的格式、访问的时间、是否用了代理（使用透明代理时浏览器依旧会发送你的真实IP，只有高匿代理才不会）、浏览器标识（User-Agent）等。 提示：给大家举一个非常直白的例子，浏览器就像是你的专属外卖配送员，各网站就像外卖商家，配送员到商家取餐时，需要提供订单号">
+<meta property="og:description" content="Headers（定制请求头）什么是Headers请求头呢？请求头就是访问网页时的各种简单的证明信息，里面包含了很多内容。 比如你要获取信息的格式、访问的时间、是否用了代理（使用透明代理时浏览器依旧会发送你的真实IP，只有高匿代理才不会）、浏览器标识（User-Agent）等。 提示：给大家举一个非常直白的例子，浏览器就像是你的专属外卖配送员，各网站就像外卖商家，配送员到商家取餐时，需要提供订单号、">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;b2f2ccdcfc8c21bd8cf347564f09ec12.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;4fa96803c51d0ccd800998dc044d5560.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;a52113b1b8f0f60145e15418c2c2a611.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;b8451173af49b6f9b5c59c093079b477.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;338ebf5fb19f485f6e5abe8b105c5867.png">
-<meta property="og:updated_time" content="2019-11-29T09:12:49.122Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;09&#x2F;VhvX5WilLEOIwGN.jpg">
+<meta property="og:updated_time" content="2019-12-10T02:03:44.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;b2f2ccdcfc8c21bd8cf347564f09ec12.png">
 
@@ -296,8 +297,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <hr>
-<h2 id="Headers（定制请求头）"><a href="#Headers（定制请求头）" class="headerlink" title="Headers（定制请求头）"></a>Headers（定制请求头）</h2><h3 id="什么是Headers请求头呢？"><a href="#什么是Headers请求头呢？" class="headerlink" title="什么是Headers请求头呢？"></a>什么是Headers请求头呢？</h3><p>请求头就是访问网页时的各种简单的证明信息，里面包含了很多内容。</p>
+        <h2 id="Headers（定制请求头）"><a href="#Headers（定制请求头）" class="headerlink" title="Headers（定制请求头）"></a>Headers（定制请求头）</h2><h3 id="什么是Headers请求头呢？"><a href="#什么是Headers请求头呢？" class="headerlink" title="什么是Headers请求头呢？"></a>什么是Headers请求头呢？</h3><p>请求头就是访问网页时的各种简单的证明信息，里面包含了很多内容。</p>
 <p>比如你要获取信息的格式、访问的时间、是否用了代理（使用透明代理时浏览器依旧会发送你的真实IP，只有高匿代理才不会）、浏览器标识（User-Agent）等。</p>
 <p>提示：给大家举一个非常直白的例子，浏览器就像是你的专属外卖配送员，各网站就像外卖商家，配送员到商家取餐时，需要提供订单号、我是谁的配送员、要取什么餐等等信息。</p>
 <p>这里以chrome浏览器为例，首先 F12 打开调试模式，然后访问一个网站，将会在NetWork下看到对目标网页的请求信息，如下图：<br><img src="https://images.xiaozhuanlan.com/photo/2019/b2f2ccdcfc8c21bd8cf347564f09ec12.png" alt></p>
@@ -341,6 +341,9 @@
 </blockquote>
 <p>timeout 并不是整个下载响应的时间限制，而是如果服务器在 timeout 秒内没有应答，将会引发一个异常（更精确地说，是在 timeout 秒内没有从基础套接字上接收到任何字节的数据时）<code>If no timeout is specified explicitly, requests do not time out.</code>。</p>
 <p>如果远端服务器很慢，你可以让 Request 永远等待，传入一个 None 作为 timeout 值，然后就可以了。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r = requests.get(<span class="string">'https://xiaozhuanlan.com/python_mastery'</span>, timeout=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
+<p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
 
     </div>
 
@@ -463,14 +466,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -528,7 +531,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站共151k字</span>
+  <span class="post-count">全站共149.6k字</span>
 </div>
 
         
