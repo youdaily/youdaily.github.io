@@ -209,6 +209,248 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/e140dc3c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/e140dc3c/" class="post-title-link" itemprop="url">Python-基础-`yeild` 关键字使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-12 13:49:11" itemprop="dateCreated datePublished" datetime="2017-11-12T13:49:11+08:00">2017-11-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/e140dc3c/" class="post-meta-item leancloud_visitors" data-flag-title="Python-基础-`yeild` 关键字使用" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/e140dc3c/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/e140dc3c/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<p>大家在阅读 Python 代码时，经常遇到带有 <code>yield</code> 的函数，通常此时我们都需要去想想这个<code>yield</code> 是个什么东西？这一段代码在讲什么事情呢？</p>
+<p>那我们这里就来好好讲讲这个 <code>yield</code>。</p>
+<p><code>yield</code> 是 Python 设计之初就保留的关键字之一。</p>
+<p>在 Python 中被称之为 <code>generator</code>(中文翻译是 <code>“生成器”</code>)，那什么是 <code>generator</code> 呢 ？</p>
+<p>我们先抛开 <code>generator</code>，以一个常见的编程题目来展示 <code>yield</code> 的概念。</p>
+<hr>
+<h2 id="从生成斐波那契数列开始"><a href="#从生成斐波那契数列开始" class="headerlink" title="从生成斐波那契数列开始"></a>从生成斐波那契数列开始</h2><p>斐波那契（Fibonacci）数列是一个非常简单的递归数列，除第一个和第二个数外，任意一个数都可由前两个数相加得到。</p>
+<p>用计算机程序输出斐波那契数列的前 N 个数是一个非常简单的问题，许多初学者都可以轻易写出如下函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出斐波那契数列前 N 个数第一版</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fab</span><span class="params">(max)</span>:</span></span><br><span class="line">    n, a, b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> n &lt; max:</span><br><span class="line">       print(b)</span><br><span class="line">       a, b = b, a + b</span><br><span class="line">       n = n + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">fab(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<p>将上面的内容保存为 <code>.py</code> 后缀的文件，然后执行 ，我们可以得到如下输出：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-03a4c82710ec33e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果1"></p>
+<p>结果没有问题，但有经验的开发者会指出，直接在 fab 函数中用 print 打印数字会导致该函数可复用性较差，因为 fab 函数返回 None，其他函数无法获得该函数生成的数列。</p>
+<p>要提高 fab 函数的可复用性，最好不要直接打印出数列，而是返回一个 List。</p>
+<p>以下是 fab 函数改写后的第二个版本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出斐波那契数列前 N 个数第二版</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fab</span><span class="params">(max)</span>:</span> </span><br><span class="line">    n, a, b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span> </span><br><span class="line">    L = [] </span><br><span class="line">    <span class="keyword">while</span> n &lt; max: </span><br><span class="line">        L.append(b) </span><br><span class="line">        a, b = b, a + b </span><br><span class="line">        n = n + <span class="number">1</span> </span><br><span class="line">    <span class="keyword">return</span> L</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> fab(<span class="number">5</span>):</span><br><span class="line">    print(n)</span><br></pre></td></tr></table></figure>
+<p>执行 ，我们可以得到如下输出：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-4c63ee7aa08c18ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果2"></p>
+<p>改写后的 fab 函数通过返回 List 能满足复用性的要求，但是更有经验的开发者会指出，该函数在运行中占用的内存会随着参数 max 的增大而增大，如果要控制内存占用，最好不要用 List</p>
+<p>来保存中间结果，而是通过 iterable 对象来迭代。例如，在 Python 中，<code>range()</code> 不返回 List，而是返回一个 <code>iterable</code>(中文翻译 <code>“可迭代的对象”</code>) 对象。</p>
+<p>例如下面的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过 iterable 对象来迭代</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>是在每次迭代中返回下一个数值，内存空间占用很小。</p>
+<p>我们可以利用 <code>iterable</code> 的特性，把 fab 函数改写为一个支持 <code>iterable</code> 的 class，以下是第三个版本的 Fab：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出斐波那契数列前 N 个数第三版</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fab</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, max)</span>:</span></span><br><span class="line">       self.max = max</span><br><span class="line">       self.n, self.a, self.b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">       <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span> </span><br><span class="line">        <span class="keyword">if</span> self.n &lt; self.max:</span><br><span class="line">           r = self.b</span><br><span class="line">           self.a, self.b = self.b, self.a + self.b</span><br><span class="line">           self.n = self.n + <span class="number">1</span></span><br><span class="line">           <span class="keyword">return</span> r</span><br><span class="line">        <span class="keyword">raise</span> StopIteration()</span><br><span class="line"><span class="comment"># Fab 类通过 next() 不断返回数列的下一个数，内存占用始终为常数：</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> Fab(<span class="number">5</span>):</span><br><span class="line">    print(n)</span><br></pre></td></tr></table></figure>
+<p>执行 ，我们可以得到如下输出：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-6f51a320b6673d3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果3"></p>
+<p>然而，使用 class 改写的这个版本，代码远远没有第一版的 fab 函数来得简洁。</p>
+<p>如果我们想要保持第一版 fab 函数的简洁性，同时又要获得 <code>iterable</code> 的效果，<code>yield</code> 就派上用场了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/e140dc3c/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+        
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/7575f203/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/7575f203/" class="post-title-link" itemprop="url">Python 中获取随机数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-11 16:03:23" itemprop="dateCreated datePublished" datetime="2017-11-11T16:03:23+08:00">2017-11-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/7575f203/" class="post-meta-item leancloud_visitors" data-flag-title="Python 中获取随机数" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/7575f203/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/7575f203/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一-获得-a-b-之间的随机整数"><a href="#一-获得-a-b-之间的随机整数" class="headerlink" title="一 获得[a, b]之间的随机整数"></a>一 获得[a, b]之间的随机整数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">print(random.randint(<span class="number">1</span>, <span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="二-从一个非空序列中随机挑选一个元素"><a href="#二-从一个非空序列中随机挑选一个元素" class="headerlink" title="二 从一个非空序列中随机挑选一个元素"></a>二 从一个非空序列中随机挑选一个元素</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">print(random.choice([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/7575f203/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+        
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/e6966298/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1932,281 +2174,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/114824d5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/114824d5/" class="post-title-link" itemprop="url">Android 学习笔记：ANR的定位和修正</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-07-02 14:20:13" itemprop="dateCreated datePublished" datetime="2017-07-02T14:20:13+08:00">2017-07-02</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/posts/114824d5/" class="post-meta-item leancloud_visitors" data-flag-title="Android 学习笔记：ANR的定位和修正" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-              <span>℃</span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/114824d5/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/114824d5/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>请在微信(wechat):you的日常，关注我吧，每天给你不一样的好看。</p>
-<p>ANR（Application Not Responding）即应用无响应。可以通过查看/data/anr/traces.txt查看ANR信息。</p>
-<h2 id="一、ANR的类型"><a href="#一、ANR的类型" class="headerlink" title="一、ANR的类型"></a>一、ANR的类型</h2><p>ANR一般有三种类型</p>
-<ul>
-<li><p><code>KeyDispatchTimeout</code>(5 seconds)<br>  主要类型</p>
-<p>  按键或触摸事件在特定时间内无响应</p>
-</li>
-<li><p><code>BroadcastTimeout</code>(10 seconds)</p>
-<p>  BroadcastReceiver在特定时间内无法处理完成</p>
-</li>
-<li><p><code>ServiceTimeout</code> (20 seconds) –小概率类型</p>
-<p>  Service在特定的时间内无法处理完成</p>
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/114824d5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-        
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://youdaily.github.io/posts/817c7d82/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/817c7d82/" class="post-title-link" itemprop="url">Linux 常用命令</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-04-29 16:34:32" itemprop="dateCreated datePublished" datetime="2017-04-29T16:34:32+08:00">2017-04-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/posts/817c7d82/" class="post-meta-item leancloud_visitors" data-flag-title="Linux 常用命令" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-              <span>℃</span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/817c7d82/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/817c7d82/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div id="vip-container"><h2 id="linux-常用网络命令"><a href="#linux-常用网络命令" class="headerlink" title="linux 常用网络命令"></a>linux 常用网络命令</h2><p>本文将简单的介绍下Linux中的命令及其使用方法。</p>
-<h3 id="ping-lt-host-gt"><a href="#ping-lt-host-gt" class="headerlink" title="ping &lt; host &gt;"></a>ping &lt; host &gt;</h3><p>发送 ICMP echo 消息（一个包）到主机.</p>
-<h3 id="telnet-port"><a href="#telnet-port" class="headerlink" title="telnet  [port]"></a>telnet <host> [port]</host></h3><p>与主机在指定的端口通信.</p>
-<p>常用端口：</p>
-<ul>
-<li>7 — echo 端口</li>
-<li>23 — telent 端口</li>
-<li>25 — SMTP，用于发送邮件</li>
-<li>79 — Finger 提供该网络下其它用户的信息。</li>
-</ul>
-<h3 id="arp"><a href="#arp" class="headerlink" title="arp"></a>arp</h3><p>ARP 用于将 IP 地址转换为以太网地址</p>
-<ul>
-<li>arp -a：打印 ARP 表。</li>
-<li>arp -s &lt; ip_address&gt; &lt; mac_address&gt; [pub]：添加一条记录到表中。</li>
-<li>arp -a -d：删除 ARP 表中的所有记录。<br>ARP 表保存在内核中，动态地被操作。ARP 记录会被缓存，通常在 20 分钟后失效并被删除。</li>
-</ul>
-<h3 id="netstat-r"><a href="#netstat-r" class="headerlink" title="netstat -r"></a>netstat -r</h3><p>打印路由表。路由表保存在内核中，用于 IP 层把包路由到非本地网络。</p>
-<h3 id="nslookup"><a href="#nslookup" class="headerlink" title="nslookup"></a>nslookup</h3><p>向 DNS 服务器查询，将 IP 转为名称，或反之。</p>
-<h3 id="rlogin-l-lt-host-gt"><a href="#rlogin-l-lt-host-gt" class="headerlink" title="rlogin -l &lt; host &gt;"></a>rlogin -l &lt; host &gt;</h3><p>使用类似 telnet 的虚拟终端登录到主机</p>
-<h3 id="route-flush"><a href="#route-flush" class="headerlink" title="route flush"></a>route flush</h3><p>删除所有路由。</p>
-<h3 id="netstat-rnf-inet"><a href="#netstat-rnf-inet" class="headerlink" title="netstat -rnf inet"></a>netstat -rnf inet</h3><p>显示 IPv4 的路由表</p>
-<h3 id="重要文件"><a href="#重要文件" class="headerlink" title="重要文件"></a>重要文件</h3><ul>
-<li>/etc/hosts：域名到 IP 地址的映射。</li>
-<li>/etc/networks：网络名称到 IP 地址的映射。</li>
-<li>/etc/protocols：协议名称到协议编号的映射。</li>
-<li>/etc/services：TCP/UDP 服务名称到端口号的映射。</li>
-</ul>
-<h3 id="工具和网络性能分析"><a href="#工具和网络性能分析" class="headerlink" title="工具和网络性能分析"></a>工具和网络性能分析</h3><ul>
-<li>ifconfig &lt; interface&gt; &lt; address&gt; [up]：启动接口。</li>
-<li>ifconfig &lt; interface&gt; [down|delete]：停止接口。</li>
-<li>ethereal &amp;：在后台打开 ethereal 而非前台。</li>
-<li>tcpdump -i -vvv：抓取和分析包的工具。</li>
-<li>netstat -w [seconds] -I [interface]：显示网络设置和统计信息。</li>
-<li>udpmt -p [port] -s [bytes] target_host：发送 UDP 流量。</li>
-<li>udptarget -p [port]：接收 UDP 流量。</li>
-<li>tcpmt -p [port] -s [bytes] target_host：发送 TCP 流量。</li>
-<li>tcptarget -p [port]：接收 TCP 流量。</li>
-</ul>
-</div>
-
-			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
-			<script>
-			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-			if (!isMobile) {
-			    var btw = new BTWPlugin();
-			    btw.init({
-			        "id": "vip-container",
-			        "blogId": "17107-1575958378269-553",
-			        "name": "you的日常",
-			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
-			        "keyword": "vip"
-			    });
-			}
-			</script>
-		
-      
-    </div>
-
-    <div>
-        
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -2257,20 +2224,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -2322,7 +2289,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站共153.6k字</span>
+  <span class="post-count">全站共159.6k字</span>
 </div>
 
         
