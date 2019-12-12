@@ -271,7 +271,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>对于 <code>volatile</code> 这个关键字，相信很多朋友都听说过，甚至使用过，这个关键字虽然字面上理解起来比较简单，但是要用好起来却不是一件容易的事。</p>
+        <div id="vip-container"><p>对于 <code>volatile</code> 这个关键字，相信很多朋友都听说过，甚至使用过，这个关键字虽然字面上理解起来比较简单，但是要用好起来却不是一件容易的事。</p>
 <p>这篇文章将从多个方面来讲解 <code>volatile</code>，让你对它更加理解。</p>
 <h2 id="计算机中为什么会出现线程不安全的问题"><a href="#计算机中为什么会出现线程不安全的问题" class="headerlink" title="计算机中为什么会出现线程不安全的问题"></a>计算机中为什么会出现线程不安全的问题</h2><p>volatile 既然是与线程安全有关的问题，那我们先来了解一下计算机在处理数据的过程中为什么会出现线程不安全的问题。</p>
 <p>大家都知道，计算机在执行程序时，每条指令都是在 CPU 中执行的，而执行指令过程中会涉及到数据的读取和写入。由于程序运行过程中的临时数据是存放在主存（物理内存）当中的，这时就存在一个问题，由于 CPU 执行速度很快，而从内存读取数据和向内存写入数据的过程跟 CPU 执行指令的速度比起来要慢的多，因此如果任何时候对数据的操作都要通过和内存的交互来进行，会大大降低指令执行的速度。</p>
@@ -358,7 +358,23 @@
 <li>变量不需要与其他状态变量共同参与不变约束。</li>
 </ul>
 <p>讲到这里，关于 <code>volatile</code> 关键字的就算讲完了。如果有哪里讲的不对的地方，非常欢迎你的指点。</p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
     </div>
 
     

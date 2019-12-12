@@ -273,13 +273,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>通常，在训练有监督的机器学习模型的时候，会将数据集划分为<code>训练集</code>、<code>验证集</code>和<code>测试集</code>，划分比例一般为<code>0.6 : 0.2 : 0.2</code>。</p>
+          <div id="vip-container"><p>通常，在训练有监督的机器学习模型的时候，会将数据集划分为<code>训练集</code>、<code>验证集</code>和<code>测试集</code>，划分比例一般为<code>0.6 : 0.2 : 0.2</code>。</p>
 <p>对原始数据进行三个集合的划分，是为了能够选出效果（可以理解为准确率）最好的、泛化能力最佳的模型。</p>
 <h2 id="训练集（Training-set）"><a href="#训练集（Training-set）" class="headerlink" title="训练集（Training set）"></a>训练集（Training set）</h2><p>作用是用来拟合模型，通过设置分类器的参数，训练分类模型。后续结合验证集作用时，会选出同一参数的不同取值，拟合出多个分类器。</p>
 <h2 id="验证集-Cross-Validation-set"><a href="#验证集-Cross-Validation-set" class="headerlink" title="验证集(Cross Validation set)"></a>验证集(Cross Validation set)</h2><p>作用是当通过训练集训练出多个模型后，为了能找出效果最佳的模型，使用各个模型对验证集数据进行预测，并记录模型准确率。选出效果最佳的模型所对应的参数，即用来调整模型参数。如svm中的参数c和核函数等。</p>
 <h2 id="测试集-Test-set"><a href="#测试集-Test-set" class="headerlink" title="测试集(Test set)"></a>测试集(Test set)</h2><p>通过训练集和验证集得出最优模型后，使用测试集进行模型预测。用来衡量该最优模型的性能和分类能力。即可以把测试集当做从来不存在的数据集，当已经确定模型参数后，使用测试集进行模型性能评价。</p>
 <p>对原始数据进行三个数据集的划分，也是为了防止模型过拟合。当使用了所有的原始数据去训练模型，得到的结果很可能是该模型最大程度地拟合了原始数据，亦即该模型是为了拟合所有原始数据而存在。当新的样本出现，再使用该模型进行预测，效果可能还不如只使用一部分数据训练的模型。</p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
       
     </div>
 
@@ -392,7 +408,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="linux-常用网络命令"><a href="#linux-常用网络命令" class="headerlink" title="linux 常用网络命令"></a>linux 常用网络命令</h2><p>本文将简单的介绍下Linux中的命令及其使用方法。</p>
+          <div id="vip-container"><h2 id="linux-常用网络命令"><a href="#linux-常用网络命令" class="headerlink" title="linux 常用网络命令"></a>linux 常用网络命令</h2><p>本文将简单的介绍下Linux中的命令及其使用方法。</p>
 <h3 id="ping-lt-host-gt"><a href="#ping-lt-host-gt" class="headerlink" title="ping &lt; host &gt;"></a>ping &lt; host &gt;</h3><p>发送 ICMP echo 消息（一个包）到主机.</p>
 <h3 id="telnet-lt-host-gt-port"><a href="#telnet-lt-host-gt-port" class="headerlink" title="telnet &lt;host&gt; [port]"></a>telnet <code>&lt;host&gt;</code> [port]</h3><p>与主机在指定的端口通信.</p>
 <p>常用端口：</p>
@@ -430,7 +446,23 @@
 <li>tcpmt -p [port] -s [bytes] target_host：发送 TCP 流量。</li>
 <li>tcptarget -p [port]：接收 TCP 流量。</li>
 </ul>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
       
     </div>
 
@@ -1190,7 +1222,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>观察者模式是软件设计模式中的一种，使用也比较普遍，尤其是在GUI编程中。关于设计模式的文章，网络上写的都比较多，而且很多文章写的也不错，虽然说有一种重复早轮子的嫌疑，但此轮子非彼轮子，侧重点不同，思路也不同，讲述方式也不近相同。</p>
+          <div id="vip-container"><p>观察者模式是软件设计模式中的一种，使用也比较普遍，尤其是在GUI编程中。关于设计模式的文章，网络上写的都比较多，而且很多文章写的也不错，虽然说有一种重复早轮子的嫌疑，但此轮子非彼轮子，侧重点不同，思路也不同，讲述方式也不近相同。</p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>关于定义，最准确的莫过于Head First设计模式中写到的。</p>
 <p>观察者模式定义了一个一对多的依赖关系，让一个或多个观察者对象监听一个主题对象。这样一来，当被观察者状态发生改变时，需要通知相应的观察者，使这些观察者对象能够自动更新。</p>
 <h2 id="关键要素"><a href="#关键要素" class="headerlink" title="关键要素"></a>关键要素</h2><h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>主题是观察者观察的对象，一个主题必须具备下面三个特征。</p>
@@ -1225,7 +1257,23 @@
 <li>主题持有观察者的引用，如果未正常处理从主题中删除观察者，会导致观察者无法被回收。</li>
 <li>如果观察者具体实现代码有问题，会导致主题和观察者对象形成循环引用，在某些采用引用计数的垃圾回收器可能导致无法回收。</li>
 </ul>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
       
     </div>
 

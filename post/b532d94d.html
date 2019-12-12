@@ -277,7 +277,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Spring-Boot-Web-应用加速"><a href="#Spring-Boot-Web-应用加速" class="headerlink" title="Spring Boot Web 应用加速"></a>Spring Boot Web 应用加速</h1><p>默认情况下，Spring Boot Web 应用会装配一些功能组件 Bean。</p>
+        <div id="vip-container"><h1 id="Spring-Boot-Web-应用加速"><a href="#Spring-Boot-Web-应用加速" class="headerlink" title="Spring Boot Web 应用加速"></a>Spring Boot Web 应用加速</h1><p>默认情况下，Spring Boot Web 应用会装配一些功能组件 Bean。</p>
 <p>在大多数 Web 应用场景下，可以选择性地关闭一下自动装配的Spring 组件 Bean，以达到提升性能的目的。</p>
 <h2 id="配置项优化"><a href="#配置项优化" class="headerlink" title="配置项优化"></a>配置项优化</h2><h3 id="Spring-Boot-Web-应用加速-完整配置项"><a href="#Spring-Boot-Web-应用加速-完整配置项" class="headerlink" title="Spring Boot Web 应用加速 完整配置项"></a>Spring Boot Web 应用加速 完整配置项</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">management.add-application-context-header</span> = <span class="string">false</span></span><br><span class="line"><span class="meta">spring.mvc.formcontent.putfilter.enabled</span> = <span class="string">false</span></span><br><span class="line"></span><br><span class="line"><span class="meta">spring.autoconfigure.exclude</span> = <span class="string">org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration,\</span></span><br><span class="line">org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.JndiDataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.transaction.jta.JtaAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.WebSocketAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.WebSocketMessagingAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mail.MailSenderValidatorAutoConfiguration,\</span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceRepositoryAutoConfiguration,\</span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceWebFilterAutoConfiguration,\</span><br><span class="line"><span class="attr">org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration</span></span><br></pre></td></tr></table></figure>
 
@@ -345,7 +345,23 @@
 <li>配置项</li>
 </ul>
 <p>按目前最新的 Spring Boot 1.5.2.RELEASE 版本中实现，也没有提供类似<br><code>spring.mvc.formcontent.putfilter.enabled</code> 这样的配置项关闭，无法关闭。</p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
     </div>
 
     

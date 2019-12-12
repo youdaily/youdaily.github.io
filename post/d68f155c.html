@@ -63,8 +63,8 @@
 <meta property="article:modified_time" content="2019-12-10T02:06:49.788Z">
 <meta property="article:author" content="You的日常">
 <meta property="article:tag" content="编程技术">
-<meta property="article:tag" content="React">
 <meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;user-gold-cdn.xitu.io&#x2F;2019&#x2F;2&#x2F;23&#x2F;169197bbda942d55?w&#x3D;332&amp;h&#x3D;337&amp;f&#x3D;png&amp;s&#x3D;37749">
 
@@ -275,7 +275,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="一-几个开发中经常会遇到的问题"><a href="#一-几个开发中经常会遇到的问题" class="headerlink" title="一.几个开发中经常会遇到的问题"></a>一.几个开发中经常会遇到的问题</h2><p>以下几个问题是我们在实际开发中经常会遇到的场景，下面用几个简单的示例代码来还原一下。</p>
+        <div id="vip-container"><h2 id="一-几个开发中经常会遇到的问题"><a href="#一-几个开发中经常会遇到的问题" class="headerlink" title="一.几个开发中经常会遇到的问题"></a>一.几个开发中经常会遇到的问题</h2><p>以下几个问题是我们在实际开发中经常会遇到的场景，下面用几个简单的示例代码来还原一下。</p>
 <h4 id="1-setState-是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以"><a href="#1-setState-是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以" class="headerlink" title="1.setState 是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以?"></a>1.setState 是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以?</h4><p>1.1 钩子函数和 React 合成事件中的<code>setState</code></p>
 <p>现在有两个组件</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount() &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'parent componentDidMount'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">render() &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;SetState2&gt;<span class="xml"><span class="tag">&lt;/<span class="name">SetState2</span>&gt;</span></span></span><br><span class="line">      &lt;SetState&gt;<span class="xml"><span class="tag">&lt;/<span class="name">SetState</span>&gt;</span></span></span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
@@ -371,7 +371,23 @@
 <hr>
 <p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
 <p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
     </div>
 
     
@@ -430,8 +446,8 @@
           
           <div class="post-tags">
               <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 编程技术</a>
-              <a href="/tags/React/" rel="tag"><i class="fa fa-tag"></i> React</a>
               <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+              <a href="/tags/React/" rel="tag"><i class="fa fa-tag"></i> React</a>
           </div>
 
         

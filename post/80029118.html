@@ -273,7 +273,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>我们在搭建好博客后，肯定是第一时间写一篇文章测试一下啦！但是细心的你一定会发现一个问题，那就是——主页为什么会展示每一篇文章的所有内容？而不是首页只展示文章的部分内容，再提供一个阅读全文的按钮呢？</p>
+        <div id="vip-container"><p>我们在搭建好博客后，肯定是第一时间写一篇文章测试一下啦！但是细心的你一定会发现一个问题，那就是——主页为什么会展示每一篇文章的所有内容？而不是首页只展示文章的部分内容，再提供一个阅读全文的按钮呢？</p>
 <p>本篇博客就是帮助各个同学实现阅读全文的功能，同时根据自己的使用经验给出意见和建议。要实现阅读全文，目前存在两种方法，我们会一个个讨论，评价其优缺点的。</p>
 <h2 id="方法一：配置文件设置"><a href="#方法一：配置文件设置" class="headerlink" title="方法一：配置文件设置"></a>方法一：配置文件设置</h2><p>首先我们需要找到Hexo所使用主题的主配置文件_config.yml，注意此处不是Hexo的主配置文件，而是主题的。博主所使用的是NexT主题，因此在此以此为例。</p>
 <a id="more"></a>
@@ -287,7 +287,23 @@
 
 <p>效果还是很不错的，如图所示：</p>
 <p><img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-%7B%25%20asset_img%20read-more.png%20read%20more%20%E6%8C%89%E9%94%AE%20%25%7D" alt="{read more 按键}"></p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
     </div>
 
     

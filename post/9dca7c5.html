@@ -273,13 +273,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>我们在搭建完Hexo + Github pages的博客后，会发现他的主页会默认显示很多的文章（默认 10 篇），而我们也许需要自定义分页进行管理主页博客的显示数量。</p>
+        <div id="vip-container"><p>我们在搭建完Hexo + Github pages的博客后，会发现他的主页会默认显示很多的文章（默认 10 篇），而我们也许需要自定义分页进行管理主页博客的显示数量。</p>
 <p>因此，本教程教会大家，如何设置主页的文章显示数量.</p>
 <a id="more"></a>
 <hr>
 <p>首先我们找到Hexo的根配置文件_config.yml，注意不是主题的配置文件。<br>然后按照下面图片中的内容搜索：per_page，在图片中对应位置修改数字即可<br><img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-hexoPerPage-01.jpg" alt="hexoPerPage-01.jpg"></p>
 <p>之后我们就可以在我们的博客主页看到分页的效果啦！<br><img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-%20hexoPerPage-02" alt="hexoPerPage-02"></p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
     </div>
 
     

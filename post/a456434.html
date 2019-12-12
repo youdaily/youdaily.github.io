@@ -277,7 +277,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在讲批量修改APK文件名之前，我们讲一下关于Android Gradle插件集成的Task任务问题。普通的Java工程比较简单，因为它有一个有限的任务集合，而且它的属性或者方法都是Java Gradle插件添加的，比较固定，而且我们访问任务以及任务里的方法和属性都比较方便，比如classes这个编译Java源代码的任务，我们通过project.tasks.classes就可以访问它，非常快捷。</p>
+        <div id="vip-container"><p>在讲批量修改APK文件名之前，我们讲一下关于Android Gradle插件集成的Task任务问题。普通的Java工程比较简单，因为它有一个有限的任务集合，而且它的属性或者方法都是Java Gradle插件添加的，比较固定，而且我们访问任务以及任务里的方法和属性都比较方便，比如classes这个编译Java源代码的任务，我们通过project.tasks.classes就可以访问它，非常快捷。</p>
 <p>但是对于Android工程，就不行了，Android工程相对与Java工程来说，要复杂的多，因为它有很多相同的任务，这些任务的名字都是通过Build Types和Product Flavors 生成的，是动态的创建和生成的，而且时机比较靠后，如果你还像原来一样在某个闭包里通过project.tasks获取一个任务，会提示找不到该任务，因为还没有生成。</p>
 <p>既然要修改生成的Apk文件名，那么我们就要修改Android Gradle打包的输出，为了解决上面提到的问题（不限于此），android对象为我们提供了2个属性：</p>
 <ul>
@@ -298,7 +298,23 @@
 <p>applicationVariants是一个DomainObjectCollection集合，我们可以通过all方法进行遍历，遍历的每一个variant都是一个生成的产物，针对示例，共有googleRelease和googleDebug两个产物，所以遍历的variant共有googleRelease和googleDebug。</p>
 <p>applicationVariants中的variant都是ApplicationVariant，通过查看源代码，可以看到它有一个outputs作为它的输出，每一个ApplicationVariant至少有一个输出，也可以有多个，所以这里的outputs属性是一个List集合，我们再遍历它，如果它的名字是以.apk结尾的话那么就是我们要修改的apk名字了，然后我们就可以根据需求，修改成我们想要的名字。</p>
 <p>我这里修改的是以项目名_渠道名_v版本名称_构建日期.apk格式生成的文件名，这样通过文件名就可以了解该apk的基本信息，比如什么渠道，什么版本，什么时候构建的等等，最后生成的示例apk名字为App_google_v1.0_20170217.apk，大家可以运行测试一下，注意buildTime这个我们自定义的返回日期格式的方法。</p>
+</div>
 
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
     </div>
 
     
