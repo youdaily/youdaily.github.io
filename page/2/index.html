@@ -1,0 +1,3234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.youdaily.world').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="You的日常">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.youdaily.world&#x2F;page&#x2F;2&#x2F;index.html">
+<meta property="og:site_name" content="You的日常">
+<meta property="og:description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="You的日常">
+<meta property="article:tag" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.youdaily.world/page/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false
+  };
+</script>
+
+  <title>You的日常</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">You的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">You的日常，我们的日常</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/b58ea4c6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/b58ea4c6.html" class="post-title-link" itemprop="url">用JS开发桌面应用（三）打印篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-09 15:18:14" itemprop="dateCreated datePublished" datetime="2019-05-09T15:18:14+08:00">2019-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/b58ea4c6.html" class="post-meta-item leancloud_visitors" data-flag-title="用JS开发桌面应用（三）打印篇" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/b58ea4c6.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/b58ea4c6.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>3.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="九、打印"><a href="#九、打印" class="headerlink" title="九、打印"></a>九、打印</h2><p>很多情况下程序中使用的打印都是用户无感知的。并且想要灵活的控制打印内容，往往需要借助打印机给我们提供的<code>api</code>再进行开发，这种开发方式非常繁琐，并且开发难度较大。第一次在业务中用到<code>Electron</code>其实就是用到它的打印功能，这里就多介绍一些。</p>
+<p><code>Electron</code>提供的打印api可以非常灵活的控制打印设置的显示，并且可以通过html来书写打印内容。<code>Electron</code>提供了两种方式进行打印，一种是直接调用打印机打印，一种是打印到<code>pdf</code>。</p>
+<p>并且有两种对象可以调用打印：</p>
+<ul>
+<li>通过<code>window</code>的<code>webcontent</code>对象，使用此种方式需要单独开出一个打印的窗口，可以将该窗口隐藏，但是通信调用相对复杂。</li>
+<li>使用页面的<code>webview</code>元素调用打印，可以将<code>webview</code>隐藏在调用的页面中，通信方式比较简单。</li>
+</ul>
+<p>上面两种方式同时拥有<code>print</code>和<code>printToPdf</code>方法。</p>
+<p><img src="http://www.conardli.top/img/electron/el_23_print.gif" alt=""></p>
+<h3 id="9-1-调用系统打印"><a href="#9-1-调用系统打印" class="headerlink" title="9.1 调用系统打印"></a>9.1 调用系统打印</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">contents.print([options], [callback])；</span><br></pre></td></tr></table></figure>
+
+<p>打印配置(options)中只有简单的三个配置：</p>
+<ul>
+<li><code>silent</code>：打印时是否不展示打印配置（是否静默打印）</li>
+<li><code>printBackground</code>：是否打印背景</li>
+<li><code>deviceName</code>：打印机设备名称</li>
+</ul>
+<p>首先要将我们使用的打印机名称配置好，并且要在调用打印前首先要判断打印机是否可用。</p>
+<p>使用<code>webContents</code>的<code>getPrinters</code>方法可获取当前设备已经配置的打印机列表，注意配置过不是可用，只是在此设备上安装过驱动。</p>
+<p>通过<code>getPrinters</code>获取到的打印机对象：<a href="https://electronjs.org/docs/api/structures/printer-info" target="_blank" rel="noopener">https://electronjs.org/docs/api/structures/printer-info</a></p>
+<p>我们这里只管关心两个，<code>name</code>和<code>status</code>，<code>status</code>为<code>0</code>时表示打印机可用。</p>
+<p><code>print</code>的第二个参数<code>callback</code>是用于判断打印任务是否发出的回调，而不是打印任务完成后的回调。所以一般打印任务发出，回调函数即会调用并返回参数<code>true</code>。这个回调并不能判断打印是否真的成功了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/b58ea4c6.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/b363c4cb.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/b363c4cb.html" class="post-title-link" itemprop="url">用JS开发桌面应用（二）- 应用篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-06 15:15:42" itemprop="dateCreated datePublished" datetime="2019-05-06T15:15:42+08:00">2019-05-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/b363c4cb.html" class="post-meta-item leancloud_visitors" data-flag-title="用JS开发桌面应用（二）- 应用篇" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/b363c4cb.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/b363c4cb.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>5.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="五、窗口"><a href="#五、窗口" class="headerlink" title="五、窗口"></a>五、窗口</h2><h3 id="5-1-BrowserWindow"><a href="#5-1-BrowserWindow" class="headerlink" title="5.1 BrowserWindow"></a>5.1 BrowserWindow</h3><p>主进程模块<code>BrowserWindow</code>用于创建和控制浏览器窗口。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mainWindow = <span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">  width: <span class="number">1000</span>,</span><br><span class="line">  height: <span class="number">800</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br><span class="line">mainWindow.loadURL(<span class="string">"http://www.conardli.top/"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>你可以在<a href="https://electronjs.org/docs/api/browser-window#new-browserwindowoptions" target="_blank" rel="noopener">这里</a>查看它所有的构造参数。</p>
+<p><img src="http://www.conardli.top/img/electron/el_13_window.gif" alt=""></p>
+<h3 id="5-2-无框窗口"><a href="#5-2-无框窗口" class="headerlink" title="5.2 无框窗口"></a>5.2 无框窗口</h3><blockquote>
+<p>无框窗口是没有镶边的窗口，窗口的部分（如工具栏）不属于网页的一部分。</p>
+</blockquote>
+<p>在<code>BrowserWindow</code>的构造参数中，将<code>frame</code>设置为<code>false</code>可以指定窗口为无边框窗口，将工具栏隐藏后，就会产生两个问题：</p>
+<ul>
+<li>1.窗口控制按钮（最小化、全屏、关闭按钮）会被隐藏</li>
+<li>2.无法拖拽移动窗口</li>
+</ul>
+<p>可以通过指定<code>titleBarStyle</code>选项来再将工具栏按钮显示出来，将其设置为<code>hidden</code>表示返回一个隐藏标题栏的全尺寸内容窗口，在左上角仍然有标准的窗口控制按钮。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">  width: <span class="number">200</span>,</span><br><span class="line">  height: <span class="number">200</span>,</span><br><span class="line">  titleBarStyle: <span class="string">"hidden"</span>,</span><br><span class="line">  frame: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/b363c4cb.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/c60ba4c3.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/c60ba4c3.html" class="post-title-link" itemprop="url">用JS开发桌面应用（一）原理篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-04 15:13:30" itemprop="dateCreated datePublished" datetime="2019-05-04T15:13:30+08:00">2019-05-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/c60ba4c3.html" class="post-meta-item leancloud_visitors" data-flag-title="用JS开发桌面应用（一）原理篇" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/c60ba4c3.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/c60ba4c3.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>6.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>使用<code>Electron</code>开发客户端程序已经有一段时间了，整体感觉还是非常不错的，其中也遇到了一些坑点，本文旨在从【运行原理】到【实际应用】对<code>Electron</code>进行一次系统性的总结。【多图，长文预警～】</p>
+<p>另外<code>electron-react</code>还可作为使用<code>Electron + React + Mobx + Webpack</code>技术栈的脚手架工程。</p>
+<h2 id="一、桌面应用程序"><a href="#一、桌面应用程序" class="headerlink" title="一、桌面应用程序"></a>一、桌面应用程序</h2><p><img src="http://www.conardli.top/img/electron/el_1_app.jpg" alt=""></p>
+<blockquote>
+<p>桌面应用程序，又称为 GUI 程序（Graphical User Interface），但是和 GUI 程序也有一些区别。桌面应用程序 将 GUI 程序从 GUI 具体为“桌面”，使冷冰冰的像块木头一样的电脑概念更具有 人性化，更生动和富有活力。</p>
+</blockquote>
+<p>我们电脑上使用的各种客户端程序都属于桌面应用程序，近年来<code>WEB</code>和移动端的兴起让桌面程序渐渐暗淡，但是在某些日常功能或者行业应用中桌面应用程序仍然是必不可少的。</p>
+<p>传统的桌面应用开发方式，一般是下面两种：</p>
+<h3 id="1-1-原生开发"><a href="#1-1-原生开发" class="headerlink" title="1.1 原生开发"></a>1.1 原生开发</h3><p>直接将语言编译成可执行文件，直接调用系统<code>API</code>，完成 UI 绘制等。这类开发技术，有着较高的运行效率，但一般来说，开发速度较慢，技术要求较高，例如：</p>
+<ul>
+<li>使用<code>C++ / MFC</code>开发<code>Windows</code>应用</li>
+<li>使用<code>Objective-C</code>开发<code>MAC</code>应用</li>
+</ul>
+<h3 id="1-2-托管平台"><a href="#1-2-托管平台" class="headerlink" title="1.2 托管平台"></a>1.2 托管平台</h3><p>一开始就有本地开发和 UI 开发。一次编译后，得到中间文件，通过平台或虚机完成二次加载编译或解释运行。运行效率低于原生编译，但平台优化后，其效率也是比较可观的。就开发速度方面，比原生编译技术要快一些。例如：</p>
+<ul>
+<li>使用<code>C# / .NET Framework</code>(只能开发<code>Windows应用</code>)</li>
+<li><code>Java / Swing</code></li>
+</ul>
+<p>不过，上面两种对前端开发人员太不友好了，基本是前端人员不会设计的领域，但是在这个【大前端 😅】的时代，前端开发者正在想方设法涉足各个领域，使用<code>WEB</code>技术开发客户端的方式横空出世。</p>
+<h3 id="1-3-WEB-开发"><a href="#1-3-WEB-开发" class="headerlink" title="1.3 WEB 开发"></a>1.3 WEB 开发</h3><p>使用<code>WEB</code>技术进行开发，利用浏览器引擎完成<code>UI</code>渲染，利用<code>Node.js</code>实现服务器端<code>JS</code>编程并可以调用系统<code>API</code>，可以把它想像成一个套了一个客户端外壳的<code>WEB</code>应用。</p>
+<p>在界面上，<code>WEB</code>的强大生态为<code>UI</code>带来了无限可能，并且开发、维护成本相对较低，有<code>WEB</code>开发经验的前端开发者很容易上手进行开发。</p>
+<p>本文就来着重介绍使用<code>WEB</code>技术开发客户端程序的技术之一【<code>electron</code>】</p>
+<h2 id="二、Electron"><a href="#二、Electron" class="headerlink" title="二、Electron"></a>二、Electron</h2><p><img src="http://www.conardli.top/img/electron/el_2_electron.jpg" alt=""></p>
+<p><code>Electron</code>是由<code>Github</code>开发，用<code>HTML，CSS</code>和<code>JavaScript</code>来构建跨平台桌面应用程序的一个开源库。 <code>Electron</code>通过将<code>Chromium</code>和<code>Node.js</code>合并到同一个运行时环境中，并将其打包为<code>Mac，Windows</code>和<code>Linux</code>系统下的应用来实现这一目的。</p>
+<p><a href="https://electronjs.org/docs" target="_blank" rel="noopener">https://electronjs.org/docs</a></p>
+<p><a href="https://juejin.im/post/5c67619351882562276c3162#heading-5" target="_blank" rel="noopener">https://juejin.im/post/5c67619351882562276c3162#heading-5</a></p>
+<h3 id="2-1-使用-Electron-开发的理由："><a href="#2-1-使用-Electron-开发的理由：" class="headerlink" title="2.1 使用 Electron 开发的理由："></a>2.1 使用 Electron 开发的理由：</h3><ul>
+<li>1.使用具有强大生态的<code>Web</code>技术进行开发，开发成本低，可扩展性强，更炫酷的<code>UI</code></li>
+<li>2.跨平台，一套代码可打包为<code>Windows、Linux、Mac</code>三套软件，且编译快速</li>
+<li>3.可直接在现有<code>Web</code>应用上进行扩展，提供浏览器不具备的能力</li>
+<li>4.你是一个前端 👨‍</li>
+</ul>
+<p>当然，我们也要认清它的缺点：性能比原生桌面应用要低，最终打包后的安装包和其他文件都比较大。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/c60ba4c3.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/9859ab2b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/9859ab2b.html" class="post-title-link" itemprop="url">“杀猪盘” 骗局</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-28 17:20:45" itemprop="dateCreated datePublished" datetime="2019-02-28T17:20:45+08:00">2019-02-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/9859ab2b.html" class="post-meta-item leancloud_visitors" data-flag-title="“杀猪盘” 骗局" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/9859ab2b.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/9859ab2b.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>5.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<p>文章转载自：<a href="http://www.xinhuanet.com/legal/2019-02/28/c_1124172443.htm" target="_blank" rel="noopener">http://www.xinhuanet.com/legal/2019-02/28/c_1124172443.htm</a></p>
+<p>侵删.</p>
+<hr>
+<h2 id="东南亚“杀猪盘”：“爱情”圈养的网络骗局"><a href="#东南亚“杀猪盘”：“爱情”圈养的网络骗局" class="headerlink" title="东南亚“杀猪盘”：“爱情”圈养的网络骗局"></a>东南亚“杀猪盘”：“爱情”圈养的网络骗局</h2><p>以“网恋”寻找诈骗对象，大额充值即封禁账号，数百人被骗；多地警方已侦破多个“杀猪盘”骗局</p>
+<p><img src="https://i.loli.net/2019/12/10/DwngJ9jrLTzl2NP.png" alt="20191210172459.png"><br>受害者统计的部分省份被骗人数和金额。</p>
+<p><img src="https://i.loli.net/2019/12/10/1sz5UMJOqdVXcGo.png" alt="20191210172446.png"><br>杨明凯与骗子“恋人”的聊天记录，对方怂恿他往网站账户充钱。</p>
+<p>唐元被骗子哄骗让其帮忙下注，骗子称“未来的世界你都是我的，我怎么不相信你”。</p>
+<p>“恋人”向唐元推荐下注的赌博网站。<br><img src="https://i.loli.net/2019/12/10/AWkvRmQF7YsMTBJ.png" alt="20191210172428.png"></p>
+<p>“你二十五六岁了，这么大的人了，怎么还会被骗，是傻吗？”</p>
+<p>催债电话里的声音越来越大，一直试图解释还不上贷款原因的杨明凯，听到这儿终于忍不住爆了一句粗口：“xxxx!”</p>
+<p>28万元债务对于月薪7000元的杨明凯来说，想要每月按时还款是几乎不可能的，后果就是像这样的催债电话，每天都能打来好几个。</p>
+<p>债务压垮了杨明凯，而这一切，都始于3个月前的一次网络“邂逅”。对方每天的嘘寒问暖，关心照顾，让杨明凯以为找到了对的人，在“恋人”的带领下，他们一起玩起了博彩游戏。只是这份感情，来得太快，离去得也让人猝不及防，随着这个帅气男子一同消失的，还有杨明凯在游戏账户上充值的28万元。</p>
+<p>爱情童话与赚钱美梦同时破灭。与杨明凯一样梦碎的人，还有张君雅、唐元等近千人，分散在全国各地，他们的经历都如出一辙:社交网站上结识近乎完美的婚恋对象，在“恋人”的蛊惑下参与网络博彩，最终，全部积蓄和借款在充值进博彩账户后，与“恋人”一起消失。</p>
+<p>在线上“恋人”看来，杨明凯们只不过是用所谓“爱情”圈养的“猪”，养肥了自然要“杀掉”。这种只进不出的骗局，被行业内的人取了个很形象又残酷的名字——“杀猪盘”。</p>
+<p>参与过跨境“杀猪盘”侦破的刑警周深说，该犯罪手法在2016年以前就有，2018年开始泛滥。最早，犯罪人员通过同性恋网站寻找“猪仔”，后来拓展到婚恋交友平台。因为这些嫌疑人多在东南亚开设骗局，所以又被称为“东南亚杀猪盘”。</p>
+<h3 id="“完美恋人”"><a href="#“完美恋人”" class="headerlink" title="“完美恋人”"></a>“完美恋人”</h3><p>杨明凯破碎的“爱情童话”，始于一次网络邂逅。</p>
+<p>杨明凯喜欢同性。3个月前，他在社交平台上认识了一位男子。那个男人每天在微信对他嘘寒问暖，关心他的饮食起居。虽然对于那个男人发来的确认关系的消息，杨明凯总是谨慎的，“咱们还没见面呢，哪能这么快。”但是面对那个照片上帅气的男子，他还是心动了。</p>
+<p>“在我们这个圈子，因为种种原因，谈感情的很少，很多都只是玩乐一下。”这个自称李信泽的男子，和他在这个社交平台上遇到的其他男人不一样，不提约炮，不提去夜店蹦迪，只在微信上说“在干吗呢？”、“记得吃饭”这样的话。</p>
+<p>跟杨明凯一样，同在北京工作的张君雅，这一次也以为遇到了自己的“真命天子”。张君雅戴着方框眼镜，从事IT相关的工作，今年是她工作的第十年，差不多攒够了可以支付一套300多万房子的首付款。在婚恋网站上结识这个叫“李文瑞”的人之前，张君雅已经四年半没有谈过恋爱了，三十多岁的人的婚恋问题，不只是父母着急，自己也在暗暗焦虑。</p>
+<p>她注册了世纪佳缘交友网站的账号，2018年10月25日一个世纪佳缘ID名为“戛纳坦率的幼柏”的人，给她回了消息，让张君雅添加他的微信。</p>
+<p>加上了微信，自称李文瑞的男子介绍说，他是一个在北京工作的程序员，热爱健身和旅游。李文瑞经常给张君雅发来他正在健身的照片，照片上的他露着肌肉，对着镜头微笑。这正是张君雅喜欢的男生的样子。每天早中晚，这个男人总是会给她发来问候语，关心她吃饭了没，休息得如何。虽素未谋面，但张君雅对这个男人的好感就在这一声声嘘寒问暖中逐步上升。</p>
+<p>因为工作忙，张君雅总是在晚上十点多才下班。微信那头的“恋人”，就会在她步行回家的那段路上，陪她语音聊天，也会经常唱歌给她听。一次加班的夜归，李文瑞在微信电话里，给张君雅唱起了《最浪漫的事》，听到手机那头的人的歌声，张君雅不禁落下了眼泪。</p>
+<p>“当时我觉得这是很单纯的爱情，就像小男生和小女生一样。”张君雅说，当时他们互称大傻，二傻，是因为觉得对方是单纯善良的人。李文瑞跟张君雅提起过，自己有一段短暂的失败婚姻，他和前妻闪婚，因为性格不合离婚，没有生育孩子。</p>
+<p>“如果有孩子就不会离婚。”李文瑞告诉张君雅。听到这样的话，张君雅觉得他是一个有担当的男人，又一次，为屏幕那边的男人流下了眼泪。</p>
+<p>和张君雅一样，在广西桂林工作的唐元也在世纪佳缘网站遇到了一个叫她老婆的男人。对方离异，从事着IT工作，在广西的另一个市工作。“等咱们见了面，确定了关系，我就来桂林买房子，到时还要再到桂林开个分店，这样工作也能兼顾。”唐元觉得他是一个靠谱的人，陈伦仔细描绘着他们的未来，这点让她心动。</p>
+<p>随着交往的深入，杨明凯、张君雅和唐元与“恋人”的感情日渐加深，甜蜜之中，他们丝毫没觉察到自己已成了一场“杀猪”骗局中正逐渐“养肥”的“猪仔”。</p>
+<h3 id="博彩骗局"><a href="#博彩骗局" class="headerlink" title="博彩骗局"></a>博彩骗局</h3><p>“我要去香港出差了”。</p>
+<p>在认识陈伦的一周后，唐元收到了他的信息。“等我出差回来，我来桂林找你玩。”他们甚至在微信上详细规划好了见面之后的行程。</p>
+<p>2018年11月1日，李文瑞也告诉张君雅，他因为一个紧急任务，被派去了澳门，出差回来就可以见面了。为了这第一次见面，张君雅专门托朋友从法国给李文瑞带了一份见面礼。</p>
+<p>出差回来，似乎就将迎来与爱人见面的幸福时刻，两个女孩期待着。但是在陈伦和李文瑞的规划中，这个相似的出差，预示着，“猪”已经养肥了，接下来，进入了“杀猪”阶段。</p>
+<p>李文瑞告诉张君雅他正在帮澳门某家赌场维护网站，每天晚上八点到八点半的时间服务器会进行重启，他在后台修改赔率，就能保证赢钱。</p>
+<p>张君雅在李文瑞的指导下，在这个名为“葡京娱乐”的网站上注册了账号。李文瑞告诉她，钱要先转到公司的财务上，财务把钱变成筹码充入账户。</p>
+<p>第一天，张君雅往财务的账户里转账了1万元，在李文瑞的指导下操作了三次，第一次就赚了七百多元。李文瑞对张君雅说“你提现试试。”张君雅试了三次，每次一百元，成功。</p>
+<p>陆陆续续，张君雅按李文瑞的指导，往“财务的账户”里充了17笔钱，总共90万，其中30万，是找朋友借的。当张君雅向新京报记者回忆起自己像着了魔一样疯狂向账户充钱的那几天，说“这是一个容易赚钱的机会吧，我不是一个把钱看得特别重的人，但是还是会心动。”</p>
+<p>如出一辙，杨明凯的“恋人”也主动向杨明凯推荐了博彩网站。</p>
+<p>相识的一周后，李信泽告诉杨明凯，最近他在看走势，玩彩票，掌握了规律，让杨明凯和他一块玩，他甩给了杨明凯一个二维码，上面写着“××快乐彩”，杨明凯扫码进入，界面简陋，手机屏上横着三个博彩游戏，挂着美女穿着比基尼的照片。最开始，游戏可以提现，从充了五万元开始，就无法提现了。联系客服，得到的答案总是：“你得再充钱，达到一定的数额和流动金额才能提现。”就这样，杨明凯通过各种借贷平台借款，往这个网站充了28万元。</p>
+<p>君雅想提现还朋友钱，准备提现的当晚，李文瑞给张君雅打来了电话，一分钟的通话时长，很简短。电话里，李文瑞告诉张君雅“我今晚要去紧急维护这个网站，老板不让带手机，你早点睡，我完成任务了联系你。”</p>
+<p>提现失败的两个小时后，网站不能登录了。张君雅有些担心，她想是不是李文瑞进行网站维护出了问题。整整一夜，这个网站都无法登录。</p>
+<p>“二傻，快回消息啊，我很担心你。”即便无法提现，但张君雅最担心的还是“恋人”。张君雅给李文瑞发去了多条消息，都没有应答。直到11月10日晚上，张君雅和闺蜜打了一通电话，述说了自己的遭遇，闺蜜的疑惑让她怀疑了。她在网上输入“时时彩”，网页上，满屏的控诉骗局的文字。</p>
+<p>11月11日的凌晨，张君雅报了警。民警确定地告诉她“你被骗了”。</p>
+<h3 id="被骗之后"><a href="#被骗之后" class="headerlink" title="被骗之后"></a>被骗之后</h3><p>“我已经规划好了，今天分三次投，一定能赚，你的钱也都能拿出来。”像往常一样，杨明凯继续在李信泽的指挥下投注，然而这一次，等到的却是28万元全部赔进去的信息。唐元的“恋人”去香港出差维护赌博网站，告诉唐元自己找到了赌博网站的漏洞，在他的怂恿下往网站内充值了十五万元，而钱和网站，却在一夜之间消失了。</p>
+<p>不到一周的时间内，杨明凯还未能弄明白这个赌博网站的游戏规则，而唐元和张君雅，也在她们“恋人”的指挥下，进行着网站的操作。</p>
+<p>“我是信任他的，所以也信任这个网站。”张君雅在整个过程中，从未怀疑过这个和他谈情说爱的男人。11月11日，在报完警回家的路上，张君雅忍不住嚎啕大哭。</p>
+<p>那段时间，张君雅的生活和工作都发生了剧烈的变化，被骗，工作调组，搬家。换房子的时候，租房的押金加上房租的三万元，她已经拿不出了。</p>
+<p>杨明凯被骗后，就再未打开过他卧室的窗帘。每到周末，杨明凯就把自己关在月租1800元的8平米的小屋子内，一张双人床，一张桌子，占去了屋内几乎所有空间。因为空间不足，衣柜被他放在了客厅。杨明凯打开手机，卧在床上，放着综艺，看到好笑的情节，跟着笑几声。但是这种短暂的快乐很快就会在电话铃声响起时消失，他需要向电话那头的催收员解释，自己是因为被骗欠了钱，无力偿还。有时，他就把电话接了，放在一边，不说话。</p>
+<p>挂了电话，杨明凯开始在心里一遍遍琢磨“自己为什么会被骗，为什么骗子会找上我。”他拿着每个月七千元的工资，但是每月应还欠款却高达三万元。没办法还上钱，催收的电话就一个个打进来，一个周日，杨明凯总共接到了十五个催收电话。</p>
+<p>债务同样让距离杨明凯两千多公里的唐元陷入了经济上的窘境，这个春节，唐元没有回家，从初七开始，她就给自己从早到晚排满了课外辅导课程，希望能够多挣点钱早日还清在贷款平台上欠下的款。</p>
+<p>过年回家，姐姐问杨明凯“你咋还穿着旧衣服呀？”</p>
+<p>“没有瞅见喜欢的”。杨明凯轻飘飘地回答，但事实是他根本没钱买衣服。</p>
+<p>被骗之后，杨明凯更愿意一个人待着，喜欢和朋友相处的他也不主动找朋友吃饭了。身边的朋友，只有两个与杨明凯交好的，知道他被骗的经历。</p>
+<p>被骗之后的张君雅也不愿再回朋友的消息。</p>
+<p>“你再不回消息，我们就报警了！”在十几条微信消息未读之后，看到这条信息，张君雅才回复朋友“我没事，不要担心我。”第二天，朋友一大早就来到了张君雅家，但是张君雅不愿意多讲，只告诉他“亏了钱”。</p>
+<p>“朋友其实也难理解”，杨明凯说，对于他们受骗的人来说，过多地倾诉自己的经历，他人也只是当个故事听听罢了。</p>
+<h3 id="抱团取暖"><a href="#抱团取暖" class="headerlink" title="抱团取暖"></a>抱团取暖</h3><p>被骗后，杨明凯、唐元、张君雅都加入了类似的受害者微信群，群友之间似乎更能互相理解。</p>
+<p>入群之后，杨明凯发现，和自己有着同样遭遇的人，遍布全国各地，涉案的金额有的高达几百万。被骗的人有开公司的老板，有还在上学的学生，还有六十多岁的老人。杨明凯加入的北京群，目前总共有44人，据群管理员刘子彤的不完全统计，群里受害人被骗总金额达1080万元。</p>
+<p>通过群友们的互相交流，杨明凯了解了更多和他相似的经历。</p>
+<p>一个60多岁的男同性恋，被骗后没有选择报警。一个骗子在和女孩交流的过程中发现自己真的爱上了女孩，向女孩摊牌了，让她等他回国。</p>
+<p>群里偶尔会讨论一下某某警方破案的新闻。“太傻了，活该被骗。”看到网友们类似的评论，他们委屈，难过，却只能在群里互相鼓励一下。</p>
+<p>2019年2月23日，北京又有人被骗了，杨明凯、刘子彤等三个人，便专门陪着受害人去报警，“警方当时就以诈骗立案了。”杨明凯觉得欣慰。</p>
+<p>大概每一个月左右，他们就会在线下聚一下，杨明凯跟着群友们，一起去过故宫看展，也去了雍和宫祈福，希望通过活动，化解心里的悲苦。</p>
+<p>聚在一块的时候，他们喜欢谈论他们总结出来的骗子的套路，“你的骗子还会唱歌呢？”一次线下聚会，张君雅被其他受害人打趣道。刘子彤在张君雅接受采访时，也会笑着向记者总结“骗子都爱健身，都是程序员。”</p>
+<p>因为被骗，他们都变身成了能够快速识别骗子的“反诈大亨”，杨明凯练就了一眼就能识别出骗子的本领，“那种一上来就自我介绍，关注的人都是一些好久不活跃的僵尸的，没有实名认证的，肯定就是骗子。”被骗后，他又主动加过两个骗子，第一个以为他是同行，他向第二个摊牌，然后互相对骂。</p>
+<p>他们关注着网上的各种破案的信息，有时看到了哪里的警方破了案，他们就会在脑袋里搜索一下自己认识的受害人的案例，估摸一下是不是这起案子的受害者，要是能够并案就能够看到希望。</p>
+<h3 id="“杀猪盘”"><a href="#“杀猪盘”" class="headerlink" title="“杀猪盘”"></a>“杀猪盘”</h3><p>烟台、舟山、绍兴、宁波、深圳等多地警方都曾破获“杀猪盘”骗局。</p>
+<p>一个参与过跨境“杀猪盘”侦破的刑警周深告诉新京报记者，这些“杀猪盘”许多都开设在东南亚地区，这些年实体赌博不景气，网络赌博开始兴起。“杀猪盘”是他们（从业者）自己给网络交友赌博诈骗取的名字，真假网赌往往混杂在一起，金主也是两边投资。</p>
+<p>周深介绍，“杀猪盘”最严重的四个地方为菲律宾马尼拉地区、柬埔寨西哈努克市、老挝金三角经济特区、中缅边境地区。开盘口的几乎都是福建老板。东南亚地区“杀猪盘”泛滥，原因复杂，菲律宾是东南亚地区网络赌博唯一合法的地区，有许多盘口盘踞在这里。而拿周深经常去办案的中缅边境来说，向来都是毒品、枪支、非法走私、绑架勒索的重灾区，多种类型的暴力犯罪交织在一起，“杀猪盘”诈骗只是其中一种。</p>
+<p>周深在侦破行动中曾发现，缅甸佤邦某县的一个四层娱乐城中，一楼是实体的赌场，二楼以上都是“杀猪盘”的办公地点。另一栋18层高的大楼将在今年四月完工，也将提供给“杀猪盘”和各种网络贷款办公。</p>
+<p>周深是从2017年开始接触这类犯罪的，据他估计，该犯罪手法在2016年以前就有，2018年开始泛滥。最早，犯罪人员通过同性恋网站寻找“猪仔”，后来拓展到婚恋交友平台。</p>
+<p>“‘杀猪’关键是‘养猪’，所以婚恋交友网站和聊天交友工具、聊天剧本被称为‘猪圈’、‘猪食槽’和‘猪饲料’。”周深说。</p>
+<p>周深告诉新京报记者，诈骗团伙有专门供料的人员，每天会提供不同的受害人名单给负责行骗的人物色“猪仔”。一位在菲律宾某博彩盘口从事推广工作的人也向新京报记者证实，公司会为负责推广的人提供各种联系人的微信号、QQ号等，而他所要做的，就是陪人“谈情说爱”，然后“杀猪”。</p>
+<p>杨明凯把骗子的微信置顶了，心情不好时，他就会发过去几句骂人的话，虽然没有人再回应。唐元也还在坚持给她的骗子发消息，骂也好，劝也好，而那个被她改为“大骗子”备注的微信号再无回应。</p>
+<p>张君雅通过域名反查，发现在她的钱消失后第二天，骗子又建了一个新的网站，“又去骗其他人了”。</p>
+<p>“猪”被养肥杀了，这些猎人们就会去寻找新的猎物，一位正在菲律宾做博彩推广的人对新京报记者说，这个局“啥时候聊到人倾家荡产了，啥时候就结束！”</p>
+<p>（文中所有受访对象均为化名）（记者 刘思洁 刘经宇）</p>
+<hr>
+
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/769ff974.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/769ff974.html" class="post-title-link" itemprop="url">《张扬的日生活》 写在专题开始前</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-23 15:44:04" itemprop="dateCreated datePublished" datetime="2019-02-23T15:44:04+08:00">2019-02-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E7%AE%80%E4%B9%A6/" itemprop="url" rel="index">
+                    <span itemprop="name">简书</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E7%AE%80%E4%B9%A6/%E5%BC%A0%E6%89%AC%E7%9A%84%E6%97%A5%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">张扬的日生活</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/769ff974.html" class="post-meta-item leancloud_visitors" data-flag-title="《张扬的日生活》 写在专题开始前" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/769ff974.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/769ff974.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>425</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>有感于生活，最近准备新开一个专题，主要描述来源于生活并高于生活的日常生活。</p>
+<p>既然是来源于日常生活，那就免不了柴米油盐，免不了柴米油盐，免不了蒜皮小事，免不了流水账。</p>
+<p>篇幅不会太长，每篇 600 字左右吧。不会有太多的写作技法，只是最基本的白描，不带任何感情色彩的白描。</p>
+<p>先简单对几个重要人物做个脸谱化的设定，后续提到新人物的时候再进行补充说明。</p>
+<p>张扬：85 后，已婚。在一家小公司做程序员，公交车上下班，偶尔加班。</p>
+<p>李强：张扬现工作中的小组长。</p>
+<p>马琦：张扬前公司的同事。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/769ff974.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/28fa54f2.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/28fa54f2.html" class="post-title-link" itemprop="url">Vue3和Vue2中响应式编程的不同</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-19 11:51:53" itemprop="dateCreated datePublished" datetime="2019-02-19T11:51:53+08:00">2019-02-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/28fa54f2.html" class="post-meta-item leancloud_visitors" data-flag-title="Vue3和Vue2中响应式编程的不同" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/28fa54f2.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/28fa54f2.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><code>Vue.js</code> 核心团队已经开始讨论将在 Vue3 中改变的实现了。API 不会有变化，但响应式机制将会有所不用。这意味着什么，对你来说有什么意义？</p>
+<h2 id="Vue-2-的响应式"><a href="#Vue-2-的响应式" class="headerlink" title="Vue 2 的响应式"></a>Vue 2 的响应式</h2><p>Vue.js 2 中的响应式是通过 <code>Object.defineProperty</code> 方法定义 <code>getter</code> 和 <code>setter</code> 完成的。我们来把 Vue 中做的事情简化出一个版本。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">    enumerable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    <span class="keyword">get</span>:function()&#123;</span><br><span class="line">       <span class="keyword">return</span> value;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>:function(newValue)&#123;</span><br><span class="line">        <span class="keyword">if</span>(value !== newValue)&#123;</span><br><span class="line">           value = newValue;</span><br><span class="line">           tellTheWorldIhaveChanged(); <span class="comment">//somebody is watching!</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/28fa54f2.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/606c77fb.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/606c77fb.html" class="post-title-link" itemprop="url">程序员必读的六本书</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-25 17:22:33" itemprop="dateCreated datePublished" datetime="2019-01-25T17:22:33+08:00">2019-01-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/" itemprop="url" rel="index">
+                    <span itemprop="name">程序人生</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/606c77fb.html" class="post-meta-item leancloud_visitors" data-flag-title="程序员必读的六本书" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/606c77fb.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/606c77fb.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>作为一名程序员，日常的工作除了上班撸代码就是加班撸代码了。撸码其实不难，无非询问Google，StackOverflow，解决方法和demo一箩筐，可是撸的一手好代码着实不易。无独有偶，码农一抓一大把，优秀的程序员却不易寻觅。优秀的程序员既不可能出自各种天花乱坠的培训机构，更不可能来自挖掘机摇篮山东布鲁斯特，大多数优秀的程序员有一个共同点，那就是自学。</p>
+<p>为什么是自学呢？首先大学的教育不可能让你成为专家级别的程序员，其次为了能从团队脱颖而出必然付出更多的努力来学习。自学其实是一种很强有力的能力，一旦掌握，许多技术和问题都可以轻松搞定。</p>
+<p>中学物理常客牛顿曾说，”如果我比别人看得更远，那是因为我站在巨人的肩上“。他山之石，可以攻玉。阅读大师巨匠的作品无疑是最有效的自学方式之一。业界知名的Bob大叔是代码整洁和面向对象编程的坚定支持推进者，其在这方面的著作可以称得上权威。Martin Fowler同样名声在外，他的关于重构的著作《重构—-改善既有代码的设计》 应该是人手一本。阅读诸如上面两位大家的著作，对技术提到大有裨益。</p>
+<p>本文讲列举六本业界牛人的著作，也是编程书籍中经典的经典，这几本书并非简单的教程书籍，而是教给你方法和思想来解决现实遇到的问题，提高编码的技艺和境界。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/606c77fb.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/d5c9d9b6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/d5c9d9b6.html" class="post-title-link" itemprop="url">深入分析虚拟DOM的渲染原理和特性</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-22 15:44:04" itemprop="dateCreated datePublished" datetime="2019-01-22T15:44:04+08:00">2019-01-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/d5c9d9b6.html" class="post-meta-item leancloud_visitors" data-flag-title="深入分析虚拟DOM的渲染原理和特性" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/d5c9d9b6.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/d5c9d9b6.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>10k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><code>React</code>的虚拟<code>DOM</code>和<code>Diff</code>算法是<code>React</code>的非常重要的核心特性，这部分源码也非常复杂，理解这部分知识的原理对更深入的掌握<code>React</code>是非常必要的。</p>
+<p>本来想将虚拟<code>DOM</code>和<code>Diff</code>算法放到一篇文章，写完虚拟<code>DOM</code>发现文章已经很长了，所以本篇只分析虚拟<code>DOM</code>。</p>
+<p>本篇文章从源码出发，分析虚拟<code>DOM</code>的核心渲染原理（首次渲染），以及<code>React</code>对它做的性能优化点。</p>
+<p>说实话<code>React</code>源码真的很难读 😅，如果本篇文章帮助到了你，那么请给个赞 👍 支持一下吧。</p>
+<h2 id="开发中的常见问题"><a href="#开发中的常见问题" class="headerlink" title="开发中的常见问题"></a>开发中的常见问题</h2><ul>
+<li>为何必须引用<code>React</code></li>
+<li>自定义的<code>React</code>组件为何必须大写</li>
+<li><code>React</code>如何防止<code>XSS</code></li>
+<li><code>React</code>的<code>Diff</code>算法和其他的<code>Diff</code>算法有何区别</li>
+<li><code>key</code>在<code>React</code>中的作用</li>
+<li>如何写出高性能的<code>React</code>组件</li>
+</ul>
+<p>如果你对上面几个问题还存在疑问，说明你对<code>React</code>的虚拟<code>DOM</code>以及<code>Diff</code>算法实现原理还有所欠缺，那么请好好阅读本篇文章吧。</p>
+<p>首先我们来看看到底什么是虚拟<code>DOM</code>:</p>
+<h2 id="虚拟-DOM"><a href="#虚拟-DOM" class="headerlink" title="虚拟 DOM"></a>虚拟 DOM</h2><p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/%E8%99%9A%E6%8B%9Fdom.png" alt="image"></p>
+<p>在原生的<code>JavaScript</code>程序中，我们直接对<code>DOM</code>进行创建和更改，而<code>DOM</code>元素通过我们监听的事件和我们的应用程序进行通讯。</p>
+<p>而<code>React</code>会先将你的代码转换成一个<code>JavaScript</code>对象，然后这个<code>JavaScript</code>对象再转换成真实<code>DOM</code>。这个<code>JavaScript</code>对象就是所谓的虚拟<code>DOM</code>。</p>
+<p>比如下面一段<code>html</code>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>Hello ConardLi<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>橘子<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/d5c9d9b6.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/d68f155c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/d68f155c.html" class="post-title-link" itemprop="url">setState的执行机制</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-19 15:38:56" itemprop="dateCreated datePublished" datetime="2019-01-19T15:38:56+08:00">2019-01-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/d68f155c.html" class="post-meta-item leancloud_visitors" data-flag-title="setState的执行机制" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/d68f155c.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/d68f155c.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>4.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一-几个开发中经常会遇到的问题"><a href="#一-几个开发中经常会遇到的问题" class="headerlink" title="一.几个开发中经常会遇到的问题"></a>一.几个开发中经常会遇到的问题</h2><p>以下几个问题是我们在实际开发中经常会遇到的场景，下面用几个简单的示例代码来还原一下。</p>
+<h4 id="1-setState-是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以"><a href="#1-setState-是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以" class="headerlink" title="1.setState 是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以?"></a>1.setState 是同步还是异步的，为什么有的时候不能立即拿到更新结果而有的时候可以?</h4><p>1.1 钩子函数和 React 合成事件中的<code>setState</code></p>
+<p>现在有两个组件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount() &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'parent componentDidMount'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">render() &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;SetState2&gt;<span class="xml"><span class="tag">&lt;/<span class="name">SetState2</span>&gt;</span></span></span><br><span class="line">      &lt;SetState&gt;<span class="xml"><span class="tag">&lt;/<span class="name">SetState</span>&gt;</span></span></span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>组件内部放入同样的代码，并在<code>Setstate1</code>中的<code>componentDidMount</code>中放入一段同步延时代码，打印延时时间：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">componentWillUpdate() &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'componentWillUpdate'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">componentDidUpdate() &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'componentDidUpdate'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">componentDidMount() &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'SetState调用setState'</span>);</span><br><span class="line">  <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">    index: <span class="keyword">this</span>.state.index + <span class="number">1</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'state'</span>, <span class="keyword">this</span>.state.index);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'SetState调用setState'</span>);</span><br><span class="line">  <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">    index: <span class="keyword">this</span>.state.index + <span class="number">1</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'state'</span>, <span class="keyword">this</span>.state.index);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面是执行结果：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/d68f155c.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/bf1cac5c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/bf1cac5c.html" class="post-title-link" itemprop="url">Programing-React-event-handler</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-11 15:36:33" itemprop="dateCreated datePublished" datetime="2019-01-11T15:36:33+08:00">2019-01-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/bf1cac5c.html" class="post-meta-item leancloud_visitors" data-flag-title="Programing-React-event-handler" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/bf1cac5c.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/bf1cac5c.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="关于-React-事件的疑问"><a href="#关于-React-事件的疑问" class="headerlink" title="关于 React 事件的疑问"></a>关于 React 事件的疑问</h2><ul>
+<li><p>1.为什么要手动绑定<code>this</code></p>
+</li>
+<li><p>2.<code>React</code>事件和原生事件有什么区别</p>
+</li>
+<li><p>3.<code>React</code>事件和原生事件的执行顺序，可以混用吗</p>
+</li>
+<li><p>4.<code>React</code>事件如何解决跨浏览器兼容</p>
+</li>
+<li><p>5.什么是合成事件</p>
+</li>
+</ul>
+<p>下面是我阅读过源码后，将所有的执行流程总结出来的流程图，不会贴代码，如果你想阅读代码看看具体是如何实现的，可以根据流程图去源码里寻找。</p>
+<h2 id="事件注册"><a href="#事件注册" class="headerlink" title="事件注册"></a>事件注册</h2><p><img src="https://lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com/blog/%E4%BA%8B%E4%BB%B6%E6%B3%A8%E5%86%8C.png" alt="image"></p>
+<ul>
+<li>组件装载 / 更新。</li>
+<li>通过<code>lastProps</code>、<code>nextProps</code>判断是否新增、删除事件分别调用事件注册、卸载方法。</li>
+<li>调用<code>EventPluginHub</code>的<code>enqueuePutListener</code>进行事件存储</li>
+<li>获取<code>document</code>对象。</li>
+<li>根据事件名称（如<code>onClick</code>、<code>onCaptureClick</code>）判断是进行冒泡还是捕获。</li>
+<li>判断是否存在<code>addEventListener</code>方法，否则使用<code>attachEvent</code>（兼容 IE）。</li>
+<li>给<code>document</code>注册原生事件回调为<code>dispatchEvent</code>（统一的事件分发机制）。</li>
+</ul>
+<h2 id="事件存储"><a href="#事件存储" class="headerlink" title="事件存储"></a>事件存储</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/bf1cac5c.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/1ac10d5d.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/1ac10d5d.html" class="post-title-link" itemprop="url">Python-高级-使用MongoDB</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-03 14:34:06" itemprop="dateCreated datePublished" datetime="2018-11-03T14:34:06+08:00">2018-11-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">高级技术</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/1ac10d5d.html" class="post-meta-item leancloud_visitors" data-flag-title="Python-高级-使用MongoDB" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/1ac10d5d.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/1ac10d5d.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<h2 id="Python使用MongoDB"><a href="#Python使用MongoDB" class="headerlink" title="Python使用MongoDB"></a>Python使用MongoDB</h2><p>MongoDB相对于传统的关系型数据库，可以存储JSON数据，非常适合存储数据抓取返回的JSON数据。<br>今天主要学习的是使用Python连接MongoDB，并进行增删改查的操作。</p>
+<blockquote>
+<p>MongoDB 的安装及使用，请参照官方文档。<br><a href="https://api.mongodb.com/python/current/installation.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/installation.html</a></p>
+</blockquote>
+<p>在连接MongoDB前 首先要安装的是Python包：PyMongo，包的安装非常的简单。<br>只需执行 <code>pip install pymongo</code> 即可使用。</p>
+<h3 id="创建连接"><a href="#创建连接" class="headerlink" title="创建连接"></a>创建连接</h3><p>在安装完PyMongo以后，使用Python连接MongoDB变得异常简单。具体方式为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"> </span><br><span class="line">client = MongoClient(<span class="string">'localhost'</span>, <span class="number">27017</span>)</span><br></pre></td></tr></table></figure>
+<p>或使用如下方式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"> </span><br><span class="line">client = MongoClient(<span class="string">'mongodb://localhost:27017'</span>)</span><br></pre></td></tr></table></figure>
+<p>如果连接含有账号密码等，请参考：<br><a href="https://api.mongodb.com/python/current/api/pymongo/mongo_client.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/api/pymongo/mongo_client.html</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/1ac10d5d.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/c131969b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/c131969b.html" class="post-title-link" itemprop="url">Python-高级-Numpy简介</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-08 11:21:59" itemprop="dateCreated datePublished" datetime="2018-10-08T11:21:59+08:00">2018-10-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">高级技术</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/c131969b.html" class="post-meta-item leancloud_visitors" data-flag-title="Python-高级-Numpy简介" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/c131969b.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/c131969b.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>4.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Numpy-是什么？"><a href="#Numpy-是什么？" class="headerlink" title="Numpy 是什么？"></a><code>Numpy</code> 是什么？</h2><p><code>Numpy</code> 是 Python 中科学计算的核心库。它提供了一个高性能的多维数组对象，以及用于处理这些数组的工具。</p>
+<blockquote>
+<p>如果您已经熟悉 <code>MATLAB</code> ，那么您可能会发现本教程对 <code>Numpy</code> 入门非常有用。</p>
+</blockquote>
+<p>它主要包含下面内容：</p>
+<ul>
+<li>一个强大的N维数组对象</li>
+<li>复杂的（广播）功能</li>
+<li>用于集成<code>C / C ++</code> 和 <code>Fortran</code> 代码的工具</li>
+<li>提供了丰富的的线性代数，傅里叶变换和随机数等功能</li>
+</ul>
+<p>除了科学计算用途外，<code>NumPy</code> 还可以用作通用数据的高效多维容器。可以定义任意数据类型。这使 <code>NumPy</code> 能够无缝快速地与各种数据库集成。特别在人工智能领域， <code>Numpy</code> 已经是不可或缺的基础库了。</p>
+<h2 id="Numpy-安装"><a href="#Numpy-安装" class="headerlink" title="Numpy 安装"></a>Numpy 安装</h2><p>安装 Numpy 最快的方式是通过 pip 安装，通过下面的命令进行安装</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install numpy</span><br></pre></td></tr></table></figure>
+
+<p>然后按下回车键，系统将会自动安装 Numpy 及 Numpy 引用的包。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1940331-8e598c43a1848784.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Numpy 安装"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/c131969b.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/f40ec33b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/f40ec33b.html" class="post-title-link" itemprop="url">彻底搞懂 volatile 关键字</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-27 09:17:38" itemprop="dateCreated datePublished" datetime="2018-08-27T09:17:38+08:00">2018-08-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/f40ec33b.html" class="post-meta-item leancloud_visitors" data-flag-title="彻底搞懂 volatile 关键字" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/f40ec33b.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/f40ec33b.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>对于 <code>volatile</code> 这个关键字，相信很多朋友都听说过，甚至使用过，这个关键字虽然字面上理解起来比较简单，但是要用好起来却不是一件容易的事。</p>
+<p>这篇文章将从多个方面来讲解 <code>volatile</code>，让你对它更加理解。</p>
+<h2 id="计算机中为什么会出现线程不安全的问题"><a href="#计算机中为什么会出现线程不安全的问题" class="headerlink" title="计算机中为什么会出现线程不安全的问题"></a>计算机中为什么会出现线程不安全的问题</h2><p>volatile 既然是与线程安全有关的问题，那我们先来了解一下计算机在处理数据的过程中为什么会出现线程不安全的问题。</p>
+<p>大家都知道，计算机在执行程序时，每条指令都是在 CPU 中执行的，而执行指令过程中会涉及到数据的读取和写入。由于程序运行过程中的临时数据是存放在主存（物理内存）当中的，这时就存在一个问题，由于 CPU 执行速度很快，而从内存读取数据和向内存写入数据的过程跟 CPU 执行指令的速度比起来要慢的多，因此如果任何时候对数据的操作都要通过和内存的交互来进行，会大大降低指令执行的速度。</p>
+<p>为了处理这个问题，在 CPU 里面就有了高速缓存( Cache )的概念。当程序在运行过程中，会将运算需要的数据从主存复制一份到CPU的高速缓存当中，那么 CPU 进行计算时就可以直接从它的高速缓存读取数据和向其中写入数据，当运算结束之后，再将高速缓存中的数据刷新到主存当中。</p>
+<p>我举个简单的例子，比如cpu在执行下面这段代码的时候,</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t = t + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/f40ec33b.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/6356bc2e.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/6356bc2e.html" class="post-title-link" itemprop="url">聊一聊 Flask 的 jsonify</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-07 13:52:49" itemprop="dateCreated datePublished" datetime="2018-07-07T13:52:49+08:00">2018-07-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">高级技术</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/6356bc2e.html" class="post-meta-item leancloud_visitors" data-flag-title="聊一聊 Flask 的 jsonify" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/6356bc2e.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/6356bc2e.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>首先我们来看一段 Python 代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, jsonify</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">tasks = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 python_mastery 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/python_mastery'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 pythonml 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/pythonml'</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/api/v1.0/tasks', methods=['GET'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_tasks</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'tasks'</span>: tasks&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<p>在这段代码里面，我们看到了今天的主角 <code>jsonify</code>。</p>
+<p>Flask 框架里，可以用 <code>jsonify</code> 返回 json 数据，但是为什么不用 <code>Python</code> 自带的 <code>json</code> 模块返回 JSON 数据呢？</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/6356bc2e.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/b532d94d.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/b532d94d.html" class="post-title-link" itemprop="url">Spring Boot Web 应用加速</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-04-29 15:22:40" itemprop="dateCreated datePublished" datetime="2018-04-29T15:22:40+08:00">2018-04-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/Spring-Boot/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring Boot</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/b532d94d.html" class="post-meta-item leancloud_visitors" data-flag-title="Spring Boot Web 应用加速" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/b532d94d.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/b532d94d.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>6.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Spring-Boot-Web-应用加速"><a href="#Spring-Boot-Web-应用加速" class="headerlink" title="Spring Boot Web 应用加速"></a>Spring Boot Web 应用加速</h1><p>默认情况下，Spring Boot Web 应用会装配一些功能组件 Bean。</p>
+<p>在大多数 Web 应用场景下，可以选择性地关闭一下自动装配的Spring 组件 Bean，以达到提升性能的目的。</p>
+<h2 id="配置项优化"><a href="#配置项优化" class="headerlink" title="配置项优化"></a>配置项优化</h2><h3 id="Spring-Boot-Web-应用加速-完整配置项"><a href="#Spring-Boot-Web-应用加速-完整配置项" class="headerlink" title="Spring Boot Web 应用加速 完整配置项"></a>Spring Boot Web 应用加速 完整配置项</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">management.add-application-context-header</span> = <span class="string">false</span></span><br><span class="line"><span class="meta">spring.mvc.formcontent.putfilter.enabled</span> = <span class="string">false</span></span><br><span class="line"></span><br><span class="line"><span class="meta">spring.autoconfigure.exclude</span> = <span class="string">org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration,\</span></span><br><span class="line">org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.JndiDataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.transaction.jta.JtaAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.WebSocketAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.WebSocketMessagingAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mail.MailSenderValidatorAutoConfiguration,\</span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceRepositoryAutoConfiguration,\</span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceWebFilterAutoConfiguration,\</span><br><span class="line"><span class="attr">org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置项汇总"><a href="#配置项汇总" class="headerlink" title="配置项汇总"></a>配置项汇总</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">spring.autoconfigure.exclude</span> = <span class="string">org.springframework.boot.actuate.autoconfigure.TraceRepositoryAutoConfiguration,\</span></span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceWebFilterAutoConfiguration,\</span><br><span class="line"><span class="attr">org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/b532d94d.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/a456434.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/a456434.html" class="post-title-link" itemprop="url">Android Gradle实用技巧-批量控制生成的APK文件名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-03-17 12:11:05" itemprop="dateCreated datePublished" datetime="2018-03-17T12:11:05+08:00">2018-03-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Android/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">系统工具</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/a456434.html" class="post-meta-item leancloud_visitors" data-flag-title="Android Gradle实用技巧-批量控制生成的APK文件名" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/a456434.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/a456434.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在讲批量修改APK文件名之前，我们讲一下关于Android Gradle插件集成的Task任务问题。普通的Java工程比较简单，因为它有一个有限的任务集合，而且它的属性或者方法都是Java Gradle插件添加的，比较固定，而且我们访问任务以及任务里的方法和属性都比较方便，比如classes这个编译Java源代码的任务，我们通过project.tasks.classes就可以访问它，非常快捷。</p>
+<p>但是对于Android工程，就不行了，Android工程相对与Java工程来说，要复杂的多，因为它有很多相同的任务，这些任务的名字都是通过Build Types和Product Flavors 生成的，是动态的创建和生成的，而且时机比较靠后，如果你还像原来一样在某个闭包里通过project.tasks获取一个任务，会提示找不到该任务，因为还没有生成。</p>
+<p>既然要修改生成的Apk文件名，那么我们就要修改Android Gradle打包的输出，为了解决上面提到的问题（不限于此），android对象为我们提供了2个属性：</p>
+<ul>
+<li>applicationVariants (仅仅适用于Android应用Gradle插件)</li>
+<li>libraryVariants (仅仅适用于Android库Gradle插件)</li>
+<li>testVariants (以上两种Gradle插件都使用)</li>
+</ul>
+<p>以上三个属性返回的都是DomainObjectSet对象集合，里面元素分别是ApplicationVariant、LibraryVariant和TestVariant。这三个元素直译来看是变体，通俗的讲他们就是Android构建的产物，比如ApplicationVariant可以代表google渠道的release包，也可以代表dev开发用的debug包，我们上面提到了，他们基于Build Types和Product Flavors生成的产物。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/a456434.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/cab84e7e.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/cab84e7e.html" class="post-title-link" itemprop="url">Android Gradle实用技巧-自动生成版本信息</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-03-13 12:02:03" itemprop="dateCreated datePublished" datetime="2018-03-13T12:02:03+08:00">2018-03-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Android/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">系统工具</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/cab84e7e.html" class="post-meta-item leancloud_visitors" data-flag-title="Android Gradle实用技巧-自动生成版本信息" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/cab84e7e.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/cab84e7e.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>每一个 App 都会有一个版本号，这样用户就知道自己安装的应用是哪个版本，是不是最新版，有了问题，也可以找客服报上自己的版本，让客服有针对性的帮用户解决问题。</p>
+<p>一般的版本有三部分构成：major.minor.patch，第一个是主版本号，第二个是副版本号，第三位补丁号，这种我们常见的见识 1.0.0 这样的，当然也有两位的 1.0，对应 major.minor，这里我们以三位为例。</p>
+<p>原始的版本信息配置方式<br>最开始的时候我们都是配置在 build 文件里的，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">compileSdkVersion <span class="number">23</span></span><br><span class="line">buildToolsVersion <span class="string">"23.0.1"</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        applicationId <span class="string">"com.youdaily.app"</span></span><br><span class="line">        minSdkVersion <span class="number">14</span></span><br><span class="line">        targetSdkVersion <span class="number">23</span></span><br><span class="line">        versionCode <span class="number">1</span></span><br><span class="line">        versionName <span class="string">"1.0.0"</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/cab84e7e.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/1f2db1d3.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/1f2db1d3.html" class="post-title-link" itemprop="url">Android Gradle实用技巧-隐藏Android签名文件和密钥信息</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-03-10 11:49:40" itemprop="dateCreated datePublished" datetime="2018-03-10T11:49:40+08:00">2018-03-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Android/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">系统工具</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/1f2db1d3.html" class="post-meta-item leancloud_visitors" data-flag-title="Android Gradle实用技巧-隐藏Android签名文件和密钥信息" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/1f2db1d3.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/1f2db1d3.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>4.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="什么是Gradle"><a href="#什么是Gradle" class="headerlink" title="什么是Gradle"></a>什么是Gradle</h2><p>Gradle是一款非常优秀的构建系统工具，它使用可以配置的DSL语言描述构建流程，同时允许我们使用原生的Java和Groovy编码的方式进行构建，所以相比Ant、Maven这些非常灵活。</p>
+<p>在Gradle中，大部分的构建都是通过Gradle的插件来完成的，插件是Gradle非常好的一个设计，Gradle提供了一个核心可以扩展的平台，然后通过插件来扩展Gradle的能力，灵活方便。</p>
+<p>Gradle本身提供了非常多的插件，比如java，war，scala等，可以满足我们的绝大多数需求。如果内置的插件不能满足需求，可以使用第三方开发的插件，甚至自己开发可以满足自己需求的插件。</p>
+<p>Gradle官网：<code>https://gradle.org/</code><br>Gradle文档：<code>https://gradle.org/docs</code><br>Gradle插件：<code>https://plugins.gradle.org/</code></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/1f2db1d3.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/a8db4150.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/a8db4150.html" class="post-title-link" itemprop="url">Dubbo 注解驱动</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-28 15:28:13" itemprop="dateCreated datePublished" datetime="2017-11-28T15:28:13+08:00">2017-11-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/Dubbo/" itemprop="url" rel="index">
+                    <span itemprop="name">Dubbo</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/a8db4150.html" class="post-meta-item leancloud_visitors" data-flag-title="Dubbo 注解驱动" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/a8db4150.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/a8db4150.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>16k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>15 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Dubbo-注解驱动（Annotation-Driven）"><a href="#Dubbo-注解驱动（Annotation-Driven）" class="headerlink" title="Dubbo 注解驱动（Annotation-Driven）"></a>Dubbo 注解驱动（Annotation-Driven）</h1><h2 id="注解驱动（Annotation-Driven）"><a href="#注解驱动（Annotation-Driven）" class="headerlink" title="注解驱动（Annotation-Driven）"></a>注解驱动（Annotation-Driven）</h2><h3 id="DubboComponentScan"><a href="#DubboComponentScan" class="headerlink" title="@DubboComponentScan"></a><code>@DubboComponentScan</code></h3><h4 id="起始版本：-2-5-7"><a href="#起始版本：-2-5-7" class="headerlink" title="起始版本： 2.5.7"></a>起始版本： <code>2.5.7</code></h4><h4 id="lt-dubbo-annotation-gt-历史遗留问题"><a href="#lt-dubbo-annotation-gt-历史遗留问题" class="headerlink" title="&lt;dubbo:annotation&gt;历史遗留问题"></a><code>&lt;dubbo:annotation&gt;</code>历史遗留问题</h4><h5 id="1-注解支持不充分"><a href="#1-注解支持不充分" class="headerlink" title="1. 注解支持不充分"></a>1. 注解支持不充分</h5><p>在 Dubbo <code>2.5.7</code>之前的版本 ，Dubbo 提供了两个核心注解 <code>@Service</code> 以及 <code>@Reference</code>，分别用于 Dubbo 服务提供和 Dubbo 服务引用。</p>
+<p>其中，<code>@Service</code> 作为 XML 元素 <code>&lt;dubbo:service&gt;</code>的替代注解，与 Spring Framework <code>@org.springframework.stereotype.Service</code> 类似，用于服务提供方 Dubbo 服务暴露。与之相对应的<code>@Reference</code>，则是替代<code>&lt;dubbo:reference</code> 元素，类似于 Spring 中的 <code>@Autowired</code>。</p>
+<p><code>2.5.7</code> 之前的 Dubbo，与早期的 Spring Framework 2.5 存在类似的不足，即注解支持不够充分。注解需要和 XML 配置文件配合使用，如下所示：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:dubbo</span>=<span class="string">"http://code.alibabatech.com/schema/dubbo"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"annotation-provider"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">"127.0.0.1:4548"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:annotation</span> <span class="attr">package</span>=<span class="string">"com.alibaba.dubbo.config.spring.annotation.provider"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/a8db4150.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/8d323c45.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/8d323c45.html" class="post-title-link" itemprop="url">Python-基础-日期和时间</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-22 13:47:33" itemprop="dateCreated datePublished" datetime="2017-11-22T13:47:33+08:00">2017-11-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/8d323c45.html" class="post-meta-item leancloud_visitors" data-flag-title="Python-基础-日期和时间" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/8d323c45.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/8d323c45.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>3.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<p>Python程序可以通过多种方式来处理日期和时间。<br>日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。</p>
+<h2 id="什么是刻度？"><a href="#什么是刻度？" class="headerlink" title="什么是刻度？"></a>什么是刻度？</h2><p>时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。</p>
+<p>在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 <code>time.time()</code>返回当前系统时间，从1970年1月1日12点起来的秒数。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time;  <span class="comment"># This is required to include time module.</span></span><br><span class="line"></span><br><span class="line">ticks = time.time()</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Number of ticks since 12:00am, January 1, 1970:"</span>, ticks)</span><br></pre></td></tr></table></figure>
+
+<p>将产生一个结果，如下 -</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number of ticks since <span class="number">12</span>:<span class="number">00</span>am, January <span class="number">1</span>, <span class="number">1970</span>: <span class="number">1568018748.2947338</span></span><br></pre></td></tr></table></figure>
+
+<p>日期计算使用刻度线是很容易做到的。<br>然而，新纪元日期之前不能以这种形式表示。在未来的一个日期也不能表示这种方式, 分界点是在某个时候，在 UNIX和Windows上为 2038年。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/8d323c45.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">You的日常</p>
+  <div class="site-description" itemprop="description">Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/e8c3cb999dc5" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;e8c3cb999dc5" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i>简书</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">You的日常</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">297k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:30</span>
+</div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df0bed512824580" async="async"></script>
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+            'X-LC-Key': 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 22317,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: false,
+      appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+      appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+      placeholder: "请留下您的意见吧：",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: '' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

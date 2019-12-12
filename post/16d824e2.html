@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.youdaily.world').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="引言体能训练是一种开源的程序它所依仗的并不是固有的方法手段，而是能够贯穿始终的逻辑，它是一种指导实践的思维方式，我们管它叫“体能思路”。 体能思路有两个方向，一个是原点，一个是过程。所谓原点我们认为是人体的本质属性，比如之前我们分享的五大运动素质以及动力链理论。所谓过程是我们分析问题实现目的的思考方向以及逻辑，它主要体现在接下来要跟大家分享的功能性原则和金字塔。 今天先来说功能性原则。 功能性我们">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「体能训练理论」之功能性">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.youdaily.world&#x2F;post&#x2F;16d824e2.html">
+<meta property="og:site_name" content="You的日常">
+<meta property="og:description" content="引言体能训练是一种开源的程序它所依仗的并不是固有的方法手段，而是能够贯穿始终的逻辑，它是一种指导实践的思维方式，我们管它叫“体能思路”。 体能思路有两个方向，一个是原点，一个是过程。所谓原点我们认为是人体的本质属性，比如之前我们分享的五大运动素质以及动力链理论。所谓过程是我们分析问题实现目的的思考方向以及逻辑，它主要体现在接下来要跟大家分享的功能性原则和金字塔。 今天先来说功能性原则。 功能性我们">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;ws1.sinaimg.cn&#x2F;large&#x2F;006tKfTcgy1fhg24pm22dj30e709474v.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ws1.sinaimg.cn&#x2F;large&#x2F;006tKfTcgy1fhg251pmatj30go0b5q5d.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ws2.sinaimg.cn&#x2F;large&#x2F;006tKfTcgy1fhg25l7ep2j30g609o0ue.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ws2.sinaimg.cn&#x2F;large&#x2F;006tKfTcgy1fhg26a2ve0j30go0ce76n.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ws4.sinaimg.cn&#x2F;large&#x2F;006tKfTcgy1fhg26h6oejj30go09lwgj.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ws2.sinaimg.cn&#x2F;large&#x2F;006tKfTcgy1fhg26rdi6vj30go0b4goo.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ws2.sinaimg.cn&#x2F;large&#x2F;006tKfTcgy1fhg276m81pj31h50rgtbv.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ws2.sinaimg.cn&#x2F;large&#x2F;006tKfTcgy1fhg28jvnhqj30dw099q3z.jpg">
+<meta property="article:published_time" content="2017-08-15T06:45:13.000Z">
+<meta property="article:modified_time" content="2019-11-29T09:12:48.468Z">
+<meta property="article:author" content="You的日常">
+<meta property="article:tag" content="锻炼">
+<meta property="article:tag" content="日常生活">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;ws1.sinaimg.cn&#x2F;large&#x2F;006tKfTcgy1fhg24pm22dj30e709474v.jpg">
+
+<link rel="canonical" href="http://www.youdaily.world/post/16d824e2.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>「体能训练理论」之功能性 | You的日常</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">You的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">You的日常，我们的日常</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/16d824e2.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          「体能训练理论」之功能性
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-15 14:45:13" itemprop="dateCreated datePublished" datetime="2017-08-15T14:45:13+08:00">2017-08-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E9%94%BB%E7%82%BC/" itemprop="url" rel="index">
+                    <span itemprop="name">锻炼</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/16d824e2.html" class="post-meta-item leancloud_visitors" data-flag-title="「体能训练理论」之功能性" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/16d824e2.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/16d824e2.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>体能训练是一种开源的程序它所依仗的并不是固有的方法手段，而是能够贯穿始终的逻辑，它是一种指导实践的思维方式，我们管它叫“体能思路”。</p>
+<p>体能思路有两个方向，一个是原点，一个是过程。所谓原点我们认为是人体的本质属性，比如之前我们分享的五大运动素质以及动力链理论。所谓过程是我们分析问题实现目的的思考方向以及逻辑，它主要体现在接下来要跟大家分享的功能性原则和金字塔。</p>
+<p>今天先来说功能性原则。</p>
+<h2 id="功能性"><a href="#功能性" class="headerlink" title="功能性"></a>功能性</h2><p>我们所说的功能性是一种解决问题的思维方式，而功能性训练则定义了一种多关节参与，多平面运动的复杂练习。功能性训练是具体的，比较好理解，我就不赘述了，也不评价其优劣，因为在“功能性”的思维方式下，只存在目标之下的合适与否。</p>
+<h3 id="什么是功能性？"><a href="#什么是功能性？" class="headerlink" title="什么是功能性？"></a>什么是功能性？</h3><p>我们把它定义为目标导向下的效率，所以它是一种程度的体现。如果一个练习与目标的相关性强，那么我们认为它具备较强的功能意义；而如果一个练习与它的目标背道而驰，那么我们就认为它缺乏功能意义。</p>
+<a id="more"></a>
+<p>举个例子，对于偏瘫患者来说，一个手指的屈伸就已经具备非常强的功能意义了，而对于一个马拉松爱好者来说，静蹲的价值可能并不是想象中那么高。</p>
+<p>一般来说，在思考功能性问题的时候我习惯从以下三个方面入手：<strong>肌肉的生理适应</strong> 、<strong>动作模式</strong> 和 <strong>专项需求</strong>。</p>
+<h4 id="1-肌肉的生理适应"><a href="#1-肌肉的生理适应" class="headerlink" title="1. 肌肉的生理适应"></a>1. 肌肉的生理适应</h4><p>其实练肌肉谁都会，是一个相对好入手的技能，但是当你给这个行为赋予体能训练使命的时候就需要思考一些问题，比如说你现在练习所发展的东东真的是你实际运动中所需要的东东么？</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fhg24pm22dj30e709474v.jpg" alt=""></p>
+<p>我们都知道肌肉的生理收缩模式可以简单的分为向心收缩，离心收缩和静力收缩。现在的研究表明，这三种收缩模式的练习所产生的适应性提高存在显著的特异性。也就是说我向心练习所发展的能力只在向心运动中表现最好，在离心和静力中都不佳。同样，离心收缩也只能获得最好的离心能力收益。而静力就更变态，其训练最佳效果仅仅体现在所锻炼的关节角度下，换一个角度能够迁移的效果有可能都不到一半儿。这样看来，你的训练是不是并没有达到你想要的效果呢？</p>
+<p>举个例子：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fhg251pmatj30go0b5q5d.jpg" alt=""></p>
+<p>为什么静蹲对于跑步爱好者来说可能并没有那么理想？因为膝关节股四头肌在跑步中以离心缓冲为主，而且角度在伸膝末端的30°左右，而静蹲却是在屈曲90°左右的角度下呆着不动……着不动……不动……动……</p>
+<p>除此之外，需要考虑的问题还很多，比如说发力模式，是加速？减速？还是匀速？再比如关节活动角度上发力点的位置，是伸展末端发力？屈曲极限发力？还是在屈伸过程中的某一点发力？阻力加在哪里，就会在哪里产生最好的适应，那么功能的意义就体现在这里。</p>
+<h4 id="2-动作模式"><a href="#2-动作模式" class="headerlink" title="2. 动作模式"></a>2. 动作模式</h4><p>动作模式是动作程序的体现，而基础动作模式是诸多复杂动作模式共性的抽象体现，并且基础动作模式一定是符合解剖结构和生物力学特点的，说白了也就是我们人体被设计来应该完成的动作。</p>
+<p>如果说大多数运动都可以认为是基础动作模式的升级与排列组合，同时基础动作模式本身又能衍生出来很多训练动作，那么选择和实际运动相对应的练习就是另一个功能性的体现了。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fhg25l7ep2j30g609o0ue.jpg" alt=""></p>
+<p>比如说发展起跳能力，因为跳是蹲的升级，所以我一定首选深蹲练习；再比如说跑步，存在大量的下肢摆动与支撑的交替，摆动可以认为是下肢开链屈髋与蹬伸，而支撑可以认为是下肢单腿蹲的一瞬间，那么我会选择箱式单腿蹲，保加利亚蹲，悬垂屈髋等等；再再比如，拳击是基于“旋转”加“上肢推”加“单腿蹲”的动作模式，那么我就要练习剪蹲…旋转…单臂…推举…吗？</p>
+<p>其实动作模式的选择要结合动力链一起去思考，这里除了要思考开链还是闭链之外，还要考虑动力链的完整性以及发力的顺序或者说是力学结构。说到上肢推的动作模式，水平推的话我相信很多人都会想到卧推和俯卧撑，那么这两个动作的功能性如何评价呢？</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fhg26a2ve0j30go0ce76n.jpg" alt=""></p>
+<p><strong>卧推</strong>，一个挺奇葩的动作，奇葩在哪呢？来，咱们数数卧推的主动关节都有哪些：肩关节，肘关节。那么我们上肢链在上肢推动作模式下参与的关节都有哪些呢？肩关节，肘关节！就这些么？再想想！其实你还疏漏了一个非常重要的关节——<strong>肩胛胸关节</strong>！几乎所有上肢的动作都以肩胛胸关节的运动为基础，而卧推却并没有，特别是标准的卧推~</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fhg26h6oejj30go09lwgj.jpg" alt=""></p>
+<p><strong>俯卧撑</strong>，虽然肩胛胸，肩关节，肘关节全面参与到运动中去，但不巧的是它是一个闭链运动，而实际运动中我们的上肢会以开链为主！呵呵~</p>
+<p>别着急，认真你就输了！上面两段其实是个伪命题，我这么做主要是想通过这个平易近人的例子来帮助大家掌握的分析问题的思路！如果你需要发展上肢最大力量表现，那么显然卧推是你的首选。而如果你要优化上肢的力学结构，特别是水平推的发力顺序，那么俯卧撑是你首选。再如果你要提高上肢的延展性以及伴随旋转的加速能力，那么单臂水平推的练习给你的帮助最大！</p>
+<p>所以，选择什么，看目标喽~</p>
+<h4 id="3-专项需求"><a href="#3-专项需求" class="headerlink" title="3. 专项需求"></a>3. 专项需求</h4><p>其实这个非常好理解，也是功能性原则的根本目的，但是为了和上面两个方向区分开，这里主要针对的是不同的运动素质需求。</p>
+<p>Q：对一个英超的后卫进行长距离高强度的游泳练习是否具备功能性意义？！</p>
+<p>A：具备！</p>
+<p>Q：为什么？</p>
+<p>A：因为他喜欢游泳，这个可以让他心情愉悦然后更好的训练和比赛！</p>
+<p>咳咳！当然，这样的答案是合情合理的！但是我们不妨换一个角度去分析。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fhg26rdi6vj30go0b4goo.jpg" alt=""></p>
+<p>英超，几乎是足球联赛中对抗最强的，他们的后卫每场比赛动不动就跑个8千1万的，而这8千1万真心不是慢慢悠悠颠儿下来的，而是各种加速减速变向拼抢，所以其强度非常之大。那么这就需要很好的心肺系统功能，一方面体现在有氧与无氧耐力上，另一方面呼吸器官的机能上。游泳练习，不仅可以提高有氧以及无氧耐力，其水环境还可以给胸扩张带来阻力，直接锻炼了呼吸肌的收缩能力。另外，水环境真的能够给人们带来愉悦的感觉，特别是水流水压给肌肉和筋膜的按摩效果，真的是一举两得的“功能性”训练。</p>
+<p>还有，你以为篮球运动员的拳击练习真的只是给枯燥乏味的体能训练增加一点乐趣么？并不是！</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fhg276m81pj31h50rgtbv.jpg" alt=""></p>
+<p><strong>1. 拳击可以在发生场内冲突的时候很好地保护自己；</strong></p>
+<p><strong>2. 拳击运动可以强化旋转动作模式下的速度、稳定、和准确性；</strong></p>
+<p><strong>3. 拳击是手脚高度协调的运动，对于发展手脚搭配的动作灵敏有神奇的效果。</strong></p>
+<p>而这些不就是一名篮球运动员所需要的么？！</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>所以，功能性原则，解决的是“<strong>为什么练</strong>（for！not why）以及 <strong>练什么</strong>”的问题！</p>
+<p>如果我们是简单活动活动身体那就算了，但如果我们要进行一个有针对性的体能训练，那么请琢磨琢磨你选择的动作是否合理，是否能够满足你的专项需求！</p>
+<p>所以，招财猫式弹力带抗阻外旋真的是练习肩袖首推的动作么？</p>
+<p>所以，蚌式练习和dirty dog真的是发展髋外旋外展能力最好的练习么？</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fhg28jvnhqj30dw099q3z.jpg" alt=""></p>
+<p>所以，仰卧卷腹发展出来的腹直肌是好看呢？还是好用呢？</p>
+<p>所以，我们真的要来一次大清洗，摒弃掉我们以前那些练习么？</p>
+<p>当然不要！每一个动作都有它存在的意义，都有它的价值所在！有可能这个动作和你要发展的能力不直接相关，但是它可能是你进行“功能性”训练的基础，你不得不去做它！</p>
+<p>所以，训练的逻辑很重要！</p>
+<blockquote>
+<p>转自<a href="https://zhuanlan.zhihu.com/p/20786373" target="_blank" rel="noopener">《体能训练之功能性》</a></p>
+</blockquote>
+
+    </div>
+
+    
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E9%94%BB%E7%82%BC/" rel="tag"><i class="fa fa-tag"></i> 锻炼</a>
+              <a href="/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" rel="tag"><i class="fa fa-tag"></i> 日常生活</a>
+          </div>
+
+        
+        <div>
+          
+            
+          
+        </div>  
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/96274c74.html" rel="prev" title="通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers">
+      <i class="fa fa-chevron-left"></i> 通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/4113901c.html" rel="next" title="「体能训练理论」之动力链">
+      「体能训练理论」之动力链 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能性"><span class="nav-number">2.</span> <span class="nav-text">功能性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是功能性？"><span class="nav-number">2.1.</span> <span class="nav-text">什么是功能性？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-肌肉的生理适应"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. 肌肉的生理适应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-动作模式"><span class="nav-number">2.1.2.</span> <span class="nav-text">2. 动作模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-专项需求"><span class="nav-number">2.1.3.</span> <span class="nav-text">3. 专项需求</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">You的日常</p>
+  <div class="site-description" itemprop="description">Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/e8c3cb999dc5" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;e8c3cb999dc5" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i>简书</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">You的日常</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">297k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:30</span>
+</div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df0bed512824580" async="async"></script>
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+            'X-LC-Key': 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 22317,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: false,
+      appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+      appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+      placeholder: "请留下您的意见吧：",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: '' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

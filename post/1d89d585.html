@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.youdaily.world').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="在工作学习中，我们经常会需要将自己的开发成果对外提供服务，此时的选择很多，但是什么才是最高效的呢？ 想必聪明的你，已经想到了：通过 API 的方式对外提供服务。既然我们在学习 Python 过程中，那我们就使用 Python 来实现自己的 API 吧。 下面将从下面几个方面进行讲解：  API 简介 RESTful API 简介 使用Python Flask 实现 RESTful API   AP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Python Flask 实现 RESTful API">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.youdaily.world&#x2F;post&#x2F;1d89d585.html">
+<meta property="og:site_name" content="You的日常">
+<meta property="og:description" content="在工作学习中，我们经常会需要将自己的开发成果对外提供服务，此时的选择很多，但是什么才是最高效的呢？ 想必聪明的你，已经想到了：通过 API 的方式对外提供服务。既然我们在学习 Python 过程中，那我们就使用 Python 来实现自己的 API 吧。 下面将从下面几个方面进行讲解：  API 简介 RESTful API 简介 使用Python Flask 实现 RESTful API   AP">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;711398c10c7e7dee36a0e17a28efb00a.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;93a094856a1e7c74ab3c92f4e180ba66.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;7216c0b416a349237ddec9b2a5cfcdf9.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;1efeaa08c6403904824c96b21b528b81.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;fafa73efa68f6532801f92d4c1f9627c.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;672c558fba34aa19096446cfbc82dbb1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;a637eb063fc96ceb8c483e74fe956f41.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;b5fbbda40e05b9f774f245493f9f9e14.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;0c57c10023df70c913da73e3ad2bbbbf.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;a637eb063fc96ceb8c483e74fe956f41.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;9cf8ee53537e2369b88a0de7a18389c4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;c401c2b24ac93baedb12910bb6f771db.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;e6dd4df100b1ac6b504726810dfa2646.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;b749b5151105a428c450b07baa5de32f.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;2af3f6b1c73091f4c29c777df0ec06dc.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;09&#x2F;VhvX5WilLEOIwGN.jpg">
+<meta property="article:published_time" content="2019-10-18T03:36:18.000Z">
+<meta property="article:modified_time" content="2019-12-10T02:03:23.828Z">
+<meta property="article:author" content="You的日常">
+<meta property="article:tag" content="编程技术">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="高级技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;images.xiaozhuanlan.com&#x2F;photo&#x2F;2019&#x2F;711398c10c7e7dee36a0e17a28efb00a.png">
+
+<link rel="canonical" href="http://www.youdaily.world/post/1d89d585.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>使用Python Flask 实现 RESTful API | You的日常</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">You的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">You的日常，我们的日常</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/1d89d585.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          使用Python Flask 实现 RESTful API
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-18 11:36:18" itemprop="dateCreated datePublished" datetime="2019-10-18T11:36:18+08:00">2019-10-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">高级技术</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/1d89d585.html" class="post-meta-item leancloud_visitors" data-flag-title="使用Python Flask 实现 RESTful API" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/1d89d585.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/1d89d585.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>11k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>10 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在工作学习中，我们经常会需要将自己的开发成果对外提供服务，此时的选择很多，但是什么才是最高效的呢？</p>
+<p>想必聪明的你，已经想到了：通过 <code>API</code> 的方式对外提供服务。既然我们在学习 Python 过程中，那我们就使用 Python 来实现自己的 API 吧。</p>
+<p>下面将从下面几个方面进行讲解：</p>
+<ul>
+<li>API 简介</li>
+<li>RESTful API 简介</li>
+<li>使用Python Flask 实现 RESTful API</li>
+</ul>
+<hr>
+<h2 id="API-简介"><a href="#API-简介" class="headerlink" title="API 简介"></a>API 简介</h2><p>API 是英语 <code>Application Programming Interfaces</code> 的3个首字母组成的，翻译成中文即 <code>应用程序编程接口</code>。</p>
+<p>API 通常是由服务器（Server）提供（服务器有各种各样的类型，一般我们浏览网页用到的是web server，即网络服务器），通过调用 API，本地计算机可以读取、编辑网站数据，就像人类可以加载网页、提交信息等。</p>
+<p>通俗地，API可以理解为家用电器的插头，用户(本地电脑)只需要将插头插入插座的，不需要考虑电器内部(服务器)里面是如何运作的。通过提供 API, 将内部的实现细节封装了起来，对本地电脑简化的流程，同时减少了出错的可能。</p>
+<p>另外一个角度上讲API是一套协议，规定了与外界的沟通方式：如何发送请求和接受响应。只有大家同遵循同样的方式，就可以很快速的接入我们的服务。</p>
+<hr>
+<h2 id="RESTful-API-简介"><a href="#RESTful-API-简介" class="headerlink" title="RESTful API 简介"></a>RESTful API 简介</h2><p>RESTful API 即满足 RESTful 风格设计的API，RESTful 表示的是一种互联网软件架构(以网络为基础的应用软件的架构设计)，如果一个架构符合 <code>REST</code> (Representational State Transfer的缩写，翻译成中文是 <code>&quot;表现层状态转化&quot;</code>.)原则，就称它为 RESTful 架构。</p>
+<p>那什么是 <code>REST</code> 原则呢？<code>Representational State Transfer</code> 这个词组到底是什么意思，它的每一个词代表了什么涵义。如果你把这个名称搞懂了，基本就理解了什么是 <code>REST</code> 设计原则。</p>
+<p>从下面几个角度来分解这个问题。</p>
+<blockquote>
+<p>下面的部分内容可以忽略，可以直接跳到总结的部分。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="资源（Resources）"><a href="#资源（Resources）" class="headerlink" title="资源（Resources）"></a>资源（Resources）</h3><p>REST 的名称”表现层状态转化”中，省略了主语。 <code>&quot;表现层&quot;</code> 其实指的是 <code>&quot;资源&quot;</code> （Resources）的 <code>&quot;表现层&quot;</code> 。</p>
+<p>所谓 <code>&quot;资源&quot;</code> ，就是网络上的一个实体，或者说是网络上的一个具体信息。</p>
+<p>它可以是一段文本、一张图片、一首歌曲、一种服务，总之就是一个具体的实在。<br>你可以用一个URI（统一资源定位符）指向它，每种资源对应一个特定的URI。要获取这个资源，访问它的URI就可以，因此URI就成了每一个资源的地址或独一无二的识别符。</p>
+<p>所谓 <code>上网</code>，就是与互联网上一系列的 <code>&quot;资源&quot;</code> 互动，调用它的URI。</p>
+<h3 id="表现层（Representation）"><a href="#表现层（Representation）" class="headerlink" title="表现层（Representation）"></a>表现层（Representation）</h3><p><code>&quot;资源&quot;</code> 是一种信息实体，它可以有多种外在表现形式。我们把 <code>&quot;资源&quot;</code> 具体呈现出来的形式，叫做它的 <code>&quot;表现层&quot;</code> （Representation）。</p>
+<p>比如，文本可以用txt格式表现，也可以用HTML格式、XML格式、JSON格式表现，甚至可以采用二进制格式；图片可以用JPG格式表现，也可以用PNG格式表现。</p>
+<p>URI只代表资源的实体，不代表它的形式。它的具体表现形式，应该在HTTP请求的头信息中用Accept和Content-Type字段指定，这两个字段才是对 <code>&quot;表现层&quot;</code> 的描述。</p>
+<h3 id="状态转化（State-Transfer）"><a href="#状态转化（State-Transfer）" class="headerlink" title="状态转化（State Transfer）"></a>状态转化（State Transfer）</h3><p>访问一个网站，就代表了客户端和服务器的一个互动过程。在这个过程中，势必涉及到数据和状态的变化。</p>
+<p>互联网通信协议HTTP协议，是一个无状态协议。这意味着，所有的状态都保存在服务器端。</p>
+<p>因此，如果客户端想要操作服务器，必须通过某种手段，让服务器端发生”状态转化”（State Transfer）。而这种转化是建立在表现层之上的，所以就是 <code>&quot;表现层状态转化&quot;</code>。</p>
+<p>客户端用到的手段，只能是HTTP协议。</p>
+<p>具体来说，就是HTTP协议里面，四个表示操作方式的动词：GET、POST、PUT、DELETE。</p>
+<p>它们分别对应四种基本操作：GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源。</p>
+<h3 id="简单总结"><a href="#简单总结" class="headerlink" title="简单总结"></a>简单总结</h3><p>RESTful 架构的特点：</p>
+<ul>
+<li><p>每一个URI代表一种资源；</p>
+</li>
+<li><p>客户端和服务器之间，传递这种资源的某种表现层；把 <code>&quot;资源&quot;</code> 具体呈现出来的形式，叫做它的 <code>&quot;表现层&quot;</code> （Representation）。</p>
+<p>  比如，文本可以用txt格式表现，也可以用HTML格式、XML格式、JSON格式表现，甚至可以采用二进制格式；图片可以用JPG格式表现，也可以用PNG格式表现。</p>
+</li>
+<li><p>客户端通过四个HTTP动词，对服务器端资源进行操作，实现”表现层状态转化”。</p>
+<p>  四个表示操作方式的动词分别是：GET、POST、PUT、DELETE。</p>
+<p>  它们分别对应四种基本操作：GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源。</p>
+</li>
+</ul>
+<p>完整的 RESTful API 的简介在这里：</p>
+<p><a href="https://www.restapitutorial.com/lessons/whatisrest.html" target="_blank" rel="noopener">https://www.restapitutorial.com/lessons/whatisrest.html</a> </p>
+<blockquote>
+<p>英文版，可能需要翻墙。</p>
+</blockquote>
+<p>简单总结下官方的介绍的内容：</p>
+<ul>
+<li>Client-Server：服务器端与客户端分离。</li>
+<li>Stateless（无状态）：每次客户端请求必需包含完整的信息，换句话说，每一次请求都是独立的。</li>
+<li>Cacheable（可缓存）：服务器端必需指定哪些请求是可以缓存的。</li>
+<li>Layered System（分层结构）：服务器端与客户端通讯必需标准化，服务器的变更并不会影响客户端。</li>
+<li>Uniform Interface（统一接口）：客户端与服务器端的通讯方法必需是统一的。</li>
+<li>Code on demand（按需执行代码）：服务器端可以在上下文中执行代码或者脚本。</li>
+</ul>
+<hr>
+<h2 id="使用Python-Flask-实现Restful-API"><a href="#使用Python-Flask-实现Restful-API" class="headerlink" title="使用Python Flask 实现Restful API"></a>使用Python Flask 实现Restful API</h2><p>前面啰嗦了这么久终于到这里了，这里才是我们实作的重头戏。</p>
+<p>这部分将从下面的几个环节展开：</p>
+<ul>
+<li>Flask 框架简介</li>
+<li>RESTful services 规划</li>
+<li>Python 实现上面的规划</li>
+<li>优化上面的实现</li>
+</ul>
+<p>下面让我们开始。</p>
+<h3 id="Flask-框架简介"><a href="#Flask-框架简介" class="headerlink" title="Flask 框架简介"></a>Flask 框架简介</h3><p>我们在前面有几篇文章已经介绍过 Flask 框架。</p>
+<p>*<em>python-高级-Flask Hello World *</em><br><a href="https://xiaozhuanlan.com/topic/7256839401" target="_blank" rel="noopener">https://xiaozhuanlan.com/topic/7256839401</a></p>
+<p><strong>Python-高级-Flask 路由</strong><br><a href="https://xiaozhuanlan.com/topic/0758412369" target="_blank" rel="noopener">https://xiaozhuanlan.com/topic/0758412369</a></p>
+<p>里面介绍了 Flask 框架的相关基础知识，同时我们也介绍了关于 Flask 框架路由的知识，如果没看过，请移步到那里去看看。</p>
+<p>在 <code>Python-高级-Flask Hello World</code> 里面，我们写了个最简单的 <code>Hello World</code> 的例子。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello, World!'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+
+<p>我们下面的内容，将基于这个例子进行扩展。</p>
+<p>HTTP(与web应用会话的协议)有许多不同的访问URL方法。<br>默认情况下，<code>Flask</code> 路由只回应GET请求，但是通过 <code>route()</code> 装饰器传递 <code>method</code> s参数可以改变这个行为。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route('/login', methods=['GET', 'POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        do_the_login()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        show_the_login_form()</span><br></pre></td></tr></table></figure>
+
+<p>HTTP 方法（通常也被叫做“谓词”，如上面code 里面的 <code>GET</code> 和 <code>POST</code> ）告知服务器，客户端想对请求的页面做些什么。</p>
+<p>下面的都是非常常见的方法：</p>
+<ul>
+<li>GET(方法)浏览器告知服务器：只 获取 页面上的信息并发给我。这是最常用的方法。</li>
+<li>POST(方法)浏览器告诉服务器：想在 URL 上发布新信息。并且，服务器必须确保 数据已存储且仅存储一次。这是 HTML 表单通常发送数据到服务器的方法。</li>
+<li>PUT(方法)类似 POST 但是服务器可能触发了存储过程多次，多次覆盖掉旧值。你可能会问这有什么用，当然这是有原因的。考虑到传输中连接可能会丢失，这种情况下浏览器和服务器之间的系统可能安全地第二次接收请求，而不破坏其它东西。因为 <code>POST</code> 它只触发一次，所以用 <code>POST</code> 是不可能的。</li>
+<li>DELETE(方法)删除给定位置的信息。</li>
+</ul>
+<h3 id="RESTful-services-规划"><a href="#RESTful-services-规划" class="headerlink" title="RESTful services 规划"></a>RESTful services 规划</h3><p>经过上面知识的准备，我们开始来规划我们的RESTful services。</p>
+<p>这里的规划，通常会与实际的需求有关系。所有的程序设计行为都是要与需求相关联的，如果做出来的东西不符合需求，那做得再好的程序也不是合格的程序。</p>
+<p>回归到这里，我们假设我们的需求如下：写一个 <code>To Do List</code> 应用，并且设计一个web service, 方便使用中查看、添加、修改、删除 这些任务。</p>
+<p><code>To Do List</code> 应用，通常长这样<br><img src="https://images.xiaozhuanlan.com/photo/2019/711398c10c7e7dee36a0e17a28efb00a.png" alt="`To Do List` 应用"></p>
+<p>可能会比较简单，实际的需求会比这个复杂的多。这里举个简单的例子，只是起到 <code>抛砖引玉</code> 的作用。</p>
+<p>我们将分下面几步走来规划这个。</p>
+<h4 id="规划一个根URL"><a href="#规划一个根URL" class="headerlink" title="规划一个根URL"></a>规划一个根URL</h4><p>例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://[hostname]/todo/api/v1.0/</span><br></pre></td></tr></table></figure>
+
+<p>上面的URL包括了应用程序的名称、API版本，这是十分有用的，既提供了命名空间的划分，同时又与其它系统区分开来。</p>
+<p>版本号在升级新特性时十分有用，当一个新功能特性增加在新版本下面时，并不影响旧版本。</p>
+<h4 id="规划资源的URL"><a href="#规划资源的URL" class="headerlink" title="规划资源的URL"></a>规划资源的URL</h4><p>这个例子十分简单，只有任务清单。</p>
+<p>我们定义有以下字段：<br>|HTTP 方法|URL|作用|<br>|—|—|—|<br>|GET|http://[hostname]/todo/api/v1.0/tasks|查看所有的任务|<br>|GET|http://[hostname]/todo/api/v1.0/tasks/task_id|查看特定 id 的任务|<br>|PSOT|http://[hostname]/todo/api/v1.0/tasks|创建一个新的任务|<br>|PUT|http://[hostname]/todo/api/v1.0/tasks/task_id|更新一个已有的任务|<br>|DELETE|http://[hostname]/todo/api/v1.0/tasks/task_id|删除一个任务|</p>
+<p>同时定义一条任务清单包含下面的几个字段：</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>task_id</td>
+<td>唯一标识</td>
+<td>整型</td>
+</tr>
+<tr>
+<td>title</td>
+<td>简短的任务描述</td>
+<td>字符串型</td>
+</tr>
+<tr>
+<td>description</td>
+<td>完整的任务描述</td>
+<td>文本型</td>
+</tr>
+<tr>
+<td>done</td>
+<td>任务完成状态</td>
+<td>布尔值型</td>
+</tr>
+</tbody></table>
+<p>到这里我们的service 规划就完成了，下面我们将使用 Python 来进行实现。</p>
+<h3 id="Python-实现上面的规划"><a href="#Python-实现上面的规划" class="headerlink" title="Python 实现上面的规划"></a>Python 实现上面的规划</h3><p>我们先实现第一个web service的入口点</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, jsonify</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">tasks = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 python_mastery 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/python_mastery'</span>,</span><br><span class="line">        <span class="string">'done'</span>: <span class="literal">False</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 pythonml 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/pythonml'</span>,</span><br><span class="line">        <span class="string">'done'</span>: <span class="literal">False</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/todo/api/v1.0/tasks', methods=['GET'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_tasks</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'tasks'</span>: tasks&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在这里我们看到 <code>jsonify</code> 模块，这个与标准的 <code>json</code> 库的差别，对于目前我们的使用来说，基本可以忽略不计，如果非要深究这个问题，请移步到这里：<a href="https://www.jianshu.com/p/a25357f2d930" target="_blank" rel="noopener">https://www.jianshu.com/p/a25357f2d930</a>.</p>
+</blockquote>
+<p>和最开始的例子相比，并没有改变太多代码。</p>
+<p>我们将任务清单存储在 list 内（内存），list 存放两个非常简单的数组字典。每个实体就是我们上面定义的字段。</p>
+<p>而 index 入口点有一个 <code>get_tasks</code> 函数与 <code>/todo/api/v1.0/tasks</code> URI关联，只接受 HTTP 的 <code>GET</code> 方法。</p>
+<p>这个响应并非一般文本，而是 JSO N格式的数据，是经过 Flask 框架的 <code>jsonify</code> 模块格式化过的数据。</p>
+<p>运行 app.py 。</p>
+<p>使用浏览器去测试 web service 并不是一个好的办法，因为要创建不同种类的 HTTP 请求。这里我们选择第三方工具 <code>postman</code> 来进行验证。</p>
+<p>如果没有安装 <code>postman</code> ，快点去安装一个。</p>
+<p><img src="https://images.xiaozhuanlan.com/photo/2019/93a094856a1e7c74ab3c92f4e180ba66.png" alt="GET `/todo/api/v1.0/tasks`"></p>
+<p>这样就调用了一个RESTful service方法！</p>
+<p>现在，我们写第二个版本的GET方法获取特定的任务。获取单个任务：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> abort</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/todo/api/v1.0/tasks/&lt;int:task_id&gt;', methods=['GET'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_task</span><span class="params">(task_id)</span>:</span></span><br><span class="line">    task = list(filter(<span class="keyword">lambda</span> t: t[<span class="string">'id'</span>] == task_id, tasks))</span><br><span class="line">    <span class="keyword">if</span> len(task) == <span class="number">0</span>:</span><br><span class="line">        abort(<span class="number">404</span>)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'task'</span>: task[<span class="number">0</span>]&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>第二个函数稍稍复杂了一些。任务的 id 包含在 URL 内，Flask 将 task_id 参数传入了函数内。</p>
+<p>通过参数，检索 tasks 数组。如果参数传过来的 id 不存在于数组内，我们需要返回错误代码 404 ，按照 HTTP 的规定，404 意味着是 “Resource Not Found”，资源未找到。</p>
+<p>如果找到任务在内存数组内，我们通过 <code>jsonify</code> 模块将字典打包成 JSON 格式，并发送响应到客户端上。就像处理一个实体字典一样。</p>
+<p>试试 <code>postman</code> 来进行验证<br><img src="https://images.xiaozhuanlan.com/photo/2019/7216c0b416a349237ddec9b2a5cfcdf9.png" alt="请求 `#2 id` 的资源"></p>
+<p>当我们请求 <code>#2 id</code> 的资源时，可以获取，但是当我们请求<code>#3</code> 的资源时返回了 <code>404</code> 错误。并且返回了一段奇怪的 HTML 错误，而不是我们期望的 JSON，这是因为 Flask 产生了默认的 404 响应。<br><img src="https://images.xiaozhuanlan.com/photo/2019/1efeaa08c6403904824c96b21b528b81.png" alt="默认的 404 响应"></p>
+<p>客户端需要收到的都是 JSON 的响应，因此我们需要改进 404 错误处理：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> make_response</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.errorhandler(404)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">not_found</span><span class="params">(error)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> make_response(jsonify(&#123;<span class="string">'error'</span>: <span class="string">'Not found'</span>&#125;), <span class="number">404</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这样我们就得到了友好的API错误响应：<br><img src="https://images.xiaozhuanlan.com/photo/2019/fafa73efa68f6532801f92d4c1f9627c.png" alt="友好的API错误响应"></p>
+<p>接下来我们实现 POST 方法，插入一个新的任务到数组中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> request</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/todo/api/v1.0/tasks', methods=['POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_task</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> request.json <span class="keyword">or</span> <span class="keyword">not</span> <span class="string">'title'</span> <span class="keyword">in</span> request.json:</span><br><span class="line">        abort(<span class="number">400</span>)</span><br><span class="line">    task = &#123;</span><br><span class="line">        <span class="string">'id'</span>: tasks[<span class="number">-1</span>][<span class="string">'id'</span>] + <span class="number">1</span>,</span><br><span class="line">        <span class="string">'title'</span>: request.json[<span class="string">'title'</span>],</span><br><span class="line">        <span class="string">'description'</span>: request.json.get(<span class="string">'description'</span>, <span class="string">""</span>),</span><br><span class="line">        <span class="string">'done'</span>: <span class="literal">False</span></span><br><span class="line">    &#125;</span><br><span class="line">    tasks.append(task)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'task'</span>: task&#125;), <span class="number">201</span></span><br></pre></td></tr></table></figure>
+
+<p>request.json 里面包含请求数据，如果不是 JSON 或者里面没有包括 title 字段，将会返回 <code>400</code> 的错误代码。</p>
+<p>当创建一个新的任务字典，使用最后一个任务 id 数值加 1 作为新的任务 id（最简单的方法产生一个唯一字段）。这里允许不带 description 字段，默认将 done 字段值为 <code>False</code> 。</p>
+<p>将新任务附加到 tasks 数组里面，并且返回客户端 <code>201</code> 状态码和刚刚添加的任务内容。HTTP定义了 <code>201</code> 状态码为“Created”。</p>
+<p>测试上面的新功能：<br><img src="https://images.xiaozhuanlan.com/photo/2019/672c558fba34aa19096446cfbc82dbb1.png" alt="创建一个新的任务"></p>
+<p>其中 <code>postman</code> 上的设定：<br><img src="https://images.xiaozhuanlan.com/photo/2019/a637eb063fc96ceb8c483e74fe956f41.png" alt="header"><br><img src="https://images.xiaozhuanlan.com/photo/2019/b5fbbda40e05b9f774f245493f9f9e14.png" alt="body"></p>
+<p>完成上面的事情，就可以看到更新之后的 list 数组内容：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"tasks"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"description"</span>: <span class="string">"专栏Link： https://xiaozhuanlan.com/python_mastery"</span>,</span><br><span class="line">            <span class="attr">"done"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"title"</span>: <span class="string">"订阅 python_mastery 专栏"</span>,</span><br><span class="line">            <span class="attr">"id"</span>: <span class="number">1</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"description"</span>: <span class="string">"专栏Link： https://xiaozhuanlan.com/pythonml"</span>,</span><br><span class="line">            <span class="attr">"done"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"title"</span>: <span class="string">"订阅 pythonml 专栏"</span>,</span><br><span class="line">            <span class="attr">"id"</span>: <span class="number">2</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"description"</span>: <span class="string">"link https://xiaozhuanlan.com/topic/0758412369"</span>,</span><br><span class="line">            <span class="attr">"done"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"title"</span>: <span class="string">"Read 专栏文章"</span>,</span><br><span class="line">            <span class="attr">"id"</span>: <span class="number">3</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>完成剩下的功能：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route('/todo/api/v1.0/tasks/&lt;int:task_id&gt;', methods=['PUT'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update_task</span><span class="params">(task_id)</span>:</span></span><br><span class="line">    task = list(filter(<span class="keyword">lambda</span> t: t[<span class="string">'id'</span>] == task_id, tasks))</span><br><span class="line">    <span class="keyword">if</span> len(task) == <span class="number">0</span>:</span><br><span class="line">        abort(<span class="number">404</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> request.json:</span><br><span class="line">        abort(<span class="number">400</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">'title'</span> <span class="keyword">in</span> request.json:</span><br><span class="line">        abort(<span class="number">400</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">'description'</span> <span class="keyword">in</span> request.json:</span><br><span class="line">        abort(<span class="number">400</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">'done'</span> <span class="keyword">in</span> request.json <span class="keyword">and</span> type(request.json[<span class="string">'done'</span>]) <span class="keyword">is</span> <span class="keyword">not</span> bool:</span><br><span class="line">        abort(<span class="number">400</span>)</span><br><span class="line">    task[<span class="number">0</span>][<span class="string">'title'</span>] = request.json.get(<span class="string">'title'</span>, task[<span class="number">0</span>][<span class="string">'title'</span>])</span><br><span class="line">    task[<span class="number">0</span>][<span class="string">'description'</span>] = request.json.get(<span class="string">'description'</span>, task[<span class="number">0</span>][<span class="string">'description'</span>])</span><br><span class="line">    task[<span class="number">0</span>][<span class="string">'done'</span>] = request.json.get(<span class="string">'done'</span>, task[<span class="number">0</span>][<span class="string">'done'</span>])</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'task'</span>: task[<span class="number">0</span>]&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/todo/api/v1.0/tasks/&lt;int:task_id&gt;', methods=['DELETE'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delete_task</span><span class="params">(task_id)</span>:</span></span><br><span class="line">    task = list(filter(<span class="keyword">lambda</span> t: t[<span class="string">'id'</span>] == task_id, tasks))</span><br><span class="line">    <span class="keyword">if</span> len(task) == <span class="number">0</span>:</span><br><span class="line">        abort(<span class="number">404</span>)</span><br><span class="line">    tasks.remove(task[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'result'</span>: <span class="literal">True</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p> <code>delete_task</code> 函数没什么太特别的。<br> <code>update_task</code> 函数需要检查所输入的参数，防止产生错误的 bug 。确保是预期的 JSON 格式写入数据库里面。</p>
+<p>测试将任务 #2 的 <code>done</code> 字段变更为 <code>done</code> 状态：<br><img src="https://images.xiaozhuanlan.com/photo/2019/0c57c10023df70c913da73e3ad2bbbbf.png" alt=" `done` 状态"></p>
+<p>其中 <code>postman</code> 上的设定：<br><img src="https://images.xiaozhuanlan.com/photo/2019/a637eb063fc96ceb8c483e74fe956f41.png" alt="header"><br><img src="https://images.xiaozhuanlan.com/photo/2019/9cf8ee53537e2369b88a0de7a18389c4.png" alt="body"></p>
+<p>经过上面的操作，我们理论上已经完成了基本的开发任务了。虽我们的目前的service 还存在很多可以改进的地方，例如</p>
+<ul>
+<li>更方便的扩展</li>
+<li>安全性验证</li>
+<li>使用数据库</li>
+<li>其它可优化的地方</li>
+</ul>
+<p>下面针对这3个点，来做具体分析，但是这也只是假设的情况，请实际根据需求来完成。</p>
+<h3 id="优化上面的实现"><a href="#优化上面的实现" class="headerlink" title="优化上面的实现"></a>优化上面的实现</h3><h4 id="更方便的扩展"><a href="#更方便的扩展" class="headerlink" title="更方便的扩展"></a>更方便的扩展</h4><p>假设现在使用者想修改 一个任务的 <code>done</code> 为 <code>True</code>, 他需要自己组合请求的 URL, 那服务器端可以直接返回 API URL 吗？</p>
+<p>答案是可以。</p>
+<p>我们可以通过下面的方式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> url_for</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_public_task</span><span class="params">(task)</span>:</span></span><br><span class="line">    new_task = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> field <span class="keyword">in</span> task:</span><br><span class="line">        <span class="keyword">if</span> field == <span class="string">'id'</span>:</span><br><span class="line">            new_task[<span class="string">'uri'</span>] = url_for(<span class="string">'get_task'</span>, task_id=task[<span class="string">'id'</span>], _external=<span class="literal">True</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            new_task[field] = task[field]</span><br><span class="line">    <span class="keyword">return</span> new_task</span><br></pre></td></tr></table></figure>
+
+<p>通过 Flask 的 url_for 模块，获取任务时，将任务中的 id 字段替换成 uri 字段，并且把值改为 uri 值。</p>
+<p>当我们返回包含任务的 list 时，通过这个函数处理后，返回完整的 uri 给客户端。</p>
+<p>把之前的 <code>get_tasks()</code> 做一些简单的修改。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route('/todo/api/v1.0/tasks', methods=['GET'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_tasks</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'tasks'</span>: list(map(make_public_task, tasks))&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意变化是： <code>return jsonify({&#39;tasks&#39;: list(map(make_public_task, tasks))})</code></p>
+</blockquote>
+<p>检查下结果<br><img src="https://images.xiaozhuanlan.com/photo/2019/c401c2b24ac93baedb12910bb6f771db.png" alt="替换 URL "></p>
+<p>这种办法拿到的是完整 <code>uri</code> 而不是一个 <code>id</code> 。</p>
+<h4 id="安全性验证"><a href="#安全性验证" class="headerlink" title="安全性验证"></a>安全性验证</h4><p>我们已经基本完成了整个功能，但是我们还有一个问题: web service 任何人都可以访问的，在当前爬虫满地跑的年代。这可不行。</p>
+<p>当前 service 是所有客户端都可以连接的，如果有别人知道了这个API就可以写个客户端随意修改数据了。这是个十分严重的问题。</p>
+<p>那要怎么解决这个问题呢？</p>
+<p>最简单的办法是在 web service 中，只允许用户名和密码验证通过的客户端连接。</p>
+<p>在一个常规的web应用中，应该有登录表单提交去认证，同时服务器会创建一个会话过程去进行通讯。</p>
+<p>这个会话过程id会被存储在客户端的cookie里面。不过这样就违返了我们REST中无状态的规则，因此，我们需求客户端每次都将他们的认证信息发送到服务器。</p>
+<p>此我们有两种方法表单认证方法去做，分别是 Basic 和 Digest。</p>
+<p>这个问题已经有很多大佬已经提供了完整的解决方案，我们只是拿来使用就可以了。Flask 插件中的 Flask-HTTPAuth 就可以满足这个功能。</p>
+<p><a href="https://github.com/miguelgrinberg/flask-httpauth" target="_blank" rel="noopener">https://github.com/miguelgrinberg/flask-httpauth</a></p>
+<p>老规矩，首先安装</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask_httpauth</span><br></pre></td></tr></table></figure>
+
+<p>然后就是实现功能。假设web service只有用户 <code>python</code> 和密码为 <code>python_mastery</code> 的用户接入。下面就设置了一个Basic HTTP认证：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask.ext.httpauth <span class="keyword">import</span> HTTPBasicAuth</span><br><span class="line">auth = HTTPBasicAuth()</span><br><span class="line"></span><br><span class="line"><span class="meta">@auth.get_password</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_password</span><span class="params">(username)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> username == <span class="string">'python'</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'python_mastery'</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@auth.error_handler</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unauthorized</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> make_response(jsonify(&#123;<span class="string">'error'</span>: <span class="string">'Unauthorized access'</span>&#125;), <span class="number">401</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>get_password</code> 函数是一个回调函数，获取一个已知用户的密码。</p>
+<blockquote>
+<p>在实际的系统中，函数是需要到数据库中检查的，这里只是一个小示例。</p>
+</blockquote>
+<p>当发生认证错误之后，<code>error_handler</code> 回调函数会发送错误的代码给客户端。这里我们自定义一个错误代码 401，返回 JSON 数据，而不是 HTML 。</p>
+<p>将 <code>@auth.login_required</code> 装饰器添加到需要验证的函数上面：</p>
+<p>修改之前的函数实现</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route('/todo/api/v1.0/tasks', methods=['GET'])</span></span><br><span class="line"><span class="meta">@auth.login_required</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_tasks</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'tasks'</span>: tasks&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意这里的不同是：<code>@auth.login_required</code></p>
+</blockquote>
+<p><img src="https://images.xiaozhuanlan.com/photo/2019/e6dd4df100b1ac6b504726810dfa2646.png" alt="Unauthorized access"></p>
+<p>这里表示了没通过验证，下面试着把用户名与密码一起带过去进行验证：</p>
+<p><img src="https://images.xiaozhuanlan.com/photo/2019/b749b5151105a428c450b07baa5de32f.png" alt="一起验证"></p>
+<p>其中 <code>postman</code> 设定：<br><img src="https://images.xiaozhuanlan.com/photo/2019/2af3f6b1c73091f4c29c777df0ec06dc.png" alt="base_auth"></p>
+<p>这个认证插件十分灵活，可以随指定需要验证的APIs。</p>
+<h4 id="使用数据库"><a href="#使用数据库" class="headerlink" title="使用数据库"></a>使用数据库</h4><p>对于复杂的系统，使用数据库进行数据管理，那是基础条件。鉴于这是另外一个很大的主题，这里就不再深入讨论了。感兴趣的可以去阅读相关的文档及资料。</p>
+<blockquote>
+<p>刚发现，这个专栏里面也相关的入门文章。<br>如果感兴趣，请移步：<a href="https://xiaozhuanlan.com/topic/0789431562" target="_blank" rel="noopener">https://xiaozhuanlan.com/topic/0789431562</a></p>
+</blockquote>
+<h4 id="其它可优化的地方"><a href="#其它可优化的地方" class="headerlink" title="其它可优化的地方"></a>其它可优化的地方</h4><p>目前我们的系统基本实现了最简单的一个功能，一些复杂的功能，暂时还没有考虑进来。<br>例如：</p>
+<ul>
+<li>处理多用户。<br>  如果系统支持多用户认证，则任务清单也是对应多用户的。此时的问题复杂度就翻倍了，我们同时要提供用户信息的管理，同时要把用户的任务对应关联起来。</li>
+<li>通过 GET 请求检索任务清单时，我们一次性的返回了所有的任务，但是在任务及用户巨量的时候，这是无法接受的。<br>  有很多办法可以进扩展。<ul>
+<li>第一，添加分页参数，使客户端只请求一部份数据。</li>
+<li>第二，添加筛选关键字等。所有这些元素可以添加到URL上面的参数。</li>
+</ul>
+</li>
+</ul>
+<p>上面就是这次分享的全部内容，谢谢大家的阅读。</p>
+<hr>
+<p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
+<p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
+
+    </div>
+
+    
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 编程技术</a>
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 高级技术</a>
+          </div>
+
+        
+        <div>
+          
+            
+          
+        </div>  
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/dd3965e6.html" rel="prev" title="Python-高级-实用-操作 Excel">
+      <i class="fa fa-chevron-left"></i> Python-高级-实用-操作 Excel
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/e8927964.html" rel="next" title="副业赚钱？ 我用自己的教训来给你指路">
+      副业赚钱？ 我用自己的教训来给你指路 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#API-简介"><span class="nav-number">1.</span> <span class="nav-text">API 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESTful-API-简介"><span class="nav-number">2.</span> <span class="nav-text">RESTful API 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#资源（Resources）"><span class="nav-number">2.1.</span> <span class="nav-text">资源（Resources）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表现层（Representation）"><span class="nav-number">2.2.</span> <span class="nav-text">表现层（Representation）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态转化（State-Transfer）"><span class="nav-number">2.3.</span> <span class="nav-text">状态转化（State Transfer）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单总结"><span class="nav-number">2.4.</span> <span class="nav-text">简单总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Python-Flask-实现Restful-API"><span class="nav-number">3.</span> <span class="nav-text">使用Python Flask 实现Restful API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flask-框架简介"><span class="nav-number">3.1.</span> <span class="nav-text">Flask 框架简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RESTful-services-规划"><span class="nav-number">3.2.</span> <span class="nav-text">RESTful services 规划</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#规划一个根URL"><span class="nav-number">3.2.1.</span> <span class="nav-text">规划一个根URL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#规划资源的URL"><span class="nav-number">3.2.2.</span> <span class="nav-text">规划资源的URL</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-实现上面的规划"><span class="nav-number">3.3.</span> <span class="nav-text">Python 实现上面的规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化上面的实现"><span class="nav-number">3.4.</span> <span class="nav-text">优化上面的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#更方便的扩展"><span class="nav-number">3.4.1.</span> <span class="nav-text">更方便的扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全性验证"><span class="nav-number">3.4.2.</span> <span class="nav-text">安全性验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用数据库"><span class="nav-number">3.4.3.</span> <span class="nav-text">使用数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其它可优化的地方"><span class="nav-number">3.4.4.</span> <span class="nav-text">其它可优化的地方</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">You的日常</p>
+  <div class="site-description" itemprop="description">Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/e8c3cb999dc5" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;e8c3cb999dc5" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i>简书</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">You的日常</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">297k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:30</span>
+</div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df0bed512824580" async="async"></script>
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+            'X-LC-Key': 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 22317,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: false,
+      appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+      appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+      placeholder: "请留下您的意见吧：",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: '' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

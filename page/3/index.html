@@ -1,0 +1,3228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.youdaily.world').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="You的日常">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.youdaily.world&#x2F;page&#x2F;3&#x2F;index.html">
+<meta property="og:site_name" content="You的日常">
+<meta property="og:description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="You的日常">
+<meta property="article:tag" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.youdaily.world/page/3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false
+  };
+</script>
+
+  <title>You的日常</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">You的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">You的日常，我们的日常</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/ceaa499f.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/ceaa499f.html" class="post-title-link" itemprop="url">Python-基础-常用术语对照表</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-19 10:27:05" itemprop="dateCreated datePublished" datetime="2017-11-19T10:27:05+08:00">2017-11-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/ceaa499f.html" class="post-meta-item leancloud_visitors" data-flag-title="Python-基础-常用术语对照表" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/ceaa499f.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/ceaa499f.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>8.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>8 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<p>下面内容主要摘抄自<code>python</code> 官网，<a href="https://docs.python.org/3.7/glossary.html#glossary" target="_blank" rel="noopener">https://docs.python.org/3.7/glossary.html#glossary</a>，部分内容有删减。</p>
+<h3 id="2to3"><a href="#2to3" class="headerlink" title="2to3"></a>2to3</h3><p>一个将 <code>Python</code> 2.x 代码转换为 <code>Python</code> 3.x 代码的工具，能够处理大部分通过解析源码并遍历解析树可检测到的不兼容问题。</p>
+<p>2to3 包含在标准库中，模块名为 lib2to3；并提供一个独立入口点 Tools/scripts/2to3。参见 2to3 - 自动将 <code>Python</code> 2 代码转为 <code>Python</code> 3 代码。</p>
+<p>因为官方将在2020年不再支持 <code>Python</code> 2.x, 在遇到没有<code>Python</code> 2.X 版本 的code 的时候，可以尝试使用这个工具将代码转化成Python 的版本。</p>
+<h3 id="abstract-base-class-–-抽象基类"><a href="#abstract-base-class-–-抽象基类" class="headerlink" title="abstract base class – 抽象基类"></a>abstract base class – 抽象基类</h3><p>抽象基类简称 ABC，是对 duck-typing 的补充，它提供了一种定义接口的新方式，相比之下其他技巧例如 hasattr() 显得过于笨拙或有微妙错误（例如使用 魔术方法）。ABC 引入了虚拟子类，这种类并非继承自其他类，但却仍能被 isinstance() 和 issubclass() 所认可；详见 abc 模块文档。<code>Python</code> 自带许多内置的 ABC 用于实现数据结构（在 collections.abc 模块中）、数字（在 numbers 模块中）、流（在 io 模块中）、导入查找器和加载器（在 importlib.abc 模块中）。你可以使用 abc 模块来创建自己的 ABC。</p>
+<h3 id="argument-–-参数"><a href="#argument-–-参数" class="headerlink" title="argument – 参数"></a>argument – 参数</h3><p>在调用函数时传给 function （或 method ）的值。参数分为两种：</p>
+<ul>
+<li>关键字参数: 在函数调用中前面带有标识符（例如 name=）或者作为包含在前面带有 ** 的字典里的值传入。<br>  举例来说，3 和 5 在以下对 complex() 的调用中均属于关键字参数:  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">complex(real=<span class="number">3</span>, imag=<span class="number">5</span>)</span><br><span class="line">complex(**&#123;<span class="string">'real'</span>: <span class="number">3</span>, <span class="string">'imag'</span>: <span class="number">5</span>&#125;)</span><br></pre></td></tr></table></figure></li>
+<li>位置参数: 不属于关键字参数的参数。位置参数可出现于参数列表的开头以及/或者作为前面带有 * 的 iterable 里的元素被传入。<br>  举例来说，3 和 5 在以下调用中均属于位置参数:  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">complex(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">complex(*(<span class="number">3</span>, <span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+参数会被赋值给函数体中对应的局部变量。有关赋值规则参见 调用 一节。根据语法，任何表达式都可用来表示一个参数；最终算出的值会被赋给对应的局部变量。</li>
+</ul>
+<p>另参见 parameter 术语表条目，常见问题中 参数与形参的区别 以及 PEP 362。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/ceaa499f.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/542af35.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/542af35.html" class="post-title-link" itemprop="url">非科班出身，如何成为程序员？</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-16 16:09:52" itemprop="dateCreated datePublished" datetime="2017-11-16T16:09:52+08:00">2017-11-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/" itemprop="url" rel="index">
+                    <span itemprop="name">程序人生</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/542af35.html" class="post-meta-item leancloud_visitors" data-flag-title="非科班出身，如何成为程序员？" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/542af35.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/542af35.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="非科班出身，如何成为程序员"><a href="#非科班出身，如何成为程序员" class="headerlink" title="非科班出身，如何成为程序员"></a>非科班出身，如何成为程序员</h2><blockquote>
+<p>本文是知乎的一篇回答</p>
+</blockquote>
+<p>身边有很多非科班出身的程序员，比如 sofish、粽神。当然我也是，所以决定结合自身经历强答一波。</p>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><p>我本科学习的是「生物科学」，大学四年无非就是拿着 eppendorf 的实验枪，在超净台旁养着各种知名或不知名的微生物，有广为人知的「海拉细胞」有很多人没有听过的「毕赤酵母」，每逢寒暑假可能还会去山里或者某个海滨城市实习，在鸟巢旁边装一个微型摄像头，记录下喂食雏鸟的频率，去海边抓一些招潮蟹或者海月水母，也算乐在其中。我很享受大学这段时光，因为毕竟是我儿时的梦想，成为一个生物学家。</p>
+<p>毕业后，进入了北京水产科学研究所，主要工作是「养鱼」，每天固定时间给「小西伯利亚鲟」喂点吃的，给鱼缸换水。很不幸…，在一次换水的过程中水龙头我忘关了，结果水沿着鱼缸溢了出来，小鲟鱼也在想「外面的世界那么大，我想去看看」，都顺着鱼缸溢出的水推力，游到了鱼缸外面，等我发现时，这些小生命都散落在鱼缸周围，也不跳了。主任没有批评我把一缸鱼都养死了，但是也再让我去喂鱼了，给了我一份新的差事，通过毕赤酵母来表达出促性腺激素，促进鲟鱼快速性成熟。实验做了大概一年，有一些成果，毕竟在一年中成功过一次。后来觉得愧对这份工作，就跟主任请辞了，主任就介绍了上海的一份工作给我，去欧莱雅研发中心做实验。现在想想主任真是难得的人生导师。</p>
+<p>在欧莱雅工作了三年，每天也是重复相同的工作，工作内容只是从以前的养各种微生物变成了养「人造皮肤」，然后再把化妆品涂在人造皮肤上，看看化妆品对皮肤的效果，其实和大学拿老鼠、兔子做实验没什么区别，只是欧洲那边不让在活体上做化妆品实验。在欧莱雅的三年，慢慢消磨了我对「生物科学」的热情，重复的工作让我麻痹了我的思想。我决定做一些改变，那是2014年，我已经27了。</p>
+<h3 id="学习编程的动机"><a href="#学习编程的动机" class="headerlink" title="学习编程的动机"></a>学习编程的动机</h3><p>还得从 13 年年底说起，在欧莱雅工作期间，命运多舛，出了一次车祸，右胫腓骨粉碎骨折，当时还是女朋友的老婆放弃了东京的工作回国来照顾我，在床上躺了三四个月，老婆回上海后也找了一份广告公司的工作，做 SEM。到了14年，腿伤基本恢复，我重新回到欧莱雅工作，经历了人生变故（车祸），住院期间把这一生中的生离死别都看完了，开始思考起人生，更加热爱生命。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/542af35.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/1baee55b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/1baee55b.html" class="post-title-link" itemprop="url">Python-基础-时间控制</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-15 13:50:33" itemprop="dateCreated datePublished" datetime="2017-11-15T13:50:33+08:00">2017-11-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/1baee55b.html" class="post-meta-item leancloud_visitors" data-flag-title="Python-基础-时间控制" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/1baee55b.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/1baee55b.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<p>这次主要介绍python 的基础流程控制。<br>包括 if 条件语句、for 循环 和 while 循环语句； continue 及 break 的用法等。<br>基本用法与 C 和 Java 差不多，无 switch 语句。</p>
+<hr>
+<h2 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h2><p>语法：<code>if(...):</code>, 括号内为一表达式，当为<code>True</code>（即成立）时，执行对应的代码段。</p>
+<blockquote>
+<p>注意:所有条件语句后方都需加冒号 <code>:</code></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># if 语句实例</span></span><br><span class="line"><span class="string">''' 判断用户输入的整数是几位数（暂不考虑用户输入非整数）</span></span><br><span class="line"><span class="string">    为0               输出     It's zero.</span></span><br><span class="line"><span class="string">    个位数             输出     It's a number below 10</span></span><br><span class="line"><span class="string">    两位数             输出     It's a two-digit number</span></span><br><span class="line"><span class="string">    三位数级以上        输出     It's digit is more than two</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">user_input = input(<span class="string">"Please input a number: "</span>)</span><br><span class="line"><span class="comment"># 用户输入的类型为字符串，转换为整数类型</span></span><br><span class="line">n = int(user_input)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (n==<span class="number">0</span>):</span><br><span class="line">    print(<span class="string">"It's zero."</span>)</span><br><span class="line"><span class="keyword">elif</span> (n&lt;<span class="number">10</span>):</span><br><span class="line">    print(<span class="string">"It's a number below 10"</span>)</span><br><span class="line"><span class="keyword">elif</span> (n&lt;<span class="number">100</span>):</span><br><span class="line">    print(<span class="string">"It's a two-digit number"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"It's digit is more than two"</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>可能会有零到多个 elif 部分，else 是可选的。</p>
+</blockquote>
+<p>关键字 “ elif ” 是 “else if ” 的缩写，这个可以有效地避免过深的缩进。<code>if ... elif ... elif ...</code> 序列于替代其它语言中的switch case语句。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/1baee55b.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/f1801302.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/f1801302.html" class="post-title-link" itemprop="url">Python 基础介绍</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-14 13:45:57" itemprop="dateCreated datePublished" datetime="2017-11-14T13:45:57+08:00">2017-11-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/f1801302.html" class="post-meta-item leancloud_visitors" data-flag-title="Python 基础介绍" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/f1801302.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/f1801302.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<p>每个键是从它的值由冒号(:)，即在项目之间用逗号隔开，整个东西是包含在大括号中。没有任何项目一个空字典只写两个大括号，就像这样：<code>{}</code>.</p>
+<p>键在一个字典中是唯一的，而值则可以重复。字典的值可以是任何类型，但键必须是不可变的数据的类型，例如：字符串，数字或元组这样的类型。</p>
+<h2 id="访问字典中的值"><a href="#访问字典中的值" class="headerlink" title="访问字典中的值"></a>访问字典中的值</h2><p>要访问字典元素，你可以使用方括号和对应键，以获得其对应的值。下面是一个简单的例子 -</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Saul'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'Third'</span>&#125;</span><br><span class="line"></span><br><span class="line">print(<span class="string">"dict['Name']: "</span>, dict[<span class="string">'Name'</span>])</span><br><span class="line">print(<span class="string">"dict['Age']: "</span>, dict[<span class="string">'Age'</span>])</span><br></pre></td></tr></table></figure>
+
+<p>当执行上面的代码，它产生以下结果 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dict[<span class="string">'Name'</span>]:  Saul</span><br><span class="line">dict[<span class="string">'Age'</span>]:  <span class="number">7</span></span><br></pre></td></tr></table></figure>
+
+<p>如果我们试图使用一个键，但这是不字典访问数据项的一部分，我们会得到一个错误如下 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Saul'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'Third'</span>&#125;;</span><br><span class="line">print(<span class="string">"dict['Alice']: "</span>, dict[<span class="string">'Alice'</span>])</span><br></pre></td></tr></table></figure>
+
+<p>当执行上面的代码，它产生以下结果 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dict[<span class="string">'Saul'</span>]:</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">4</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(<span class="string">"dict['Alice']: "</span>, dict[<span class="string">'Alice'</span>])</span><br><span class="line">KeyError: <span class="string">'Alice'</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/f1801302.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/8a836e57.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/8a836e57.html" class="post-title-link" itemprop="url">Python-基础- I/O 简介</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-13 13:44:24" itemprop="dateCreated datePublished" datetime="2017-11-13T13:44:24+08:00">2017-11-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/8a836e57.html" class="post-meta-item leancloud_visitors" data-flag-title="Python-基础- I/O 简介" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/8a836e57.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/8a836e57.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>4.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这里只讲述基本的 I/O 函数，更多函数请参考Python标准文档。</p>
+<blockquote>
+<p>Python 3.x I/O 标准文档位置  <a href="https://docs.python.org/3/library/io.html" target="_blank" rel="noopener">https://docs.python.org/3/library/io.html</a></p>
+</blockquote>
+<hr>
+<h2 id="打印到屏幕"><a href="#打印到屏幕" class="headerlink" title="打印到屏幕"></a>打印到屏幕</h2><p>最简单的输出方法是用<code>print</code>函数，你可以给它传递零个或多个用逗号隔开的表达式。此函数把你传递的表达式转换成一个字符串表达式，并将结果写到标准输出如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*- </span></span><br><span class="line">print(<span class="string">"hello world"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>你的标准屏幕上会产生以下结果：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-e87780fd91230718.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hello world"></p>
+<h2 id="读取键盘输入"><a href="#读取键盘输入" class="headerlink" title="读取键盘输入"></a>读取键盘输入</h2><p>Python 3 提供了内置函数从标准输入读入一行文本，默认的标准输入是键盘。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/8a836e57.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/e140dc3c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/e140dc3c.html" class="post-title-link" itemprop="url">Python-基础-`yeild` 关键字使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-12 13:49:11" itemprop="dateCreated datePublished" datetime="2017-11-12T13:49:11+08:00">2017-11-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/e140dc3c.html" class="post-meta-item leancloud_visitors" data-flag-title="Python-基础-`yeild` 关键字使用" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/e140dc3c.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/e140dc3c.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<p>大家在阅读 Python 代码时，经常遇到带有 <code>yield</code> 的函数，通常此时我们都需要去想想这个<code>yield</code> 是个什么东西？这一段代码在讲什么事情呢？</p>
+<p>那我们这里就来好好讲讲这个 <code>yield</code>。</p>
+<p><code>yield</code> 是 Python 设计之初就保留的关键字之一。</p>
+<p>在 Python 中被称之为 <code>generator</code>(中文翻译是 <code>“生成器”</code>)，那什么是 <code>generator</code> 呢 ？</p>
+<p>我们先抛开 <code>generator</code>，以一个常见的编程题目来展示 <code>yield</code> 的概念。</p>
+<hr>
+<h2 id="从生成斐波那契数列开始"><a href="#从生成斐波那契数列开始" class="headerlink" title="从生成斐波那契数列开始"></a>从生成斐波那契数列开始</h2><p>斐波那契（Fibonacci）数列是一个非常简单的递归数列，除第一个和第二个数外，任意一个数都可由前两个数相加得到。</p>
+<p>用计算机程序输出斐波那契数列的前 N 个数是一个非常简单的问题，许多初学者都可以轻易写出如下函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出斐波那契数列前 N 个数第一版</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fab</span><span class="params">(max)</span>:</span></span><br><span class="line">    n, a, b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> n &lt; max:</span><br><span class="line">       print(b)</span><br><span class="line">       a, b = b, a + b</span><br><span class="line">       n = n + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">fab(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<p>将上面的内容保存为 <code>.py</code> 后缀的文件，然后执行 ，我们可以得到如下输出：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-03a4c82710ec33e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果1"></p>
+<p>结果没有问题，但有经验的开发者会指出，直接在 fab 函数中用 print 打印数字会导致该函数可复用性较差，因为 fab 函数返回 None，其他函数无法获得该函数生成的数列。</p>
+<p>要提高 fab 函数的可复用性，最好不要直接打印出数列，而是返回一个 List。</p>
+<p>以下是 fab 函数改写后的第二个版本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出斐波那契数列前 N 个数第二版</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fab</span><span class="params">(max)</span>:</span> </span><br><span class="line">    n, a, b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span> </span><br><span class="line">    L = [] </span><br><span class="line">    <span class="keyword">while</span> n &lt; max: </span><br><span class="line">        L.append(b) </span><br><span class="line">        a, b = b, a + b </span><br><span class="line">        n = n + <span class="number">1</span> </span><br><span class="line">    <span class="keyword">return</span> L</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> fab(<span class="number">5</span>):</span><br><span class="line">    print(n)</span><br></pre></td></tr></table></figure>
+
+<p>执行 ，我们可以得到如下输出：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-4c63ee7aa08c18ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果2"></p>
+<p>改写后的 fab 函数通过返回 List 能满足复用性的要求，但是更有经验的开发者会指出，该函数在运行中占用的内存会随着参数 max 的增大而增大，如果要控制内存占用，最好不要用 List</p>
+<p>来保存中间结果，而是通过 iterable 对象来迭代。例如，在 Python 中，<code>range()</code> 不返回 List，而是返回一个 <code>iterable</code>(中文翻译 <code>“可迭代的对象”</code>) 对象。</p>
+<p>例如下面的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过 iterable 对象来迭代</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<p>是在每次迭代中返回下一个数值，内存空间占用很小。</p>
+<p>我们可以利用 <code>iterable</code> 的特性，把 fab 函数改写为一个支持 <code>iterable</code> 的 class，以下是第三个版本的 Fab：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出斐波那契数列前 N 个数第三版</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fab</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, max)</span>:</span></span><br><span class="line">       self.max = max</span><br><span class="line">       self.n, self.a, self.b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">       <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span> </span><br><span class="line">        <span class="keyword">if</span> self.n &lt; self.max:</span><br><span class="line">           r = self.b</span><br><span class="line">           self.a, self.b = self.b, self.a + self.b</span><br><span class="line">           self.n = self.n + <span class="number">1</span></span><br><span class="line">           <span class="keyword">return</span> r</span><br><span class="line">        <span class="keyword">raise</span> StopIteration()</span><br><span class="line"><span class="comment"># Fab 类通过 next() 不断返回数列的下一个数，内存占用始终为常数：</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> Fab(<span class="number">5</span>):</span><br><span class="line">    print(n)</span><br></pre></td></tr></table></figure>
+
+<p>执行 ，我们可以得到如下输出：<br><img src="https://upload-images.jianshu.io/upload_images/1940331-6f51a320b6673d3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果3"></p>
+<p>然而，使用 class 改写的这个版本，代码远远没有第一版的 fab 函数来得简洁。</p>
+<p>如果我们想要保持第一版 fab 函数的简洁性，同时又要获得 <code>iterable</code> 的效果，<code>yield</code> 就派上用场了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/e140dc3c.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/7575f203.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/7575f203.html" class="post-title-link" itemprop="url">Python 中获取随机数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-11 16:03:23" itemprop="dateCreated datePublished" datetime="2017-11-11T16:03:23+08:00">2017-11-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/7575f203.html" class="post-meta-item leancloud_visitors" data-flag-title="Python 中获取随机数" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/7575f203.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/7575f203.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>380</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一-获得-a-b-之间的随机整数"><a href="#一-获得-a-b-之间的随机整数" class="headerlink" title="一 获得[a, b]之间的随机整数"></a>一 获得[a, b]之间的随机整数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">print(random.randint(<span class="number">1</span>, <span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="二-从一个非空序列中随机挑选一个元素"><a href="#二-从一个非空序列中随机挑选一个元素" class="headerlink" title="二 从一个非空序列中随机挑选一个元素"></a>二 从一个非空序列中随机挑选一个元素</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">print(random.choice([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/7575f203.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/e6966298.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/e6966298.html" class="post-title-link" itemprop="url">Python-基础-PEP 是什么？</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-05 13:56:46" itemprop="dateCreated datePublished" datetime="2017-11-05T13:56:46+08:00">2017-11-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/e6966298.html" class="post-meta-item leancloud_visitors" data-flag-title="Python-基础-PEP 是什么？" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/e6966298.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/e6966298.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="PEP-是什么？"><a href="#PEP-是什么？" class="headerlink" title="PEP 是什么？"></a>PEP 是什么？</h2><p>Python的 PEP 文档是一组不断发展的标准文档，PEP是 <code>Python Enhancement Proposal</code>的首字母缩写。就像TCPIP协议使用RFC来组织起不断发展的通信标准一样，PEP也是类似的用于发展Python的一组文档。</p>
+<p>PEP的全称是Python Enhancement Proposals，其中Enhancement是增强改进的意思，Proposals则可译为提案或建议书，所以合起来，比较常见的翻译是 Python 增强提案或 Python 改进建议书。Python 核心开发者主要通过邮件列表讨论问题、提议、计划等，PEP 通常是汇总了多方信息，经过了部分核心开发者 review 和认可，最终形成的正式文档，起到了对外公示的作用。</p>
+<p>PEP文档越多，说明 Python 社区越活跃，发展良好。</p>
+<h2 id="PEP-的类型"><a href="#PEP-的类型" class="headerlink" title="PEP 的类型"></a>PEP 的类型</h2><p>每个PEP都有对应的类型（PEP Status Key）：</p>
+<p>A – Accepted (Standards Track only) or Active proposal 已接受（仅限标准跟踪）或有效提案<br>D – Deferred proposal延期提案<br>F – Final proposal 最终提案<br>P – Provisional proposal 暂定提案<br>R – Rejected proposal 拒绝提案<br>S – Superseded proposal 被取代的提案<br>W – Withdrawn proposal 撤回提案</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1940331-ffd775233a9043a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="PEP Status"></p>
+<h2 id="几个特殊的PEP"><a href="#几个特殊的PEP" class="headerlink" title="几个特殊的PEP"></a>几个特殊的PEP</h2><h3 id="PEP-0"><a href="#PEP-0" class="headerlink" title="PEP 0"></a>PEP 0</h3><p><a href="https://www.python.org/dev/peps/" target="_blank" rel="noopener">https://www.python.org/dev/peps/</a></p>
+<p>这个文档是属于Information类的PEP文档，是所有PEP文档的索引。</p>
+<h3 id="PEP-1"><a href="#PEP-1" class="headerlink" title="PEP 1"></a>PEP 1</h3><p><a href="https://www.python.org/dev/peps/pep-0001/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0001/</a></p>
+<p>这个文档讲了PEP的目的和指引。</p>
+<p>在PEP 1中的开头，就说明了PEP文档分成3个类型：</p>
+<ol>
+<li>标准，当然是Python语言的标准；</li>
+<li>信息类；</li>
+<li>过程类，记录Python语言发展过程中的一些信息。</li>
+</ol>
+<h3 id="PEP-8"><a href="#PEP-8" class="headerlink" title="PEP 8"></a>PEP 8</h3><p><a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0008/</a></p>
+<p>PEP 8号文档，是Python官方出的编程规范.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/e6966298.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/bb59d0e4.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/bb59d0e4.html" class="post-title-link" itemprop="url">ES6 里的变量和作用域</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-10-25 14:51:12" itemprop="dateCreated datePublished" datetime="2017-10-25T14:51:12+08:00">2017-10-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/bb59d0e4.html" class="post-meta-item leancloud_visitors" data-flag-title="ES6 里的变量和作用域" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/bb59d0e4.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/bb59d0e4.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>4.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在本文将有大量的例子介绍在ES6中作用域和变量的使用方法</p>
+<h2 id="1-块级作用域的let和const"><a href="#1-块级作用域的let和const" class="headerlink" title="1.块级作用域的let和const"></a>1.块级作用域的let和const</h2><p>让<code>let</code>和<code>const</code>创造块级作用域，他仅仅存在于包裹他们的最内层的块。下面代码演示了使用<code>let</code>修饰的<code>tmp变量</code>仅仅存在于最里层的<code>if</code>申明里。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> tmp = <span class="number">123</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">// tmp未定义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>相比之下，用var申明的变量在函数级作用域</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/bb59d0e4.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/1317c8d9.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/1317c8d9.html" class="post-title-link" itemprop="url">你需要知道的块级作用域 - let</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-10-14 14:48:37" itemprop="dateCreated datePublished" datetime="2017-10-14T14:48:37+08:00">2017-10-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/1317c8d9.html" class="post-meta-item leancloud_visitors" data-flag-title="你需要知道的块级作用域 - let" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/1317c8d9.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/1317c8d9.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>变量声明在任何语言中都是非常基础的东西，理解变量在作用域下如何工作是非常重要的事情。</p>
+<p>在大多数语言中，如 <code>Python</code>，他有两个作用域:局部 和 全局。如下，变量定义在代码开头部分则为全局变量，在函数里面声明变量则为局部变量。</p>
+<p>JavaScript也很相似，看以下例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Python</span></span><br><span class="line">x = <span class="number">1</span> <span class="comment"># 全局变量</span></span><br><span class="line">y = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    s = a + b <span class="comment"># 局部变量</span></span><br><span class="line">    <span class="keyword">return</span> s</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JavaScript</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;  <span class="comment">// 全局变量</span></span><br><span class="line"><span class="keyword">var</span> y = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> s = a + b;  <span class="comment">// 局部变量</span></span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以C语言为基础而衍生出来的语言(JavaScript, PHP)一般是块级作用域，但JavaScript却不是，当你在一个函数体内声明一个变量，他会在父级或者全局来寻找这个变量，这种行为叫做<code>变量提升</code>，与其他语言不同，JavaScript会在<code>for循环</code>外面使用这些变量。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/1317c8d9.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/ca83b426.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/ca83b426.html" class="post-title-link" itemprop="url">ES6 箭头函数和它的作用域</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-10-13 14:44:01" itemprop="dateCreated datePublished" datetime="2017-10-13T14:44:01+08:00">2017-10-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/ca83b426.html" class="post-meta-item leancloud_visitors" data-flag-title="ES6 箭头函数和它的作用域" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/ca83b426.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/ca83b426.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>5.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在ES6很多很棒的新特性中, 箭头函数 (或者大箭头函数)就是其中值得关注的一个! 它不仅仅是很棒很酷, 它很好的利用了作用域, 快捷方便的在现在使用以前我们用的技术, 减少了很多代码……但是如果你不了解箭头函数原理的话可能就有点难以理解. 所以,让我们来看下箭头函数, 就是现在!</p>
+<h2 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h2><p>你可以自己去学习和尝试下, 你可以简单的把示例程序代码复制到你的浏览器控制台下. 现在, 推荐使用Firefox(22+)开发者工具, Firefox(22+)开发者工具现在支持箭头函数,你也可以使用谷歌浏览器. 如果你使用谷歌浏览器, 你必须要做下列两件事:</p>
+<ul>
+<li>- 在谷歌浏览器中地址栏中输入：”about:flags”, 找到 “使用体验性Javascript”选项，开启使用。</li>
+<li>- 在函数的开头加上”use strict”,然后再在你的谷歌浏览中测试箭头函数吧(提示：请用谷歌浏览器v38,我当时就是被浏览器版本坑了):</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">    "use strict"</span>;</span><br><span class="line">    <span class="comment">// use arrow functions here</span></span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+
+<p>幸运的是后面会有越来越多的浏览器支持ES6特性. 现在你完成了所有准备工作, 让我们继续深入它吧!</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/ca83b426.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/7535073a.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/7535073a.html" class="post-title-link" itemprop="url">Redux 框架简介</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-10-09 14:41:20" itemprop="dateCreated datePublished" datetime="2017-10-09T14:41:20+08:00">2017-10-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/7535073a.html" class="post-meta-item leancloud_visitors" data-flag-title="Redux 框架简介" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/7535073a.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/7535073a.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="redux简介"><a href="#redux简介" class="headerlink" title="redux简介"></a>redux简介</h2><p>Redux 是一个改变状态(state)的模型，这个模型通过一个单向操作的方式来改变状态。现在网上教程一言不合上来就是 Redux + React 的综合运用，经常搞的人一脸懵逼。其实 Redux 和 React 完全解耦，并不是 Redux 非得和 React结合才能使用，而只是 React 结合 Redux 会事半功倍。本系列主要也讲得这个。</p>
+<p>对于日益复杂的 Javascript 应用来说，Javascript 需要管理非常多的 state。包括本地尚未持久化到数据库的数据、UI状态等等，而且这些状态有可能是相互关联的，一个状态的改变可能会引起另外一个状态的变化，如果用命令式编程将会变得异常复杂以及难以维护。Redux 作为一个专门关联 state 的框架应用而生，而这种单向数据流的思想也让 Redux 成为一个现代框架。</p>
+<p><img src="http://img4.tbcdn.cn/L1/461/1/3db24afe31e7218b4ac6cc74497204250b2f5f3a" alt="redux介绍"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/7535073a.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/d7e44753.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/d7e44753.html" class="post-title-link" itemprop="url">Java数组定义、使用、以及数组内存分析详解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-09-22 17:14:40" itemprop="dateCreated datePublished" datetime="2017-09-22T17:14:40+08:00">2017-09-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/d7e44753.html" class="post-meta-item leancloud_visitors" data-flag-title="Java数组定义、使用、以及数组内存分析详解" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/d7e44753.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/d7e44753.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本文主要是从容器概念到数组概念再到数组的三种定义以及各种情况的数组内存分析，以及一些数组常用的遍历以及反转、取最大值等操作。旨在全面性了解java数组。</p>
+<h2 id="1、什么是容器"><a href="#1、什么是容器" class="headerlink" title="1、什么是容器"></a>1、什么是容器</h2><p>在讲数组之前，很有必要来谈谈容器的概念 所谓容器就是将多个数据存储到一起，每个数据称为该容器的元素。</p>
+<blockquote>
+<p>生活中的容器：水杯，衣柜，教室</p>
+</blockquote>
+<h2 id="2、什么是数组"><a href="#2、什么是数组" class="headerlink" title="2、什么是数组"></a>2、什么是数组</h2><p>所谓数组就是存储数据<strong>长度固定</strong>的<strong>容器</strong>，保证多个数据的<strong>数据类型一致</strong>。</p>
+<h2 id="3、数组的三种定义"><a href="#3、数组的三种定义" class="headerlink" title="3、数组的三种定义"></a>3、数组的三种定义</h2><p>下面主要讲解下数组的三种定义方式。</p>
+<h3 id="定义方式一"><a href="#定义方式一" class="headerlink" title="定义方式一"></a>定义方式一</h3><blockquote>
+<p><code>数据类型[] 数组名字 = new 数据类型 [长度]</code> ;</p>
+</blockquote>
+<p>举例： 定义可以存储3个整数的数组容器，代码如： <code>int[] arr = new int[3]</code></p>
+<h3 id="定义方式二"><a href="#定义方式二" class="headerlink" title="定义方式二"></a>定义方式二</h3><blockquote>
+<p><code>数据类型[] 数组名 = new 数据类型[]{元素1,元素2,元素3...}</code>;</p>
+</blockquote>
+<p>举例： 定义存储1，2，3，4，5整数的数组容器。 <code>int[] arr = new int[]{1,2,3,4,5}</code>;</p>
+<h3 id="定义方式三"><a href="#定义方式三" class="headerlink" title="定义方式三"></a>定义方式三</h3><blockquote>
+<p><code>数据类型[] 数组名 = {元素1,元素2,元素3...};</code></p>
+</blockquote>
+<p>举例： 定义存储1，2，3，4，5整数的数组容器 <code>int[] arr = {1,2,3,4,5}</code>;</p>
+<h2 id="4、数组的访问"><a href="#4、数组的访问" class="headerlink" title="4、数组的访问"></a>4、数组的访问</h2><p><strong>索引</strong>：从<code>0</code>开始，索引 (<code>index</code>)可以访问到数组中的元素。</p>
+<p><strong>格式</strong>： <code>数组名[索引]</code></p>
+<p><strong>数组长度属性</strong>： 数组长度是固定的，由于索引从0开始，所以数组的最大索引值为<code>数组名.length-1</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </span><br><span class="line"><span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;; </span><br><span class="line"><span class="comment">//打印数组的属性，输出结果是5 </span></span><br><span class="line">System.out.println(arr.length); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5、什么是内存"><a href="#5、什么是内存" class="headerlink" title="5、什么是内存"></a>5、什么是内存</h2><blockquote>
+<p>在讲数组的原理内存前，必须了解的一个叫内存的概念。</p>
+</blockquote>
+<p>内存是计算机中的重要原件，临时存储区域，作用是运行程序。我们编写的程序是存放在硬盘中的，在硬盘中的程 序是不会运行的，必须放进内存中才能运行，运行完毕后会清空内存。 Java虚拟机要运行程序，必须要对内存进行空间的分配和管理。</p>
+<h3 id="5-1-Java虚拟机的内存划分"><a href="#5-1-Java虚拟机的内存划分" class="headerlink" title="5.1 Java虚拟机的内存划分"></a>5.1 Java虚拟机的内存划分</h3><p>为了提高运算效率，就对空间进行了不同区域的划分，因为每一片区域都有特定的处理数据方式和内存管理方式。<br> <img src="https://upload-images.jianshu.io/upload_images/1940331-210e2332016efef9?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Java虚拟机的内存划分"></p>
+<h3 id="5-2-数组在内存中的存储"><a href="#5-2-数组在内存中的存储" class="headerlink" title="5.2 数组在内存中的存储"></a>5.2 数组在内存中的存储</h3><h4 id="5-2-1-一个数组内存图"><a href="#5-2-1-一个数组内存图" class="headerlink" title="5.2.1 一个数组内存图"></a>5.2.1 一个数组内存图</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>]; </span><br><span class="line">    System.out.println(arr);<span class="comment">//[I@5f150435 </span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上方法执行，输出的结果是<code>[I@5f150435</code>，这个是什么呢？是数组在内存中的地址。<code>new</code>出来的内容，都是在堆内存中存储的，而方法中的变量<code>arr</code>保存的是数组的地址。</p>
+<p>输出<code>arr[0]</code>，就会输出arr保存的内存地址中数组中0索引上的元素，如没有具体确定值，则是类型的默认值！比如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String[] arr=<span class="keyword">new</span> String[<span class="number">3</span>];</span><br><span class="line">  System.out.println(arr);     <span class="comment">//  [Ljava.lang.String;@1b6d3586</span></span><br><span class="line">  System.out.println(arr[<span class="number">0</span>]);  <span class="comment">//  null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>[] arrInt=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">  System.out.println(arrInt);    <span class="comment">// [I@1b6d3586</span></span><br><span class="line">  System.out.println(arrInt[<span class="number">0</span>]); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/1940331-28da6c1f89b1227e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数组内存图"></p>
+<h6 id="5-2-2-两个数组内存图"><a href="#5-2-2-两个数组内存图" class="headerlink" title="5.2.2 两个数组内存图"></a>5.2.2 两个数组内存图</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>]; </span><br><span class="line">    <span class="keyword">int</span>[] arr2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>]; </span><br><span class="line">    System.out.println(arr); </span><br><span class="line">    System.out.println(arr2); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/1940331-93464f888eec949f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="两个数组内存图"></p>
+<h6 id="5-2-3-两个变量指向一个数组"><a href="#5-2-3-两个变量指向一个数组" class="headerlink" title="5.2.3 两个变量指向一个数组"></a>5.2.3 两个变量指向一个数组</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </span><br><span class="line">    <span class="comment">// 定义数组，存储3个元素 </span></span><br><span class="line">    <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>]; </span><br><span class="line">    <span class="comment">//数组索引进行赋值 </span></span><br><span class="line">    arr[<span class="number">0</span>] = <span class="number">5</span>; </span><br><span class="line">    arr[<span class="number">1</span>] = <span class="number">6</span>; </span><br><span class="line">    arr[<span class="number">2</span>] = <span class="number">7</span>; </span><br><span class="line">    <span class="comment">//输出3个索引上的元素值 </span></span><br><span class="line">    System.out.println(arr[<span class="number">0</span>]);</span><br><span class="line">    System.out.println(arr[<span class="number">1</span>]); </span><br><span class="line">    System.out.println(arr[<span class="number">2</span>]); </span><br><span class="line">    <span class="comment">//定义数组变量arr2，将arr的地址赋值给arr2 </span></span><br><span class="line">    <span class="keyword">int</span>[] arr2 = arr; </span><br><span class="line">    arr2[<span class="number">1</span>] = <span class="number">9</span>; </span><br><span class="line">    System.out.println(arr[<span class="number">1</span>]); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/1940331-42b2add666df2164?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="两个变量指向一个数组"></p>
+<h2 id="6、数组常见的异常"><a href="#6、数组常见的异常" class="headerlink" title="6、数组常见的异常"></a>6、数组常见的异常</h2><p>数组常见的异常主要有<code>数组越界异常</code>以及<code>空指针异常</code>，这是非常基础的，就不多做介绍了，这里主要分析下空指针异常在内存的情况<br> <img src="https://upload-images.jianshu.io/upload_images/1940331-e3c2b44c058df851?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数组常见的异常"></p>
+<h2 id="7、-数组遍历【重点】"><a href="#7、-数组遍历【重点】" class="headerlink" title="7、 数组遍历【重点】"></a>7、 数组遍历【重点】</h2><p>所谓数组遍历 就是将数组中的每个元素分别获取出来，就是遍历。遍历数组<strong>非常重要</strong>！！！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;; </span><br><span class="line">    System.out.println(arr[<span class="number">0</span>]); </span><br><span class="line">    System.out.println(arr[<span class="number">1</span>]); </span><br><span class="line">    System.out.println(arr[<span class="number">2</span>]); </span><br><span class="line">    System.out.println(arr[<span class="number">3</span>]); </span><br><span class="line">    System.out.println(arr[<span class="number">4</span>]); </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上代码是可以将数组中每个元素全部遍历出来，但是如果数组元素非常多，我把这种方式叫做傻瓜式遍历，这种傻瓜式写法肯定不行，因此我们需要改 造成循环的写法。数组的索引是 <code>0</code> 到 <code>lenght-1</code> ，可以作为循环的条件出现。如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;; </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    System.out.println(arr[i])</span><br><span class="line">       &#125; </span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="8、数组获取最大值元素"><a href="#8、数组获取最大值元素" class="headerlink" title="8、数组获取最大值元素"></a>8、数组获取最大值元素</h2><blockquote>
+<p>实现思路： 定义变量，保存数组0索引上的元素 遍历数组，获取出数组中的每个元素 将遍历到的元素和保存数组0索引上值的变量进行比较 如果数组元素的值大于了变量的值，变量记录住新的值 数组循环遍历结束，变量保存的就是数组中的最大值</p>
+</blockquote>
+<p><strong>真香警告</strong>：<strong>大家小心点，别被第一个和第二个婆娘给迷住了</strong> </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1940331-1643dd7d135be094?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数组获取最大值元素"></p>
+<p> 代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123; <span class="number">5</span>, <span class="number">15</span>, <span class="number">2000</span>, <span class="number">10000</span>, <span class="number">100</span>, <span class="number">4000</span> &#125;; </span><br><span class="line">    <span class="comment">//定义变量，保存数组中0索引的元素 </span></span><br><span class="line">    <span class="keyword">int</span> max = arr[<span class="number">0</span>]; </span><br><span class="line">    <span class="comment">//遍历数组，取出每个元素 </span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123; </span><br><span class="line">    <span class="comment">//遍历到的元素和变量max比较 </span></span><br><span class="line">    <span class="comment">//如果数组元素大于max </span></span><br><span class="line">    <span class="keyword">if</span> (arr[i] &gt; max) &#123; </span><br><span class="line">    <span class="comment">//max记录住大值 </span></span><br><span class="line">    max = arr[i]; </span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">System.out.println(<span class="string">"数组最大值是： "</span> + max);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="9、-数组反转"><a href="#9、-数组反转" class="headerlink" title="9、 数组反转"></a>9、 数组反转</h2><p>所谓反转就是把数组元素位置颠倒过来</p>
+<blockquote>
+<p>实现思想：数组最远端的元素互换位置 实现反转，就需要将数组最远端元素位置交换 定义两个变量，保存数组的最小索引和最大索引 两个索引上的元素交换位置 最小索引++，最大索引–，再次交换位置 最小索引超过了最大索引，数组反转操作结束</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/1940331-ee48a8c6c306d894?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数组反转"></p>
+<p>具体代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;; </span><br><span class="line">    <span class="comment">/*循环中定义变量min=0最小索引 </span></span><br><span class="line"><span class="comment">    max=arr.length‐1最大索引 </span></span><br><span class="line"><span class="comment">    min++,max‐‐ */</span> </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> min = <span class="number">0</span>, max = arr.length ‐ <span class="number">1</span>; min &lt;= max; min++, max‐‐)&#123;</span><br><span class="line">    <span class="comment">//利用第三方变量完成数组中的元素交换 </span></span><br><span class="line">    <span class="keyword">int</span> temp = arr[min]; </span><br><span class="line">    arr[min] = arr[max]; </span><br><span class="line">    arr[max] = temp;</span><br><span class="line">     &#125;</span><br><span class="line">    <span class="comment">// 反转后，遍历数组 </span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">     System.out.println(arr[i])</span><br><span class="line">     &#125; </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="10、数组作为方法参数和返回值"><a href="#10、数组作为方法参数和返回值" class="headerlink" title="10、数组作为方法参数和返回值"></a>10、数组作为方法参数和返回值</h2><p>首先明确一点：数组作为方法的返回值，返回的是数组的内存地址</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">     <span class="comment">//调用方法，接收数组的返回值 </span></span><br><span class="line">     <span class="comment">//接收到的是数组的内存地址 </span></span><br><span class="line">     <span class="keyword">int</span>[] arr = getArray(); </span><br><span class="line">     <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123; </span><br><span class="line">     System.out.println(arr[i])</span><br><span class="line">        &#125; </span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">/* 创建方法，返回值是数组类型创建方法，返回值是数组类型 </span></span><br><span class="line"><span class="comment">     return返回数组的地址 */</span></span><br><span class="line">     <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] getArray() &#123; </span><br><span class="line">     <span class="keyword">int</span>[] arr = &#123; <span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span> &#125;;</span><br><span class="line">      <span class="comment">//返回数组的地址，返回到调用者</span></span><br><span class="line">     <span class="keyword">return</span> arr; </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/1940331-a80fb17676058804?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="方法栈、堆"></p>
+<h2 id="11、方法的参数类型区别"><a href="#11、方法的参数类型区别" class="headerlink" title="11、方法的参数类型区别"></a>11、方法的参数类型区别</h2><blockquote>
+<p><strong>方法的参数为基本类型时,传递的是数据值. 方法的参数为引用类型时,传递的是地址值.</strong></p>
+</blockquote>
+<p>分析下列程序代码，计算输出结果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">1</span>; <span class="keyword">int</span> b = <span class="number">2</span>; </span><br><span class="line">    System.out.println(a); </span><br><span class="line">    System.out.println(b); </span><br><span class="line">    change(a, b); </span><br><span class="line">    System.out.println(a); </span><br><span class="line">    System.out.println(b); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123; </span><br><span class="line">    a = a + b; b = b + a; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>分析下列程序代码，计算输出结果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>&#125;; </span><br><span class="line">    System.out.println(arr[<span class="number">0</span>]); </span><br><span class="line">    change(arr); </span><br><span class="line">    System.out.println(arr[<span class="number">0</span>]); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    arr[<span class="number">0</span>] = <span class="number">200</span>; </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>总结: 方法的参数为基本类型时,传递的是数据值. 方法的参数为引用类型时,传递的是地址值.</p>
+</blockquote>
+<p>相信各位已经将上面的代码 copy 到 eclipse 或者 idea 中运行了，是不是结果很意外？而且对总结不是很理解？这位童靴，我估计你可能是忽略了这一点：数组是引用类型，数组本身元素类型没有影响的，就像数组元素全是int，数组依旧是引用类型！</p>
+
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/c44a1663.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/c44a1663.html" class="post-title-link" itemprop="url">ES6 Generator 基础指南</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-09-19 15:39:01" itemprop="dateCreated datePublished" datetime="2017-09-19T15:39:01+08:00">2017-09-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/c44a1663.html" class="post-meta-item leancloud_visitors" data-flag-title="ES6 Generator 基础指南" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/c44a1663.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/c44a1663.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>6.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="ES6-Generator-基础指南"><a href="#ES6-Generator-基础指南" class="headerlink" title="ES6 Generator 基础指南"></a>ES6 Generator 基础指南</h3><blockquote>
+<p>本文翻译自：<a href="https://davidwalsh.name/es6-generators" target="_blank" rel="noopener">The Basics Of ES6 Generators</a></p>
+<p>由于个人能力有限，翻译中难免有纰漏和错误，望不吝指正</p>
+</blockquote>
+<p>JavaScript ES6(译者注：ECMAScript 2015)中最令人兴奋的特性之一莫过于<strong>Generator</strong>函数，它是一种全新的函数类型。它的名字有些奇怪，初见其功能时甚至更会有些陌生。本篇文章旨在解释其基本工作原理，并帮助你理解为什么 Generator 将在未来 JS 中发挥强大作用。</p>
+<h4 id="Generator-从运行到完成的工作方式"><a href="#Generator-从运行到完成的工作方式" class="headerlink" title="Generator 从运行到完成的工作方式"></a>Generator 从运行到完成的工作方式</h4><p>但我们谈论 Generator 函数时，我们首先应该注意到的是，从“运行到完成”其和普通的函数表现有什么不同之处。</p>
+<p>不论你是否已经意识到，你已经潜意识得认为函数具有一些非常基础的特性：函数一旦开始执行，那么在其结束之前，不会执行其他 JavaScript 代码。</p>
+<p>例如:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Hello World"</span>);</span><br><span class="line">&#125;, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// <span class="doctag">NOTE:</span> don't ever do crazy long-running loops like this</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= <span class="number">1e10</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();</span><br><span class="line"><span class="comment">// 0..1E10</span></span><br><span class="line"><span class="comment">// "Hello World"</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的代码中，<code>for</code>循环会执行相当长的时间，长于 1 秒钟，但是在<code>foo()</code>函数执行的过程中，我们带有<code>console.log(...)</code>的定时器并不能够中断<code>foo()</code>函数的运行。因此代码被阻塞，定时器被推入事件循环的最后，耐心等待<code>foo</code>函数执行完成。</p>
+<p>倘若<code>foo()</code>可以被中断执行？它不会给我们的带来前所未有的浩劫吗？</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/c44a1663.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/73fbe37.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/73fbe37.html" class="post-title-link" itemprop="url">「体能训练理论」之金字塔</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-17 14:50:51" itemprop="dateCreated datePublished" datetime="2017-08-17T14:50:51+08:00">2017-08-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E9%94%BB%E7%82%BC/" itemprop="url" rel="index">
+                    <span itemprop="name">锻炼</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/73fbe37.html" class="post-meta-item leancloud_visitors" data-flag-title="「体能训练理论」之金字塔" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/73fbe37.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/73fbe37.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>体能，人体基础运动能力的统称，人体的本质属性，它支撑着日常生活工作的需要，也支撑着运动技战术的表现。 </p>
+<p>体能思路，是指导我们设计实施体能训练的思维方式，分析逻辑。</p>
+<h2 id="金字塔"><a href="#金字塔" class="headerlink" title="金字塔"></a>金字塔</h2><p>体能训练是一门实践科学，实践先于理论，而理论印证实践。体能训练有四大基础学科，分别是运动解剖学、运动生理学、运动生物力学和运动训练学。</p>
+<p>五大运动素质对应生理学和运动训练学；动力链对应解剖学和运动生物力学；功能性对应着生理和生物力。而金字塔则对应了它们全部！或者说金字塔其实是诸学科在体能训练中的交汇，它囊括了所有之前的理论，并且赋予了更深层的意义。</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fhg20ydk8uj30go0brwh1.jpg" alt=""></p>
+<p>金字塔代表了人体运动能力发展的客观规律，它是一个流程的引领，思维的分级，以及训练阶段的划分。</p>
+<p>这里包括 <strong>关节功能+核心控制</strong>、<strong>基础动作模式</strong>、<strong>基础力量</strong>、<strong>综合体能</strong>、<strong>专项运动</strong>。他们在逻辑上互为基础和进阶，关节是动作的基础，动作承载力量，力量支撑各个运动素质，而专项是各个运动素质在具体运动中的表现。</p>
+<p>也许这么说可能不能够让大家有清晰的认识，那么接下来我就把每层的内容和它们之间的逻辑关系简单的跟大家分享一下。 99%的运动者都是基础不足，上层过度。我们从基础开始，从下往上说起。</p>
+<h3 id="运动基础（关节功能-核心控制）"><a href="#运动基础（关节功能-核心控制）" class="headerlink" title="运动基础（关节功能 + 核心控制）"></a>运动基础（关节功能 + 核心控制）</h3><p>运动基础主要内容包括 <strong>关节功能</strong> 和 <strong>核心控制</strong> 能力。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/73fbe37.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/4113901c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/4113901c.html" class="post-title-link" itemprop="url">「体能训练理论」之动力链</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-16 14:50:51" itemprop="dateCreated datePublished" datetime="2017-08-16T14:50:51+08:00">2017-08-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E9%94%BB%E7%82%BC/" itemprop="url" rel="index">
+                    <span itemprop="name">锻炼</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/4113901c.html" class="post-meta-item leancloud_visitors" data-flag-title="「体能训练理论」之动力链" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/4113901c.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/4113901c.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>4.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>与其说体能训练是一种行为，不如说体能训练是一种程序。只要符合逻辑，就可以自由组合。</p>
+<h2 id="动力链"><a href="#动力链" class="headerlink" title="动力链"></a>动力链</h2><p>如果说 <strong>五大运动素质</strong>（力量、速度、耐力、灵敏、柔韧）代表了体能的宏观表现，那么动力链理论则阐释了人体解剖结构在运动中的客观规律，这二者同为人体的本质属性。</p>
+<p>动力链这一理论早在1875年就被提出过，当时的定义还很简单，就是指几个相邻的关节所组成的复杂动作单元。后来在不断地实践与研究中，动力链理论也不断的升级，越来越清晰，越来越客观，也越来越复杂，并且逐渐成为了体能训练师们必备的思考工具之一。</p>
+<p>来看看动力链的英文解释:</p>
+<blockquote>
+<p>The concept of the kinetic chain originated in 1875, when a mechanical engineer named Franz Reuleaux proposed that if a series of overlapping segments were connected via pin joints, these interlocking joints would create a system that would allow the movement of one joint to affect the movement of another joint within the kinetic link. Dr. Arthur Steindler adapted this theory in 1955, and included an analysis of human movement. Steindler suggested that the extremities be viewed as a series of rigid, overlapping segments and defined the kinetic chain as a “combination of several successively arranged joints constituting a complex motor unit.” The movements that occur within these segments present as two primary types—open and closed.</p>
+</blockquote>
+<p>这种模糊形容根本无法让人们理解它真正的内核，虽然它看起来就像是一堆联动的齿轮和杠杆。实际上它也真的很像一堆齿轮和杠杆，有的负责驱动，有的负责传力，有的负责稳定。</p>
+<p>为了方便大家理解，下面我要将这个理论拆解开来跟大家分享。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/4113901c.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/16d824e2.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/16d824e2.html" class="post-title-link" itemprop="url">「体能训练理论」之功能性</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-15 14:45:13" itemprop="dateCreated datePublished" datetime="2017-08-15T14:45:13+08:00">2017-08-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E9%94%BB%E7%82%BC/" itemprop="url" rel="index">
+                    <span itemprop="name">锻炼</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/16d824e2.html" class="post-meta-item leancloud_visitors" data-flag-title="「体能训练理论」之功能性" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/16d824e2.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/16d824e2.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>体能训练是一种开源的程序它所依仗的并不是固有的方法手段，而是能够贯穿始终的逻辑，它是一种指导实践的思维方式，我们管它叫“体能思路”。</p>
+<p>体能思路有两个方向，一个是原点，一个是过程。所谓原点我们认为是人体的本质属性，比如之前我们分享的五大运动素质以及动力链理论。所谓过程是我们分析问题实现目的的思考方向以及逻辑，它主要体现在接下来要跟大家分享的功能性原则和金字塔。</p>
+<p>今天先来说功能性原则。</p>
+<h2 id="功能性"><a href="#功能性" class="headerlink" title="功能性"></a>功能性</h2><p>我们所说的功能性是一种解决问题的思维方式，而功能性训练则定义了一种多关节参与，多平面运动的复杂练习。功能性训练是具体的，比较好理解，我就不赘述了，也不评价其优劣，因为在“功能性”的思维方式下，只存在目标之下的合适与否。</p>
+<h3 id="什么是功能性？"><a href="#什么是功能性？" class="headerlink" title="什么是功能性？"></a>什么是功能性？</h3><p>我们把它定义为目标导向下的效率，所以它是一种程度的体现。如果一个练习与目标的相关性强，那么我们认为它具备较强的功能意义；而如果一个练习与它的目标背道而驰，那么我们就认为它缺乏功能意义。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/16d824e2.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/96274c74.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/96274c74.html" class="post-title-link" itemprop="url">通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-07 15:58:31" itemprop="dateCreated datePublished" datetime="2017-08-07T15:58:31+08:00">2017-08-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/96274c74.html" class="post-meta-item leancloud_visitors" data-flag-title="通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/96274c74.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/96274c74.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="通过漫画形式来解释-ArrayBuffers-和-SharedArrayBuffers"><a href="#通过漫画形式来解释-ArrayBuffers-和-SharedArrayBuffers" class="headerlink" title="通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers"></a>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</h1><p>这是本系列三篇文章中的第二篇：</p>
+<ol>
+<li><em>内存管理速成手册</em></li>
+<li><em>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</em></li>
+<li><em>使用 Atomics 来在 SharedArrayBuffers 中避免竞用条件</em></li>
+</ol>
+<p>在上一篇中，我解释了一些自动内存管理的语言比如 JavaScript 怎么管理内存。同时我也解释了例如 C 语言，如何进行手动内存管理。</p>
+<p>那么这和我们将要讨论的 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer" target="_blank" rel="noopener">ArrayBuffers</a> 和 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer" target="_blank" rel="noopener">SharedArrayBuffers</a> 有什么关系呢？这是因为 ArrayBuffer 也使得你能够手动处理数据，尽管这是在 JavaScript 中，一种具有自动内存管理的语言。</p>
+<p>那么，你为什么想要进行手动处理呢？正如上一篇文章所描述，在使用自动内存管理上有一个权衡。自动内存管理使得开发者开发程序变得相对容易，但是它也带来了一些困扰。在某些场景中，自动内存管理可能会带来性能上的问题。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_01.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_01-500x285.png" alt="A balancing scale showing that automatic memory management is easier to understand, but harder to make fast"></a></p>
+<p>例如，当你使用 JS 创建一个变量的时候，JS 引擎不得不猜测这个 JS 变量所包含数据的类型以及怎样在内存中进行存储。因为这些猜测，JS 引擎通常会为这些变量实际需要的内存分配更大的内存空间。根据不同的变量，分配的内存空间可能是实际所需的 2-8 倍，这将导致极大的内存浪费。除此之外，特性模式的创建和使用 JS 对象也将会使得其很难被 JS 引擎垃圾回收。</p>
+<p>如果你正在进行手动的内存管理，你可以根据自己工作上的使用场景自己选择内存分配和解除分配的策略。当时在很多时候，却并不值得这样做。因为在很多使用场景下我们的程序并没有那么性能敏感以至于需要采用手动得内存管理。甚至在通常的使用中，手动内存管理甚至会使得程序更慢。但是在有些时候，你需要从一些更底层的操作来时的你的代码运行的更快，那么 ArrayBuffers 和 SharedArrayBuffers 将是很好的选择。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_02.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_02-500x285.png" alt="A balancing scale showing that manual memory management gives you more control for performance fine-tuning, but requires more thought and planning"></a></p>
+<p>那么 ArrayBuffer 是怎么工作的呢？基本上和其他的 JavaScript 数组没有什么区别。除了，当你使用 ArrayBuffer 的时候，你不可以将任意的 JavaScript 数据类型到 ArrayBuffer 中，例如 objects 或者 strings。唯一能够放入 ArrayBuffer 中的只有字节（可以通过数字来表示）。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_03.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_03-500x377.png" alt="Two arrays, a normal array which can contain numbers, objects, strings, etc, and an ArrayBuffer, which can only contain bytes"></a></p>
+<p>另外一件我必须明确说明的是，你并不能够直接的将字节放入 ArrayBuffer。这是因为，ArrayBuffer 并不知道一个字节有多大，也不知道不同的数字转化成字节的区别。ArrayBuffer 仅仅是一个「0」和「1」组成一行的二进制串。ArrayBuffer 也不知道分隔符应该放在该二进制串的什么位置。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_04.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_04-500x61.png" alt="A bunch of ones and zeros in a line"></a></p>
+<p>为了给 ArrayBuffer 提供上下文，将上面的二进制串分割在相同尺寸的盒子里，我们需要一个称作「视窗」概念将二进制串分割到不同的盒子里。这些二进制数据上的视窗可以以带类型的数组存储，同时在 ArrayBuffer 中有不同带类型数组。比如，你可以通过 8 位整数的类型数组将上面的 ArrayBuffer 8 位一字节分割开来。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_05.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_05-500x177.png" alt="Those ones and zeros broken up into boxes of 8"></a></p>
+<p>或者你可以使用无符号 16 位整数的数组，这样就将上面的 ArrayBuffer 分割成了 16 位一字节的不同块中，然后依然想无符号整数一样对其操作。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_06.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_06-500x153.png" alt="Those ones and zeros broken up into boxes of 16"></a></p>
+<p>你甚至可以在同一个基础 buffer 上面拥有不同的「视窗」。不同的「视窗」在相同的操作下会带来不同的结果。比如，在 Int8 视窗中，你可能会得到 <code>0 &amp; 1</code> 表达式，而在同样的 buffer 下，在 Uint16 视窗下你可能会得到其他结果，尽管他们都拥有相同的二进制位串。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_07.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_07-500x262.png" alt="Those ones and zeros broken up into boxes of 16"></a></p>
+<p>在上面描述得工作方式下，ArrayBuffer 的角色仅仅是向一块原始的内存。它模拟了像在 C 语言中直接获取\操作 内存的工作。你可能会产生疑问，为什么 JS 不直接提供给使用者直接获取/操作内存的接口而是添加 ArrayBuffer 这一抽象层呢？这是因为直接获取/操作内存可能会导致一些安全漏洞。我将在将来的文章中讨论这一块内容。那么，SharedArrayBuffers 又是什么呢？</p>
+<p>为了解释 SharedArrayBuffers，我需要先简略解释 JavaScript 中并行运行代码。为了并行运行代码，你需要将工作拆分成不同部分。但是在一个典型的 app 中，所有的工作都是在一个独立的线程中完成。在之前的文章中我也提及过这一点…这个主线程就像一个全栈工程师一样。它掌管着 JavaScript、DOM、以及视图布局。所有你能够操作的工作都是在这个主线程帮助下完成的。在某些特定环境下，ArrayBuffers 可以减轻主线程的负担，代替完成主线程的部分工作。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_08.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_08-500x350.png" alt="The main thread standing at its desk with a pile of paperwork. The top part of that pile has been removed"></a></p>
+<p>但是有时候减少主线程的工作依然是不够的。有时候你需要引进增援…你需要将工作分开。在很多编程语言中，将工作分成不同块每一块也就称作一个线程。这个多人共同完成一个项目是一个道理。</p>
+<p>如果你有一些任务，同时该任务和其他任务相对独立，那么你就可以在其他线程中完成这些任务。因此，不同的线程就可以在同一时间完成互相独立的分离任务。在 JavaScript 中，我们可以通过被称作<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers" target="_blank" rel="noopener">web worker</a>的工具来完成以上工作。这些 web workers 与您在其他语言中使用的线程略有不同。默认情况下，它们不共享内存。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_09.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_09-500x360.png" alt="Two threads at desks next to each other. Their piles of paperwork are half as tall as before. There is a chunk of memory below each, but not connected to the other&#39;s memory"></a></p>
+<p>这也就意味着，如果你想和其他线程共享数据，那么你就需要将数据从一个地方复制到另外一个地方。这是通过函数<a href="https://developer.mozilla.org/en-US/docs/Web/API/Worker/postMessage" target="_blank" rel="noopener">postMessage</a> 完成的。postMessage 将所有输入的对象序列化，将其发送到另一个 web worker，并将其反序列化并放入内存中。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_10.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_10-500x355.png" alt="Thread 1 shares memory with thread 2 by serializing it, sending it across, where it is copied into thread 2&#39;s memory"></a></p>
+<p>这事一个相当慢的过程，比如一些类型的数据，像 ArrayBuffers，你可以转移内存。这意味着你可以将某一特定的内存块移动到其他地方，这样其他的 web worker 就可以获取/操作 该内存块。但是之前的 web worker 将不能够再获取到该内存块了。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_11.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_11-500x360.png" alt="Thread 1 shares memory with thread 2 by transferring it. Thread 1 no longer has access to it"></a></p>
+<p>这也许在某些场景中适用，但是在更多的情况，你可能需要更高效得并行策略，在这些场景下，你可能真实的想要共享内存单元。ShareArrayBuffer 能够帮助你达到此目的。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_12.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_12-500x349.png" alt="The two threads get some shared memory which they can both access"></a></p>
+<p>通过 ShareArrayBuffer，web worker、不同线程可以在相同的内存块中读写数据。这也意味着你不爱需要通过 postMessage 来在不同的线程中通信传递数据。不同的 web worker 都有获取/操作数据的权限。但是这也会带来一些问题，比如两个线程在同一时间对数据进行操作。这也就是通常被称作「竞用条件」的现象。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_13.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_13-500x201.png" alt="Drawing of two threads racing towards memory"></a></p>
+<p>我将在<a href="https://hacks.mozilla.org/2017/06/avoiding-race-conditions-in-sharedarraybuffers-with-atomics/" target="_blank" rel="noopener">下一篇文章</a>中解释什么是竞用条件。那么 SharedArrayBuffers 现阶段处于什么地位呢？庆幸得，在不久的将来，所有主流浏览器都贱支持 SharedArrayBuffers。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_14.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_14-500x169.png" alt="Logos of the major browsers high-fiving"></a></p>
+<p>SharedArrayBuffers 在 Safari（Safari 10.1）中已经可以使用。Firefox 和 Chrome 也将在今年的七八月发布的版本中包含此项功能。Edge 浏览器计划在今年的秋天完成此项功能的更新。但是即使所有主流浏览器都已经支持 SharedArrayBuffers，我们也不希望应用程序开发人员直接使用它。</p>
+<p>实际上，我们发对这样做。你应该在其之上进行抽象，使用更高层的一些库。我们所期待的是框架或库的开发者们能够创建一些工具库，这些工具库能够帮助我们更方便、安全的使用 SharedArrayBuffer。除此之外，一旦 SharedArrayBuffers 在平台上实现，WebAssembly 可以使用它来实现多线程。到时候，你就能够向 Rust 语言一样使用并发的抽象层，它将无所畏惧得将并发作为其主要目标。在下一篇文章中，我们将解释工具（<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics" target="_blank" rel="noopener">Atomics</a> ）以及工具开发者是怎样来实现这一抽象层并如何避免竞用条件的。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_15.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_15-500x335.png" alt="Layer diagram showing SharedArrayBuffer + Atomics as the foundation, and JS libaries and WebAssembly threading building on top"></a></p>
+
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/99af2b46.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/99af2b46.html" class="post-title-link" itemprop="url">内存管理速成手册</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-05 15:52:35" itemprop="dateCreated datePublished" datetime="2017-08-05T15:52:35+08:00">2017-08-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/99af2b46.html" class="post-meta-item leancloud_visitors" data-flag-title="内存管理速成手册" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/99af2b46.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/99af2b46.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="内存管理速成手册"><a href="#内存管理速成手册" class="headerlink" title="内存管理速成手册"></a>内存管理速成手册</h2><blockquote>
+<p><a href="https://hacks.mozilla.org/2017/06/a-crash-course-in-memory-management/" target="_blank" rel="noopener">原文地址</a></p>
+</blockquote>
+<p>_这是本系列文章中的第一篇：</p>
+<ol>
+<li><em>内存管理速成手册</em></li>
+<li><em>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</em></li>
+<li><em>使用 Atomics 来在 SharedArrayBuffers 中避免竞用条件</em></li>
+</ol>
+<p>在弄懂 <code>ArrayBuffer</code> 和 <code>SharedArrayBuffer</code> 为什么添加到 JavaScript 之前，你首先需要了解一些关于内存管理的知识。你可以把机器中的内存比喻成一组箱子，就像我把内存想象成办公室内部的信箱一样，或者是为学龄前儿童准备的用于存储杂物的小房间，如果你想给某位孩子准备一些礼物，你可以将物品放到某个箱子里。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_01.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_01-500x353.png" alt="A column of boxes with a child putting something in one of the boxes"></a></p>
+<p>在每个箱子旁边都有一个与之对应的数字，这就是内存地址。正是因为有了地址，你才能够告诉别人你为其准备动物品存放的位置。每个箱子具有相同的尺寸，也因此每个内存箱子也具有相同的容量来存储信息。箱子的尺寸是根据不同的机器而定的。箱子的尺寸被称作「字长」。它通常被标识为「32 位」或者「64 位」。但是为了简单的展示，在本文中我们使用「8 位」的字长。（译者注：一个字长包含 8 个二进制位，也就是说一个内存单元的容量是 8 位）</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_02.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_02-500x121.png" alt="A box with 8 smaller boxes in it"></a></p>
+<p>如果你打算将数字 2 放进其中一个内存箱子里，这将非常容易做到，因为数字可以很容易通过二进制来表示。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_03.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_03-500x229.png" alt="The number two, converted to binary 00000010 and put inside the boxes"></a></p>
+<p>倘若我们想放入内存箱子中的不是数字，而比如是字母「H」，怎么办呢？我们需要通过某种方法将其转化成可以使用数字来表示。为了完成此项工作，我们需要编码。类似于 <a href="https://en.wikipedia.org/wiki/UTF-8" target="_blank" rel="noopener">UTF-8</a> 。同时我们需要某种工具来按照 UTF-8 中的对应关系将字符转化成数字…比如说一个编码环。有了编码和编码环后，我们就可以将任意字符存入到内存箱子中了。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_04.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_04-500x277.png" alt="The letter H, put through an encoder ring to get 72, which is then converted to binary and put in the boxes"></a></p>
+<p>当我们打算将我们存入内存箱子中的信息取出时，我们需要将其放入一个解码器中，通过解码器将存放的数字转换成字母「H」。当你使用 JavaScript 工作时，你无须关心内存是怎样分配和使用的，因为在 JavaScript 中内存是自动管理的，内存管理和你的代码完全隔离。这意味着你不能够直接操作内存。JS 引擎将作为中介的角色，帮我们管理内存。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_05.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_05-500x371.png" alt="A column of boxes with a rope in front of it and the JS engine standing at that rope like a bouncer"></a></p>
+<p>让我们一些 JS 代码，比如在 React 中，我们需要创建一个变量并对其赋值。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_06.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_06-500x373.png" alt="Same as above, with React asking the JS engine to create a variable"></a></p>
+<p>JS 引擎的工作就是通过编码器将变量名转换成二进制表示。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_07.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_07-500x370.png" alt="The JS engine using an encoder ring to convert the string to binary"></a></p>
+<p>然后在内存中找到闲余的空间用来存放上面转换后的二进制表示。这一过程被称作分配内存。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_08.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_08-500x367.png" alt="The JS engine finding space for the binary in the column of boxes"></a></p>
+<p>接下来，JS 引擎会跟踪该变量并判断在程序中该变量是否还能够获取到。如果该变量不能够再被获取到，那么该内存箱子将会被回收再利用，以便 JS 引擎能够分配新的值到该内存中。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_09.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_09-500x379.png" alt="The garbage collector clearing out the memory"></a></p>
+<p>JS 引擎监听变量所代表的字符串、对象、以及内存中的其他数据类型的数据，当这些值不能再被获取到的时候，JS 引擎将会把它们清除出内存，这一过程被称作「垃圾回收」。比如 JavaScript 语言，代码不能够直接操纵内存，被称作自动内存管理语言。这一自动内存管理机制会使得开发变得相对简单。但是自动内存管理也会带来一些头疼的地方。比如自动内存管理可能会带来性能不可预测。而手动进行内存管理的语言就不会有这些问题。比如，通过 C 语言内存管理的方式来写 React 代码（当然，通过<a href="https://hacks.mozilla.org/2017/02/a-cartoon-intro-to-webassembly/" target="_blank" rel="noopener">WebAssembly</a> 已经使得其<a href="https://www.youtube.com/watch?v=3GHJ4cbxsVQ" target="_blank" rel="noopener">成为现实</a>）。C 语言没有 JavaScript 自动内存管理的这一层功能抽象。所以，你可以直接操作内存，你可以从内存中对去数据，你也可以操作内存将数据存入内存中。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_10.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_10-500x360.png" alt="A WebAssembly version of React working with memory directly"></a></p>
+<p>当你讲其它语言比如 C 语言传递给 WebAssembly，你使用的工具将会添加一些代码到 WebAssembly 中，比如，将添加对字节进行编码和解码的代码。这些代码被称作运行时环境。运行时环境也将像 JS 引擎在 JavaScript 语言中的作用一样，处理一些与之相同的工作。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_11.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_11-500x361.png" alt="An encoder ring being shipped down as part of the .wasm file"></a></p>
+<p>但是对于手动内存管理的语言来说，运行时环境并不包含垃圾回收。这就意味着你必须手动来进行垃圾回收，即使是手动内存管理的语言，你通常也可以从该语言运行时环境中获取一些帮助。比如，在 C 语言中，C 语言运行时将会跟踪那些未被使用的内存，并将内存地址存储在一个链表中，该列表被称作「free list」。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_12.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/01_12-500x360.png" alt="A free list next to the column of boxes, listing which boxes are free right now"></a></p>
+<p>你可以使用 <code>malloc</code> 函数（memory allocate 简写）来请求运行时环境来寻找能够存放你数据的内存地址。这会使得这些内存地址从「free list」中移除。当你使用数据完成工作后，你必须通过<code>free</code>函数来讲该内存释放。</p>
+<p>这样该内存地址将会被重新添加至「free list」中。你必须知道什么时候该调用这些函数。这也是为什么称为手动内存管理的原因所在 -- 你完全自己管理程序中的内存。作为开发者，断定什么时候该清除内存是一件相当困难的事。</p>
+<p>如果在错误的时间点清除内存，将导致程序 bug，甚至一些安全漏洞。如果不对不在使用的内存进行处理，又将导致内存用尽。这也就是为什么现代语言都是用自动内存管理的原因 -- 避免人为错误。但是这也将会产生一些性能上的问题。</p>
+
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/114824d5.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/114824d5.html" class="post-title-link" itemprop="url">Android 学习笔记：ANR的定位和修正</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-07-02 14:20:13" itemprop="dateCreated datePublished" datetime="2017-07-02T14:20:13+08:00">2017-07-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/114824d5.html" class="post-meta-item leancloud_visitors" data-flag-title="Android 学习笔记：ANR的定位和修正" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/114824d5.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/114824d5.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>913</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>请在微信(wechat):you的日常，关注我吧，每天给你不一样的好看。</p>
+<p>ANR（Application Not Responding）即应用无响应。可以通过查看/data/anr/traces.txt查看ANR信息。</p>
+<h2 id="一、ANR的类型"><a href="#一、ANR的类型" class="headerlink" title="一、ANR的类型"></a>一、ANR的类型</h2><p>ANR一般有三种类型</p>
+<ul>
+<li><p><code>KeyDispatchTimeout</code>(5 seconds)<br>  主要类型</p>
+<p>  按键或触摸事件在特定时间内无响应</p>
+</li>
+<li><p><code>BroadcastTimeout</code>(10 seconds)</p>
+<p>  BroadcastReceiver在特定时间内无法处理完成</p>
+</li>
+<li><p><code>ServiceTimeout</code> (20 seconds) –小概率类型</p>
+<p>  Service在特定的时间内无法处理完成</p>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/114824d5.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">You的日常</p>
+  <div class="site-description" itemprop="description">Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/e8c3cb999dc5" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;e8c3cb999dc5" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i>简书</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">You的日常</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">297k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:30</span>
+</div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df0bed512824580" async="async"></script>
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+            'X-LC-Key': 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 22317,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: false,
+      appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+      appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+      placeholder: "请留下您的意见吧：",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: '' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

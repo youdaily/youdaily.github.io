@@ -1,0 +1,3434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.youdaily.world').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="You的日常">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.youdaily.world&#x2F;index.html">
+<meta property="og:site_name" content="You的日常">
+<meta property="og:description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="You的日常">
+<meta property="article:tag" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.youdaily.world/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false
+  };
+</script>
+
+  <title>You的日常</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">You的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">You的日常，我们的日常</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/17fb87b9.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/17fb87b9.html" class="post-title-link" itemprop="url">251事件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-10 14:48:03" itemprop="dateCreated datePublished" datetime="2019-12-10T14:48:03+08:00">2019-12-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E5%85%AC%E4%BC%97%E5%8F%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">公众号</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E5%85%AC%E4%BC%97%E5%8F%B7/251/" itemprop="url" rel="index">
+                    <span itemprop="name">251</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/17fb87b9.html" class="post-meta-item leancloud_visitors" data-flag-title="251事件" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/17fb87b9.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/17fb87b9.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>继 <code>网易暴裁病员</code> 事件后, 华为的 <code>251</code> 事件引发的讨论在网络上引起的讨论越来越多。</p>
+<h2 id="事件始末"><a href="#事件始末" class="headerlink" title="事件始末"></a>事件始末</h2><p>42岁的李洪元没想到，一笔30万元的离职补偿款会换来251天的牢狱之灾。</p>
+<p>李洪元于2005年10月入职华为，2018年1月31日因举报所在的逆变器销售管理部门存在操作违规行为而被 HR 劝退离职。</p>
+<p>据深圳市龙岗区人民检察院《不起诉决定书》，2017 年 12 月到 2018 年 3 月期间，李洪元以向华为公司举报部门主管在业务上存在违规操作的行为进行要挟，从部门主管处勒索人民币约 30 万。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/17fb87b9.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/db7d6965.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/db7d6965.html" class="post-title-link" itemprop="url">每日一文：剩男现象</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-04 11:24:27" itemprop="dateCreated datePublished" datetime="2019-12-04T11:24:27+08:00">2019-12-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E5%85%AC%E4%BC%97%E5%8F%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">公众号</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E5%85%AC%E4%BC%97%E5%8F%B7/%E5%89%A9%E7%94%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">剩男</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/db7d6965.html" class="post-meta-item leancloud_visitors" data-flag-title="每日一文：剩男现象" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/db7d6965.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/db7d6965.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>在中国，30岁以上的未婚男性被称作「剩男」，指的是还没有找到妻子的「剩下的男士」——而在一个性别越发失衡的国家里，这已经成为一大问题。</p>
+<p>1980年，中国新生儿男女比例仍处于正常区间。但到了90年，比例增加了但也没到很严重的程度，而 2000 的人口普查资料更显示，当年新生儿性男女比例失衡不但达到历史新高，第三胎男女比例更高达 6 : 1。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/db7d6965.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/f8a39f2f.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/f8a39f2f.html" class="post-title-link" itemprop="url">深入理解 Python 字典的实现过程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-27 11:41:06" itemprop="dateCreated datePublished" datetime="2019-11-27T11:41:06+08:00">2019-11-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">高级技术</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/f8a39f2f.html" class="post-meta-item leancloud_visitors" data-flag-title="深入理解 Python 字典的实现过程" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/f8a39f2f.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/f8a39f2f.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Python-字典"><a href="#Python-字典" class="headerlink" title="Python 字典"></a>Python 字典</h2><p>字典是一种内置于 Python 中非常有用的数据类型，总的来说它是一些由键（key）索引的对象，这里的 key 是必须是不可变的。 以下是一个简单的字典用法示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = &#123;<span class="string">'fengsp'</span>: <span class="number">10</span>, <span class="string">'amy'</span>: <span class="number">12</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d[<span class="string">'fengsp'</span>]</span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> d[<span class="string">'fengsp'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.keys()</span><br><span class="line">[<span class="string">'amy'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>通常我们会多次的检索一个值（value），因此通过 key 来检索一个对象的过程必须是个非常快速的操作。对于 CPython 本身，多种语法特性都是在字典的帮助下支持的，例如，类实例就是使用字典来储存实例属性，可见字典的性能至关重要。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/f8a39f2f.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/b8422409.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/b8422409.html" class="post-title-link" itemprop="url">网易裁员事件-《网易裁员，让保安把身患绝症的我赶出公司。我在网易亲身经历的噩梦》</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-24 15:49:37" itemprop="dateCreated datePublished" datetime="2019-11-24T15:49:37+08:00">2019-11-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/b8422409.html" class="post-meta-item leancloud_visitors" data-flag-title="网易裁员事件-《网易裁员，让保安把身患绝症的我赶出公司。我在网易亲身经历的噩梦》" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/b8422409.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/b8422409.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>12k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>11 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>以下为《网易裁员，让保安把身患绝症的我赶出公司。我在网易亲身经历的噩梦！》全文内容：</p>
+<p>我是网易的一名游戏策划。14年从上海交大毕业后就进入网易工作，5年里，我和大部分网易员工一样以“网易人”的称号为傲。</p>
+<p>直到18年底开始传出网易毁约应届生、年前最后一天裁员、威胁员工的消息时，仍不愿相信这是网易的所为，更想不到不久后我就会在身患绝症的情况下亲身经历逼迫、算计、监视、陷害、威胁，甚至被保安赶出公司。</p>
+<h2 id="01-患病"><a href="#01-患病" class="headerlink" title="01 患病"></a>01 患病</h2><p>这5年里，除了某段时间经常在后半夜两三点钟下班，主管说第二天早上可以请病假晚到一会儿之外，我请病假的次数屈指可数。</p>
+<p>但去年年底感冒后开始头晕体虚，爬楼梯开始吃力，这才开始多次向主管和代理主管请病假就医。</p>
+<p>今年1月底，被确诊为扩张型心肌病。心脏扩大近一倍。期间跟代理主管说了是心脏出了问题，但只是请病假更方便了一些，没有因病减少或耽误丝毫工作。</p>
+<p>3月底主管找我谈绩效，说他跟代理主管聊过了，这次准备给我评D绩效，因为我现在不适合在这里继续工作了。</p>
+<p>当时我很懵，因为我和代理主管每天吃饭的时候都在讨论项目的开发方向，很多重要的功能也都是我俩加班讨论确定的，重要功能他也都交给我做，组内的业绩排名也基本是他第一我第二。</p>
+<p>我不明白他为什么要突然捅我一刀。</p>
+<p>我又问主管原因，结果主管给出的都是因为组内人数过多，因为老员工的评判标准要比新员工高这种很敷衍的理由。</p>
+<h2 id="02-威胁不让拿N-1"><a href="#02-威胁不让拿N-1" class="headerlink" title="02 威胁不让拿N+1"></a>02 威胁不让拿N+1</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/b8422409.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/a735f994.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/a735f994.html" class="post-title-link" itemprop="url">今日一文：妈妈的手套</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-20 16:38:49" itemprop="dateCreated datePublished" datetime="2019-11-20T16:38:49+08:00">2019-11-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E5%85%AC%E4%BC%97%E5%8F%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">公众号</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E5%85%AC%E4%BC%97%E5%8F%B7/%E5%A4%A9%E5%86%B7%E4%BA%86/" itemprop="url" rel="index">
+                    <span itemprop="name">天冷了</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/a735f994.html" class="post-meta-item leancloud_visitors" data-flag-title="今日一文：妈妈的手套" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/a735f994.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/a735f994.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>昨天晚上给妈妈打电话的时候，妈妈说预报里面说：明天家里要下雪了，你那边冷吗？你要多穿点衣服，不要冻着啦！</p>
+<h2 id="妈妈的手套"><a href="#妈妈的手套" class="headerlink" title="妈妈的手套"></a>妈妈的手套</h2><p><img src="https://upload-images.jianshu.io/upload_images/1940331-fed24a8c6ace4bf3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="手套"></p>
+<blockquote>
+<p>图文无关</p>
+</blockquote>
+<p>记得那年冬天，我上初二，学校周末放假了，我和弟弟两个人闹矛盾，然后我的手不小心被刀划伤了。小时候的我们，都不是让母亲省心的孩子。弟弟那时还小，把我划伤后就和其它的小伙伴出去玩了。妈妈听到了我的哭声，从地里回来，带着我去村上的医疗室包扎伤口。医生仔细检查完伤口，进行了消毒包扎，然后对妈妈说：现在天冷，注意手不要冻着了，不然会很麻烦的。</p>
+<p>回家后，妈妈让我坐在椅子上烤火看电视，然后自己又到田里去忙了。我在家里看着电视，听着外面呼呼的风声，心想天可真冷啊。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1940331-afdea73a422163cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="北风吹"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/a735f994.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/39a2d06b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/39a2d06b.html" class="post-title-link" itemprop="url">今日一文：国足又输球了</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-18 16:26:14" itemprop="dateCreated datePublished" datetime="2019-11-18T16:26:14+08:00">2019-11-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E5%85%AC%E4%BC%97%E5%8F%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">公众号</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E5%85%AC%E4%BC%97%E5%8F%B7/%E4%B8%96%E7%95%8C%E6%9D%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">世界杯</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/39a2d06b.html" class="post-meta-item leancloud_visitors" data-flag-title="今日一文：国足又输球了" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/39a2d06b.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/39a2d06b.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>11 月 14 日晚，中国男足又输球了。</p>
+<h2 id="比赛相关"><a href="#比赛相关" class="headerlink" title="比赛相关"></a>比赛相关</h2><p>11 月 14 日晚，2022 年世界杯亚洲区预选赛预赛阶段（四十强赛）A组的一场关键战役在此间打响，中国男足和叙利亚队伍的比赛正式上演。此前，中国队已踢过三场小组赛，分别以 <strong>5:0</strong> 和 <strong>7:0</strong> 战胜了马尔代夫和关岛，以 <strong>0:0</strong> 踢平菲律宾队。</p>
+<p>比赛中中国男足在上半场扳平比分后，下半场因为一粒乌龙球以 <strong>1:2</strong> 遗憾负于小组最强对手叙利亚队，目前在小组中仅以净胜球优势排在第二位。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1940331-11f7aa4a650f9008?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="国足比分"></p>
+<p>在 <strong>1:2</strong> 不敌叙利亚队，再一次，将出线主动权拱手让出。本场战罢，中国队 2 胜 1 平 1 负积 7 分，以净胜球优势领先菲律宾队排在四十强赛 A 组的第二位，叙利亚队则以四战全胜积 12 分排名第一。依照“四十强赛”的规则，总共 40 支球队分成 8 个小组参加世界杯亚洲区的预选赛，8 个小组的第一名以及 4 个表现最佳的第二名球队也得以参加预选赛下一轮的比赛。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1940331-9eb2079921b316e7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="分组"></p>
+<p>中国队唯一一次入围世界杯是在 2002 年的日韩世界杯，当时中国队输掉了所有三场比赛，并且未进一球。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/39a2d06b.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/9bb99421.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/9bb99421.html" class="post-title-link" itemprop="url">今日一文：三罢对香港经济的影响</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-15 16:26:14" itemprop="dateCreated datePublished" datetime="2019-11-15T16:26:14+08:00">2019-11-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E5%85%AC%E4%BC%97%E5%8F%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">公众号</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E5%85%AC%E4%BC%97%E5%8F%B7/%E9%A6%99%E6%B8%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">香港</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/9bb99421.html" class="post-meta-item leancloud_visitors" data-flag-title="今日一文：三罢对香港经济的影响" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/9bb99421.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/9bb99421.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>我们都知道，最近香港的局势不太稳定，暴徒们恶意破坏的行径，已经严重影响到香港居民的方方面面。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1940331-41ab7b2376308e2c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="一条满是砖块垃圾的马路"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1940331-c28106337cf53a62?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在沙田，一列火车因抗议者的扰乱而暂停服务，乘客被迫下车"></p>
+<p>我们都知道，动荡的社会环境中，社会生产活动肯定会受到影响，这些影响最后将以经济数据的形式呈现出来。8 月份开始的 “三罢（罢工、罢课、罢市）” 活动，更是将对经济的影响放大了。这篇文章里，我们将尝试从香港政府已经公布的经济数据中，去发现暴力活动对香港经济造成的影响。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1940331-20fdf6abb39bee30?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<blockquote>
+<p>因为经济数据，具有一定的延后性，我们这里只从现有的数据出发，去分析问题。至于当下实际的情况，只能通过后续更新的数据再去分析啦。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/9bb99421.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/223d2e53.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/223d2e53.html" class="post-title-link" itemprop="url">今日一文：矛盾的日本人</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-14 16:26:14" itemprop="dateCreated datePublished" datetime="2019-11-14T16:26:14+08:00">2019-11-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E5%85%AC%E4%BC%97%E5%8F%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">公众号</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E5%85%AC%E4%BC%97%E5%8F%B7/%E7%9F%9B%E7%9B%BE/" itemprop="url" rel="index">
+                    <span itemprop="name">矛盾</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/223d2e53.html" class="post-meta-item leancloud_visitors" data-flag-title="今日一文：矛盾的日本人" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/223d2e53.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/223d2e53.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>早上的时候，因为工作需要和日本的客户开了个会，就是我们作为方案提供方，想客户推广公司的产品，我基本全程 <code>打酱油</code>，主讲的另外的两个同事。主要通过英语进行讲解，日本那边有一个英语翻译，复杂将双方的意思进行传达。会议讲述的内容是已经在很多场合下讲过很多次了，客户也没有问特别深奥的问题，整个过程下来感觉也没有给客户留下特别的印象。</p>
+<p>会上的一件小事，却让我感到有点吃惊。</p>
+<p>既然是推广，那肯定会有答疑环节，日方的翻译和同事就一个问题讨论了几分钟了，突然有个声音出现，说着日语，然后那个翻译很快地就用几句话结束了交谈。</p>
+<p>我还在郁闷，这是怎么回事呢？怎么突然就结束啦。正当我还在疑惑的时候，旁边的同事说道：“1个小时过的真快，这就结束了”。</p>
+<p>然后同事有顺口提到：日本人也真是的，说一小时就一小时，多一分钟都不行。我们约的一个小时的会议，我们 10 点 55 开始的会议，现在刚11：54 就结束了会议。</p>
+<p>会后，我对这个话题比较的感兴趣，就去搜索了相关的内容。这一搜，发现了一个重要的事实：日本人对待时间这件事情上就是一个 <code>矛盾</code> 的混合体。一方面，日本人有很重的时间观念，对于 <code>守时</code> 这件事情上的表现近乎刻板。另一方面，日本人也是“加班狂人”。为什么会出现这种看似 <code>矛盾</code> 的现象呢，这背后的原因是什么呢？</p>
+<p>顺着这个思路，来展开我们今天的话题。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/223d2e53.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/e8927964.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/e8927964.html" class="post-title-link" itemprop="url">副业赚钱？ 我用自己的教训来给你指路</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-13 16:36:39" itemprop="dateCreated datePublished" datetime="2019-11-13T16:36:39+08:00">2019-11-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E5%85%AC%E4%BC%97%E5%8F%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">公众号</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E5%85%AC%E4%BC%97%E5%8F%B7/%E5%89%AF%E4%B8%9A/" itemprop="url" rel="index">
+                    <span itemprop="name">副业</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/e8927964.html" class="post-meta-item leancloud_visitors" data-flag-title="副业赚钱？ 我用自己的教训来给你指路" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/e8927964.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/e8927964.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><code>副业赚钱</code>, 是每个人读梦寐以求的，毕竟 <code>躺着就能把钱挣了</code> 还是很舒服的。</p>
+<p>最近在不断的总结和反思着一个多月以来的 <code>折腾之旅</code> , 得到了下面的几点教训。这里分享出来给大家参考。</p>
+<h2 id="涉及的东西太多"><a href="#涉及的东西太多" class="headerlink" title="涉及的东西太多"></a>涉及的东西太多</h2><p>自从 9 月份开始说要开始自己的折腾之旅开始，先后试过下面平台及方向。</p>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>内容、方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简书</td>
+<td>书写、技术付费文章</td>
+</tr>
+<tr>
+<td>公众号</td>
+<td>书写、图片转载</td>
+</tr>
+<tr>
+<td>头条号</td>
+<td>图片转载</td>
+</tr>
+<tr>
+<td>悟空问答</td>
+<td>影视领域认证</td>
+</tr>
+<tr>
+<td>抖音</td>
+<td>视频搬运</td>
+</tr>
+<tr>
+<td>TiTok</td>
+<td>视频搬运</td>
+</tr>
+<tr>
+<td>微视</td>
+<td>视频搬运</td>
+</tr>
+<tr>
+<td>好看视频</td>
+<td>视频搬运</td>
+</tr>
+<tr>
+<td>Youtobe</td>
+<td>视频搬运</td>
+</tr>
+<tr>
+<td>Gitbook</td>
+<td>技术付费文章</td>
+</tr>
+<tr>
+<td>小专栏</td>
+<td>技术付费专栏</td>
+</tr>
+</tbody></table>
+<p>还有很多就试过一两次的，然后觉得不靠谱的就不再列出来了，如果列出来这份清单会很长很长。</p>
+<p>上面的这些内容，大部分都在上班时间抽空来完成的。质量可定也好不到哪里去，基本上可以说大部分的内容都是拼凑完成的，另外一些内容，虽然加入了自己的一些东西，但是大部分都不是太深入。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/e8927964.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/1d89d585.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/1d89d585.html" class="post-title-link" itemprop="url">使用Python Flask 实现 RESTful API</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-18 11:36:18" itemprop="dateCreated datePublished" datetime="2019-10-18T11:36:18+08:00">2019-10-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">高级技术</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/1d89d585.html" class="post-meta-item leancloud_visitors" data-flag-title="使用Python Flask 实现 RESTful API" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/1d89d585.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/1d89d585.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>11k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>10 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在工作学习中，我们经常会需要将自己的开发成果对外提供服务，此时的选择很多，但是什么才是最高效的呢？</p>
+<p>想必聪明的你，已经想到了：通过 <code>API</code> 的方式对外提供服务。既然我们在学习 Python 过程中，那我们就使用 Python 来实现自己的 API 吧。</p>
+<p>下面将从下面几个方面进行讲解：</p>
+<ul>
+<li>API 简介</li>
+<li>RESTful API 简介</li>
+<li>使用Python Flask 实现 RESTful API</li>
+</ul>
+<hr>
+<h2 id="API-简介"><a href="#API-简介" class="headerlink" title="API 简介"></a>API 简介</h2><p>API 是英语 <code>Application Programming Interfaces</code> 的3个首字母组成的，翻译成中文即 <code>应用程序编程接口</code>。</p>
+<p>API 通常是由服务器（Server）提供（服务器有各种各样的类型，一般我们浏览网页用到的是web server，即网络服务器），通过调用 API，本地计算机可以读取、编辑网站数据，就像人类可以加载网页、提交信息等。</p>
+<p>通俗地，API可以理解为家用电器的插头，用户(本地电脑)只需要将插头插入插座的，不需要考虑电器内部(服务器)里面是如何运作的。通过提供 API, 将内部的实现细节封装了起来，对本地电脑简化的流程，同时减少了出错的可能。</p>
+<p>另外一个角度上讲API是一套协议，规定了与外界的沟通方式：如何发送请求和接受响应。只有大家同遵循同样的方式，就可以很快速的接入我们的服务。</p>
+<hr>
+<h2 id="RESTful-API-简介"><a href="#RESTful-API-简介" class="headerlink" title="RESTful API 简介"></a>RESTful API 简介</h2><p>RESTful API 即满足 RESTful 风格设计的API，RESTful 表示的是一种互联网软件架构(以网络为基础的应用软件的架构设计)，如果一个架构符合 <code>REST</code> (Representational State Transfer的缩写，翻译成中文是 <code>&quot;表现层状态转化&quot;</code>.)原则，就称它为 RESTful 架构。</p>
+<p>那什么是 <code>REST</code> 原则呢？<code>Representational State Transfer</code> 这个词组到底是什么意思，它的每一个词代表了什么涵义。如果你把这个名称搞懂了，基本就理解了什么是 <code>REST</code> 设计原则。</p>
+<p>从下面几个角度来分解这个问题。</p>
+<blockquote>
+<p>下面的部分内容可以忽略，可以直接跳到总结的部分。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/1d89d585.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/dd3965e6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/dd3965e6.html" class="post-title-link" itemprop="url">Python-高级-实用-操作 Excel</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-15 11:31:13" itemprop="dateCreated datePublished" datetime="2019-10-15T11:31:13+08:00">2019-10-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">高级技术</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/dd3965e6.html" class="post-meta-item leancloud_visitors" data-flag-title="Python-高级-实用-操作 Excel" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/dd3965e6.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/dd3965e6.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>4.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Python-高级-实用-操作-Excel"><a href="#Python-高级-实用-操作-Excel" class="headerlink" title="Python-高级-实用-操作 Excel"></a>Python-高级-实用-操作 Excel</h1><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>Excel 是我们日常工作学习中都会使用到的很重要的工具。但是处理过程中难免会遇到重复的操作，同时面对大量数据时手工操作也可能因为误操作导致错误发生。我们刚好在学习 Python, 那有没有办法通过 code 来读取 Excel 文件。</p>
+<p>答案是肯定的，下面我们就使用 Python 来进行操作 Excel 文件。</p>
+<h2 id="模块选择"><a href="#模块选择" class="headerlink" title="模块选择"></a>模块选择</h2><p>熟悉 Python 世界的读者，就会明白：在 Python 的世界里，做一件事情，官方建议只有一种方法。但是现实中，大佬太多，互相之间看不上别人做的东西，重复造轮子的现象比较严重。</p>
+<p>如果百度或google 一下：“Python Excel”, 下面的几个第三方模块库常常出现在推荐列表中</p>
+<ul>
+<li>openpyxl</li>
+<li>xlsxwriter</li>
+<li>xlutils</li>
+<li>xlwings</li>
+</ul>
+<p>经过实际的验证(验证过程略), 我挑选 <code>xlwings</code> 作为实际使用的模块。</p>
+<h2 id="xlwings-简介"><a href="#xlwings-简介" class="headerlink" title="xlwings 简介"></a><code>xlwings</code> 简介</h2><p>众所周知，VBA 可以很高效的操作 Excel，提高办公效率。<br>在 Python 中，我们可以通过 pywin32 来调用 windows 系统的 API 来实现 VBA 的很多功能，但是写起来比较复杂。</p>
+<p><code>xlwings</code> 是基于 BSD-licensed 的一个 Python 第三方的模块，对 <code>pywin32</code> 进行了封装，可以很方便的和 Excel 进行交互，它有以下优点：</p>
+<ul>
+<li>语法接近 VBA</li>
+<li>可以用 Python 代码取代 VBA 编写宏</li>
+<li>在 windows 可以用 Python 编写 Excel 用户自定义函数</li>
+<li>全功能支持 Numpy Pandas matplotlib 等科学计算库</li>
+<li>支持 Windows 和 MacOS</li>
+<li>支持 Py3.3+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/dd3965e6.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/3c355061.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/3c355061.html" class="post-title-link" itemprop="url">Python-高级-爬虫-Requests 库高级使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-13 11:29:35" itemprop="dateCreated datePublished" datetime="2019-10-13T11:29:35+08:00">2019-10-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">高级技术</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/3c355061.html" class="post-meta-item leancloud_visitors" data-flag-title="Python-高级-爬虫-Requests 库高级使用" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/3c355061.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/3c355061.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>4.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Headers（定制请求头）"><a href="#Headers（定制请求头）" class="headerlink" title="Headers（定制请求头）"></a>Headers（定制请求头）</h2><h3 id="什么是Headers请求头呢？"><a href="#什么是Headers请求头呢？" class="headerlink" title="什么是Headers请求头呢？"></a>什么是Headers请求头呢？</h3><p>请求头就是访问网页时的各种简单的证明信息，里面包含了很多内容。</p>
+<p>比如你要获取信息的格式、访问的时间、是否用了代理（使用透明代理时浏览器依旧会发送你的真实IP，只有高匿代理才不会）、浏览器标识（User-Agent）等。</p>
+<p>提示：给大家举一个非常直白的例子，浏览器就像是你的专属外卖配送员，各网站就像外卖商家，配送员到商家取餐时，需要提供订单号、我是谁的配送员、要取什么餐等等信息。</p>
+<p>这里以chrome浏览器为例，首先 F12 打开调试模式，然后访问一个网站，将会在NetWork下看到对目标网页的请求信息，如下图：<br><img src="https://images.xiaozhuanlan.com/photo/2019/b2f2ccdcfc8c21bd8cf347564f09ec12.png" alt=""></p>
+<p>通过设置header可以跳过一些简单的反爬或者防盗链措施。对付防盗链，服务器会识别 headers 中的 referer 是不是它自己，如果不是，有的服务器不会响应，所以我们还可以在 headers 中加入 referer 。</p>
+<blockquote>
+<p>爬虫和反爬虫就像是双生兄弟一样，其中</p>
+</blockquote>
+<h3 id="一个响应内容的小例子"><a href="#一个响应内容的小例子" class="headerlink" title="一个响应内容的小例子"></a>一个响应内容的小例子</h3><p>这里以上海证券交易所为例，比如我要获取整个市场当日的基金成交信息，地址：<a href="http://www.sse.com.cn/market/funddata/overview/day/" target="_blank" rel="noopener">http://www.sse.com.cn/market/funddata/overview/day/</a><br><img src="https://images.xiaozhuanlan.com/photo/2019/4fa96803c51d0ccd800998dc044d5560.png" alt="当日的基金成交信息"></p>
+<p>经过分析，其数据所在网址为<br><a href="http://query.sse.com.cn/marketdata/tradedata/queryNewTradingByProdTypeData.do?jsonCallBack=jsonpCallback10558&amp;searchDate=2019-10-08&amp;prodType=jj&amp;_=1570591517567" target="_blank" rel="noopener">http://query.sse.com.cn/marketdata/tradedata/queryNewTradingByProdTypeData.do?jsonCallBack=jsonpCallback10558&amp;searchDate=2019-10-08&amp;prodType=jj&amp;_=1570591517567</a></p>
+<p>里面几个参数 <code>searchDate=2019-10-08</code> 和 <code>_=1570591517567</code> 很明显是时间戳，如果需要定时访问时，还是要构造一个url的。</p>
+<p>使用time库的time方法即可。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/3c355061.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/c1efdcfc.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/c1efdcfc.html" class="post-title-link" itemprop="url">Python-高级-爬虫-Requests 库基础使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-10 11:27:37" itemprop="dateCreated datePublished" datetime="2019-10-10T11:27:37+08:00">2019-10-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">高级技术</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/c1efdcfc.html" class="post-meta-item leancloud_visitors" data-flag-title="Python-高级-爬虫-Requests 库基础使用" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/c1efdcfc.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/c1efdcfc.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h2><p><code>Requests</code> 库就非常优雅，虽然不是原生python模块，但自己安装也非常简单，只需要使用以下命令即可：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
+
+<p>作为 GitHub上关注数最多的 Python 项目之一，使用的是 urllib3，继承了urllib2的所有特性。requests实现了 HTTP协议中绝大部分功能，它提供的功能包括 Keep-Alive、连接池、Cookie持久化、内容自动解压、HTTP代理、SSL认证、连接超时、Session等很多特性，最重要的是它同时兼容 python2 和 python3。</p>
+<p>同时，Requests对于HEAD, POST, PUT, PATCH, 和 DELETE方法的api同样简单。它可以处理多部分上传，同样支持自动转码，文档更好，还有更多的特性。</p>
+<blockquote>
+<p>值得注意的是，网络上有种言论是因为requests不支持异步，所以不推荐使用，但是随着 Python 语言本身的发展，现在已经可以很方便的将<code>requests</code>转为异步。</p>
+</blockquote>
+<h3 id="查看所安装-Requests-的版本"><a href="#查看所安装-Requests-的版本" class="headerlink" title="查看所安装 Requests 的版本"></a>查看所安装 Requests 的版本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>requests.__version__</span><br><span class="line"><span class="string">'2.21.0'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="常用的-Requests-方法及说明"><a href="#常用的-Requests-方法及说明" class="headerlink" title="常用的 Requests 方法及说明"></a>常用的 Requests 方法及说明</h2><h3 id="请求URL：GET"><a href="#请求URL：GET" class="headerlink" title="请求URL：GET"></a>请求URL：GET</h3><p>当我们导入requests模块之后就可以使用get命令来获取网页了，我们以自己的小专栏为例，测试一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>response = requests.get(<span class="string">'https://xiaozhuanlan.com/python_mastery'</span>)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/c1efdcfc.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/5a507748.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/5a507748.html" class="post-title-link" itemprop="url">你真的掌握变量和类型了吗（二）类型转换</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-08 15:09:34" itemprop="dateCreated datePublished" datetime="2019-09-08T15:09:34+08:00">2019-09-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/5a507748.html" class="post-meta-item leancloud_visitors" data-flag-title="你真的掌握变量和类型了吗（二）类型转换" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/5a507748.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/5a507748.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>6.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="六、还有哪些引用类型"><a href="#六、还有哪些引用类型" class="headerlink" title="六、还有哪些引用类型"></a>六、还有哪些引用类型</h2><blockquote>
+<p>在<code>ECMAScript</code>中，引用类型是一种数据结构，用于将数据和功能组织在一起。</p>
+</blockquote>
+<p>我们通常所说的对象，就是某个特定引用类型的实例。</p>
+<p>在<code>ECMAScript</code>关于类型的定义中，只给出了<code>Object</code>类型，实际上，我们平时使用的很多引用类型的变量，并不是由<code>Object</code>构造的，但是它们原型链的终点都是<code>Object</code>，这些类型都属于引用类型。</p>
+<ul>
+<li><code>Array</code> 数组</li>
+<li><code>Date</code> 日期</li>
+<li><code>RegExp</code> 正则</li>
+<li><code>Function</code> 函数</li>
+</ul>
+<h3 id="6-1-包装类型"><a href="#6-1-包装类型" class="headerlink" title="6.1 包装类型"></a>6.1 包装类型</h3><p>为了便于操作基本类型值，<code>ECMAScript</code>还提供了几个特殊的引用类型，他们是基本类型的包装类型：</p>
+<ul>
+<li><code>Boolean</code></li>
+<li><code>Number</code></li>
+<li><code>String</code></li>
+</ul>
+<p>注意包装类型和原始类型的区别：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">true</span> === <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>); <span class="comment">// false</span></span><br><span class="line"><span class="number">123</span> === <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">123</span>); <span class="comment">// false</span></span><br><span class="line"><span class="string">"ConardLi"</span> === <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"ConardLi"</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"ConardLi"</span>)); <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="string">"ConardLi"</span>); <span class="comment">// string</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>引用类型和包装类型的主要区别就是对象的生存期，使用 new 操作符创建的引用类型的实例，在执行流离开当前作用域之前都一直保存在内存中，而自基本类型则只存在于一行代码的执行瞬间，然后立即被销毁，这意味着我们不能在运行时为基本类型添加属性和方法。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"ConardLi"</span>;</span><br><span class="line">name.color = <span class="string">"red"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(name.color); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-装箱和拆箱"><a href="#6-2-装箱和拆箱" class="headerlink" title="6.2 装箱和拆箱"></a>6.2 装箱和拆箱</h3><ul>
+<li><p>装箱转换：把基本类型转换为对应的包装类型</p>
+</li>
+<li><p>拆箱操作：把引用类型转换为基本类型</p>
+</li>
+</ul>
+<p>既然原始类型不能扩展属性和方法，那么我们是如何使用原始类型调用方法的呢？</p>
+<p>每当我们操作一个基础类型时，后台就会自动创建一个包装类型的对象，从而让我们能够调用一些方法和属性，例如下面的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"ConardLi"</span>;</span><br><span class="line"><span class="keyword">var</span> name2 = name.substring(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<p>实际上发生了以下几个过程：</p>
+<ul>
+<li>创建一个<code>String</code>的包装类型实例</li>
+<li>在实例上调用<code>substring</code>方法</li>
+<li>销毁实例</li>
+</ul>
+<p>也就是说，我们使用基本类型调用方法，就会自动进行装箱和拆箱操作，相同的，我们使用<code>Number</code>和<code>Boolean</code>类型时，也会发生这个过程。</p>
+<p>从引用类型到基本类型的转换，也就是拆箱的过程中，会遵循<code>ECMAScript规范</code>规定的<code>toPrimitive</code>原则，一般会调用引用类型的<code>valueOf</code>和<code>toString</code>方法，你也可以直接重写<code>toPeimitive</code>方法。一般转换成不同类型的值遵循的原则不同，例如：</p>
+<ul>
+<li>引用类型转换为<code>Number</code>类型，先调用<code>valueOf</code>，再调用<code>toString</code></li>
+<li>引用类型转换为<code>String</code>类型，先调用<code>toString</code>，再调用<code>valueOf</code></li>
+</ul>
+<p>若<code>valueOf</code>和<code>toString</code>都不存在，或者没有返回基本类型，则抛出<code>TypeError</code>异常。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  valueOf: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"valueOf"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">123</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  toString: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"toString"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"ConardLi"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj - <span class="number">1</span>); <span class="comment">// valueOf   122</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;obj&#125;</span>ConardLi`</span>); <span class="comment">// toString  ConardLiConardLi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj2 = &#123;</span><br><span class="line">  [<span class="built_in">Symbol</span>.toPrimitive]: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"toPrimitive"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">123</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj2 - <span class="number">1</span>); <span class="comment">// valueOf   122</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj3 = &#123;</span><br><span class="line">  valueOf: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"valueOf"</span>);</span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  toString: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"toString"</span>);</span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj3 - <span class="number">1</span>);</span><br><span class="line"><span class="comment">// valueOf</span></span><br><span class="line"><span class="comment">// toString</span></span><br><span class="line"><span class="comment">// TypeError</span></span><br></pre></td></tr></table></figure>
+
+<p>除了程序中的自动拆箱和自动装箱，我们还可以手动进行拆箱和装箱操作。我们可以直接调用包装类型的<code>valueOf</code>或<code>toString</code>，实现拆箱操作：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="string">"123"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num.valueOf()); <span class="comment">//number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num.toString()); <span class="comment">//string</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="七、类型转换"><a href="#七、类型转换" class="headerlink" title="七、类型转换"></a>七、类型转换</h2><p>因为<code>JavaScript</code>是弱类型的语言，所以类型转换发生非常频繁，上面我们说的装箱和拆箱其实就是一种类型转换。</p>
+<p>类型转换分为两种，隐式转换即程序自动进行的类型转换，强制转换即我们手动进行的类型转换。</p>
+<p>强制转换这里就不再多提及了，下面我们来看看让人头疼的可能发生隐式类型转换的几个场景，以及如何转换：</p>
+<h3 id="7-1-类型转换规则"><a href="#7-1-类型转换规则" class="headerlink" title="7.1 类型转换规则"></a>7.1 类型转换规则</h3><p>如果发生了隐式转换，那么各种类型互转符合下面的规则：</p>
+<p><img src="http://www.conardli.top/img/bl/bl_8_convert.png" alt=""></p>
+<h3 id="7-2-if-语句和逻辑语句"><a href="#7-2-if-语句和逻辑语句" class="headerlink" title="7.2 if 语句和逻辑语句"></a>7.2 if 语句和逻辑语句</h3><p>在<code>if</code>语句和逻辑语句中，如果只有单个变量，会先将变量转换为<code>Boolean</code>值，只有下面几种情况会转换成<code>false</code>，其余被转换成<code>true</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span>;</span><br><span class="line"><span class="literal">undefined</span>;</span><br><span class="line">(<span class="string">""</span>);</span><br><span class="line"><span class="literal">NaN</span>;</span><br><span class="line"><span class="number">0</span>;</span><br><span class="line"><span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-3-各种运数学算符"><a href="#7-3-各种运数学算符" class="headerlink" title="7.3 各种运数学算符"></a>7.3 各种运数学算符</h3><p>我们在对各种非<code>Number</code>类型运用数学运算符(<code>- * /</code>)时，会先将非<code>Number</code>类型转换为<code>Number</code>类型;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> - <span class="literal">true</span>; <span class="comment">// 0</span></span><br><span class="line"><span class="number">1</span> - <span class="literal">null</span>; <span class="comment">//  1</span></span><br><span class="line"><span class="number">1</span> * <span class="literal">undefined</span>; <span class="comment">//  NaN</span></span><br><span class="line"><span class="number">2</span> * [<span class="string">"5"</span>]; <span class="comment">//  10</span></span><br></pre></td></tr></table></figure>
+
+<p>注意<code>+</code>是个例外，执行<code>+</code>操作符时：</p>
+<ul>
+<li>1.当一侧为<code>String</code>类型，被识别为字符串拼接，并会优先将另一侧转换为字符串类型。</li>
+<li>2.当一侧为<code>Number</code>类型，另一侧为原始类型，则将原始类型转换为<code>Number</code>类型。</li>
+<li>3.当一侧为<code>Number</code>类型，另一侧为引用类型，将引用类型和<code>Number</code>类型转换成字符串后拼接。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">123</span> + <span class="string">"123"</span>; <span class="comment">// 123123   （规则1）</span></span><br><span class="line"><span class="number">123</span> + <span class="literal">null</span>; <span class="comment">// 123    （规则2）</span></span><br><span class="line"><span class="number">123</span> + <span class="literal">true</span>; <span class="comment">// 124    （规则2）</span></span><br><span class="line"><span class="number">123</span> + &#123;&#125;; <span class="comment">// 123[object Object]    （规则3）</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-4"><a href="#7-4" class="headerlink" title="7.4 =="></a>7.4 ==</h3><p>使用<code>==</code>时，若两侧类型相同，则比较结果和<code>===</code>相同，否则会发生隐式转换，使用<code>==</code>时发生的转换可以分为几种不同的情况（只考虑两侧类型不同）：</p>
+<ul>
+<li><strong>1.NaN</strong></li>
+</ul>
+<p><code>NaN</code>和其他任何类型比较永远返回<code>false</code>(包括和他自己)。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span> == <span class="literal">NaN</span>; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>2.Boolean</strong></li>
+</ul>
+<p><code>Boolean</code>和其他任何类型比较，<code>Boolean</code>首先被转换为<code>Number</code>类型。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">true</span> == <span class="number">1</span>; <span class="comment">// true</span></span><br><span class="line"><span class="literal">true</span> == <span class="string">"2"</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">true</span> == [<span class="string">"1"</span>]; <span class="comment">// true</span></span><br><span class="line"><span class="literal">true</span> == [<span class="string">"2"</span>]; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这里注意一个可能会弄混的点：<code>undefined、null</code>和<code>Boolean</code>比较，虽然<code>undefined、null</code>和<code>false</code>都很容易被想象成假值，但是他们比较结果是<code>false</code>，原因是<code>false</code>首先被转换成<code>0</code>：</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span> == <span class="literal">false</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">false</span>; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>3.String 和 Number</strong></li>
+</ul>
+<p><code>String</code>和<code>Number</code>比较，先将<code>String</code>转换为<code>Number</code>类型。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">123</span> == <span class="string">"123"</span>; <span class="comment">// true</span></span><br><span class="line"><span class="string">""</span> == <span class="number">0</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>4.null 和 undefined</strong></li>
+</ul>
+<p><code>null == undefined</code>比较结果是<code>true</code>，除此之外，<code>null、undefined</code>和其他任何结果的比较值都为<code>false</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span>; <span class="comment">// true</span></span><br><span class="line"><span class="literal">null</span> == <span class="string">""</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> == <span class="number">0</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">false</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">undefined</span> == <span class="string">""</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">undefined</span> == <span class="number">0</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">undefined</span> == <span class="literal">false</span>; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>5.原始类型和引用类型</strong></li>
+</ul>
+<p>当原始类型和引用类型做比较时，对象类型会依照<code>ToPrimitive</code>规则转换为原始类型:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"[object Object]"</span> == &#123;&#125;; <span class="comment">// true</span></span><br><span class="line"><span class="string">"1,2,3"</span> == [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>来看看下面这个比较：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[] == ![]; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><code>!</code>的优先级高于<code>==</code>，<code>![]</code>首先会被转换为<code>false</code>，然后根据上面第三点，<code>false</code>转换成<code>Number</code>类型<code>0</code>，左侧<code>[]</code>转换为<code>0</code>，两侧比较相等。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">([<span class="literal">null</span>] ==</span><br><span class="line">  <span class="literal">false</span>[<span class="literal">undefined</span>]) == <span class="comment">// true</span></span><br><span class="line">  <span class="literal">false</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>根据数组的<code>ToPrimitive</code>规则，数组元素为<code>null</code>或<code>undefined</code>时，该元素被当做空字符串处理，所以<code>[null]、[undefined]</code>都会被转换为<code>0</code>。</p>
+<p>所以，说了这么多，推荐使用<code>===</code>来判断两个值是否相等…</p>
+<h3 id="7-5-一道有意思的面试题"><a href="#7-5-一道有意思的面试题" class="headerlink" title="7.5 一道有意思的面试题"></a>7.5 一道有意思的面试题</h3><p>一道经典的面试题，如何让：<code>a == 1 &amp;&amp; a == 2 &amp;&amp; a == 3</code>。</p>
+<p>根据上面的拆箱转换，以及<code>==</code>的隐式转换，我们可以轻松写出答案：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  value: [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>],</span><br><span class="line">  valueOf: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.value.pop();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="八、判断-JavaScript-数据类型的方式"><a href="#八、判断-JavaScript-数据类型的方式" class="headerlink" title="八、判断 JavaScript 数据类型的方式"></a>八、判断 JavaScript 数据类型的方式</h2><h3 id="8-1-typeof"><a href="#8-1-typeof" class="headerlink" title="8.1 typeof"></a>8.1 typeof</h3><p><strong>适用场景</strong></p>
+<p><code>typeof</code>操作符可以准确判断一个变量是否为下面几个原始类型：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="string">"ConardLi"</span>; <span class="comment">// string</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">123</span>; <span class="comment">// number</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span>; <span class="comment">// boolean</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Symbol</span>(); <span class="comment">// symbol</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>; <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>你还可以用它来判断函数类型：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;; <span class="comment">// function</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>不适用场景</strong></p>
+<p>当你用<code>typeof</code>来判断引用类型时似乎显得有些乏力了：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> []; <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> &#123;&#125;; <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> /^\d*$/; <span class="comment">// object</span></span><br></pre></td></tr></table></figure>
+
+<p>除函数外所有的引用类型都会被判定为<code>object</code>。</p>
+<p>另外<code>typeof null === &#39;object&#39;</code>也会让人感到头痛，这是在<code>JavaScript</code>初版就流传下来的<code>bug</code>，后面由于修改会造成大量的兼容问题就一直没有被修复…</p>
+<h3 id="8-2-instanceof"><a href="#8-2-instanceof" class="headerlink" title="8.2 instanceof"></a>8.2 instanceof</h3><p><code>instanceof</code>操作符可以帮助我们判断引用类型具体是什么类型的对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[] <span class="keyword">instanceof</span> <span class="built_in">Array</span>; <span class="comment">// true</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>() <span class="keyword">instanceof</span> <span class="built_in">Date</span>; <span class="comment">// true</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">RegExp</span>() <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>我们先来回顾下原型链的几条规则：</p>
+<ul>
+<li>1.所有引用类型都具有对象特性，即可以自由扩展属性</li>
+<li>2.所有引用类型都具有一个<code>__proto__</code>（隐式原型）属性，是一个普通对象</li>
+<li>3.所有的函数都具有<code>prototype</code>（显式原型）属性，也是一个普通对象</li>
+<li>4.所有引用类型<code>__proto__</code>值指向它构造函数的<code>prototype</code></li>
+<li>5.当试图得到一个对象的属性时，如果变量本身没有这个属性，则会去他的<code>__proto__</code>中去找</li>
+</ul>
+<p><code>[] instanceof Array</code>实际上是判断<code>Array.prototype</code>是否在<code>[]</code>的原型链上。</p>
+<p>所以，使用<code>instanceof</code>来检测数据类型，不会很准确，这不是它设计的初衷：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[] <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;  <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>另外，使用<code>instanceof</code>也不能检测基本数据类型，所以<code>instanceof</code>并不是一个很好的选择。</p>
+<h3 id="8-3-toString"><a href="#8-3-toString" class="headerlink" title="8.3 toString"></a>8.3 toString</h3><p>上面我们在拆箱操作中提到了<code>toString</code>函数，我们可以调用它实现从引用类型的转换。</p>
+<blockquote>
+<p>每一个引用类型都有<code>toString</code>方法，默认情况下，<code>toString()</code>方法被每个<code>Object</code>对象继承。如果此方法在自定义对象中未被覆盖，<code>toString()</code> 返回 <code>&quot;[object type]&quot;</code>，其中<code>type</code>是对象的类型。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;;</span><br><span class="line">obj.toString(); <span class="comment">// [object Object]</span></span><br></pre></td></tr></table></figure>
+
+<p>注意，上面提到了<code>如果此方法在自定义对象中未被覆盖</code>，<code>toString</code>才会达到预想的效果，事实上，大部分引用类型比如<code>Array、Date、RegExp</code>等都重写了<code>toString</code>方法。</p>
+<p>我们可以直接调用<code>Object</code>原型上未被覆盖的<code>toString()</code>方法，使用<code>call</code>来改变<code>this</code>指向来达到我们想要的效果。</p>
+<p><img src="http://www.conardli.top/img/bl/bl_9_jc.png" alt=""></p>
+<h3 id="8-4-jquery"><a href="#8-4-jquery" class="headerlink" title="8.4 jquery"></a>8.4 jquery</h3><p>我们来看看<code>jquery</code>源码中如何进行类型判断：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> class2type = &#123;&#125;;</span><br><span class="line">jQuery.each( <span class="string">"Boolean Number String Function Array Date RegExp Object Error Symbol"</span>.split( <span class="string">" "</span> ),</span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"> i, name </span>) </span>&#123;</span><br><span class="line">	class2type[ <span class="string">"[object "</span> + name + <span class="string">"]"</span> ] = name.toLowerCase();</span><br><span class="line">&#125; );</span><br><span class="line"></span><br><span class="line">type: <span class="function"><span class="keyword">function</span>(<span class="params"> obj </span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ( obj == <span class="literal">null</span> ) &#123;</span><br><span class="line">		<span class="keyword">return</span> obj + <span class="string">""</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">typeof</span> obj === <span class="string">"object"</span> || <span class="keyword">typeof</span> obj === <span class="string">"function"</span> ?</span><br><span class="line">		class2type[<span class="built_in">Object</span>.prototype.toString.call(obj) ] || <span class="string">"object"</span> :</span><br><span class="line">		<span class="keyword">typeof</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">isFunction: <span class="function"><span class="keyword">function</span>(<span class="params"> obj </span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> jQuery.type(obj) === <span class="string">"function"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>原始类型直接使用<code>typeof</code>，引用类型使用<code>Object.prototype.toString.call</code>取得类型，借助一个<code>class2type</code>对象将字符串多余的代码过滤掉，例如<code>[object function]</code>将得到<code>array</code>，然后在后面的类型判断，如<code>isFunction</code>直接可以使用<code>jQuery.type(obj) === &quot;function&quot;</code>这样的判断。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.ecma-international.org/ecma-262/9.0/index.html" target="_blank" rel="noopener">http://www.ecma-international.org/ecma-262/9.0/index.html</a></li>
+<li><a href="https://while.dev/articles/explaining-truthy-falsy-null-0-and-undefined-in-typescript/" target="_blank" rel="noopener">https://while.dev/articles/explaining-truthy-falsy-null-0-and-undefined-in-typescript/</a></li>
+<li><a href="https://github.com/mqyqingfeng/Blog/issues/28" target="_blank" rel="noopener">https://github.com/mqyqingfeng/Blog/issues/28</a></li>
+<li><a href="https://juejin.im/post/5bc5c752f265da0a9a399a62" target="_blank" rel="noopener">https://juejin.im/post/5bc5c752f265da0a9a399a62</a></li>
+<li><a href="https://juejin.im/post/5bbda2b36fb9a05cfd27f55e" target="_blank" rel="noopener">https://juejin.im/post/5bbda2b36fb9a05cfd27f55e</a></li>
+<li>《JS 高级程序设计》</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>希望你阅读本篇文章后可以达到以下几点：</p>
+<ul>
+<li>了解<code>JavaScript</code>中的变量在内存中的具体存储形式，可对应实际场景</li>
+<li>搞懂小数计算不精确的底层原因</li>
+<li>了解可能发生隐式类型转换的场景以及转换原则</li>
+<li>掌握判断<code>JavaScript</code>数据类型的方式和底层原理</li>
+</ul>
+<p>文中如有错误，欢迎在评论区指正，如果这篇文章帮助到了你，欢迎点赞和关注。</p>
+<hr>
+<p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
+<p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
+
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/f20134e9.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/f20134e9.html" class="post-title-link" itemprop="url">你真的掌握变量和类型了吗（一）数据类型</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-03 15:06:26" itemprop="dateCreated datePublished" datetime="2019-09-03T15:06:26+08:00">2019-09-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/f20134e9.html" class="post-meta-item leancloud_visitors" data-flag-title="你真的掌握变量和类型了吗（一）数据类型" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/f20134e9.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/f20134e9.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>11k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>10 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>变量和类型是学习<code>JavaScript</code>最先接触到的东西，但是往往看起来最简单的东西往往还隐藏着很多你不了解、或者容易犯错的知识，比如下面几个问题：</p>
+<ul>
+<li><code>JavaScript</code>中的变量在内存中的具体存储形式是什么？</li>
+<li><code>0.1+0.2</code>为什么不等于<code>0.3</code>?发生小数计算错误的具体原因是什么？</li>
+<li><code>Symbol</code>的特点，以及实际应用场景是什么？</li>
+<li><code>[] == ![]</code>、<code>[undefined] == false</code>为什么等于<code>true</code>?代码中何时会发生隐式类型转换？转换的规则是什么？</li>
+<li>如何精确的判断变量的类型？</li>
+</ul>
+<p>如果你还不能很好的解答上面的问题，那说明你还没有完全掌握这部分的知识，那么请好好阅读下面的文章吧。</p>
+<p>本文从底层原理到实际应用详细介绍了<code>JavaScript</code>中的变量和类型相关知识。</p>
+<h2 id="一、JavaScript数据类型"><a href="#一、JavaScript数据类型" class="headerlink" title="一、JavaScript数据类型"></a>一、JavaScript数据类型</h2><p><a href="http://www.ecma-international.org/ecma-262/9.0/index.html" target="_blank" rel="noopener">ECMAScript标准</a>规定了<code>7</code>种数据类型，其把这<code>7</code>种数据类型又分为两种：原始类型和对象类型。</p>
+<p><strong>原始类型</strong></p>
+<ul>
+<li><code>Null</code>：只包含一个值：<code>null</code></li>
+<li><code>Undefined</code>：只包含一个值：<code>undefined</code></li>
+<li><code>Boolean</code>：包含两个值：<code>true</code>和<code>false</code></li>
+<li><code>Number</code>：整数或浮点数，还有一些特殊值（<code>-Infinity</code>、<code>+Infinity</code>、<code>NaN</code>）</li>
+<li><code>String</code>：一串表示文本值的字符序列</li>
+<li><code>Symbol</code>：一种实例是唯一且不可改变的数据类型</li>
+</ul>
+<p>(在<code>es10</code>中加入了第七种原始类型<code>BigInt</code>，现已被最新<code>Chrome</code>支持)</p>
+<p><strong>对象类型</strong></p>
+<ul>
+<li><code>Object</code>：自己分一类丝毫不过分，除了常用的<code>Object</code>，<code>Array</code>、<code>Function</code>等都属于特殊的对象</li>
+</ul>
+<h2 id="二、为什么区分原始类型和对象类型"><a href="#二、为什么区分原始类型和对象类型" class="headerlink" title="二、为什么区分原始类型和对象类型"></a>二、为什么区分原始类型和对象类型</h2><h3 id="2-1-不可变性"><a href="#2-1-不可变性" class="headerlink" title="2.1 不可变性"></a>2.1 不可变性</h3><p>上面所提到的原始类型，在<code>ECMAScript</code>标准中，它们被定义为<code>primitive values</code>，即原始值，代表值本身是不可被改变的。</p>
+<p>以字符串为例，我们在调用操作字符串的方法时，没有任何方法是可以直接改变字符串的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'ConardLi'</span>;</span><br><span class="line">str.slice(<span class="number">1</span>);</span><br><span class="line">str.substr(<span class="number">1</span>);</span><br><span class="line">str.trim(<span class="number">1</span>);</span><br><span class="line">str.toLowerCase(<span class="number">1</span>);</span><br><span class="line">str[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str);  <span class="comment">// ConardLi</span></span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码中我们对<code>str</code>调用了几个方法，无一例外，这些方法都在原字符串的基础上产生了一个新字符串，而非直接去改变<code>str</code>，这就印证了字符串的不可变性。</p>
+<p>那么，当我们继续调用下面的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str += <span class="string">'6'</span></span><br><span class="line"><span class="built_in">console</span>.log(str);  <span class="comment">// ConardLi6</span></span><br></pre></td></tr></table></figure>
+
+<p>你会发现，<code>str</code>的值被改变了，这不就打脸了字符串的不可变性么？其实不然，我们从内存上来理解：</p>
+<p>在<code>JavaScript</code>中，每一个变量在内存中都需要一个空间来存储。</p>
+<p>内存空间又被分为两种，栈内存与堆内存。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/f20134e9.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/5e503604.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/5e503604.html" class="post-title-link" itemprop="url">如何写出一个惊艳面试官的深拷贝</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-01 14:59:01" itemprop="dateCreated datePublished" datetime="2019-09-01T14:59:01+08:00">2019-09-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/5e503604.html" class="post-meta-item leancloud_visitors" data-flag-title="如何写出一个惊艳面试官的深拷贝" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/5e503604.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/5e503604.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>11k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>10 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>最近经常看到很多<code>JavaScript</code>手写代码的文章总结，里面提供了很多<code>JavaScript Api</code>的手写实现。</p>
+<p>里面的题目实现大多类似，而且说实话很多代码在我看来是非常简陋的，如果我作为面试官，看到这样的代码，在我心里是不会合格的，本篇文章我拿最简单的深拷贝来讲一讲。</p>
+<p>看本文之前先问自己三个问题：</p>
+<ul>
+<li><p>你真的理解什么是深拷贝吗？</p>
+</li>
+<li><p>在面试官眼里，什么样的深拷贝才算合格？</p>
+</li>
+<li><p>什么样的深拷贝能让面试官感到惊艳？</p>
+</li>
+</ul>
+<p>本文由浅入深，带你一步一步实现一个惊艳面试官的深拷贝。</p>
+<h2 id="深拷贝和浅拷贝的定义"><a href="#深拷贝和浅拷贝的定义" class="headerlink" title="深拷贝和浅拷贝的定义"></a>深拷贝和浅拷贝的定义</h2><p>深拷贝已经是一个老生常谈的话题了，也是现在前端面试的高频题目，但是令我吃惊的是有很多同学还没有搞懂深拷贝和浅拷贝的区别和定义。例如前几天给我提<code>issue</code>的同学：</p>
+<p><img src="https://i.loli.net/2019/08/30/8U5e2I6lmzBHcW9.jpg" alt=""></p>
+<p>很明显这位同学把拷贝和赋值搞混了，如果你还对赋值、对象在内存中的存储、变量和类型等等有什么疑问，可以看看我这篇文章：<br><a href="https://juejin.im/post/5cec1bcff265da1b8f1aa08f" target="_blank" rel="noopener">https://juejin.im/post/5cec1bcff265da1b8f1aa08f</a> 。</p>
+<p>你只要少搞明白<code>拷贝</code>和<code>赋值</code>的区别。</p>
+<p>我们来明确一下深拷贝和浅拷贝的定义：</p>
+<p>浅拷贝：</p>
+<p><img src="https://i.loli.net/2019/08/30/N3CB7obYhn5Lvxz.jpg" alt=""></p>
+<blockquote>
+<p>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/5e503604.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/3fe27fe1.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/3fe27fe1.html" class="post-title-link" itemprop="url">移动端适配总结（二）应用篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-27 15:28:41" itemprop="dateCreated datePublished" datetime="2019-05-27T15:28:41+08:00">2019-05-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/3fe27fe1.html" class="post-meta-item leancloud_visitors" data-flag-title="移动端适配总结（二）应用篇" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/3fe27fe1.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/3fe27fe1.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>7.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="五、1px问题"><a href="#五、1px问题" class="headerlink" title="五、1px问题"></a>五、1px问题</h2><p>为了适配各种屏幕，我们写代码时一般使用设备独立像素来对页面进行布局。</p>
+<p>而在设备像素比大于<code>1</code>的屏幕上，我们写的<code>1px</code>实际上是被多个物理像素渲染，这就会出现<code>1px</code>在有些屏幕上看起来很粗的现象。</p>
+<h3 id="5-1-border-image"><a href="#5-1-border-image" class="headerlink" title="5.1 border-image"></a>5.1 border-image</h3><p>基于<code>media</code>查询判断不同的设备像素比给定不同的<code>border-image</code>：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border_1px</span>&#123;</span><br><span class="line">   <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">-webkit-min-device-pixel-ratio:</span><span class="number">2</span>)&#123;</span><br><span class="line">     <span class="selector-class">.border_1px</span>&#123;</span><br><span class="line">         <span class="attribute">border-bottom</span>: none;</span><br><span class="line">         <span class="attribute">border-width</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">1px</span> <span class="number">0</span>;</span><br><span class="line">         <span class="attribute">border-image</span>: <span class="built_in">url</span>(../img/<span class="number">1px</span>line.png) <span class="number">0</span> <span class="number">0</span> <span class="number">2</span> <span class="number">0</span> stretch;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="5-2-background-image"><a href="#5-2-background-image" class="headerlink" title="5.2 background-image"></a>5.2 background-image</h3><p>和<code>border-image</code>类似，准备一张符合条件的边框背景图，模拟在背景上。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border_1px</span>&#123;</span><br><span class="line">   <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">-webkit-min-device-pixel-ratio:</span><span class="number">2</span>)&#123;</span><br><span class="line">     <span class="selector-class">.border_1px</span>&#123;</span><br><span class="line">         <span class="attribute">background</span>: <span class="built_in">url</span>(../img/<span class="number">1px</span>line.png) repeat-x left bottom;</span><br><span class="line">         <span class="attribute">background-size</span>: <span class="number">100%</span> <span class="number">1px</span>;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面两种都需要单独准备图片，而且圆角不是很好处理，但是可以应对大部分场景。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/3fe27fe1.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/f2db7507.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/f2db7507.html" class="post-title-link" itemprop="url">移动端适配总结（一）原理篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-22 15:26:14" itemprop="dateCreated datePublished" datetime="2019-05-22T15:26:14+08:00">2019-05-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/f2db7507.html" class="post-meta-item leancloud_visitors" data-flag-title="移动端适配总结（一）原理篇" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/f2db7507.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/f2db7507.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>移动端适配，是我们在开发中经常会遇到的，这里面可能会遇到非常多的问题：</p>
+<ul>
+<li><code>1px</code>问题</li>
+<li><code>UI</code>图完美适配方案</li>
+<li><code>iPhoneX</code>适配方案</li>
+<li>横屏适配</li>
+<li>高清屏图片模糊问题</li>
+<li>…</li>
+</ul>
+<p>上面这些问题可能我们在开发中已经知道如何解决，但是问题产生的原理，以及解决方案的原理可能会模糊不清。在解决这些问题的过程中，我们往往会遇到非常多的概念：像素、分辨率、<code>PPI</code>、<code>DPI</code>、<code>DP</code>、<code>DIP</code>、<code>DPR</code>、视口等等，你真的能分清这些概念的意义吗？</p>
+<p>本文将从移动端适配的基础概念出发，探究移动端适配各种问题的解决方案和实现原理。</p>
+<h2 id="一、英寸"><a href="#一、英寸" class="headerlink" title="一、英寸"></a>一、英寸</h2><p>一般用英寸描述屏幕的物理大小，如电脑显示器的<code>17</code>、<code>22</code>，手机显示器的<code>4.8</code>、<code>5.7</code>等使用的单位都是英寸。</p>
+<p>需要注意，上面的尺寸都是屏幕对角线的长度：</p>
+<p><img src="https://i.loli.net/2019/05/17/5cddefa632f3247082.png" alt=""></p>
+<p>英寸(<code>inch</code>,缩写为<code>in</code>)在荷兰语中的本意是大拇指，一英寸就是指甲底部普通人拇指的宽度。</p>
+<p>英寸和厘米的换算：<code>1英寸 = 2.54 厘米</code></p>
+<h2 id="二、分辨率"><a href="#二、分辨率" class="headerlink" title="二、分辨率"></a>二、分辨率</h2><h3 id="2-1-像素"><a href="#2-1-像素" class="headerlink" title="2.1 像素"></a>2.1 像素</h3><p>像素即一个小方块，它具有特定的位置和颜色。</p>
+<p>图片、电子屏幕（手机、电脑）就是由无数个具有特定颜色和特定位置的小方块拼接而成。</p>
+<p>像素可以作为图片或电子屏幕的最小组成单位。</p>
+<p>下面我们使用<code>sketch</code>打开一张图片：</p>
+<p><img src="https://i.loli.net/2019/05/17/5cddefd18987943848.png" alt=""></p>
+<p>将这些图片放大即可看到这些像素点：</p>
+<p><img src="https://i.loli.net/2019/05/17/5cddefb8d84ab76156.png" alt=""></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/f2db7507.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/83385321.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/83385321.html" class="post-title-link" itemprop="url">用JS开发桌面应用（五）终篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-17 15:23:28" itemprop="dateCreated datePublished" datetime="2019-05-17T15:23:28+08:00">2019-05-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/83385321.html" class="post-meta-item leancloud_visitors" data-flag-title="用JS开发桌面应用（五）终篇" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/83385321.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/83385321.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>5.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="十一、扩展能力"><a href="#十一、扩展能力" class="headerlink" title="十一、扩展能力"></a>十一、扩展能力</h2><p><img src="http://www.conardli.top/img/electron/el_4_iot.jpg" alt=""></p>
+<p>在很多情况下，你的应用程序要和外部设备进行交互，一般情况下厂商会为你提供硬件设备的开发包，这些开发包基本上都是通过<code>C++</code> 编写，在使用<code>electron</code>开发的情况下，我们并不具备直接调用<code>C++</code>代码的能力，我们可以利用<code>node-ffi</code>来实现这一功能。</p>
+<p><code>node-ffi</code>提供了一组强大的工具，用于在<code>Node.js</code>环境中使用纯<code>JavaScript</code>调用动态链接库接口。它可以用来为库构建接口绑定，而不需要使用任何<code>C++</code>代码。</p>
+<blockquote>
+<p>注意<code>node-ffi</code>并不能直接调用<code>C++</code>代码，你需要将<code>C++</code>代码编译为动态链接库：在 <code>Windows</code>下是 <code>Dll</code> ，在 <code>Mac OS</code>下是 <code>dylib</code> <code>，Linux</code> 是 <code>so</code> 。</p>
+</blockquote>
+<blockquote>
+<p><code>node-ffi</code> 加载 <code>Library</code>是有限制的，只能处理 <code>C</code>风格的 <code>Library</code>。 </p>
+</blockquote>
+<p>下面是一个简单的实例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ffi = <span class="built_in">require</span>(<span class="string">'ffi'</span>);</span><br><span class="line"><span class="keyword">const</span> ref = <span class="built_in">require</span>(<span class="string">'ref'</span>);</span><br><span class="line"><span class="keyword">const</span> SHORT_CODE = ref.refType(<span class="string">'short'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> DLL = <span class="keyword">new</span> ffi.Library(<span class="string">'test.dll'</span>, &#123;</span><br><span class="line">    Test_CPP_Method: [<span class="string">'int'</span>, [<span class="string">'string'</span>,SHORT_CODE]], </span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">testCppMethod(str: <span class="built_in">String</span>, <span class="attr">num</span>: number): <span class="keyword">void</span> &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> result: any = DLL.Test_CPP_Method(str, num);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'调用失败～'</span>,error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.testCppMethod(<span class="string">'ConardLi'</span>,<span class="number">123</span>);</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/83385321.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/4619bb3.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/4619bb3.html" class="post-title-link" itemprop="url">用JS开发桌面应用（四）程序保护</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-13 15:21:03" itemprop="dateCreated datePublished" datetime="2019-05-13T15:21:03+08:00">2019-05-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/4619bb3.html" class="post-meta-item leancloud_visitors" data-flag-title="用JS开发桌面应用（四）程序保护" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/4619bb3.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/4619bb3.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="十、程序保护"><a href="#十、程序保护" class="headerlink" title="十、程序保护"></a>十、程序保护</h2><p><a href="https://segmentfault.com/a/1190000007503495" target="_blank" rel="noopener">https://segmentfault.com/a/1190000007503495</a></p>
+<p><img src="http://www.conardli.top/img/electron/el_22_protect.gif" alt=""></p>
+<h3 id="10-1-崩溃"><a href="#10-1-崩溃" class="headerlink" title="10.1 崩溃"></a>10.1 崩溃</h3><p>崩溃监控是每个客户端程序必备的保护功能，当程序崩溃时我们一般期望做到两件事：</p>
+<ul>
+<li>1.上传崩溃日志，及时报警</li>
+<li>2.监控程序崩溃，提示用户重启程序</li>
+</ul>
+<p><code>electron</code>为我们提供给了<code>crashReporter</code>来帮助我们记录崩溃日志，我们可以通过<code>crashReporter.start</code>来创建一个崩溃报告器：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; crashReporter &#125; = <span class="built_in">require</span>(<span class="string">"electron"</span>);</span><br><span class="line">crashReporter.start(&#123;</span><br><span class="line">  productName: <span class="string">"YourName"</span>,</span><br><span class="line">  companyName: <span class="string">"YourCompany"</span>,</span><br><span class="line">  submitURL: <span class="string">"https://your-domain.com/url-to-submit"</span>,</span><br><span class="line">  uploadToServer: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>当程序发生崩溃时，崩溃报日志将被储存在临时文件夹中名为<code>YourName Crashes</code>的文件文件夹中。<code>submitURL</code>用于指定你的崩溃日志上传服务器。 在启动崩溃报告器之前，您可以通过调用<code>app.setPath(&#39;temp&#39;, &#39;my/custom/temp&#39;)</code>API 来自定义这些临时文件的保存路径。你还可以通过<code>crashReporter.getLastCrashReport()</code>来获取上次崩溃报告的日期和<code>ID</code>。</p>
+<p>我们可以通过<code>webContents</code>的<code>crashed</code>来监听渲染进程的崩溃，另外经测试有些主进程的崩溃也会触发该事件。所以我们可以根据主<code>window</code>是否被销毁来判断进行不同的重启逻辑，下面使整个崩溃监控的逻辑：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; BrowserWindow, crashReporter, dialog &#125; <span class="keyword">from</span> <span class="string">"electron"</span>;</span><br><span class="line"><span class="comment">// 开启进程崩溃记录</span></span><br><span class="line">crashReporter.start(&#123;</span><br><span class="line">  productName: <span class="string">"electron-react"</span>,</span><br><span class="line">  companyName: <span class="string">"ConardLi"</span>,</span><br><span class="line">  submitURL: <span class="string">"http://xxx.com"</span>, <span class="comment">// 上传崩溃日志的接口</span></span><br><span class="line">  uploadToServer: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reloadWindow</span>(<span class="params">mainWin</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (mainWin.isDestroyed()) &#123;</span><br><span class="line">    app.relaunch();</span><br><span class="line">    app.exit(<span class="number">0</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 销毁其他窗口</span></span><br><span class="line">    BrowserWindow.getAllWindows().forEach(<span class="function"><span class="params">w</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (w.id !== mainWin.id) w.destroy();</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">const</span> options = &#123;</span><br><span class="line">      type: <span class="string">"info"</span>,</span><br><span class="line">      title: <span class="string">"渲染器进程崩溃"</span>,</span><br><span class="line">      message: <span class="string">"这个进程已经崩溃."</span>,</span><br><span class="line">      buttons: [<span class="string">"重载"</span>, <span class="string">"关闭"</span>]</span><br><span class="line">    &#125;;</span><br><span class="line">    dialog.showMessageBox(options, index =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (index === <span class="number">0</span>) mainWin.reload();</span><br><span class="line">      <span class="keyword">else</span> mainWin.close();</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> mainWindow = BrowserWindow.fromId(global.mainId);</span><br><span class="line">  mainWindow.webContents.on(<span class="string">"crashed"</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> errorMessage = crashReporter.getLastCrashReport();</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">"程序崩溃了！"</span>, errorMessage); <span class="comment">// 可单独上传日志</span></span><br><span class="line">    reloadWindow(mainWindow);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/4619bb3.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">You的日常</p>
+  <div class="site-description" itemprop="description">Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/e8c3cb999dc5" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;e8c3cb999dc5" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i>简书</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">You的日常</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">297k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:30</span>
+</div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df0bed512824580" async="async"></script>
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+            'X-LC-Key': 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 22317,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: false,
+      appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+      appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+      placeholder: "请留下您的意见吧：",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: '' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
