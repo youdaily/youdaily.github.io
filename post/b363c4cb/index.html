@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.youdaily.world').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="五、窗口5.1 BrowserWindow主进程模块BrowserWindow用于创建和控制浏览器窗口。 123456mainWindow &#x3D; new BrowserWindow(&amp;#123;  width: 1000,  height: 800  &#x2F;&#x2F; ...&amp;#125;);mainWindow.loadURL(&quot;http:&#x2F;&#x2F;www.conardli.top&#x2F;&quot;);  你可以在这里查看它所有的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用JS开发桌面应用（二）- 应用篇">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.youdaily.world&#x2F;post&#x2F;b363c4cb&#x2F;index.html">
+<meta property="og:site_name" content="You的日常">
+<meta property="og:description" content="五、窗口5.1 BrowserWindow主进程模块BrowserWindow用于创建和控制浏览器窗口。 123456mainWindow &#x3D; new BrowserWindow(&amp;#123;  width: 1000,  height: 800  &#x2F;&#x2F; ...&amp;#125;);mainWindow.loadURL(&quot;http:&#x2F;&#x2F;www.conardli.top&#x2F;&quot;);  你可以在这里查看它所有的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_13_window.gif">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_16_dialog.gif">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_17_sys.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_18_clipboard.gif">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_19_cap.gif">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_20_menu.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_21_memu.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;09&#x2F;VhvX5WilLEOIwGN.jpg">
+<meta property="article:published_time" content="2019-05-06T07:15:42.000Z">
+<meta property="article:modified_time" content="2019-12-10T02:05:45.151Z">
+<meta property="article:author" content="You的日常">
+<meta property="article:tag" content="编程技术">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="高级技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_13_window.gif">
+
+<link rel="canonical" href="http://www.youdaily.world/post/b363c4cb/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>用JS开发桌面应用（二）- 应用篇 | You的日常</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">You的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">You的日常，我们的日常</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/b363c4cb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          用JS开发桌面应用（二）- 应用篇
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-06 15:15:42" itemprop="dateCreated datePublished" datetime="2019-05-06T15:15:42+08:00">2019-05-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/b363c4cb/" class="post-meta-item leancloud_visitors" data-flag-title="用JS开发桌面应用（二）- 应用篇" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/b363c4cb/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/b363c4cb/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>5.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div id="vip-container"><h2 id="五、窗口"><a href="#五、窗口" class="headerlink" title="五、窗口"></a>五、窗口</h2><h3 id="5-1-BrowserWindow"><a href="#5-1-BrowserWindow" class="headerlink" title="5.1 BrowserWindow"></a>5.1 BrowserWindow</h3><p>主进程模块<code>BrowserWindow</code>用于创建和控制浏览器窗口。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mainWindow = <span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">  width: <span class="number">1000</span>,</span><br><span class="line">  height: <span class="number">800</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br><span class="line">mainWindow.loadURL(<span class="string">"http://www.conardli.top/"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>你可以在<a href="https://electronjs.org/docs/api/browser-window#new-browserwindowoptions" target="_blank" rel="noopener">这里</a>查看它所有的构造参数。</p>
+<p><img src="http://www.conardli.top/img/electron/el_13_window.gif" alt=""></p>
+<h3 id="5-2-无框窗口"><a href="#5-2-无框窗口" class="headerlink" title="5.2 无框窗口"></a>5.2 无框窗口</h3><blockquote>
+<p>无框窗口是没有镶边的窗口，窗口的部分（如工具栏）不属于网页的一部分。</p>
+</blockquote>
+<p>在<code>BrowserWindow</code>的构造参数中，将<code>frame</code>设置为<code>false</code>可以指定窗口为无边框窗口，将工具栏隐藏后，就会产生两个问题：</p>
+<ul>
+<li>1.窗口控制按钮（最小化、全屏、关闭按钮）会被隐藏</li>
+<li>2.无法拖拽移动窗口</li>
+</ul>
+<p>可以通过指定<code>titleBarStyle</code>选项来再将工具栏按钮显示出来，将其设置为<code>hidden</code>表示返回一个隐藏标题栏的全尺寸内容窗口，在左上角仍然有标准的窗口控制按钮。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">  width: <span class="number">200</span>,</span><br><span class="line">  height: <span class="number">200</span>,</span><br><span class="line">  titleBarStyle: <span class="string">"hidden"</span>,</span><br><span class="line">  frame: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<h3 id="5-3-窗口拖拽"><a href="#5-3-窗口拖拽" class="headerlink" title="5.3 窗口拖拽"></a>5.3 窗口拖拽</h3><p>默认情况下, 无边框窗口是不可拖拽的。我们可以在界面中通过<code>CSS</code>属性<code>-webkit-app-region: drag</code>手动制定拖拽区域。</p>
+<p>在无框窗口中, 拖动行为可能与选择文本冲突，可以通过设定<code>-webkit-user-select: none;</code>禁用文本选择：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-user-select</span>: none;</span><br><span class="line">  <span class="attribute">-webkit-app-region</span>: drag;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>相反的，在可拖拽区域内部设置 <code>-webkit-app-region: no-drag</code>则可以指定特定不可拖拽区域。</p>
+</blockquote>
+<h3 id="5-4-透明窗口"><a href="#5-4-透明窗口" class="headerlink" title="5.4 透明窗口"></a>5.4 透明窗口</h3><p>通过将<code>transparent</code>选项设置为<code>true</code>, 还可以使无框窗口透明:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">  transparent: <span class="literal">true</span>,</span><br><span class="line">  frame: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-5-Webview"><a href="#5-5-Webview" class="headerlink" title="5.5 Webview"></a>5.5 Webview</h3><p>使用 <code>webview</code> 标签在<code>Electron</code> 应用中嵌入 “外来” 内容。外来内容包含在 <code>webview</code> 容器中。 应用中的嵌入页面可以控制外来内容的布局和重绘。</p>
+<p>与 <code>iframe</code> 不同, <code>webview</code> 在与应用程序不同的进程中运行。它与您的网页没有相同的权限, 应用程序和嵌入内容之间的所有交互都将是异步的。</p>
+<h2 id="六、对话框"><a href="#六、对话框" class="headerlink" title="六、对话框"></a>六、对话框</h2><p><code>dialog</code> 模块提供了<code>api</code>来展示原生的系统对话框，例如打开文件框，<code>alert</code>框，所以<code>web</code>应用可以给用户带来跟系统应用相同的体验。</p>
+<blockquote>
+<p>注意：dialog 是主进程模块，想要在渲染进程调用可以使用 remote</p>
+</blockquote>
+<p><img src="http://www.conardli.top/img/electron/el_16_dialog.gif" alt=""></p>
+<h3 id="6-1-错误提示"><a href="#6-1-错误提示" class="headerlink" title="6.1 错误提示"></a>6.1 错误提示</h3><p><code>dialog.showErrorBox</code>用于显示一个显示错误消息的模态对话框。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">remote.dialog.showErrorBox(<span class="string">"错误"</span>, <span class="string">"这是一个错误弹框！"</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-对话框"><a href="#6-2-对话框" class="headerlink" title="6.2 对话框"></a>6.2 对话框</h3><p><code>dialog.showErrorBox</code>用于调用系统对话框，可以为指定几种不同的类型： “<code>none</code>“, “<code>info</code>“, “<code>error</code>“, “<code>question</code>“ 或者 “<code>warning</code>“。</p>
+<blockquote>
+<p>在 Windows 上, “question” 与”info”显示相同的图标, 除非你使用了 “icon” 选项设置图标。 在 macOS 上, “warning” 和 “error” 显示相同的警告图标</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">remote.dialog.showMessageBox(</span><br><span class="line">  &#123;</span><br><span class="line">    type: <span class="string">"info"</span>,</span><br><span class="line">    title: <span class="string">"提示信息"</span>,</span><br><span class="line">    message: <span class="string">"这是一个对话弹框！"</span>,</span><br><span class="line">    buttons: [<span class="string">"确定"</span>, <span class="string">"取消"</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">  index =&gt; &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      dialogMessage: <span class="string">`【你点击了<span class="subst">$&#123;index ? <span class="string">"取消"</span> : <span class="string">"确定"</span>&#125;</span>！！】`</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-3-文件框"><a href="#6-3-文件框" class="headerlink" title="6.3 文件框"></a>6.3 文件框</h3><p><code>dialog.showOpenDialog</code>用于打开或选择系统目录。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">remote.dialog.showOpenDialog(</span><br><span class="line">  &#123;</span><br><span class="line">    properties: [<span class="string">"openDirectory"</span>, <span class="string">"openFile"</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">  data =&gt; &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">filePath</span>: <span class="string">`【选择路径：<span class="subst">$&#123;data[<span class="number">0</span>]&#125;</span>】 `</span> &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-4-信息框"><a href="#6-4-信息框" class="headerlink" title="6.4 信息框"></a>6.4 信息框</h3><p>这里推荐直接使用<code>HTML5 API</code>，它只能在渲染器进程中使用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> options = &#123;</span><br><span class="line">  title: <span class="string">"信息框标题"</span>,</span><br><span class="line">  body: <span class="string">"我是一条信息～～～"</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> myNotification = <span class="keyword">new</span> <span class="built_in">window</span>.Notification(options.title, options);</span><br><span class="line">myNotification.onclick = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">this</span>.setState(&#123; <span class="attr">message</span>: <span class="string">"【你点击了信息框！！】"</span> &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="七、系统"><a href="#七、系统" class="headerlink" title="七、系统"></a>七、系统</h2><h3 id="7-1-获取系统信息"><a href="#7-1-获取系统信息" class="headerlink" title="7.1 获取系统信息"></a>7.1 获取系统信息</h3><p><img src="http://www.conardli.top/img/electron/el_17_sys.png" alt=""></p>
+<p>通过<code>remote</code>获取到主进程的<code>process</code>对象，可以获取到当前应用的各个版本信息：</p>
+<ul>
+<li><code>process.versions.electron</code>：<code>electron</code>版本信息</li>
+<li><code>process.versions.chrome</code>：<code>chrome</code>版本信息</li>
+<li><code>process.versions.node</code>：<code>node</code>版本信息</li>
+<li><code>process.versions.v8</code>：<code>v8</code>版本信息</li>
+</ul>
+<p>获取当前应用根目录：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">remote.app.getAppPath();</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>node</code>的<code>os</code>模块获取当前系统根目录：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.homedir();</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-2-复制粘贴"><a href="#7-2-复制粘贴" class="headerlink" title="7.2 复制粘贴"></a>7.2 复制粘贴</h3><p><img src="http://www.conardli.top/img/electron/el_18_clipboard.gif" alt=""></p>
+<p><code>Electron</code>提供的<code>clipboard</code>在渲染进程和主进程都可使用，用于在系统剪贴板上执行复制和粘贴操作。</p>
+<p>以纯文本的形式写入剪贴板：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clipboard.writeText(text[, type])</span><br></pre></td></tr></table></figure>
+
+<p>以纯文本的形式获取剪贴板的内容：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clipboard.readText([type]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-3-截图"><a href="#7-3-截图" class="headerlink" title="7.3 截图"></a>7.3 截图</h3><p><code>desktopCapturer</code>用于从桌面捕获音频和视频的媒体源的信息。它只能在渲染进程中被调用。</p>
+<p><img src="http://www.conardli.top/img/electron/el_19_cap.gif" alt=""></p>
+<p>下面的代码是一个获取屏幕截图并保存的实例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">getImg = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">this</span>.setState(&#123; <span class="attr">imgMsg</span>: <span class="string">"正在截取屏幕..."</span> &#125;);</span><br><span class="line">  <span class="keyword">const</span> thumbSize = <span class="keyword">this</span>.determineScreenShotSize();</span><br><span class="line">  <span class="keyword">let</span> options = &#123; <span class="attr">types</span>: [<span class="string">"screen"</span>], <span class="attr">thumbnailSize</span>: thumbSize &#125;;</span><br><span class="line">  desktopCapturer.getSources(options, (error, sources) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (error) <span class="keyword">return</span> <span class="built_in">console</span>.log(error);</span><br><span class="line">    sources.forEach(<span class="function"><span class="params">source</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (source.name === <span class="string">"Entire screen"</span> || source.name === <span class="string">"Screen 1"</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> screenshotPath = path.join(os.tmpdir(), <span class="string">"screenshot.png"</span>);</span><br><span class="line">        fs.writeFile(screenshotPath, source.thumbnail.toPNG(), error =&gt; &#123;</span><br><span class="line">          <span class="keyword">if</span> (error) <span class="keyword">return</span> <span class="built_in">console</span>.log(error);</span><br><span class="line">          shell.openExternal(<span class="string">`file://<span class="subst">$&#123;screenshotPath&#125;</span>`</span>);</span><br><span class="line">          <span class="keyword">this</span>.setState(&#123; <span class="attr">imgMsg</span>: <span class="string">`截图保存到: <span class="subst">$&#123;screenshotPath&#125;</span>`</span> &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">determineScreenShotSize = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> screenSize = screen.getPrimaryDisplay().workAreaSize;</span><br><span class="line">  <span class="keyword">const</span> maxDimension = <span class="built_in">Math</span>.max(screenSize.width, screenSize.height);</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    width: maxDimension * <span class="built_in">window</span>.devicePixelRatio,</span><br><span class="line">    height: maxDimension * <span class="built_in">window</span>.devicePixelRatio</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="八、菜单"><a href="#八、菜单" class="headerlink" title="八、菜单"></a>八、菜单</h2><p>应用程序的菜单可以帮助我们快捷的到达某一功能，而不借助客户端的界面资源，一般菜单分为两种：</p>
+<ul>
+<li>应用程序菜单：位于应用程序顶部，在全局范围内都能使用</li>
+<li>上下文菜单：可自定义任意页面显示，自定义调用，如右键菜单</li>
+</ul>
+<p><code>Electron</code>为我们提供了<code>Menu</code>模块用于创建本机应用程序菜单和上下文菜单，它是一个主进程模块。</p>
+<p>你可以通过<code>Menu</code>的静态方法<code>buildFromTemplate(template)</code>，使用自定义菜单模版来构造一个菜单对象。</p>
+<p><code>template</code>是一个<code>MenuItem</code>的数组，我们来看看<code>MenuItem</code>的几个重要参数：</p>
+<ul>
+<li><code>label</code>：菜单显示的文字</li>
+<li><code>click</code>：点击菜单后的事件处理函数</li>
+<li><code>role</code>：系统预定义的菜单，例如<code>copy</code>(复制)、<code>paste</code>(粘贴)、<code>minimize</code>(最小化)…</li>
+<li><code>enabled</code>：指示是否启用该项目，此属性可以动态更改</li>
+<li><code>submenu</code>：子菜单，也是一个<code>MenuItem</code>的数组</li>
+</ul>
+<blockquote>
+<p>推荐：最好指定 role 与标准角色相匹配的任何菜单项，而不是尝试手动实现 click 函数中的行为。内置 role 行为将提供最佳的本地体验。</p>
+</blockquote>
+<p>下面的实例是一个简单的额菜单<code>template</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> template = [</span><br><span class="line">  &#123;</span><br><span class="line">    label: <span class="string">"文件"</span>,</span><br><span class="line">    submenu: [</span><br><span class="line">      &#123;</span><br><span class="line">        label: <span class="string">"新建文件"</span>,</span><br><span class="line">        click: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          dialog.showMessageBox(&#123;</span><br><span class="line">            type: <span class="string">"info"</span>,</span><br><span class="line">            message: <span class="string">"嘿!"</span>,</span><br><span class="line">            detail: <span class="string">"你点击了新建文件！"</span></span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    label: <span class="string">"编辑"</span>,</span><br><span class="line">    submenu: [</span><br><span class="line">      &#123;</span><br><span class="line">        label: <span class="string">"剪切"</span>,</span><br><span class="line">        role: <span class="string">"cut"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        label: <span class="string">"复制"</span>,</span><br><span class="line">        role: <span class="string">"copy"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        label: <span class="string">"粘贴"</span>,</span><br><span class="line">        role: <span class="string">"paste"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    label: <span class="string">"最小化"</span>,</span><br><span class="line">    role: <span class="string">"minimize"</span></span><br><span class="line">  &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-1-应用程序菜单"><a href="#8-1-应用程序菜单" class="headerlink" title="8.1 应用程序菜单"></a>8.1 应用程序菜单</h3><p>使用<code>Menu</code>的静态方法<code>setApplicationMenu</code>，可创建一个应用程序菜单，在 <code>Windows</code> 和 <code>Linux</code> 上，<code>menu</code>将被设置为每个窗口的顶层菜单。</p>
+<blockquote>
+<p>注意：必须在模块 ready 事件后调用此 API app。</p>
+</blockquote>
+<p>我们可以根据应用程序不同的的生命周期，不同的系统对菜单做不同的处理。</p>
+<p><img src="http://www.conardli.top/img/electron/el_20_menu.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">app.on(<span class="string">"ready"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> menu = Menu.buildFromTemplate(template);</span><br><span class="line">  Menu.setApplicationMenu(menu);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.on(<span class="string">"browser-window-created"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> reopenMenuItem = findReopenMenuItem();</span><br><span class="line">  <span class="keyword">if</span> (reopenMenuItem) reopenMenuItem.enabled = <span class="literal">false</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.on(<span class="string">"window-all-closed"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> reopenMenuItem = findReopenMenuItem();</span><br><span class="line">  <span class="keyword">if</span> (reopenMenuItem) reopenMenuItem.enabled = <span class="literal">true</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (process.platform === <span class="string">"win32"</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> helpMenu = template[template.length - <span class="number">1</span>].submenu;</span><br><span class="line">  addUpdateMenuItems(helpMenu, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-2-上下文菜单"><a href="#8-2-上下文菜单" class="headerlink" title="8.2 上下文菜单"></a>8.2 上下文菜单</h3><p>使用<code>Menu</code>的实例方法<code>menu.popup</code>可自定义弹出上下文菜单。</p>
+<p><img src="http://www.conardli.top/img/electron/el_21_memu.gif" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> m = Menu.buildFromTemplate(template);</span><br><span class="line"><span class="built_in">document</span></span><br><span class="line">  .getElementById(<span class="string">"menuDemoContainer"</span>)</span><br><span class="line">  .addEventListener(<span class="string">"contextmenu"</span>, e =&gt; &#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    m.popup(&#123; <span class="attr">window</span>: remote.getCurrentWindow() &#125;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-3-快捷键"><a href="#8-3-快捷键" class="headerlink" title="8.3 快捷键"></a>8.3 快捷键</h3><p>在菜单选项中，我们可以指定一个<code>accelerator</code>属性来指定操作的快捷键：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  label: <span class="string">'最小化'</span>,</span><br><span class="line">  accelerator: <span class="string">'CmdOrCtrl+M'</span>,</span><br><span class="line">  role: <span class="string">'minimize'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>另外，我们还可以使用<code>globalShortcut</code>来注册全局快捷键。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">globalShortcut.register(<span class="string">"CommandOrControl+N"</span>, () =&gt; &#123;</span><br><span class="line">  dialog.showMessageBox(&#123;</span><br><span class="line">    type: <span class="string">"info"</span>,</span><br><span class="line">    message: <span class="string">"嘿!"</span>,</span><br><span class="line">    detail: <span class="string">"你触发了手动注册的快捷键."</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>CommandOrControl 代表在 macOS 上为 Command 键，以及在 Linux 和 Windows 上为 Control 键。</p>
+</blockquote>
+<p>文中如有错误，欢迎在评论区指正，如果这篇文章帮助到了你，欢迎点赞和关注。</p>
+<hr>
+<p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
+<p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+    </div>
+
+    
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-20191212153059.png" alt="You的日常 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-20191212153213.png" alt="You的日常 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>You的日常
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.youdaily.world/post/b363c4cb/" title="用JS开发桌面应用（二）- 应用篇">http://www.youdaily.world/post/b363c4cb/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 编程技术</a>
+              <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+              <a href="/tags/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 高级技术</a>
+          </div>
+
+        
+        <div>
+          
+            
+          
+        </div>  
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/c60ba4c3/" rel="prev" title="用JS开发桌面应用（一）原理篇">
+      <i class="fa fa-chevron-left"></i> 用JS开发桌面应用（一）原理篇
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/b58ea4c6/" rel="next" title="用JS开发桌面应用（三）打印篇">
+      用JS开发桌面应用（三）打印篇 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#五、窗口"><span class="nav-number">1.</span> <span class="nav-text">五、窗口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-BrowserWindow"><span class="nav-number">1.1.</span> <span class="nav-text">5.1 BrowserWindow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-无框窗口"><span class="nav-number">1.2.</span> <span class="nav-text">5.2 无框窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-窗口拖拽"><span class="nav-number">1.3.</span> <span class="nav-text">5.3 窗口拖拽</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-透明窗口"><span class="nav-number">1.4.</span> <span class="nav-text">5.4 透明窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-Webview"><span class="nav-number">1.5.</span> <span class="nav-text">5.5 Webview</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、对话框"><span class="nav-number">2.</span> <span class="nav-text">六、对话框</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-错误提示"><span class="nav-number">2.1.</span> <span class="nav-text">6.1 错误提示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-对话框"><span class="nav-number">2.2.</span> <span class="nav-text">6.2 对话框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-文件框"><span class="nav-number">2.3.</span> <span class="nav-text">6.3 文件框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-信息框"><span class="nav-number">2.4.</span> <span class="nav-text">6.4 信息框</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、系统"><span class="nav-number">3.</span> <span class="nav-text">七、系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-获取系统信息"><span class="nav-number">3.1.</span> <span class="nav-text">7.1 获取系统信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-复制粘贴"><span class="nav-number">3.2.</span> <span class="nav-text">7.2 复制粘贴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-截图"><span class="nav-number">3.3.</span> <span class="nav-text">7.3 截图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、菜单"><span class="nav-number">4.</span> <span class="nav-text">八、菜单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-应用程序菜单"><span class="nav-number">4.1.</span> <span class="nav-text">8.1 应用程序菜单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-上下文菜单"><span class="nav-number">4.2.</span> <span class="nav-text">8.2 上下文菜单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-快捷键"><span class="nav-number">4.3.</span> <span class="nav-text">8.3 快捷键</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="You的日常"
+      src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
+  <p class="site-author-name" itemprop="name">You的日常</p>
+  <div class="site-description" itemprop="description">Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element">
+    <a onclick="tidioChatApi.open();"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/e8c3cb999dc5" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;e8c3cb999dc5" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCJoHHCT90Di7_gRZ88sFaGw" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCJoHHCT90Di7_gRZ88sFaGw" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">You的日常</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">297k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:57</span>
+</div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df0bed512824580" async="async"></script>
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+            'X-LC-Key': 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 22317,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+
+
+
+
+  <script src="//code.tidio.co/r9tdkt9kk55kvv9fbbe9eufs3g3qfxjc.js"></script>
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: false,
+      appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+      appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+      placeholder: "请留下您的意见吧：",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: '' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+
+//新增以下代码即可，可以移除.info下所有子节点。
+var infoEle = document.querySelector('#comments .info');
+if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+  infoEle.childNodes.forEach(function(item) {
+    item.parentNode.removeChild(item);
+  });
+}
+
+</script>
+
+</body>
+</html>
+

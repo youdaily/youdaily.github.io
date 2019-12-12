@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.youdaily.world').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="导读使用Electron开发客户端程序已经有一段时间了，整体感觉还是非常不错的，其中也遇到了一些坑点，本文旨在从【运行原理】到【实际应用】对Electron进行一次系统性的总结。【多图，长文预警～】 另外electron-react还可作为使用Electron + React + Mobx + Webpack技术栈的脚手架工程。 一、桌面应用程序  桌面应用程序，又称为 GUI 程序（Graphi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用JS开发桌面应用（一）原理篇">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.youdaily.world&#x2F;post&#x2F;c60ba4c3&#x2F;index.html">
+<meta property="og:site_name" content="You的日常">
+<meta property="og:description" content="导读使用Electron开发客户端程序已经有一段时间了，整体感觉还是非常不错的，其中也遇到了一些坑点，本文旨在从【运行原理】到【实际应用】对Electron进行一次系统性的总结。【多图，长文预警～】 另外electron-react还可作为使用Electron + React + Mobx + Webpack技术栈的脚手架工程。 一、桌面应用程序  桌面应用程序，又称为 GUI 程序（Graphi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_1_app.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_2_electron.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_6_apps.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_5_vscode.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_3_composition.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_7_process.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_8_api.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_9_node.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_10_ipc.gif">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_11_remote.gif">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_12_global.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;09&#x2F;VhvX5WilLEOIwGN.jpg">
+<meta property="article:published_time" content="2019-05-04T07:13:30.000Z">
+<meta property="article:modified_time" content="2019-12-10T02:05:55.671Z">
+<meta property="article:author" content="You的日常">
+<meta property="article:tag" content="编程技术">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="高级技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;www.conardli.top&#x2F;img&#x2F;electron&#x2F;el_1_app.jpg">
+
+<link rel="canonical" href="http://www.youdaily.world/post/c60ba4c3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>用JS开发桌面应用（一）原理篇 | You的日常</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">You的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">You的日常，我们的日常</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/c60ba4c3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          用JS开发桌面应用（一）原理篇
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-04 15:13:30" itemprop="dateCreated datePublished" datetime="2019-05-04T15:13:30+08:00">2019-05-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/c60ba4c3/" class="post-meta-item leancloud_visitors" data-flag-title="用JS开发桌面应用（一）原理篇" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/c60ba4c3/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/c60ba4c3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>6.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div id="vip-container"><h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>使用<code>Electron</code>开发客户端程序已经有一段时间了，整体感觉还是非常不错的，其中也遇到了一些坑点，本文旨在从【运行原理】到【实际应用】对<code>Electron</code>进行一次系统性的总结。【多图，长文预警～】</p>
+<p>另外<code>electron-react</code>还可作为使用<code>Electron + React + Mobx + Webpack</code>技术栈的脚手架工程。</p>
+<h2 id="一、桌面应用程序"><a href="#一、桌面应用程序" class="headerlink" title="一、桌面应用程序"></a>一、桌面应用程序</h2><p><img src="http://www.conardli.top/img/electron/el_1_app.jpg" alt=""></p>
+<blockquote>
+<p>桌面应用程序，又称为 GUI 程序（Graphical User Interface），但是和 GUI 程序也有一些区别。桌面应用程序 将 GUI 程序从 GUI 具体为“桌面”，使冷冰冰的像块木头一样的电脑概念更具有 人性化，更生动和富有活力。</p>
+</blockquote>
+<p>我们电脑上使用的各种客户端程序都属于桌面应用程序，近年来<code>WEB</code>和移动端的兴起让桌面程序渐渐暗淡，但是在某些日常功能或者行业应用中桌面应用程序仍然是必不可少的。</p>
+<p>传统的桌面应用开发方式，一般是下面两种：</p>
+<h3 id="1-1-原生开发"><a href="#1-1-原生开发" class="headerlink" title="1.1 原生开发"></a>1.1 原生开发</h3><p>直接将语言编译成可执行文件，直接调用系统<code>API</code>，完成 UI 绘制等。这类开发技术，有着较高的运行效率，但一般来说，开发速度较慢，技术要求较高，例如：</p>
+<ul>
+<li>使用<code>C++ / MFC</code>开发<code>Windows</code>应用</li>
+<li>使用<code>Objective-C</code>开发<code>MAC</code>应用</li>
+</ul>
+<h3 id="1-2-托管平台"><a href="#1-2-托管平台" class="headerlink" title="1.2 托管平台"></a>1.2 托管平台</h3><p>一开始就有本地开发和 UI 开发。一次编译后，得到中间文件，通过平台或虚机完成二次加载编译或解释运行。运行效率低于原生编译，但平台优化后，其效率也是比较可观的。就开发速度方面，比原生编译技术要快一些。例如：</p>
+<ul>
+<li>使用<code>C# / .NET Framework</code>(只能开发<code>Windows应用</code>)</li>
+<li><code>Java / Swing</code></li>
+</ul>
+<p>不过，上面两种对前端开发人员太不友好了，基本是前端人员不会设计的领域，但是在这个【大前端 😅】的时代，前端开发者正在想方设法涉足各个领域，使用<code>WEB</code>技术开发客户端的方式横空出世。</p>
+<h3 id="1-3-WEB-开发"><a href="#1-3-WEB-开发" class="headerlink" title="1.3 WEB 开发"></a>1.3 WEB 开发</h3><p>使用<code>WEB</code>技术进行开发，利用浏览器引擎完成<code>UI</code>渲染，利用<code>Node.js</code>实现服务器端<code>JS</code>编程并可以调用系统<code>API</code>，可以把它想像成一个套了一个客户端外壳的<code>WEB</code>应用。</p>
+<p>在界面上，<code>WEB</code>的强大生态为<code>UI</code>带来了无限可能，并且开发、维护成本相对较低，有<code>WEB</code>开发经验的前端开发者很容易上手进行开发。</p>
+<p>本文就来着重介绍使用<code>WEB</code>技术开发客户端程序的技术之一【<code>electron</code>】</p>
+<h2 id="二、Electron"><a href="#二、Electron" class="headerlink" title="二、Electron"></a>二、Electron</h2><p><img src="http://www.conardli.top/img/electron/el_2_electron.jpg" alt=""></p>
+<p><code>Electron</code>是由<code>Github</code>开发，用<code>HTML，CSS</code>和<code>JavaScript</code>来构建跨平台桌面应用程序的一个开源库。 <code>Electron</code>通过将<code>Chromium</code>和<code>Node.js</code>合并到同一个运行时环境中，并将其打包为<code>Mac，Windows</code>和<code>Linux</code>系统下的应用来实现这一目的。</p>
+<p><a href="https://electronjs.org/docs" target="_blank" rel="noopener">https://electronjs.org/docs</a></p>
+<p><a href="https://juejin.im/post/5c67619351882562276c3162#heading-5" target="_blank" rel="noopener">https://juejin.im/post/5c67619351882562276c3162#heading-5</a></p>
+<h3 id="2-1-使用-Electron-开发的理由："><a href="#2-1-使用-Electron-开发的理由：" class="headerlink" title="2.1 使用 Electron 开发的理由："></a>2.1 使用 Electron 开发的理由：</h3><ul>
+<li>1.使用具有强大生态的<code>Web</code>技术进行开发，开发成本低，可扩展性强，更炫酷的<code>UI</code></li>
+<li>2.跨平台，一套代码可打包为<code>Windows、Linux、Mac</code>三套软件，且编译快速</li>
+<li>3.可直接在现有<code>Web</code>应用上进行扩展，提供浏览器不具备的能力</li>
+<li>4.你是一个前端 👨‍</li>
+</ul>
+<p>当然，我们也要认清它的缺点：性能比原生桌面应用要低，最终打包后的安装包和其他文件都比较大。</p>
+<a id="more"></a>
+<h3 id="2-2-开发体验"><a href="#2-2-开发体验" class="headerlink" title="2.2 开发体验"></a>2.2 开发体验</h3><p><strong>兼容性</strong></p>
+<p>虽然你还在用<code>WEB</code>技术进行开发，但是你不用再考虑兼容性问题了，你只需要关心你当前使用<code>Electron</code>的版本对应<code>Chrome</code>的版本，一般情况下它已经足够新来让你使用最新的<code>API</code>和语法了，你还可以手动升级<code>Chrome</code>版本。同样的，你也不用考虑不同浏览器带了的样式和代码兼容问题。</p>
+<p><strong>Node 环境</strong></p>
+<p>这可能是很多前端开发者曾经梦想过的功能，在<code>WEB</code>界面中使用<code>Node.js</code>提供的强大<code>API</code>，这意味着你在<code>WEB</code>页面直接可以操作文件，调用系统<code>API</code>，甚至操作数据库。当然，除了完整的<code>Node API</code>，你还可以使用额外的几十万个<code>npm</code>模块。</p>
+<p><strong>跨域</strong></p>
+<p>你可以直接使用<code>Node</code>提供的<code>request</code>模块进行网络请求，这意味着你无需再被跨域所困扰。</p>
+<p><strong>强大的扩展性</strong></p>
+<p>借助<code>node-ffi</code>，为应用程序提供强大的扩展性（后面的章节会详细介绍）。</p>
+<h3 id="2-3-谁在用-Electron"><a href="#2-3-谁在用-Electron" class="headerlink" title="2.3 谁在用 Electron"></a>2.3 谁在用 Electron</h3><p><img src="http://www.conardli.top/img/electron/el_6_apps.png" alt=""></p>
+<p>现在市面上已经有非常多的应用在使用<code>electron</code>进行开发了，包括我们熟悉的<code>VS Code</code>客户端、<code>GitHub</code>客户端、<code>Atom</code>客户端等等。印象很深的，去年迅雷在发布迅雷 X<code>10.1</code>时的文案：</p>
+<blockquote>
+<p>从迅雷 X 10.1 版本开始，我们采用 Electron 软件框架完全重写了迅雷主界面。使用新框架的迅雷 X 可以完美支持 2K、4K 等高清显示屏，界面中的文字渲染也更加清晰锐利。从技术层面来说，新框架的界面绘制、事件处理等方面比老框架更加灵活高效，因此界面的流畅度也显著优于老框架的迅雷。至于具体提升有多大？您一试便知。</p>
+</blockquote>
+<p>你可以打开<code>VS Code</code>，点击【帮助】【切换开发人员工具】来<code>VS Code</code>客户端的界面。</p>
+<p><img src="http://www.conardli.top/img/electron/el_5_vscode.png" alt=""></p>
+<h2 id="三、Electron-运行原理"><a href="#三、Electron-运行原理" class="headerlink" title="三、Electron 运行原理"></a>三、Electron 运行原理</h2><p><img src="http://www.conardli.top/img/electron/el_3_composition.png" alt=""></p>
+<p><code>Electron</code> 结合了 <code>Chromium</code>、<code>Node.js</code> 和用于调用操作系统本地功能的<code>API</code>。</p>
+<h3 id="3-1-Chromium"><a href="#3-1-Chromium" class="headerlink" title="3.1 Chromium"></a>3.1 Chromium</h3><p><code>Chromium</code>是<code>Google</code>为发展<code>Chrome</code>浏览器而启动的开源项目，<code>Chromium</code>相当于<code>Chrome</code>的工程版或称实验版，新功能会率先在<code>Chromium</code>上实现，待验证后才会应用在<code>Chrome</code>上，故<code>Chrome</code>的功能会相对落后但较稳定。</p>
+<p><code>Chromium</code>为<code>Electron</code>提供强大的<code>UI</code>能力，可以在不考虑兼容性的情况下开发界面。</p>
+<h3 id="3-2-Node-js"><a href="#3-2-Node-js" class="headerlink" title="3.2 Node.js"></a>3.2 Node.js</h3><p><code>Node.js</code>是一个让<code>JavaScript</code>运行在服务端的开发平台，<code>Node</code>使用事件驱动，非阻塞<code>I/O</code>模型而得以轻量和高效。</p>
+<p>单单靠<code>Chromium</code>是不能具备直接操作原生<code>GUI</code>能力的，<code>Electron</code>内集成了<code>Nodejs</code>，这让其在开发界面的同时也有了操作系统底层<code>API</code>的能力，<code>Nodejs</code> 中常用的 <code>Path、fs、Crypto</code> 等模块在 <code>Electron</code> 可以直接使用。</p>
+<h3 id="3-3-系统-API"><a href="#3-3-系统-API" class="headerlink" title="3.3 系统 API"></a>3.3 系统 API</h3><p>为了提供原生系统的<code>GUI</code>支持，<code>Electron</code>内置了原生应用程序接口，对调用一些系统功能，如调用系统通知、打开系统文件夹提供支持。</p>
+<p>在开发模式上，<code>Electron</code>在调用系统<code>API</code>和绘制界面上是分离开发的，下面我们来看看<code>Electron</code>关于进程如何划分。</p>
+<h3 id="3-4-主进程"><a href="#3-4-主进程" class="headerlink" title="3.4 主进程"></a>3.4 主进程</h3><p><code>Electron</code>区分了两种进程：主进程和渲染进程，两者各自负责自己的职能。</p>
+<p><img src="http://www.conardli.top/img/electron/el_7_process.png" alt=""></p>
+<p><code>Electron</code> 运行<code>package.json</code>的 <code>main</code> 脚本的进程被称为主进程。一个 <code>Electron</code> 应用总是有且只有一个主进程。</p>
+<p><strong>职责:</strong></p>
+<ul>
+<li>创建渲染进程（可多个）</li>
+<li>控制了应用生命周期（启动、退出<code>APP</code>以及对<code>APP</code>做一些事件监听）</li>
+<li>调用系统底层功能、调用原生资源</li>
+</ul>
+<p><strong>可调用的 API:</strong></p>
+<ul>
+<li><code>Node.js API</code></li>
+<li><code>Electron</code>提供的主进程<code>API</code>（包括一些系统功能和<code>Electron</code>附加功能）</li>
+</ul>
+<h3 id="3-5-渲染进程"><a href="#3-5-渲染进程" class="headerlink" title="3.5 渲染进程"></a>3.5 渲染进程</h3><p>由于 <code>Electron</code> 使用了 <code>Chromium</code> 来展示 <code>web</code> 页面，所以 <code>Chromium</code> 的多进程架构也被使用到。 每个<code>Electron</code> 中的 <code>web</code>页面运行在它自己的渲染进程中。</p>
+<blockquote>
+<p>主进程使用 BrowserWindow 实例创建页面。 每个 BrowserWindow 实例都在自己的渲染进程里运行页面。 当一个 BrowserWindow 实例被销毁后，相应的渲染进程也会被终止。</p>
+</blockquote>
+<p>你可以把渲染进程想像成一个浏览器窗口，它能存在多个并且相互独立，不过和浏览器不同的是，它能调用<code>Node API</code>。</p>
+<p><strong>职责:</strong></p>
+<ul>
+<li>用<code>HTML</code>和<code>CSS</code>渲染界面</li>
+<li>用<code>JavaScript</code>做一些界面交互</li>
+</ul>
+<p><strong>可调用的 API:</strong></p>
+<ul>
+<li><code>DOM API</code></li>
+<li><code>Node.js API</code></li>
+<li><code>Electron</code>提供的渲染进程<code>API</code></li>
+</ul>
+<h2 id="四、Electron-基础"><a href="#四、Electron-基础" class="headerlink" title="四、Electron 基础"></a>四、Electron 基础</h2><h3 id="4-1-Electron-API"><a href="#4-1-Electron-API" class="headerlink" title="4.1 Electron API"></a>4.1 Electron API</h3><p>在上面的章节我们提到，渲染进和主进程分别可调用的<code>Electron API</code>。所有<code>Electron</code>的<code>API</code>都被指派给一种进程类型。 许多<code>API</code>只能被用于主进程中，有些<code>API</code>又只能被用于渲染进程，又有一些主进程和渲染进程中都可以使用。</p>
+<p>你可以通过如下方式获取<code>Electron API</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow, ... &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>下面是一些常用的<code>Electron API</code>：</p>
+<p><img src="http://www.conardli.top/img/electron/el_8_api.png" alt=""></p>
+<p>在后面的章节我们会选择其中常用的模块进行详细介绍。</p>
+<h3 id="4-2-使用-Node-js-的-API"><a href="#4-2-使用-Node-js-的-API" class="headerlink" title="4.2 使用 Node.js 的 API"></a>4.2 使用 Node.js 的 API</h3><p><img src="http://www.conardli.top/img/electron/el_9_node.png" alt=""></p>
+<p>你可以同时在<code>Electron</code>的主进程和渲染进程使用<code>Node.js API</code>，)所有在<code>Node.js</code>可以使用的<code>API</code>，在<code>Electron</code>中同样可以使用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; shell &#125; <span class="keyword">from</span> <span class="string">"electron"</span>;</span><br><span class="line"><span class="keyword">import</span> os <span class="keyword">from</span> <span class="string">"os"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"btn"</span>).addEventListener(<span class="string">"click"</span>, () =&gt; &#123;</span><br><span class="line">  shell.showItemInFolder(os.homedir());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>有一个非常重要的提示: 原生 Node.js 模块 (即指，需要编译源码过后才能被使用的模块) 需要在编译后才能和 Electron 一起使用。</p>
+</blockquote>
+<h3 id="4-3-进程通信"><a href="#4-3-进程通信" class="headerlink" title="4.3 进程通信"></a>4.3 进程通信</h3><p>主进程和渲染进程虽然拥有不同的职责，然是他们也需要相互协作，互相通讯。</p>
+<blockquote>
+<p>例如：在<code>web</code>页面管理原生<code>GUI</code>资源是很危险的，会很容易泄露资源。所以在<code>web</code>页面，不允许直接调用原生<code>GUI</code>相关的<code>API</code>。渲染进程如果想要进行原生的<code>GUI</code>操作，就必须和主进程通讯，请求主进程来完成这些操作。</p>
+</blockquote>
+<p><img src="http://www.conardli.top/img/electron/el_10_ipc.gif" alt=""></p>
+<h3 id="4-4-渲染进程向主进程通信"><a href="#4-4-渲染进程向主进程通信" class="headerlink" title="4.4 渲染进程向主进程通信"></a>4.4 渲染进程向主进程通信</h3><p><code>ipcRenderer</code> 是一个 <code>EventEmitter</code> 的实例。 你可以使用它提供的一些方法从渲染进程发送同步或异步的消息到主进程。 也可以接收主进程回复的消息。</p>
+<p>在渲染进程引入<code>ipcRenderer</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ipcRenderer &#125; <span class="keyword">from</span> <span class="string">"electron"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>异步发送：</p>
+<p>通过 <code>channel</code> 发送同步消息到主进程，可以携带任意参数。</p>
+<blockquote>
+<p>在内部，参数会被序列化为 <code>JSON</code>，因此参数对象上的函数和原型链不会被发送。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipcRenderer.send(<span class="string">"sync-render"</span>, <span class="string">"我是来自渲染进程的异步消息"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>同步发送：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> msg = ipcRenderer.sendSync(<span class="string">"async-render"</span>, <span class="string">"我是来自渲染进程的同步消息"</span>);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意: 发送同步消息将会阻塞整个渲染进程，直到收到主进程的响应。</p>
+</blockquote>
+<p>主进程监听消息：</p>
+<p><code>ipcMain</code>模块是<code>EventEmitter</code>类的一个实例。 当在主进程中使用时，它处理从渲染器进程（网页）发送出来的异步和同步信息。 从渲染器进程发送的消息将被发送到该模块。</p>
+<p><code>ipcMain.on</code>：监听 <code>channel</code>，当接收到新的消息时 <code>listener</code> 会以 <code>listener(event, args...)</code> 的形式被调用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ipcMain.on(<span class="string">"sync-render"</span>, (event, data) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-5-主进程向渲染进程通信"><a href="#4-5-主进程向渲染进程通信" class="headerlink" title="4.5 主进程向渲染进程通信"></a>4.5 主进程向渲染进程通信</h3><p><a href="https://imweb.io/topic/5b13a663d4c96b9b1b4c4e9c" target="_blank" rel="noopener">https://imweb.io/topic/5b13a663d4c96b9b1b4c4e9c</a></p>
+<p>在主进程中可以通过<code>BrowserWindow</code>的<code>webContents</code>向渲染进程发送消息，所以，在发送消息前你必须先找到对应渲染进程的<code>BrowserWindow</code>对象。：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mainWindow = BrowserWindow.fromId(global.mainId);</span><br><span class="line">mainWindow.webContents.send(<span class="string">"main-msg"</span>, <span class="string">`ConardLi]`</span>);</span><br></pre></td></tr></table></figure>
+
+<p>根据消息来源发送：</p>
+<p>在<code>ipcMain</code>接受消息的回调函数中，通过第一个参数<code>event</code>的属性<code>sender</code>可以拿到消息来源渲染进程的<code>webContents</code>对象，我们可以直接用此对象回应消息。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ipcMain.on(<span class="string">"sync-render"</span>, (event, data) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">  event.sender.send(<span class="string">"main-msg"</span>, <span class="string">"主进程收到了渲染进程的【异步】消息！"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>渲染进程监听：</p>
+<p><code>ipcRenderer.on</code>:监听 <code>channel</code>, 当新消息到达，将通过<code>listener(event, args...)</code>调用 <code>listener</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ipcRenderer.on(<span class="string">"main-msg"</span>, (event, msg) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(msg);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-6-通信原理"><a href="#4-6-通信原理" class="headerlink" title="4.6 通信原理"></a>4.6 通信原理</h3><p><code>ipcMain</code> 和 <code>ipcRenderer</code> 都是 <code>EventEmitter</code> 类的一个实例。<code>EventEmitter</code> 类是 <code>NodeJS</code> 事件的基础，它由 <code>NodeJS</code> 中的 <code>events</code> 模块导出。</p>
+<p><code>EventEmitter</code> 的核心就是事件触发与事件监听器功能的封装。它实现了事件模型需要的接口， 包括 <code>addListener，removeListener</code>, <code>emit</code> 及其它工具方法. 同原生 <code>JavaScript</code> 事件类似， 采用了发布/订阅(观察者)的方式， 使用内部 <code>_events</code> 列表来记录注册的事件处理器。</p>
+<p>我们通过 <code>ipcMain</code>和<code>ipcRenderer</code> 的 <code>on、send</code> 进行监听和发送消息都是 <code>EventEmitter</code> 定义的相关接口。</p>
+<h3 id="4-7-remote"><a href="#4-7-remote" class="headerlink" title="4.7 remote"></a>4.7 remote</h3><p><code>remote</code> 模块为渲染进程（web 页面）和主进程通信（<code>IPC</code>）提供了一种简单方法。 使用 <code>remote</code> 模块, 你可以调用 <code>main</code> 进程对象的方法, 而不必显式发送进程间消息, 类似于 <code>Java</code> 的 <code>RMI</code> 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; remote &#125; <span class="keyword">from</span> <span class="string">"electron"</span>;</span><br><span class="line"></span><br><span class="line">remote.dialog.showErrorBox(<span class="string">"主进程才有的dialog模块"</span>, <span class="string">"我是使用remote调用的"</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://www.conardli.top/img/electron/el_11_remote.gif" alt=""></p>
+<p>但实际上，我们在调用远程对象的方法、函数或者通过远程构造函数创建一个新的对象，实际上都是在发送一个同步的进程间消息。</p>
+<p>在上面通过 <code>remote</code> 模块调用 <code>dialog</code> 的例子里。我们在渲染进程中创建的 <code>dialog</code> 对象其实并不在我们的渲染进程中，它只是让主进程创建了一个 <code>dialog</code> 对象，并返回了这个相对应的远程对象给了渲染进程。</p>
+<h3 id="4-8-渲染进程间通信"><a href="#4-8-渲染进程间通信" class="headerlink" title="4.8 渲染进程间通信"></a>4.8 渲染进程间通信</h3><p><code>Electron</code>并没有提供渲染进程之间相互通信的方式，我们可以在主进程中建立一个消息中转站。</p>
+<p>渲染进程之间通信首先发送消息到主进程，主进程的中转站接受到消息后根据条件进行分发。</p>
+<h3 id="4-9-渲染进程数据共享"><a href="#4-9-渲染进程数据共享" class="headerlink" title="4.9 渲染进程数据共享"></a>4.9 渲染进程数据共享</h3><p>在两个渲染进程间共享数据最简单的方法是使用浏览器中已经实现的<code>HTML5 API</code>。 其中比较好的方案是用<code>Storage API</code>， <code>localStorage，sessionStorage</code> 或者 <code>IndexedDB。</code></p>
+<p>就像在浏览器中使用一样，这种存储相当于在应用程序中永久存储了一部分数据。有时你并不需要这样的存储，只需要在当前应用程序的生命周期内进行一些数据的共享。这时你可以用 <code>Electron</code> 内的 <code>IPC</code> 机制实现。</p>
+<p>将数据存在主进程的某个全局变量中，然后在多个渲染进程中使用 <code>remote</code> 模块来访问它。</p>
+<p><img src="http://www.conardli.top/img/electron/el_12_global.gif" alt=""></p>
+<p>在主进程中初始化全局变量：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">global.mainId = ...;</span><br><span class="line">global.device = &#123;...&#125;;</span><br><span class="line">global.__dirname = __dirname;</span><br><span class="line">global.myField = &#123; <span class="attr">name</span>: <span class="string">'ConardLi'</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在渲染进程中读取：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ipcRenderer, remote &#125; <span class="keyword">from</span> <span class="string">"electron"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; getGlobal &#125; = remote;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> mainId = getGlobal(<span class="string">"mainId"</span>);</span><br><span class="line"><span class="keyword">const</span> dirname = getGlobal(<span class="string">"__dirname"</span>);</span><br><span class="line"><span class="keyword">const</span> deviecMac = getGlobal(<span class="string">"device"</span>).mac;</span><br></pre></td></tr></table></figure>
+
+<p>在渲染进程中改变：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getGlobal(<span class="string">"myField"</span>).name = <span class="string">"code秘密花园"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>多个渲染进程共享同一个主进程的全局变量，这样即可达到渲染进程数据共享和传递的效果。</p>
+<p>文中如有错误，欢迎在评论区指正，如果这篇文章帮助到了你，欢迎点赞和关注。</p>
+<hr>
+<p>欢迎大家到公众号: <code>you的日常</code> 阅读，体验更好哦。</p>
+<p><img src="https://i.loli.net/2019/12/09/VhvX5WilLEOIwGN.jpg" alt="youDaily.jpg"></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+    </div>
+
+    
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-20191212153059.png" alt="You的日常 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-20191212153213.png" alt="You的日常 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>You的日常
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.youdaily.world/post/c60ba4c3/" title="用JS开发桌面应用（一）原理篇">http://www.youdaily.world/post/c60ba4c3/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 编程技术</a>
+              <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+              <a href="/tags/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 高级技术</a>
+          </div>
+
+        
+        <div>
+          
+            
+          
+        </div>  
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/9859ab2b/" rel="prev" title="“杀猪盘” 骗局">
+      <i class="fa fa-chevron-left"></i> “杀猪盘” 骗局
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/b363c4cb/" rel="next" title="用JS开发桌面应用（二）- 应用篇">
+      用JS开发桌面应用（二）- 应用篇 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、桌面应用程序"><span class="nav-number">2.</span> <span class="nav-text">一、桌面应用程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-原生开发"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 原生开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-托管平台"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 托管平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-WEB-开发"><span class="nav-number">2.3.</span> <span class="nav-text">1.3 WEB 开发</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Electron"><span class="nav-number">3.</span> <span class="nav-text">二、Electron</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-使用-Electron-开发的理由："><span class="nav-number">3.1.</span> <span class="nav-text">2.1 使用 Electron 开发的理由：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-开发体验"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 开发体验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-谁在用-Electron"><span class="nav-number">3.3.</span> <span class="nav-text">2.3 谁在用 Electron</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、Electron-运行原理"><span class="nav-number">4.</span> <span class="nav-text">三、Electron 运行原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Chromium"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 Chromium</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Node-js"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-系统-API"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 系统 API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-主进程"><span class="nav-number">4.4.</span> <span class="nav-text">3.4 主进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-渲染进程"><span class="nav-number">4.5.</span> <span class="nav-text">3.5 渲染进程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、Electron-基础"><span class="nav-number">5.</span> <span class="nav-text">四、Electron 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-Electron-API"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 Electron API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-使用-Node-js-的-API"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 使用 Node.js 的 API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-进程通信"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 进程通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-渲染进程向主进程通信"><span class="nav-number">5.4.</span> <span class="nav-text">4.4 渲染进程向主进程通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-主进程向渲染进程通信"><span class="nav-number">5.5.</span> <span class="nav-text">4.5 主进程向渲染进程通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-通信原理"><span class="nav-number">5.6.</span> <span class="nav-text">4.6 通信原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-remote"><span class="nav-number">5.7.</span> <span class="nav-text">4.7 remote</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-渲染进程间通信"><span class="nav-number">5.8.</span> <span class="nav-text">4.8 渲染进程间通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9-渲染进程数据共享"><span class="nav-number">5.9.</span> <span class="nav-text">4.9 渲染进程数据共享</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="You的日常"
+      src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
+  <p class="site-author-name" itemprop="name">You的日常</p>
+  <div class="site-description" itemprop="description">Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element">
+    <a onclick="tidioChatApi.open();"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/e8c3cb999dc5" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;e8c3cb999dc5" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCJoHHCT90Di7_gRZ88sFaGw" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCJoHHCT90Di7_gRZ88sFaGw" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">You的日常</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">297k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:57</span>
+</div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df0bed512824580" async="async"></script>
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+            'X-LC-Key': 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 22317,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+
+
+
+
+  <script src="//code.tidio.co/r9tdkt9kk55kvv9fbbe9eufs3g3qfxjc.js"></script>
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: false,
+      appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+      appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+      placeholder: "请留下您的意见吧：",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: '' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+
+//新增以下代码即可，可以移除.info下所有子节点。
+var infoEle = document.querySelector('#comments .info');
+if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+  infoEle.childNodes.forEach(function(item) {
+    item.parentNode.removeChild(item);
+  });
+}
+
+</script>
+
+</body>
+</html>
+
