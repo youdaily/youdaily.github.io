@@ -66,8 +66,8 @@
 <meta property="article:modified_time" content="2019-12-10T02:07:04.296Z">
 <meta property="article:author" content="You的日常">
 <meta property="article:tag" content="编程技术">
-<meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="React">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;lsqimg-1257917459.cos-website.ap-beijing.myqcloud.com&#x2F;blog&#x2F;%E4%BA%8B%E4%BB%B6%E6%B3%A8%E5%86%8C.png">
 
@@ -466,8 +466,8 @@
           
           <div class="post-tags">
               <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 编程技术</a>
-              <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
               <a href="/tags/React/" rel="tag"><i class="fa fa-tag"></i> React</a>
+              <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
           </div>
 
         
@@ -808,6 +808,19 @@
 
 
 
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
 
 
   
