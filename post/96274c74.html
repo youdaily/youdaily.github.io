@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.youdaily.world').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers这是本系列三篇文章中的第二篇：  内存管理速成手册 通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers 使用 Atomics 来在 SharedArrayBuffers 中避免竞用条件  在上一篇中，我解释了一些自动内存管理的语言比如 JavaScript 怎么管理内存。同时我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.youdaily.world&#x2F;post&#x2F;96274c74.html">
+<meta property="og:site_name" content="You的日常">
+<meta property="og:description" content="通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers这是本系列三篇文章中的第二篇：  内存管理速成手册 通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers 使用 Atomics 来在 SharedArrayBuffers 中避免竞用条件  在上一篇中，我解释了一些自动内存管理的语言比如 JavaScript 怎么管理内存。同时我">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com&#x2F;files&#x2F;2017&#x2F;06&#x2F;02_01-500x285.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com&#x2F;files&#x2F;2017&#x2F;06&#x2F;02_02-500x285.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com&#x2F;files&#x2F;2017&#x2F;06&#x2F;02_03-500x377.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com&#x2F;files&#x2F;2017&#x2F;06&#x2F;02_04-500x61.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com&#x2F;files&#x2F;2017&#x2F;06&#x2F;02_05-500x177.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com&#x2F;files&#x2F;2017&#x2F;06&#x2F;02_06-500x153.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com&#x2F;files&#x2F;2017&#x2F;06&#x2F;02_07-500x262.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com&#x2F;files&#x2F;2017&#x2F;06&#x2F;02_08-500x350.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com&#x2F;files&#x2F;2017&#x2F;06&#x2F;02_09-500x360.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com&#x2F;files&#x2F;2017&#x2F;06&#x2F;02_10-500x355.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com&#x2F;files&#x2F;2017&#x2F;06&#x2F;02_11-500x360.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com&#x2F;files&#x2F;2017&#x2F;06&#x2F;02_12-500x349.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com&#x2F;files&#x2F;2017&#x2F;06&#x2F;02_13-500x201.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com&#x2F;files&#x2F;2017&#x2F;06&#x2F;02_14-500x169.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com&#x2F;files&#x2F;2017&#x2F;06&#x2F;02_15-500x335.png">
+<meta property="article:published_time" content="2017-08-07T07:58:31.000Z">
+<meta property="article:modified_time" content="2019-11-29T09:12:48.484Z">
+<meta property="article:author" content="You的日常">
+<meta property="article:tag" content="基础技术">
+<meta property="article:tag" content="编程技术">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com&#x2F;files&#x2F;2017&#x2F;06&#x2F;02_01-500x285.png">
+
+<link rel="canonical" href="http://www.youdaily.world/post/96274c74.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers | You的日常</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">You的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">You的日常，我们的日常</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/96274c74.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-07 15:58:31" itemprop="dateCreated datePublished" datetime="2017-08-07T15:58:31+08:00">2017-08-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/96274c74.html" class="post-meta-item leancloud_visitors" data-flag-title="通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/96274c74.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/96274c74.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div id="vip-container"><h1 id="通过漫画形式来解释-ArrayBuffers-和-SharedArrayBuffers"><a href="#通过漫画形式来解释-ArrayBuffers-和-SharedArrayBuffers" class="headerlink" title="通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers"></a>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</h1><p>这是本系列三篇文章中的第二篇：</p>
+<ol>
+<li><em>内存管理速成手册</em></li>
+<li><em>通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</em></li>
+<li><em>使用 Atomics 来在 SharedArrayBuffers 中避免竞用条件</em></li>
+</ol>
+<p>在上一篇中，我解释了一些自动内存管理的语言比如 JavaScript 怎么管理内存。同时我也解释了例如 C 语言，如何进行手动内存管理。</p>
+<p>那么这和我们将要讨论的 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer" target="_blank" rel="noopener">ArrayBuffers</a> 和 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer" target="_blank" rel="noopener">SharedArrayBuffers</a> 有什么关系呢？这是因为 ArrayBuffer 也使得你能够手动处理数据，尽管这是在 JavaScript 中，一种具有自动内存管理的语言。</p>
+<p>那么，你为什么想要进行手动处理呢？正如上一篇文章所描述，在使用自动内存管理上有一个权衡。自动内存管理使得开发者开发程序变得相对容易，但是它也带来了一些困扰。在某些场景中，自动内存管理可能会带来性能上的问题。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_01.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_01-500x285.png" alt="A balancing scale showing that automatic memory management is easier to understand, but harder to make fast"></a></p>
+<p>例如，当你使用 JS 创建一个变量的时候，JS 引擎不得不猜测这个 JS 变量所包含数据的类型以及怎样在内存中进行存储。因为这些猜测，JS 引擎通常会为这些变量实际需要的内存分配更大的内存空间。根据不同的变量，分配的内存空间可能是实际所需的 2-8 倍，这将导致极大的内存浪费。除此之外，特性模式的创建和使用 JS 对象也将会使得其很难被 JS 引擎垃圾回收。</p>
+<p>如果你正在进行手动的内存管理，你可以根据自己工作上的使用场景自己选择内存分配和解除分配的策略。当时在很多时候，却并不值得这样做。因为在很多使用场景下我们的程序并没有那么性能敏感以至于需要采用手动得内存管理。甚至在通常的使用中，手动内存管理甚至会使得程序更慢。但是在有些时候，你需要从一些更底层的操作来时的你的代码运行的更快，那么 ArrayBuffers 和 SharedArrayBuffers 将是很好的选择。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_02.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_02-500x285.png" alt="A balancing scale showing that manual memory management gives you more control for performance fine-tuning, but requires more thought and planning"></a></p>
+<p>那么 ArrayBuffer 是怎么工作的呢？基本上和其他的 JavaScript 数组没有什么区别。除了，当你使用 ArrayBuffer 的时候，你不可以将任意的 JavaScript 数据类型到 ArrayBuffer 中，例如 objects 或者 strings。唯一能够放入 ArrayBuffer 中的只有字节（可以通过数字来表示）。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_03.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_03-500x377.png" alt="Two arrays, a normal array which can contain numbers, objects, strings, etc, and an ArrayBuffer, which can only contain bytes"></a></p>
+<p>另外一件我必须明确说明的是，你并不能够直接的将字节放入 ArrayBuffer。这是因为，ArrayBuffer 并不知道一个字节有多大，也不知道不同的数字转化成字节的区别。ArrayBuffer 仅仅是一个「0」和「1」组成一行的二进制串。ArrayBuffer 也不知道分隔符应该放在该二进制串的什么位置。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_04.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_04-500x61.png" alt="A bunch of ones and zeros in a line"></a></p>
+<p>为了给 ArrayBuffer 提供上下文，将上面的二进制串分割在相同尺寸的盒子里，我们需要一个称作「视窗」概念将二进制串分割到不同的盒子里。这些二进制数据上的视窗可以以带类型的数组存储，同时在 ArrayBuffer 中有不同带类型数组。比如，你可以通过 8 位整数的类型数组将上面的 ArrayBuffer 8 位一字节分割开来。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_05.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_05-500x177.png" alt="Those ones and zeros broken up into boxes of 8"></a></p>
+<p>或者你可以使用无符号 16 位整数的数组，这样就将上面的 ArrayBuffer 分割成了 16 位一字节的不同块中，然后依然想无符号整数一样对其操作。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_06.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_06-500x153.png" alt="Those ones and zeros broken up into boxes of 16"></a></p>
+<p>你甚至可以在同一个基础 buffer 上面拥有不同的「视窗」。不同的「视窗」在相同的操作下会带来不同的结果。比如，在 Int8 视窗中，你可能会得到 <code>0 &amp; 1</code> 表达式，而在同样的 buffer 下，在 Uint16 视窗下你可能会得到其他结果，尽管他们都拥有相同的二进制位串。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_07.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_07-500x262.png" alt="Those ones and zeros broken up into boxes of 16"></a></p>
+<p>在上面描述得工作方式下，ArrayBuffer 的角色仅仅是向一块原始的内存。它模拟了像在 C 语言中直接获取\操作 内存的工作。你可能会产生疑问，为什么 JS 不直接提供给使用者直接获取/操作内存的接口而是添加 ArrayBuffer 这一抽象层呢？这是因为直接获取/操作内存可能会导致一些安全漏洞。我将在将来的文章中讨论这一块内容。那么，SharedArrayBuffers 又是什么呢？</p>
+<p>为了解释 SharedArrayBuffers，我需要先简略解释 JavaScript 中并行运行代码。为了并行运行代码，你需要将工作拆分成不同部分。但是在一个典型的 app 中，所有的工作都是在一个独立的线程中完成。在之前的文章中我也提及过这一点…这个主线程就像一个全栈工程师一样。它掌管着 JavaScript、DOM、以及视图布局。所有你能够操作的工作都是在这个主线程帮助下完成的。在某些特定环境下，ArrayBuffers 可以减轻主线程的负担，代替完成主线程的部分工作。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_08.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_08-500x350.png" alt="The main thread standing at its desk with a pile of paperwork. The top part of that pile has been removed"></a></p>
+<p>但是有时候减少主线程的工作依然是不够的。有时候你需要引进增援…你需要将工作分开。在很多编程语言中，将工作分成不同块每一块也就称作一个线程。这个多人共同完成一个项目是一个道理。</p>
+<p>如果你有一些任务，同时该任务和其他任务相对独立，那么你就可以在其他线程中完成这些任务。因此，不同的线程就可以在同一时间完成互相独立的分离任务。在 JavaScript 中，我们可以通过被称作<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers" target="_blank" rel="noopener">web worker</a>的工具来完成以上工作。这些 web workers 与您在其他语言中使用的线程略有不同。默认情况下，它们不共享内存。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_09.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_09-500x360.png" alt="Two threads at desks next to each other. Their piles of paperwork are half as tall as before. There is a chunk of memory below each, but not connected to the other&#39;s memory"></a></p>
+<p>这也就意味着，如果你想和其他线程共享数据，那么你就需要将数据从一个地方复制到另外一个地方。这是通过函数<a href="https://developer.mozilla.org/en-US/docs/Web/API/Worker/postMessage" target="_blank" rel="noopener">postMessage</a> 完成的。postMessage 将所有输入的对象序列化，将其发送到另一个 web worker，并将其反序列化并放入内存中。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_10.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_10-500x355.png" alt="Thread 1 shares memory with thread 2 by serializing it, sending it across, where it is copied into thread 2&#39;s memory"></a></p>
+<p>这事一个相当慢的过程，比如一些类型的数据，像 ArrayBuffers，你可以转移内存。这意味着你可以将某一特定的内存块移动到其他地方，这样其他的 web worker 就可以获取/操作 该内存块。但是之前的 web worker 将不能够再获取到该内存块了。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_11.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_11-500x360.png" alt="Thread 1 shares memory with thread 2 by transferring it. Thread 1 no longer has access to it"></a></p>
+<p>这也许在某些场景中适用，但是在更多的情况，你可能需要更高效得并行策略，在这些场景下，你可能真实的想要共享内存单元。ShareArrayBuffer 能够帮助你达到此目的。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_12.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_12-500x349.png" alt="The two threads get some shared memory which they can both access"></a></p>
+<p>通过 ShareArrayBuffer，web worker、不同线程可以在相同的内存块中读写数据。这也意味着你不爱需要通过 postMessage 来在不同的线程中通信传递数据。不同的 web worker 都有获取/操作数据的权限。但是这也会带来一些问题，比如两个线程在同一时间对数据进行操作。这也就是通常被称作「竞用条件」的现象。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_13.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_13-500x201.png" alt="Drawing of two threads racing towards memory"></a></p>
+<p>我将在<a href="https://hacks.mozilla.org/2017/06/avoiding-race-conditions-in-sharedarraybuffers-with-atomics/" target="_blank" rel="noopener">下一篇文章</a>中解释什么是竞用条件。那么 SharedArrayBuffers 现阶段处于什么地位呢？庆幸得，在不久的将来，所有主流浏览器都贱支持 SharedArrayBuffers。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_14.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_14-500x169.png" alt="Logos of the major browsers high-fiving"></a></p>
+<p>SharedArrayBuffers 在 Safari（Safari 10.1）中已经可以使用。Firefox 和 Chrome 也将在今年的七八月发布的版本中包含此项功能。Edge 浏览器计划在今年的秋天完成此项功能的更新。但是即使所有主流浏览器都已经支持 SharedArrayBuffers，我们也不希望应用程序开发人员直接使用它。</p>
+<p>实际上，我们发对这样做。你应该在其之上进行抽象，使用更高层的一些库。我们所期待的是框架或库的开发者们能够创建一些工具库，这些工具库能够帮助我们更方便、安全的使用 SharedArrayBuffer。除此之外，一旦 SharedArrayBuffers 在平台上实现，WebAssembly 可以使用它来实现多线程。到时候，你就能够向 Rust 语言一样使用并发的抽象层，它将无所畏惧得将并发作为其主要目标。在下一篇文章中，我们将解释工具（<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics" target="_blank" rel="noopener">Atomics</a> ）以及工具开发者是怎样来实现这一抽象层并如何避免竞用条件的。</p>
+<p><a href="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_15.png" target="_blank" rel="noopener"><img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/06/02_15-500x335.png" alt="Layer diagram showing SharedArrayBuffer + Atomics as the foundation, and JS libaries and WebAssembly threading building on top"></a></p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+    </div>
+
+    
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-20191212153059.png" alt="You的日常 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-20191212153213.png" alt="You的日常 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>You的日常
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.youdaily.world/post/96274c74.html" title="通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers">http://www.youdaily.world/post/96274c74.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 基础技术</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 编程技术</a>
+              <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          </div>
+
+        
+        <div>
+          
+            
+          
+        </div>  
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/99af2b46.html" rel="prev" title="内存管理速成手册">
+      <i class="fa fa-chevron-left"></i> 内存管理速成手册
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/16d824e2.html" rel="next" title="「体能训练理论」之功能性">
+      「体能训练理论」之功能性 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#通过漫画形式来解释-ArrayBuffers-和-SharedArrayBuffers"><span class="nav-number">1.</span> <span class="nav-text">通过漫画形式来解释 ArrayBuffers 和 SharedArrayBuffers</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="You的日常"
+      src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
+  <p class="site-author-name" itemprop="name">You的日常</p>
+  <div class="site-description" itemprop="description">Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element">
+    <a onclick="tidioChatApi.open();"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/e8c3cb999dc5" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;e8c3cb999dc5" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCJoHHCT90Di7_gRZ88sFaGw" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCJoHHCT90Di7_gRZ88sFaGw" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">You的日常</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">299k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:59</span>
+</div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df0bed512824580" async="async"></script>
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+            'X-LC-Key': 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 22317,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+
+
+
+
+  <script src="//code.tidio.co/r9tdkt9kk55kvv9fbbe9eufs3g3qfxjc.js"></script>
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: false,
+      appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+      appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+      placeholder: "请留下您的意见吧：",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: '' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+
+//新增以下代码即可，可以移除.info下所有子节点。
+var infoEle = document.querySelector('#comments .info');
+if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+  infoEle.childNodes.forEach(function(item) {
+    item.parentNode.removeChild(item);
+  });
+}
+
+</script>
+
+</body>
+</html>
+

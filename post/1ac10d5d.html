@@ -48,22 +48,22 @@
   };
 </script>
 
-  <meta name="description" content="WebAssembly 简介 英文原文链接：https:&#x2F;&#x2F;webassembly.github.io&#x2F;spec&#x2F;core&#x2F;intro&#x2F;introduction.html  WebAssembly（缩写WASM）是一种安全，便携，低级代码设计用于高效执行和紧凑表示的格式。 它的主要目标是使Web上的高性能应用，不需要针对网络的特定假设或提供特定的定制化的网络功能，因此它可以在其他环境中直接使用，也">
+  <meta name="description" content="Python使用MongoDBMongoDB相对于传统的关系型数据库，可以存储JSON数据，非常适合存储数据抓取返回的JSON数据。今天主要学习的是使用Python连接MongoDB，并进行增删改查的操作。  MongoDB 的安装及使用，请参照官方文档。https:&#x2F;&#x2F;api.mongodb.com&#x2F;python&#x2F;current&#x2F;installation.html  在连接MongoDB前 首">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WebAssembly 简介">
-<meta property="og:url" content="http:&#x2F;&#x2F;www.youdaily.world&#x2F;post&#x2F;b68e0da">
+<meta property="og:title" content="Python-高级-使用MongoDB">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.youdaily.world&#x2F;post&#x2F;1ac10d5d.html">
 <meta property="og:site_name" content="You的日常">
-<meta property="og:description" content="WebAssembly 简介 英文原文链接：https:&#x2F;&#x2F;webassembly.github.io&#x2F;spec&#x2F;core&#x2F;intro&#x2F;introduction.html  WebAssembly（缩写WASM）是一种安全，便携，低级代码设计用于高效执行和紧凑表示的格式。 它的主要目标是使Web上的高性能应用，不需要针对网络的特定假设或提供特定的定制化的网络功能，因此它可以在其他环境中直接使用，也">
+<meta property="og:description" content="Python使用MongoDBMongoDB相对于传统的关系型数据库，可以存储JSON数据，非常适合存储数据抓取返回的JSON数据。今天主要学习的是使用Python连接MongoDB，并进行增删改查的操作。  MongoDB 的安装及使用，请参照官方文档。https:&#x2F;&#x2F;api.mongodb.com&#x2F;python&#x2F;current&#x2F;installation.html  在连接MongoDB前 首">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-12-12T01:46:17.000Z">
-<meta property="article:modified_time" content="2019-12-13T01:50:08.390Z">
+<meta property="article:published_time" content="2018-11-03T06:34:06.000Z">
+<meta property="article:modified_time" content="2019-12-10T02:07:10.669Z">
 <meta property="article:author" content="You的日常">
-<meta property="article:tag" content="基础技术">
 <meta property="article:tag" content="编程技术">
-<meta property="article:tag" content="WebAssembly">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="高级技术">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://www.youdaily.world/post/b68e0da">
+<link rel="canonical" href="http://www.youdaily.world/post/1ac10d5d.html">
 
 
 <script id="page-configurations">
@@ -75,7 +75,7 @@
   };
 </script>
 
-  <title>WebAssembly 简介 | You的日常</title>
+  <title>Python-高级-使用MongoDB | You的日常</title>
   
 
 
@@ -182,7 +182,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/b68e0da">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/1ac10d5d.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -195,7 +195,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          WebAssembly 简介
+          Python-高级-使用MongoDB
         </h2>
 
         <div class="post-meta">
@@ -205,7 +205,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-12-12 09:46:17" itemprop="dateCreated datePublished" datetime="2019-12-12T09:46:17+08:00">2019-12-12</time>
+              <time title="创建时间：2018-11-03 14:34:06" itemprop="dateCreated datePublished" datetime="2018-11-03T14:34:06+08:00">2018-11-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -219,14 +219,20 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">基础技术</span>
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">高级技术</span>
                   </a>
                 </span>
             </span>
 
           
-            <span id="/post/b68e0da" class="post-meta-item leancloud_visitors" data-flag-title="WebAssembly 简介" title="热度">
+            <span id="/post/1ac10d5d.html" class="post-meta-item leancloud_visitors" data-flag-title="Python-高级-使用MongoDB" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -242,8 +248,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/b68e0da#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/b68e0da" itemprop="commentCount"></span>
+    <a title="valine" href="/post/1ac10d5d.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/1ac10d5d.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -252,13 +258,13 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
               </span>
-              <span>1.5k</span>
+              <span>2.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -270,41 +276,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div id="vip-container"><h2 id="WebAssembly-简介"><a href="#WebAssembly-简介" class="headerlink" title="WebAssembly 简介"></a>WebAssembly 简介</h2><blockquote>
-<p>英文原文链接：<a href="https://webassembly.github.io/spec/core/intro/introduction.html" target="_blank" rel="noopener">https://webassembly.github.io/spec/core/intro/introduction.html</a></p>
+        <div id="vip-container"><hr>
+<h2 id="Python使用MongoDB"><a href="#Python使用MongoDB" class="headerlink" title="Python使用MongoDB"></a>Python使用MongoDB</h2><p>MongoDB相对于传统的关系型数据库，可以存储JSON数据，非常适合存储数据抓取返回的JSON数据。<br>今天主要学习的是使用Python连接MongoDB，并进行增删改查的操作。</p>
+<blockquote>
+<p>MongoDB 的安装及使用，请参照官方文档。<br><a href="https://api.mongodb.com/python/current/installation.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/installation.html</a></p>
 </blockquote>
-<p><code>WebAssembly</code>（缩写WASM）是一种安全，便携，低级代码设计用于高效执行和紧凑表示的格式。</p>
-<p>它的主要目标是使Web上的高性能应用，不需要针对网络的特定假设或提供特定的定制化的网络功能，因此它可以在其他环境中直接使用，也就是良好的跨平台特性。</p>
-<p>WebAssembly是由W3C社区组开发的开放标准。</p>
-<h3 id="WebAssembly-设计目标"><a href="#WebAssembly-设计目标" class="headerlink" title="WebAssembly 设计目标"></a>WebAssembly 设计目标</h3><p><code>WebAssembly</code> 的设计目标有以下几方面：</p>
-<h4 id="快速，安全，便携的语义"><a href="#快速，安全，便携的语义" class="headerlink" title="快速，安全，便携的语义"></a>快速，安全，便携的语义</h4><ul>
-<li>快速：用接近原生代码的性能执行，趁着能力共同的所有当代的硬件。</li>
-<li>安全：密码进行验证，在存储安全[2]执行，沙盒环境防止数据损坏或安全漏洞。</li>
-<li>明确定义：全面，准确地定义了有效的计划和他们的方式，很容易推理，正式与非正式的行为。</li>
-<li>独立于硬件的：都可以现代建筑，桌面或移动设备上进行编译和一致好评嵌入式系统。</li>
-<li>语言无关的：没有任何特权特定语言，编程模型或对象模型。</li>
-<li>平台无关：可以嵌入在浏览器中运行作为一个独立的虚拟机，或者集成在其他环境中。</li>
-<li>打开：程序可以与他们在一个简单的和通用的方式进行互操作环境。</li>
-</ul>
-<h4 id="高效便携的表示"><a href="#高效便携的表示" class="headerlink" title="高效便携的表示"></a>高效便携的表示</h4><ul>
-<li>紧凑：具有二进制格式快速发送由比典型的文本或本机代码格式小。</li>
-<li>模块化：程序可以在能够传播，缓存，和分别消耗更小的部分被分割。</li>
-<li>高效：可以解码，验证，并在快速单通编译，无论是实时编译（ JIT, Just In Time ）还是预编译（ AOT,  Ahead Of Time）。</li>
-<li>可流：允许解码，验证和编译，以尽快开始，所有数据都已经看到了。</li>
-<li>并行化：允许进行解码，验证，和编译被划分成许多独立的并行任务。</li>
-<li>便携性：可以让不广泛跨越现代的硬件不支持任何建筑的假设。</li>
-</ul>
-<p><code>WebAssembly</code> 代码也意在便于检查和调试，尤其是在像网络浏览器的环境中，但是这些特征超出了本规范的范围。</p>
-<h3 id="范围"><a href="#范围" class="headerlink" title="范围"></a>范围</h3><p>在其核心，<code>WebAssembly</code> 是虚拟指令集架构（Instruction Set Architecture(ISA) 虚拟）。因此，它有许多使用情况，并且可以嵌入在许多不同的环境。涵盖多元化和实现最大限度的重用，在 <code>WebAssembly</code> 规范是分裂和分层为几个文件。</p>
-<p>这份文件是关于 <code>WebAssembly</code> 的核心 ISA 层。它定义了指令集，二进制编码，验证和执行语义，以及一个文本表示。这不，但是，定义如何 <code>WebAssembly</code> 程序可以与特定的环境中，他们执行的互动，也不是如何从这样的环境中调用。</p>
-<p>相反，该规范由定义接口的具体嵌入环境，如网络附加文件的补充。这些将各自限定 <code>WebAssembly</code> 应用程序编程接口（ API ）适合于给定的环境。</p>
-<h3 id="安全注意事项"><a href="#安全注意事项" class="headerlink" title="安全注意事项"></a>安全注意事项</h3><p><code>WebAssembly</code> 提供在其中执行代码的计算环境没有环境的访问。与环境，如 I / O，对资源的访问，或操作系统调用的任何相互作用，只能通过调用嵌入器提供并导入到一个 <code>WebAssembly</code> 模块的功能来执行。嵌入器可以通过控制或限制它使可供导入该功能能力建立适合各自的环境安全政策。这种考虑是一个嵌入的责任和 API 定义特定环境的主题。</p>
-<p>因为 <code>WebAssembly</code> 被设计成被翻译成直接在主机的硬件上运行的机器代码，它是可能受到在硬件水平边信道攻击。在环境中，这是一个问题，一个嵌入可能不得不把合适的缓解措施到位，以隔离<code>WebAssembly</code> 计算。</p>
-<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p><code>WebAssembly</code> 取决于两个现有的标准：</p>
-<ul>
-<li><code>IEEE 754-2019</code>，对于浮点数据的表示和相应的数字操作的语义。</li>
-<li><code>Unicode</code> 中，导入/导出名称的表示和文本格式。</li>
-</ul>
+<p>在连接MongoDB前 首先要安装的是Python包：PyMongo，包的安装非常的简单。<br>只需执行 <code>pip install pymongo</code> 即可使用。</p>
+<h3 id="创建连接"><a href="#创建连接" class="headerlink" title="创建连接"></a>创建连接</h3><p>在安装完PyMongo以后，使用Python连接MongoDB变得异常简单。具体方式为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"> </span><br><span class="line">client = MongoClient(<span class="string">'localhost'</span>, <span class="number">27017</span>)</span><br></pre></td></tr></table></figure>
+<p>或使用如下方式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"> </span><br><span class="line">client = MongoClient(<span class="string">'mongodb://localhost:27017'</span>)</span><br></pre></td></tr></table></figure>
+<p>如果连接含有账号密码等，请参考：<br><a href="https://api.mongodb.com/python/current/api/pymongo/mongo_client.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/api/pymongo/mongo_client.html</a></p>
+<a id="more"></a>
+
+<h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><p>连接数据库的操作也非常的简单，最为重要的是，在你连接数据库之前无需先创建数据库，如果数据库存在则直接连接，如果数据库不存在则会创建新的库。具体方式为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方式一</span></span><br><span class="line">db = client.pymongo_test</span><br><span class="line"><span class="comment"># 方式二</span></span><br><span class="line">db = client[<span class="string">'pymongo_test'</span>]</span><br></pre></td></tr></table></figure>
+<p>以上两种方式任选一种即可。</p>
+<h3 id="Collection概念"><a href="#Collection概念" class="headerlink" title="Collection概念"></a>Collection概念</h3><p>在MongoDB中存在一个Collection的概念，我将其理解为命名空间，类似其他数据库中Scheme的概念，Collection可以理解为一些表的集合。Collection可以使用也可以不使用，具体看你是否要给库下的表分类。相关的操作：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#方法一：</span></span><br><span class="line">collection = db.test_collection</span><br><span class="line"><span class="comment">#方法二</span></span><br><span class="line">collection = db[<span class="string">'test-collection'</span>]</span><br></pre></td></tr></table></figure>
+<p>需要知晓的是，collection的创建是在第一张表创建时才会创建。</p>
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><p>插入数据的方式的凡是非常的简单，最长使用的方法是，<code>insert_one()</code>和<code>inert_many()</code>方法，从字面上就可以看出来一个是插入一条数据，另外一个是插入多条数据，示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"> </span><br><span class="line">client = MongoClient(<span class="string">'localhost'</span>, <span class="number">27017</span>)</span><br><span class="line">db = client.testdb</span><br><span class="line">posts = db.posts</span><br><span class="line"> </span><br><span class="line">post_1 = &#123;</span><br><span class="line">    <span class="string">'title'</span>: <span class="string">'Python and MongoDB'</span>,</span><br><span class="line">    <span class="string">'content'</span>: <span class="string">'PyMongo is fun'</span>,</span><br><span class="line">    <span class="string">'author'</span>: <span class="string">'saul'</span></span><br><span class="line">&#125;</span><br><span class="line">post_2 = &#123;</span><br><span class="line">    <span class="string">'title'</span>: <span class="string">'Virtual Environments'</span>,</span><br><span class="line">    <span class="string">'content'</span>: <span class="string">'Use virtual environments'</span>,</span><br><span class="line">    <span class="string">'author'</span>: <span class="string">'Scott'</span></span><br><span class="line">&#125;</span><br><span class="line">post_3 = &#123;</span><br><span class="line">    <span class="string">'title'</span>: <span class="string">'Learning Python'</span>,</span><br><span class="line">    <span class="string">'content'</span>: <span class="string">'Learn Python, it is easy'</span>,</span><br><span class="line">    <span class="string">'author'</span>: <span class="string">'Bill'</span></span><br><span class="line">&#125; </span><br><span class="line"> </span><br><span class="line"><span class="comment">#每次插入一条数据</span></span><br><span class="line">posts.insert_one(post_1)</span><br><span class="line">posts.insert_one(post_2)</span><br><span class="line">posts.insert_one(post_3)</span><br><span class="line"> </span><br><span class="line"><span class="comment">#一次插入多条数据</span></span><br><span class="line">posts.insert_many([post_1, post_2, post_3])</span><br></pre></td></tr></table></figure>
+<h3 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h3><p>和插入数据一样，查询数据的时候，提供查询一条或多条数据的方法，方法分别为<code>find_one()</code>和<code>find()</code>。示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查询一条数据</span></span><br><span class="line">bills_post = posts.find_one(&#123;<span class="string">'author'</span>: <span class="string">'Bill'</span>&#125;)</span><br><span class="line">print(bills_post)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查询多条数据</span></span><br><span class="line">scotts_posts = posts.find(&#123;<span class="string">'author'</span>: <span class="string">'Scott'</span>&#125;)</span><br><span class="line"><span class="keyword">for</span> post <span class="keyword">in</span> scotts_posts:</span><br><span class="line">    print(post)</span><br></pre></td></tr></table></figure>
+<p>另外，查询多条时，可以设定返回的数量或其他限定条件：<br><a href="https://api.mongodb.com/python/current/api/pymongo/collection.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/api/pymongo/collection.html</a></p>
+<p>另外条件中如需支持类似的关系数据库中的WHERE条件，需要使用特定的关键词。示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d = datetime.datetime(<span class="number">2009</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">12</span>)</span><br><span class="line"><span class="keyword">for</span> post <span class="keyword">in</span> posts.find(&#123;<span class="string">"date"</span>: &#123;<span class="string">"$lt"</span>: d&#125;&#125;).sort(<span class="string">"author"</span>):</span><br><span class="line">    pprint.pprint(post)</span><br></pre></td></tr></table></figure>
+<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><p>删除数据同样非常的简单，主要用到的方法为：<code>delete_one()</code>和<code>delete_many()</code>。</p>
+<h3 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h3><p>更新数据的主要方法是，<code>update_one()</code>和<code>update_many()</code>，除此之外，还有一个<code>replace_one()</code>方法用来替换，由于用的不多，具体看文档。</p>
+<h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><p>pyMongo还支持创建索引，可以进一步提升查询的性能，示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = db.profiles.create_index([(<span class="string">'user_id'</span>, pymongo.ASCENDING)],unique=<span class="literal">True</span>)</span><br><span class="line">sorted(list(db.profiles.index_information()))</span><br></pre></td></tr></table></figure>
+<h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p><a href="https://api.mongodb.com/python/current/tutorial.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/tutorial.html</a><br><a href="https://docs.mongodb.com/manual/indexes/" target="_blank" rel="noopener">https://docs.mongodb.com/manual/indexes/</a></p>
 </div>
 
 			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
@@ -367,7 +369,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.youdaily.world/post/b68e0da" title="WebAssembly 简介">http://www.youdaily.world/post/b68e0da</a>
+    <a href="http://www.youdaily.world/post/1ac10d5d.html" title="Python-高级-使用MongoDB">http://www.youdaily.world/post/1ac10d5d.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -379,9 +381,9 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 基础技术</a>
               <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 编程技术</a>
-              <a href="/tags/WebAssembly/" rel="tag"><i class="fa fa-tag"></i> WebAssembly</a>
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 高级技术</a>
           </div>
 
         
@@ -402,10 +404,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/post/17fb87b9" rel="prev" title="251事件">
-      <i class="fa fa-chevron-left"></i> 251事件
+    <a href="/post/c131969b.html" rel="prev" title="Python-高级-Numpy简介">
+      <i class="fa fa-chevron-left"></i> Python-高级-Numpy简介
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/post/bf1cac5c.html" rel="next" title="Programing-React-event-handler">
+      Programing-React-event-handler <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -466,7 +471,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WebAssembly-简介"><span class="nav-number">1.</span> <span class="nav-text">WebAssembly 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WebAssembly-设计目标"><span class="nav-number">1.1.</span> <span class="nav-text">WebAssembly 设计目标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#快速，安全，便携的语义"><span class="nav-number">1.1.1.</span> <span class="nav-text">快速，安全，便携的语义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高效便携的表示"><span class="nav-number">1.1.2.</span> <span class="nav-text">高效便携的表示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#范围"><span class="nav-number">1.2.</span> <span class="nav-text">范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全注意事项"><span class="nav-number">1.3.</span> <span class="nav-text">安全注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖"><span class="nav-number">1.4.</span> <span class="nav-text">依赖</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python使用MongoDB"><span class="nav-number">1.</span> <span class="nav-text">Python使用MongoDB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建连接"><span class="nav-number">1.1.</span> <span class="nav-text">创建连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接数据库"><span class="nav-number">1.2.</span> <span class="nav-text">连接数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collection概念"><span class="nav-number">1.3.</span> <span class="nav-text">Collection概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入数据"><span class="nav-number">1.4.</span> <span class="nav-text">插入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询数据"><span class="nav-number">1.5.</span> <span class="nav-text">查询数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据"><span class="nav-number">1.6.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新数据"><span class="nav-number">1.7.</span> <span class="nav-text">更新数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建索引"><span class="nav-number">1.8.</span> <span class="nav-text">创建索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接："><span class="nav-number">2.</span> <span class="nav-text">参考链接：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
