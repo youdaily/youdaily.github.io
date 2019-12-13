@@ -178,7 +178,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/b58ea4c6/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/4619bb3">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -192,7 +192,140 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/b58ea4c6/" class="post-title-link" itemprop="url">用JS开发桌面应用（三）打印篇</a>
+            <a href="/post/4619bb3" class="post-title-link" itemprop="url">用JS开发桌面应用（四）程序保护</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-13 15:21:03" itemprop="dateCreated datePublished" datetime="2019-05-13T15:21:03+08:00">2019-05-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/4619bb3" class="post-meta-item leancloud_visitors" data-flag-title="用JS开发桌面应用（四）程序保护" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/4619bb3#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/4619bb3" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="十、程序保护"><a href="#十、程序保护" class="headerlink" title="十、程序保护"></a>十、程序保护</h2><p><a href="https://segmentfault.com/a/1190000007503495" target="_blank" rel="noopener">https://segmentfault.com/a/1190000007503495</a></p>
+<p><img src="http://www.conardli.top/img/electron/el_22_protect.gif" alt=""></p>
+<h3 id="10-1-崩溃"><a href="#10-1-崩溃" class="headerlink" title="10.1 崩溃"></a>10.1 崩溃</h3><p>崩溃监控是每个客户端程序必备的保护功能，当程序崩溃时我们一般期望做到两件事：</p>
+<ul>
+<li>1.上传崩溃日志，及时报警</li>
+<li>2.监控程序崩溃，提示用户重启程序</li>
+</ul>
+<p><code>electron</code>为我们提供给了<code>crashReporter</code>来帮助我们记录崩溃日志，我们可以通过<code>crashReporter.start</code>来创建一个崩溃报告器：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; crashReporter &#125; = <span class="built_in">require</span>(<span class="string">"electron"</span>);</span><br><span class="line">crashReporter.start(&#123;</span><br><span class="line">  productName: <span class="string">"YourName"</span>,</span><br><span class="line">  companyName: <span class="string">"YourCompany"</span>,</span><br><span class="line">  submitURL: <span class="string">"https://your-domain.com/url-to-submit"</span>,</span><br><span class="line">  uploadToServer: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>当程序发生崩溃时，崩溃报日志将被储存在临时文件夹中名为<code>YourName Crashes</code>的文件文件夹中。<code>submitURL</code>用于指定你的崩溃日志上传服务器。 在启动崩溃报告器之前，您可以通过调用<code>app.setPath(&#39;temp&#39;, &#39;my/custom/temp&#39;)</code>API 来自定义这些临时文件的保存路径。你还可以通过<code>crashReporter.getLastCrashReport()</code>来获取上次崩溃报告的日期和<code>ID</code>。</p>
+<p>我们可以通过<code>webContents</code>的<code>crashed</code>来监听渲染进程的崩溃，另外经测试有些主进程的崩溃也会触发该事件。所以我们可以根据主<code>window</code>是否被销毁来判断进行不同的重启逻辑，下面使整个崩溃监控的逻辑：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; BrowserWindow, crashReporter, dialog &#125; <span class="keyword">from</span> <span class="string">"electron"</span>;</span><br><span class="line"><span class="comment">// 开启进程崩溃记录</span></span><br><span class="line">crashReporter.start(&#123;</span><br><span class="line">  productName: <span class="string">"electron-react"</span>,</span><br><span class="line">  companyName: <span class="string">"ConardLi"</span>,</span><br><span class="line">  submitURL: <span class="string">"http://xxx.com"</span>, <span class="comment">// 上传崩溃日志的接口</span></span><br><span class="line">  uploadToServer: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reloadWindow</span>(<span class="params">mainWin</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (mainWin.isDestroyed()) &#123;</span><br><span class="line">    app.relaunch();</span><br><span class="line">    app.exit(<span class="number">0</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 销毁其他窗口</span></span><br><span class="line">    BrowserWindow.getAllWindows().forEach(<span class="function"><span class="params">w</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (w.id !== mainWin.id) w.destroy();</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">const</span> options = &#123;</span><br><span class="line">      type: <span class="string">"info"</span>,</span><br><span class="line">      title: <span class="string">"渲染器进程崩溃"</span>,</span><br><span class="line">      message: <span class="string">"这个进程已经崩溃."</span>,</span><br><span class="line">      buttons: [<span class="string">"重载"</span>, <span class="string">"关闭"</span>]</span><br><span class="line">    &#125;;</span><br><span class="line">    dialog.showMessageBox(options, index =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (index === <span class="number">0</span>) mainWin.reload();</span><br><span class="line">      <span class="keyword">else</span> mainWin.close();</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> mainWindow = BrowserWindow.fromId(global.mainId);</span><br><span class="line">  mainWindow.webContents.on(<span class="string">"crashed"</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> errorMessage = crashReporter.getLastCrashReport();</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">"程序崩溃了！"</span>, errorMessage); <span class="comment">// 可单独上传日志</span></span><br><span class="line">    reloadWindow(mainWindow);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/4619bb3#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/b58ea4c6">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/b58ea4c6" class="post-title-link" itemprop="url">用JS开发桌面应用（三）打印篇</a>
         </h2>
 
         <div class="post-meta">
@@ -223,7 +356,7 @@
             </span>
 
           
-            <span id="/post/b58ea4c6/" class="post-meta-item leancloud_visitors" data-flag-title="用JS开发桌面应用（三）打印篇" title="热度">
+            <span id="/post/b58ea4c6" class="post-meta-item leancloud_visitors" data-flag-title="用JS开发桌面应用（三）打印篇" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -239,8 +372,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/b58ea4c6/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/b58ea4c6/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/b58ea4c6#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/b58ea4c6" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -291,7 +424,7 @@
 <p><code>print</code>的第二个参数<code>callback</code>是用于判断打印任务是否发出的回调，而不是打印任务完成后的回调。所以一般打印任务发出，回调函数即会调用并返回参数<code>true</code>。这个回调并不能判断打印是否真的成功了。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/b58ea4c6/#more" rel="contents">
+              <a class="btn" href="/post/b58ea4c6#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -320,7 +453,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/b363c4cb/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/b363c4cb">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -334,7 +467,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/b363c4cb/" class="post-title-link" itemprop="url">用JS开发桌面应用（二）- 应用篇</a>
+            <a href="/post/b363c4cb" class="post-title-link" itemprop="url">用JS开发桌面应用（二）- 应用篇</a>
         </h2>
 
         <div class="post-meta">
@@ -365,7 +498,7 @@
             </span>
 
           
-            <span id="/post/b363c4cb/" class="post-meta-item leancloud_visitors" data-flag-title="用JS开发桌面应用（二）- 应用篇" title="热度">
+            <span id="/post/b363c4cb" class="post-meta-item leancloud_visitors" data-flag-title="用JS开发桌面应用（二）- 应用篇" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -381,8 +514,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/b363c4cb/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/b363c4cb/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/b363c4cb#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/b363c4cb" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -426,7 +559,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">  width: <span class="number">200</span>,</span><br><span class="line">  height: <span class="number">200</span>,</span><br><span class="line">  titleBarStyle: <span class="string">"hidden"</span>,</span><br><span class="line">  frame: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/b363c4cb/#more" rel="contents">
+              <a class="btn" href="/post/b363c4cb#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -455,7 +588,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/c60ba4c3/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/c60ba4c3">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -469,7 +602,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/c60ba4c3/" class="post-title-link" itemprop="url">用JS开发桌面应用（一）原理篇</a>
+            <a href="/post/c60ba4c3" class="post-title-link" itemprop="url">用JS开发桌面应用（一）原理篇</a>
         </h2>
 
         <div class="post-meta">
@@ -500,7 +633,7 @@
             </span>
 
           
-            <span id="/post/c60ba4c3/" class="post-meta-item leancloud_visitors" data-flag-title="用JS开发桌面应用（一）原理篇" title="热度">
+            <span id="/post/c60ba4c3" class="post-meta-item leancloud_visitors" data-flag-title="用JS开发桌面应用（一）原理篇" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -516,8 +649,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/c60ba4c3/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/c60ba4c3/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/c60ba4c3#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/c60ba4c3" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -579,7 +712,7 @@
 <p>当然，我们也要认清它的缺点：性能比原生桌面应用要低，最终打包后的安装包和其他文件都比较大。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/c60ba4c3/#more" rel="contents">
+              <a class="btn" href="/post/c60ba4c3#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -608,7 +741,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/9859ab2b/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/9859ab2b">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -622,7 +755,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/9859ab2b/" class="post-title-link" itemprop="url">“杀猪盘” 骗局</a>
+            <a href="/post/9859ab2b" class="post-title-link" itemprop="url">“杀猪盘” 骗局</a>
         </h2>
 
         <div class="post-meta">
@@ -647,7 +780,7 @@
             </span>
 
           
-            <span id="/post/9859ab2b/" class="post-meta-item leancloud_visitors" data-flag-title="“杀猪盘” 骗局" title="热度">
+            <span id="/post/9859ab2b" class="post-meta-item leancloud_visitors" data-flag-title="“杀猪盘” 骗局" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -663,8 +796,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/9859ab2b/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/9859ab2b/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/9859ab2b#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/9859ab2b" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -807,7 +940,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/769ff974/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/769ff974">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -821,7 +954,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/769ff974/" class="post-title-link" itemprop="url">《张扬的日生活》 写在专题开始前</a>
+            <a href="/post/769ff974" class="post-title-link" itemprop="url">《张扬的日生活》 写在专题开始前</a>
         </h2>
 
         <div class="post-meta">
@@ -858,7 +991,7 @@
             </span>
 
           
-            <span id="/post/769ff974/" class="post-meta-item leancloud_visitors" data-flag-title="《张扬的日生活》 写在专题开始前" title="热度">
+            <span id="/post/769ff974" class="post-meta-item leancloud_visitors" data-flag-title="《张扬的日生活》 写在专题开始前" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -874,8 +1007,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/769ff974/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/769ff974/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/769ff974#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/769ff974" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -911,7 +1044,7 @@
 <p>马琦：张扬前公司的同事。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/769ff974/#more" rel="contents">
+              <a class="btn" href="/post/769ff974#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -940,7 +1073,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/28fa54f2/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/28fa54f2">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -954,7 +1087,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/28fa54f2/" class="post-title-link" itemprop="url">Vue3和Vue2中响应式编程的不同</a>
+            <a href="/post/28fa54f2" class="post-title-link" itemprop="url">Vue3和Vue2中响应式编程的不同</a>
         </h2>
 
         <div class="post-meta">
@@ -985,7 +1118,7 @@
             </span>
 
           
-            <span id="/post/28fa54f2/" class="post-meta-item leancloud_visitors" data-flag-title="Vue3和Vue2中响应式编程的不同" title="热度">
+            <span id="/post/28fa54f2" class="post-meta-item leancloud_visitors" data-flag-title="Vue3和Vue2中响应式编程的不同" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1001,8 +1134,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/28fa54f2/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/28fa54f2/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/28fa54f2#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/28fa54f2" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1034,7 +1167,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">    enumerable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    <span class="keyword">get</span>:function()&#123;</span><br><span class="line">       <span class="keyword">return</span> value;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>:function(newValue)&#123;</span><br><span class="line">        <span class="keyword">if</span>(value !== newValue)&#123;</span><br><span class="line">           value = newValue;</span><br><span class="line">           tellTheWorldIhaveChanged(); <span class="comment">//somebody is watching!</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/28fa54f2/#more" rel="contents">
+              <a class="btn" href="/post/28fa54f2#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1063,7 +1196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/606c77fb/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/606c77fb">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -1077,7 +1210,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/606c77fb/" class="post-title-link" itemprop="url">程序员必读的六本书</a>
+            <a href="/post/606c77fb" class="post-title-link" itemprop="url">程序员必读的六本书</a>
         </h2>
 
         <div class="post-meta">
@@ -1108,7 +1241,7 @@
             </span>
 
           
-            <span id="/post/606c77fb/" class="post-meta-item leancloud_visitors" data-flag-title="程序员必读的六本书" title="热度">
+            <span id="/post/606c77fb" class="post-meta-item leancloud_visitors" data-flag-title="程序员必读的六本书" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1124,8 +1257,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/606c77fb/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/606c77fb/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/606c77fb#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/606c77fb" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1158,7 +1291,7 @@
 <p>本文讲列举六本业界牛人的著作，也是编程书籍中经典的经典，这几本书并非简单的教程书籍，而是教给你方法和思想来解决现实遇到的问题，提高编码的技艺和境界。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/606c77fb/#more" rel="contents">
+              <a class="btn" href="/post/606c77fb#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1187,7 +1320,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/d5c9d9b6/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/d5c9d9b6">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -1201,7 +1334,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/d5c9d9b6/" class="post-title-link" itemprop="url">深入分析虚拟DOM的渲染原理和特性</a>
+            <a href="/post/d5c9d9b6" class="post-title-link" itemprop="url">深入分析虚拟DOM的渲染原理和特性</a>
         </h2>
 
         <div class="post-meta">
@@ -1232,7 +1365,7 @@
             </span>
 
           
-            <span id="/post/d5c9d9b6/" class="post-meta-item leancloud_visitors" data-flag-title="深入分析虚拟DOM的渲染原理和特性" title="热度">
+            <span id="/post/d5c9d9b6" class="post-meta-item leancloud_visitors" data-flag-title="深入分析虚拟DOM的渲染原理和特性" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1248,8 +1381,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/d5c9d9b6/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/d5c9d9b6/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/d5c9d9b6#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/d5c9d9b6" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1297,7 +1430,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>Hello ConardLi<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>橘子<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/d5c9d9b6/#more" rel="contents">
+              <a class="btn" href="/post/d5c9d9b6#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1326,7 +1459,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/d68f155c/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/d68f155c">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -1340,7 +1473,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/d68f155c/" class="post-title-link" itemprop="url">setState的执行机制</a>
+            <a href="/post/d68f155c" class="post-title-link" itemprop="url">setState的执行机制</a>
         </h2>
 
         <div class="post-meta">
@@ -1371,7 +1504,7 @@
             </span>
 
           
-            <span id="/post/d68f155c/" class="post-meta-item leancloud_visitors" data-flag-title="setState的执行机制" title="热度">
+            <span id="/post/d68f155c" class="post-meta-item leancloud_visitors" data-flag-title="setState的执行机制" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1387,8 +1520,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/d68f155c/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/d68f155c/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/d68f155c#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/d68f155c" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1426,7 +1559,7 @@
 <p>下面是执行结果：</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/d68f155c/#more" rel="contents">
+              <a class="btn" href="/post/d68f155c#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1455,7 +1588,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/bf1cac5c/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/bf1cac5c">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -1469,7 +1602,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/bf1cac5c/" class="post-title-link" itemprop="url">Programing-React-event-handler</a>
+            <a href="/post/bf1cac5c" class="post-title-link" itemprop="url">Programing-React-event-handler</a>
         </h2>
 
         <div class="post-meta">
@@ -1500,7 +1633,7 @@
             </span>
 
           
-            <span id="/post/bf1cac5c/" class="post-meta-item leancloud_visitors" data-flag-title="Programing-React-event-handler" title="热度">
+            <span id="/post/bf1cac5c" class="post-meta-item leancloud_visitors" data-flag-title="Programing-React-event-handler" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1516,8 +1649,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/bf1cac5c/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/bf1cac5c/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/bf1cac5c#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/bf1cac5c" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1570,7 +1703,7 @@
 <h2 id="事件存储"><a href="#事件存储" class="headerlink" title="事件存储"></a>事件存储</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/bf1cac5c/#more" rel="contents">
+              <a class="btn" href="/post/bf1cac5c#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1599,7 +1732,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/1ac10d5d/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/1ac10d5d">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -1613,7 +1746,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/1ac10d5d/" class="post-title-link" itemprop="url">Python-高级-使用MongoDB</a>
+            <a href="/post/1ac10d5d" class="post-title-link" itemprop="url">Python-高级-使用MongoDB</a>
         </h2>
 
         <div class="post-meta">
@@ -1650,7 +1783,7 @@
             </span>
 
           
-            <span id="/post/1ac10d5d/" class="post-meta-item leancloud_visitors" data-flag-title="Python-高级-使用MongoDB" title="热度">
+            <span id="/post/1ac10d5d" class="post-meta-item leancloud_visitors" data-flag-title="Python-高级-使用MongoDB" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1666,8 +1799,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/1ac10d5d/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/1ac10d5d/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/1ac10d5d#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/1ac10d5d" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1707,7 +1840,7 @@
 <p>如果连接含有账号密码等，请参考：<br><a href="https://api.mongodb.com/python/current/api/pymongo/mongo_client.html" target="_blank" rel="noopener">https://api.mongodb.com/python/current/api/pymongo/mongo_client.html</a></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/1ac10d5d/#more" rel="contents">
+              <a class="btn" href="/post/1ac10d5d#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1736,7 +1869,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/c131969b/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/c131969b">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -1750,7 +1883,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/c131969b/" class="post-title-link" itemprop="url">Python-高级-Numpy简介</a>
+            <a href="/post/c131969b" class="post-title-link" itemprop="url">Python-高级-Numpy简介</a>
         </h2>
 
         <div class="post-meta">
@@ -1787,7 +1920,7 @@
             </span>
 
           
-            <span id="/post/c131969b/" class="post-meta-item leancloud_visitors" data-flag-title="Python-高级-Numpy简介" title="热度">
+            <span id="/post/c131969b" class="post-meta-item leancloud_visitors" data-flag-title="Python-高级-Numpy简介" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1803,8 +1936,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/c131969b/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/c131969b/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/c131969b#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/c131969b" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1850,7 +1983,7 @@
 <p><img src="https://upload-images.jianshu.io/upload_images/1940331-8e598c43a1848784.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Numpy 安装"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/c131969b/#more" rel="contents">
+              <a class="btn" href="/post/c131969b#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1879,7 +2012,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/f40ec33b/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/f40ec33b">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -1893,7 +2026,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/f40ec33b/" class="post-title-link" itemprop="url">彻底搞懂 volatile 关键字</a>
+            <a href="/post/f40ec33b" class="post-title-link" itemprop="url">彻底搞懂 volatile 关键字</a>
         </h2>
 
         <div class="post-meta">
@@ -1924,7 +2057,7 @@
             </span>
 
           
-            <span id="/post/f40ec33b/" class="post-meta-item leancloud_visitors" data-flag-title="彻底搞懂 volatile 关键字" title="热度">
+            <span id="/post/f40ec33b" class="post-meta-item leancloud_visitors" data-flag-title="彻底搞懂 volatile 关键字" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1940,8 +2073,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/f40ec33b/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/f40ec33b/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/f40ec33b#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/f40ec33b" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1977,7 +2110,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t = t + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/f40ec33b/#more" rel="contents">
+              <a class="btn" href="/post/f40ec33b#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2006,7 +2139,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/6356bc2e/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/6356bc2e">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -2020,7 +2153,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/6356bc2e/" class="post-title-link" itemprop="url">聊一聊 Flask 的 jsonify</a>
+            <a href="/post/6356bc2e" class="post-title-link" itemprop="url">聊一聊 Flask 的 jsonify</a>
         </h2>
 
         <div class="post-meta">
@@ -2057,7 +2190,7 @@
             </span>
 
           
-            <span id="/post/6356bc2e/" class="post-meta-item leancloud_visitors" data-flag-title="聊一聊 Flask 的 jsonify" title="热度">
+            <span id="/post/6356bc2e" class="post-meta-item leancloud_visitors" data-flag-title="聊一聊 Flask 的 jsonify" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -2073,8 +2206,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/6356bc2e/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/6356bc2e/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/6356bc2e#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/6356bc2e" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -2107,7 +2240,7 @@
 <p>Flask 框架里，可以用 <code>jsonify</code> 返回 json 数据，但是为什么不用 <code>Python</code> 自带的 <code>json</code> 模块返回 JSON 数据呢？</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/6356bc2e/#more" rel="contents">
+              <a class="btn" href="/post/6356bc2e#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2136,7 +2269,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/b532d94d/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/b532d94d">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -2150,7 +2283,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/b532d94d/" class="post-title-link" itemprop="url">Spring Boot Web 应用加速</a>
+            <a href="/post/b532d94d" class="post-title-link" itemprop="url">Spring Boot Web 应用加速</a>
         </h2>
 
         <div class="post-meta">
@@ -2187,7 +2320,7 @@
             </span>
 
           
-            <span id="/post/b532d94d/" class="post-meta-item leancloud_visitors" data-flag-title="Spring Boot Web 应用加速" title="热度">
+            <span id="/post/b532d94d" class="post-meta-item leancloud_visitors" data-flag-title="Spring Boot Web 应用加速" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -2203,8 +2336,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/b532d94d/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/b532d94d/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/b532d94d#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/b532d94d" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -2238,7 +2371,7 @@
 <h3 id="配置项汇总"><a href="#配置项汇总" class="headerlink" title="配置项汇总"></a>配置项汇总</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">spring.autoconfigure.exclude</span> = <span class="string">org.springframework.boot.actuate.autoconfigure.TraceRepositoryAutoConfiguration,\</span></span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceWebFilterAutoConfiguration,\</span><br><span class="line"><span class="attr">org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/b532d94d/#more" rel="contents">
+              <a class="btn" href="/post/b532d94d#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2267,7 +2400,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/a456434/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/a456434">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -2281,7 +2414,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/a456434/" class="post-title-link" itemprop="url">Android Gradle实用技巧-批量控制生成的APK文件名</a>
+            <a href="/post/a456434" class="post-title-link" itemprop="url">Android Gradle实用技巧-批量控制生成的APK文件名</a>
         </h2>
 
         <div class="post-meta">
@@ -2318,7 +2451,7 @@
             </span>
 
           
-            <span id="/post/a456434/" class="post-meta-item leancloud_visitors" data-flag-title="Android Gradle实用技巧-批量控制生成的APK文件名" title="热度">
+            <span id="/post/a456434" class="post-meta-item leancloud_visitors" data-flag-title="Android Gradle实用技巧-批量控制生成的APK文件名" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -2334,8 +2467,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/a456434/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/a456434/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/a456434#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/a456434" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -2373,7 +2506,7 @@
 <p>以上三个属性返回的都是DomainObjectSet对象集合，里面元素分别是ApplicationVariant、LibraryVariant和TestVariant。这三个元素直译来看是变体，通俗的讲他们就是Android构建的产物，比如ApplicationVariant可以代表google渠道的release包，也可以代表dev开发用的debug包，我们上面提到了，他们基于Build Types和Product Flavors生成的产物。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/a456434/#more" rel="contents">
+              <a class="btn" href="/post/a456434#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2402,7 +2535,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/cab84e7e/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/cab84e7e">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -2416,7 +2549,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/cab84e7e/" class="post-title-link" itemprop="url">Android Gradle实用技巧-自动生成版本信息</a>
+            <a href="/post/cab84e7e" class="post-title-link" itemprop="url">Android Gradle实用技巧-自动生成版本信息</a>
         </h2>
 
         <div class="post-meta">
@@ -2453,7 +2586,7 @@
             </span>
 
           
-            <span id="/post/cab84e7e/" class="post-meta-item leancloud_visitors" data-flag-title="Android Gradle实用技巧-自动生成版本信息" title="热度">
+            <span id="/post/cab84e7e" class="post-meta-item leancloud_visitors" data-flag-title="Android Gradle实用技巧-自动生成版本信息" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -2469,8 +2602,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/cab84e7e/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/cab84e7e/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/cab84e7e#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/cab84e7e" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -2503,7 +2636,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">compileSdkVersion <span class="number">23</span></span><br><span class="line">buildToolsVersion <span class="string">"23.0.1"</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        applicationId <span class="string">"com.youdaily.app"</span></span><br><span class="line">        minSdkVersion <span class="number">14</span></span><br><span class="line">        targetSdkVersion <span class="number">23</span></span><br><span class="line">        versionCode <span class="number">1</span></span><br><span class="line">        versionName <span class="string">"1.0.0"</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/cab84e7e/#more" rel="contents">
+              <a class="btn" href="/post/cab84e7e#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2532,7 +2665,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/1f2db1d3/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/1f2db1d3">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -2546,7 +2679,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/1f2db1d3/" class="post-title-link" itemprop="url">Android Gradle实用技巧-隐藏Android签名文件和密钥信息</a>
+            <a href="/post/1f2db1d3" class="post-title-link" itemprop="url">Android Gradle实用技巧-隐藏Android签名文件和密钥信息</a>
         </h2>
 
         <div class="post-meta">
@@ -2583,7 +2716,7 @@
             </span>
 
           
-            <span id="/post/1f2db1d3/" class="post-meta-item leancloud_visitors" data-flag-title="Android Gradle实用技巧-隐藏Android签名文件和密钥信息" title="热度">
+            <span id="/post/1f2db1d3" class="post-meta-item leancloud_visitors" data-flag-title="Android Gradle实用技巧-隐藏Android签名文件和密钥信息" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -2599,8 +2732,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/1f2db1d3/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/1f2db1d3/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/1f2db1d3#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/1f2db1d3" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -2633,7 +2766,7 @@
 <p>Gradle官网：<code>https://gradle.org/</code><br>Gradle文档：<code>https://gradle.org/docs</code><br>Gradle插件：<code>https://plugins.gradle.org/</code></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/1f2db1d3/#more" rel="contents">
+              <a class="btn" href="/post/1f2db1d3#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2662,7 +2795,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/a8db4150/">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/a8db4150">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
@@ -2676,7 +2809,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/a8db4150/" class="post-title-link" itemprop="url">Dubbo 注解驱动</a>
+            <a href="/post/a8db4150" class="post-title-link" itemprop="url">Dubbo 注解驱动</a>
         </h2>
 
         <div class="post-meta">
@@ -2713,7 +2846,7 @@
             </span>
 
           
-            <span id="/post/a8db4150/" class="post-meta-item leancloud_visitors" data-flag-title="Dubbo 注解驱动" title="热度">
+            <span id="/post/a8db4150" class="post-meta-item leancloud_visitors" data-flag-title="Dubbo 注解驱动" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -2729,8 +2862,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/post/a8db4150/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/a8db4150/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/a8db4150#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/a8db4150" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -2763,137 +2896,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:dubbo</span>=<span class="string">"http://code.alibabatech.com/schema/dubbo"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"annotation-provider"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">"127.0.0.1:4548"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:annotation</span> <span class="attr">package</span>=<span class="string">"com.alibaba.dubbo.config.spring.annotation.provider"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/post/a8db4150/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/8d323c45/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/8d323c45/" class="post-title-link" itemprop="url">Python-基础-日期和时间</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-11-22 13:47:33" itemprop="dateCreated datePublished" datetime="2017-11-22T13:47:33+08:00">2017-11-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/post/8d323c45/" class="post-meta-item leancloud_visitors" data-flag-title="Python-基础-日期和时间" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-              <span>℃</span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/post/8d323c45/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/8d323c45/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              <span>3.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <hr>
-<p>Python程序可以通过多种方式来处理日期和时间。<br>日期格式之间的转换是计算机的一个共同核心。Python的时间和日历模块能够帮助我们跟踪的日期和时间。</p>
-<h2 id="什么是刻度？"><a href="#什么是刻度？" class="headerlink" title="什么是刻度？"></a>什么是刻度？</h2><p>时间间隔以秒为单位的浮点数。特别是在时间瞬间在自1970年1月1日(纪元)12点的表示。</p>
-<p>在Python提供一个流行时间 time 模块，提供时间的的 函数功能，并可转换表示。函数 <code>time.time()</code>返回当前系统时间，从1970年1月1日12点起来的秒数。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time;  <span class="comment"># This is required to include time module.</span></span><br><span class="line"></span><br><span class="line">ticks = time.time()</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Number of ticks since 12:00am, January 1, 1970:"</span>, ticks)</span><br></pre></td></tr></table></figure>
-
-<p>将产生一个结果，如下 -</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number of ticks since <span class="number">12</span>:<span class="number">00</span>am, January <span class="number">1</span>, <span class="number">1970</span>: <span class="number">1568018748.2947338</span></span><br></pre></td></tr></table></figure>
-
-<p>日期计算使用刻度线是很容易做到的。<br>然而，新纪元日期之前不能以这种形式表示。在未来的一个日期也不能表示这种方式, 分界点是在某个时候，在 UNIX和Windows上为 2038年。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/8d323c45/#more" rel="contents">
+              <a class="btn" href="/post/a8db4150#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2990,20 +2993,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -3057,12 +3060,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">297k</span>
+    <span title="站点总字数">299k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:57</span>
+    <span title="站点阅读时长">4:59</span>
 </div>
   <div class="addthis_inline_share_toolbox">
     <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df0bed512824580" async="async"></script>
