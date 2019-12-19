@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.youdaily.world').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="TensorFlow 2.0 中文手写字识别（汉字OCR）搜索空间空前巨大，我们使用的数据集1.0版本汉字就多大3755个，如果加上1.1版本一起，总共汉字可以分为多达7599+个类别！这比10个阿拉伯字母识别难度大很多！数据集处理挑战更大，相比于mnist和fasionmnist来说，汉字手写字体识别数据集非常少，而且仅有的数据集数据预处理难度非常大，非常不直观，但是，千万别吓到，相信你看完本教">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlow2.0 识别中文手写汉字(汉字OCR)">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.youdaily.world&#x2F;post&#x2F;92166f99.html">
+<meta property="og:site_name" content="You的日常">
+<meta property="og:description" content="TensorFlow 2.0 中文手写字识别（汉字OCR）搜索空间空前巨大，我们使用的数据集1.0版本汉字就多大3755个，如果加上1.1版本一起，总共汉字可以分为多达7599+个类别！这比10个阿拉伯字母识别难度大很多！数据集处理挑战更大，相比于mnist和fasionmnist来说，汉字手写字体识别数据集非常少，而且仅有的数据集数据预处理难度非常大，非常不直观，但是，千万别吓到，相信你看完本教">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;youdaily&#x2F;youdaily.github.io&#x2F;images&#x2F;imgs-asdasd-234234bdf-234hksxfr-234234234-.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;youdaily&#x2F;youdaily.github.io&#x2F;images&#x2F;imgs-iasdasd-234234-8934-gsf23-masd-age-.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;youdaily&#x2F;youdaily.github.io&#x2F;images&#x2F;imgs-i987987-23414243-sdfsdf23-f23523ffs-mage-.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;youdaily&#x2F;youdaily.github.io&#x2F;images&#x2F;imgs-i213sdf-fg345-sdf-2342-mage-.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;youdaily&#x2F;youdaily.github.io&#x2F;images&#x2F;imgs-image-.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;youdaily&#x2F;youdaily.github.io&#x2F;images&#x2F;imgs-ima12cxzcdasqge-.png">
+<meta property="article:published_time" content="2019-06-19T04:01:28.000Z">
+<meta property="article:modified_time" content="2019-12-19T04:10:06.901Z">
+<meta property="article:author" content="You的日常">
+<meta property="article:tag" content="编程技术">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="高级技术">
+<meta property="article:tag" content="Tensorflow">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;youdaily&#x2F;youdaily.github.io&#x2F;images&#x2F;imgs-asdasd-234234bdf-234hksxfr-234234234-.png">
+
+<link rel="canonical" href="http://www.youdaily.world/post/92166f99.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>TensorFlow2.0 识别中文手写汉字(汉字OCR) | You的日常</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">You的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">You的日常，我们的日常</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/92166f99.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          TensorFlow2.0 识别中文手写汉字(汉字OCR)
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-19 12:01:28" itemprop="dateCreated datePublished" datetime="2019-06-19T12:01:28+08:00">2019-06-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Tensorflow/" itemprop="url" rel="index">
+                    <span itemprop="name">Tensorflow</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/92166f99.html" class="post-meta-item leancloud_visitors" data-flag-title="TensorFlow2.0 识别中文手写汉字(汉字OCR)" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/92166f99.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/92166f99.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div id="vip-container"><p>TensorFlow 2.0 中文手写字识别（汉字OCR）<br>搜索空间空前巨大，我们使用的数据集1.0版本汉字就多大3755个，如果加上1.1版本一起，总共汉字可以分为多达7599+个类别！这比10个阿拉伯字母识别难度大很多！<br>数据集处理挑战更大，相比于mnist和fasionmnist来说，汉字手写字体识别数据集非常少，而且仅有的数据集数据预处理难度非常大，非常不直观，但是，千万别吓到，相信你看完本教程一定会收货满满!</p>
+<p><img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-asdasd-234234bdf-234hksxfr-234234234-.png" alt="asdasd-234234bdf-234hksxfr-234234234-.png"></p>
+<p>汉字识别更考验选手的建模能力，还在分类花？分类猫和狗？随便搭建的几层在搜索空间巨大的汉字手写识别里根本不work！你现在是不是想用很深的网络跃跃欲试？更深的网络在这个任务上可能根本不可行！！看完本教程我们就可以一探究竟！总之一句话，模型太简单和太复杂都不好，甚至会发散！（想亲身体验模型训练发散抓狂的可以来尝试一下！）。</p>
+<h3 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h3><p>在开始之前，先介绍一下本项目所采用的数据信息。我们的数据全部来自于 <code>CASIA</code> 的开源中文手写字数据集，该数据集分为两部分：</p>
+<a id="more"></a>
+
+<ul>
+<li>CASIA-HWDB：<br>  离线的HWDB，我们仅仅使用1.0-1.2，这是单字的数据集，2.0-2.2是整张文本的数据集，我们暂时不用，单字里面包含了约7185个汉字以及171个英文字母、数字、标点符号等；</li>
+<li>CASIA-OLHWDB：<br>  在线的HWDB，格式一样，包含了约7185个汉字以及171个英文字母、数字、标点符号等，我们不用。</li>
+</ul>
+<p>其实你下载1.0的train和test差不多已经够了，可以直接运行 <code>dataset/get_hwdb_1.0_1.1.sh</code> 下载。原始数据下载链接点击这里. 由于原始数据过于复杂，我们使用一个类来封装数据读取过程，这是我们展示的效果：</p>
+<p><img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-iasdasd-234234-8934-gsf23-masd-age-.png" alt="iasdasd-234234-8934-gsf23-masd-age-.png"></p>
+<p>看到这么密密麻麻的文字相信连人类都…. 开始头疼了，这些复杂的文字能够通过一个神经网络来识别出来？？答案是肯定的…. 不有得感叹一下神经网络的强大。。上面的部分文字识别出来的结果是这样的：</p>
+<p><img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-i987987-23414243-sdfsdf23-f23523ffs-mage-.png" alt="i987987-23414243-sdfsdf23-f23523ffs-mage-.png"></p>
+<p>关于数据的处理部分，从服务器下载到的原始数据是 trn_gnt.zip 解压之后是 gnt.alz， 需要再次解压得到一个包含 gnt文件的文件夹。里面每一个gnt文件都包含了若干个汉字及其标注。直接处理比较麻烦，也不方便抽取出图片再进行操作，虽然转为图片存入文件夹比较直观，但是不适合批量读取和训练, 后面我们统一转为 <code>tfrecord</code> 进行训练。</p>
+<p>更新: 实际上，由于单个汉字图片其实很小，差不多也就最大 <code>80x80</code> 的大小，这个大小不适合转成图片保存到本地，因此我们将 <code>hwdb</code> 原始的二进制保存为 <code>tfrecord</code> 。同时也方便后面训练，可以直接从 <code>tfrecord</code> 读取图片进行训练。</p>
+<p><img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-i213sdf-fg345-sdf-2342-mage-.png" alt="i213sdf-fg345-sdf-2342-mage-.png"></p>
+<h3 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">()</span>:</span></span><br><span class="line">    all_characters = load_characters()</span><br><span class="line">    num_classes = len(all_characters)</span><br><span class="line">    logging.info(<span class="string">'all characters: &#123;&#125;'</span>.format(num_classes))</span><br><span class="line">    train_dataset = load_ds()</span><br><span class="line">    train_dataset = train_dataset.shuffle(<span class="number">100</span>).map(preprocess).batch(<span class="number">32</span>).repeat()</span><br><span class="line"></span><br><span class="line">    val_ds = load_val_ds()</span><br><span class="line">    val_ds = val_ds.shuffle(<span class="number">100</span>).map(preprocess).batch(<span class="number">32</span>).repeat()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> data <span class="keyword">in</span> train_dataset.take(<span class="number">2</span>):</span><br><span class="line">        print(data)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># init model</span></span><br><span class="line">    model = build_net_003((<span class="number">64</span>, <span class="number">64</span>, <span class="number">1</span>), num_classes)</span><br><span class="line">    model.summary()</span><br><span class="line">    logging.info(<span class="string">'model loaded.'</span>)</span><br><span class="line"></span><br><span class="line">    start_epoch = <span class="number">0</span></span><br><span class="line">    latest_ckpt = tf.train.latest_checkpoint(os.path.dirname(ckpt_path))</span><br><span class="line">    <span class="keyword">if</span> latest_ckpt:</span><br><span class="line">        start_epoch = int(latest_ckpt.split(<span class="string">'-'</span>)[<span class="number">1</span>].split(<span class="string">'.'</span>)[<span class="number">0</span>])</span><br><span class="line">        model.load_weights(latest_ckpt)</span><br><span class="line">        logging.info(<span class="string">'model resumed from: &#123;&#125;, start at epoch: &#123;&#125;'</span>.format(latest_ckpt, start_epoch))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        logging.info(<span class="string">'passing resume since weights not there. training from scratch'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> use_keras_fit:</span><br><span class="line">        model.compile(</span><br><span class="line">            optimizer=tf.keras.optimizers.Adam(),</span><br><span class="line">            loss=tf.keras.losses.SparseCategoricalCrossentropy(),</span><br><span class="line">            metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line">        callbacks = [</span><br><span class="line">            tf.keras.callbacks.ModelCheckpoint(ckpt_path,</span><br><span class="line">                                               save_weights_only=<span class="literal">True</span>,</span><br><span class="line">                                               verbose=<span class="number">1</span>,</span><br><span class="line">                                               period=<span class="number">500</span>)</span><br><span class="line">        ]</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            model.fit(</span><br><span class="line">                train_dataset,</span><br><span class="line">                validation_data=val_ds,</span><br><span class="line">                validation_steps=<span class="number">1000</span>,</span><br><span class="line">                epochs=<span class="number">15000</span>,</span><br><span class="line">                steps_per_epoch=<span class="number">1024</span>,</span><br><span class="line">                callbacks=callbacks)</span><br><span class="line">        <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">            model.save_weights(ckpt_path.format(epoch=<span class="number">0</span>))</span><br><span class="line">            logging.info(<span class="string">'keras model saved.'</span>)</span><br><span class="line">        model.save_weights(ckpt_path.format(epoch=<span class="number">0</span>))</span><br><span class="line">        model.save(os.path.join(os.path.dirname(ckpt_path), <span class="string">'cn_ocr.h5'</span>))</span><br></pre></td></tr></table></figure>
+
+<p>大家在以后编写训练代码的时候其实可以保持这个好的习惯。</p>
+<p>OK，整个模型训练起来之后，可以在短时间内达到95%的准确率：</p>
+<p><img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-image-.png" alt="image-.png"><br><img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-ima12cxzcdasqge-.png" alt="ima12cxzcdasqge-.png"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过本教程，我们完成了使用 Tensorflow 2.0 全新的API搭建一个中文汉字手写识别系统。模型基本能够实现我们想要的功能。要知道，这个模型可是在搜索空间多大 <code>3755</code> 的类别当中准确的找到最相似的类别！！通过本实验，我们有几点心得：</p>
+<ul>
+<li>神经网络不仅仅是在学习，它具有一定的想象力！！比如它的一些看着很像的字：<code>拜-佯</code> ， <code>扮-捞</code> ，`笨-苯 …. 这些字如果手写出来，连人都比较难以辨认！！但是大家要知道这些字在类别上并不是相领的！也就是说，模型具有一定的联想能力！</li>
+<li>不管问题多复杂，要敢于动手、善于动手。</li>
+</ul>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+    </div>
+
+    
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-20191212153059.png" alt="You的日常 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-20191212153213.png" alt="You的日常 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>You的日常
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.youdaily.world/post/92166f99.html" title="TensorFlow2.0 识别中文手写汉字(汉字OCR)">http://www.youdaily.world/post/92166f99.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 编程技术</a>
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+              <a href="/tags/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 高级技术</a>
+              <a href="/tags/Tensorflow/" rel="tag"><i class="fa fa-tag"></i> Tensorflow</a>
+          </div>
+
+        
+        <div>
+          
+            
+          
+        </div>  
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/3fe27fe1.html" rel="prev" title="移动端适配总结（二）应用篇">
+      <i class="fa fa-chevron-left"></i> 移动端适配总结（二）应用篇
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/5e503604.html" rel="next" title="如何写出一个惊艳面试官的深拷贝">
+      如何写出一个惊艳面试官的深拷贝 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据准备"><span class="nav-number">1.</span> <span class="nav-text">数据准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#训练过程"><span class="nav-number">2.</span> <span class="nav-text">训练过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number"></span> <span class="nav-text">总结</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="You的日常"
+      src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
+  <p class="site-author-name" itemprop="name">You的日常</p>
+  <div class="site-description" itemprop="description">Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element">
+    <a onclick="tidioChatApi.open();"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/e8c3cb999dc5" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;e8c3cb999dc5" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCJoHHCT90Di7_gRZ88sFaGw" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCJoHHCT90Di7_gRZ88sFaGw" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">You的日常</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">304k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:04</span>
+</div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df0bed512824580" async="async"></script>
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+            'X-LC-Key': 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 22317,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+
+
+
+
+  <script src="//code.tidio.co/r9tdkt9kk55kvv9fbbe9eufs3g3qfxjc.js"></script>
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: false,
+      appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+      appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+      placeholder: "请留下您的意见吧：",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: '' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+
+//新增以下代码即可，可以移除.info下所有子节点。
+var infoEle = document.querySelector('#comments .info');
+if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+  infoEle.childNodes.forEach(function(item) {
+    item.parentNode.removeChild(item);
+  });
+}
+
+</script>
+
+</body>
+</html>
+
