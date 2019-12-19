@@ -48,15 +48,15 @@
   };
 </script>
 
-  <meta name="description" content="WebAssembly 简介 英文原文链接：https:&#x2F;&#x2F;webassembly.github.io&#x2F;spec&#x2F;core&#x2F;intro&#x2F;introduction.html  WebAssembly（缩写WASM）是一种安全，便携，低级代码设计用于高效执行和紧凑表示的格式。 它的主要目标是使Web上的高性能应用，不需要针对网络的特定假设或提供特定的定制化的网络功能，因此它可以在其他环境中直接使用，也">
+  <meta name="description" content="WebAssembly 简介 英文原文链接：https:&#x2F;&#x2F;webassembly.github.io&#x2F;spec&#x2F;core&#x2F;intro&#x2F;introduction.html  WebAssembly（缩写 WASM）是一种安全，便携，低级代码设计用于高效执行和紧凑表示的格式。 它的主要目标是使Web上的高性能应用，不需要针对网络的特定假设或提供特定的定制化的网络功能，因此它可以在其他环境中直接使用，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebAssembly 简介">
 <meta property="og:url" content="http:&#x2F;&#x2F;www.youdaily.world&#x2F;post&#x2F;b68e0da.html">
 <meta property="og:site_name" content="You的日常">
-<meta property="og:description" content="WebAssembly 简介 英文原文链接：https:&#x2F;&#x2F;webassembly.github.io&#x2F;spec&#x2F;core&#x2F;intro&#x2F;introduction.html  WebAssembly（缩写WASM）是一种安全，便携，低级代码设计用于高效执行和紧凑表示的格式。 它的主要目标是使Web上的高性能应用，不需要针对网络的特定假设或提供特定的定制化的网络功能，因此它可以在其他环境中直接使用，也">
+<meta property="og:description" content="WebAssembly 简介 英文原文链接：https:&#x2F;&#x2F;webassembly.github.io&#x2F;spec&#x2F;core&#x2F;intro&#x2F;introduction.html  WebAssembly（缩写 WASM）是一种安全，便携，低级代码设计用于高效执行和紧凑表示的格式。 它的主要目标是使Web上的高性能应用，不需要针对网络的特定假设或提供特定的定制化的网络功能，因此它可以在其他环境中直接使用，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-12T01:46:17.000Z">
-<meta property="article:modified_time" content="2019-12-19T02:03:01.841Z">
+<meta property="article:modified_time" content="2019-12-19T08:42:35.237Z">
 <meta property="article:author" content="You的日常">
 <meta property="article:tag" content="基础技术">
 <meta property="article:tag" content="编程技术">
@@ -273,14 +273,14 @@
         <div id="vip-container"><h2 id="WebAssembly-简介"><a href="#WebAssembly-简介" class="headerlink" title="WebAssembly 简介"></a>WebAssembly 简介</h2><blockquote>
 <p>英文原文链接：<a href="https://webassembly.github.io/spec/core/intro/introduction.html" target="_blank" rel="noopener">https://webassembly.github.io/spec/core/intro/introduction.html</a></p>
 </blockquote>
-<p><code>WebAssembly</code>（缩写WASM）是一种安全，便携，低级代码设计用于高效执行和紧凑表示的格式。</p>
+<p><code>WebAssembly</code>（缩写 WASM）是一种安全，便携，低级代码设计用于高效执行和紧凑表示的格式。</p>
 <p>它的主要目标是使Web上的高性能应用，不需要针对网络的特定假设或提供特定的定制化的网络功能，因此它可以在其他环境中直接使用，也就是良好的跨平台特性。</p>
-<p>WebAssembly是由W3C社区组开发的开放标准。</p>
+<p><code>WebAssembly</code> 是由 W3C 社区组开发的开放标准。</p>
 <h3 id="WebAssembly-设计目标"><a href="#WebAssembly-设计目标" class="headerlink" title="WebAssembly 设计目标"></a>WebAssembly 设计目标</h3><p><code>WebAssembly</code> 的设计目标有以下几方面：</p>
 <a id="more"></a>
 <h4 id="快速，安全，便携的语义"><a href="#快速，安全，便携的语义" class="headerlink" title="快速，安全，便携的语义"></a>快速，安全，便携的语义</h4><ul>
 <li>快速：用接近原生代码的性能执行，趁着能力共同的所有当代的硬件。</li>
-<li>安全：密码进行验证，在存储安全[2]执行，沙盒环境防止数据损坏或安全漏洞。</li>
+<li>安全：密码进行验证，在存储安全执行，沙盒环境防止数据损坏或安全漏洞。</li>
 <li>明确定义：全面，准确地定义了有效的计划和他们的方式，很容易推理，正式与非正式的行为。</li>
 <li>独立于硬件的：都可以现代建筑，桌面或移动设备上进行编译和一致好评嵌入式系统。</li>
 <li>语言无关的：没有任何特权特定语言，编程模型或对象模型。</li>
@@ -290,16 +290,16 @@
 <h4 id="高效便携的表示"><a href="#高效便携的表示" class="headerlink" title="高效便携的表示"></a>高效便携的表示</h4><ul>
 <li>紧凑：具有二进制格式快速发送由比典型的文本或本机代码格式小。</li>
 <li>模块化：程序可以在能够传播，缓存，和分别消耗更小的部分被分割。</li>
-<li>高效：可以解码，验证，并在快速单通编译，无论是实时编译（ JIT, Just In Time ）还是预编译（ AOT,  Ahead Of Time）。</li>
+<li>高效：可以解码，验证，并在快速单通编译，无论是实时编译（ <code>JIT</code>, Just In Time ）还是预编译（ <code>AOT</code>,  Ahead Of Time）。</li>
 <li>可流：允许解码，验证和编译，以尽快开始，所有数据都已经看到了。</li>
 <li>并行化：允许进行解码，验证，和编译被划分成许多独立的并行任务。</li>
 <li>便携性：可以让不广泛跨越现代的硬件不支持任何建筑的假设。</li>
 </ul>
 <p><code>WebAssembly</code> 代码也意在便于检查和调试，尤其是在像网络浏览器的环境中，但是这些特征超出了本规范的范围。</p>
-<h3 id="范围"><a href="#范围" class="headerlink" title="范围"></a>范围</h3><p>在其核心，<code>WebAssembly</code> 是虚拟指令集架构（Instruction Set Architecture(ISA) 虚拟）。因此，它有许多使用情况，并且可以嵌入在许多不同的环境。涵盖多元化和实现最大限度的重用，在 <code>WebAssembly</code> 规范是分裂和分层为几个文件。</p>
+<h3 id="范围"><a href="#范围" class="headerlink" title="范围"></a>范围</h3><p>在其核心，<code>WebAssembly</code> 是虚拟指令集架构（Instruction Set Architecture(<code>ISA</code>) 虚拟）。因此，它有许多使用情况，并且可以嵌入在许多不同的环境。涵盖多元化和实现最大限度的重用，在 <code>WebAssembly</code> 规范是分裂和分层为几个文件。</p>
 <p>这份文件是关于 <code>WebAssembly</code> 的核心 ISA 层。它定义了指令集，二进制编码，验证和执行语义，以及一个文本表示。这不，但是，定义如何 <code>WebAssembly</code> 程序可以与特定的环境中，他们执行的互动，也不是如何从这样的环境中调用。</p>
-<p>相反，该规范由定义接口的具体嵌入环境，如网络附加文件的补充。这些将各自限定 <code>WebAssembly</code> 应用程序编程接口（ API ）适合于给定的环境。</p>
-<h3 id="安全注意事项"><a href="#安全注意事项" class="headerlink" title="安全注意事项"></a>安全注意事项</h3><p><code>WebAssembly</code> 提供在其中执行代码的计算环境没有环境的访问。与环境，如 I / O，对资源的访问，或操作系统调用的任何相互作用，只能通过调用嵌入器提供并导入到一个 <code>WebAssembly</code> 模块的功能来执行。嵌入器可以通过控制或限制它使可供导入该功能能力建立适合各自的环境安全政策。这种考虑是一个嵌入的责任和 API 定义特定环境的主题。</p>
+<p>相反，该规范由定义接口的具体嵌入环境，如网络附加文件的补充。这些将各自限定 <code>WebAssembly</code> 应用程序编程接口（ <code>API</code> ）适合于给定的环境。</p>
+<h3 id="安全注意事项"><a href="#安全注意事项" class="headerlink" title="安全注意事项"></a>安全注意事项</h3><p><code>WebAssembly</code> 提供在其中执行代码的计算环境没有环境的访问。与环境，如 <code>I / O</code>，对资源的访问，或操作系统调用的任何相互作用，只能通过调用嵌入器提供并导入到一个 <code>WebAssembly</code> 模块的功能来执行。嵌入器可以通过控制或限制它使可供导入该功能能力建立适合各自的环境安全政策。这种考虑是一个嵌入的责任和 API 定义特定环境的主题。</p>
 <p>因为 <code>WebAssembly</code> 被设计成被翻译成直接在主机的硬件上运行的机器代码，它是可能受到在硬件水平边信道攻击。在环境中，这是一个问题，一个嵌入可能不得不把合适的缓解措施到位，以隔离<code>WebAssembly</code> 计算。</p>
 <h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p><code>WebAssembly</code> 取决于两个现有的标准：</p>
 <ul>
@@ -486,20 +486,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -553,12 +553,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">306k</span>
+    <span title="站点总字数">309k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:06</span>
+    <span title="站点阅读时长">5:09</span>
 </div>
   <div class="addthis_inline_share_toolbox">
     <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df0bed512824580" async="async"></script>

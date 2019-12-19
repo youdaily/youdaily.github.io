@@ -178,6 +178,278 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/5e503604.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/5e503604.html" class="post-title-link" itemprop="url">如何写出一个惊艳面试官的深拷贝</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-01 14:59:01" itemprop="dateCreated datePublished" datetime="2019-09-01T14:59:01+08:00">2019-09-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/5e503604.html" class="post-meta-item leancloud_visitors" data-flag-title="如何写出一个惊艳面试官的深拷贝" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/5e503604.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/5e503604.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>11k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>11 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>最近经常看到很多<code>JavaScript</code>手写代码的文章总结，里面提供了很多<code>JavaScript Api</code>的手写实现。</p>
+<p>里面的题目实现大多类似，而且说实话很多代码在我看来是非常简陋的，如果我作为面试官，看到这样的代码，在我心里是不会合格的，本篇文章我拿最简单的深拷贝来讲一讲。</p>
+<p>看本文之前先问自己三个问题：</p>
+<ul>
+<li><p>你真的理解什么是深拷贝吗？</p>
+</li>
+<li><p>在面试官眼里，什么样的深拷贝才算合格？</p>
+</li>
+<li><p>什么样的深拷贝能让面试官感到惊艳？</p>
+</li>
+</ul>
+<p>本文由浅入深，带你一步一步实现一个惊艳面试官的深拷贝。</p>
+<h2 id="深拷贝和浅拷贝的定义"><a href="#深拷贝和浅拷贝的定义" class="headerlink" title="深拷贝和浅拷贝的定义"></a>深拷贝和浅拷贝的定义</h2><p>深拷贝已经是一个老生常谈的话题了，也是现在前端面试的高频题目，但是令我吃惊的是有很多同学还没有搞懂深拷贝和浅拷贝的区别和定义。例如前几天给我提<code>issue</code>的同学：</p>
+<p><img src="https://i.loli.net/2019/08/30/8U5e2I6lmzBHcW9.jpg" alt=""></p>
+<p>很明显这位同学把拷贝和赋值搞混了，如果你还对赋值、对象在内存中的存储、变量和类型等等有什么疑问，可以看看我这篇文章：<br><a href="https://juejin.im/post/5cec1bcff265da1b8f1aa08f" target="_blank" rel="noopener">https://juejin.im/post/5cec1bcff265da1b8f1aa08f</a> 。</p>
+<p>你只要少搞明白<code>拷贝</code>和<code>赋值</code>的区别。</p>
+<p>我们来明确一下深拷贝和浅拷贝的定义：</p>
+<p>浅拷贝：</p>
+<p><img src="https://i.loli.net/2019/08/30/N3CB7obYhn5Lvxz.jpg" alt=""></p>
+<blockquote>
+<p>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/5e503604.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/92166f99.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/92166f99.html" class="post-title-link" itemprop="url">TensorFlow2.0 识别中文手写汉字(汉字OCR)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-19 12:01:28" itemprop="dateCreated datePublished" datetime="2019-06-19T12:01:28+08:00">2019-06-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Tensorflow/" itemprop="url" rel="index">
+                    <span itemprop="name">Tensorflow</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/92166f99.html" class="post-meta-item leancloud_visitors" data-flag-title="TensorFlow2.0 识别中文手写汉字(汉字OCR)" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/92166f99.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/92166f99.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>TensorFlow 2.0 中文手写字识别（汉字OCR）<br>搜索空间空前巨大，我们使用的数据集1.0版本汉字就多大3755个，如果加上1.1版本一起，总共汉字可以分为多达7599+个类别！这比10个阿拉伯字母识别难度大很多！<br>数据集处理挑战更大，相比于mnist和fasionmnist来说，汉字手写字体识别数据集非常少，而且仅有的数据集数据预处理难度非常大，非常不直观，但是，千万别吓到，相信你看完本教程一定会收货满满!</p>
+<p><img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-asdasd-234234bdf-234hksxfr-234234234-.png" alt="asdasd-234234bdf-234hksxfr-234234234-.png"></p>
+<p>汉字识别更考验选手的建模能力，还在分类花？分类猫和狗？随便搭建的几层在搜索空间巨大的汉字手写识别里根本不work！你现在是不是想用很深的网络跃跃欲试？更深的网络在这个任务上可能根本不可行！！看完本教程我们就可以一探究竟！总之一句话，模型太简单和太复杂都不好，甚至会发散！（想亲身体验模型训练发散抓狂的可以来尝试一下！）。</p>
+<h3 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h3><p>在开始之前，先介绍一下本项目所采用的数据信息。我们的数据全部来自于 <code>CASIA</code> 的开源中文手写字数据集，该数据集分为两部分：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/92166f99.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/56d6966d.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2666,267 +2938,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/6356bc2e.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/6356bc2e.html" class="post-title-link" itemprop="url">聊一聊 Flask 的 jsonify</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-07-07 13:52:49" itemprop="dateCreated datePublished" datetime="2018-07-07T13:52:49+08:00">2018-07-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Python/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">高级技术</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/post/6356bc2e.html" class="post-meta-item leancloud_visitors" data-flag-title="聊一聊 Flask 的 jsonify" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-              <span>℃</span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/post/6356bc2e.html#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/6356bc2e.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>首先我们来看一段 Python 代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, jsonify</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">tasks = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 python_mastery 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/python_mastery'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'id'</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">u'订阅 pythonml 专栏'</span>,</span><br><span class="line">        <span class="string">'description'</span>: <span class="string">u'专栏Link： https://xiaozhuanlan.com/pythonml'</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/api/v1.0/tasks', methods=['GET'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_tasks</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'tasks'</span>: tasks&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-<p>在这段代码里面，我们看到了今天的主角 <code>jsonify</code>。</p>
-<p>Flask 框架里，可以用 <code>jsonify</code> 返回 json 数据，但是为什么不用 <code>Python</code> 自带的 <code>json</code> 模块返回 JSON 数据呢？</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/6356bc2e.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/b532d94d.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
-      <meta itemprop="name" content="You的日常">
-      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="You的日常">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/b532d94d.html" class="post-title-link" itemprop="url">Spring Boot Web 应用加速</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-04-29 15:22:40" itemprop="dateCreated datePublished" datetime="2018-04-29T15:22:40+08:00">2018-04-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技术</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/Java/Spring-Boot/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring Boot</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/post/b532d94d.html" class="post-meta-item leancloud_visitors" data-flag-title="Spring Boot Web 应用加速" title="热度">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">热度：</span>
-              <span class="leancloud-visitors-count"></span>
-              <span>℃</span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/post/b532d94d.html#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/b532d94d.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              <span>6.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              <span>7 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Spring-Boot-Web-应用加速"><a href="#Spring-Boot-Web-应用加速" class="headerlink" title="Spring Boot Web 应用加速"></a>Spring Boot Web 应用加速</h1><p>默认情况下，Spring Boot Web 应用会装配一些功能组件 Bean。</p>
-<p>在大多数 Web 应用场景下，可以选择性地关闭一下自动装配的Spring 组件 Bean，以达到提升性能的目的。</p>
-<h2 id="配置项优化"><a href="#配置项优化" class="headerlink" title="配置项优化"></a>配置项优化</h2><h3 id="Spring-Boot-Web-应用加速-完整配置项"><a href="#Spring-Boot-Web-应用加速-完整配置项" class="headerlink" title="Spring Boot Web 应用加速 完整配置项"></a>Spring Boot Web 应用加速 完整配置项</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">management.add-application-context-header</span> = <span class="string">false</span></span><br><span class="line"><span class="meta">spring.mvc.formcontent.putfilter.enabled</span> = <span class="string">false</span></span><br><span class="line"></span><br><span class="line"><span class="meta">spring.autoconfigure.exclude</span> = <span class="string">org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration,\</span></span><br><span class="line">org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.JndiDataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.transaction.jta.JtaAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.WebSocketAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.WebSocketMessagingAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mail.MailSenderValidatorAutoConfiguration,\</span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceRepositoryAutoConfiguration,\</span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceWebFilterAutoConfiguration,\</span><br><span class="line"><span class="attr">org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="配置项汇总"><a href="#配置项汇总" class="headerlink" title="配置项汇总"></a>配置项汇总</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">spring.autoconfigure.exclude</span> = <span class="string">org.springframework.boot.actuate.autoconfigure.TraceRepositoryAutoConfiguration,\</span></span><br><span class="line">org.springframework.boot.actuate.autoconfigure.TraceWebFilterAutoConfiguration,\</span><br><span class="line"><span class="attr">org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/b532d94d.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -2999,20 +3010,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -3066,12 +3077,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">306k</span>
+    <span title="站点总字数">309k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:06</span>
+    <span title="站点阅读时长">5:09</span>
 </div>
   <div class="addthis_inline_share_toolbox">
     <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df0bed512824580" async="async"></script>

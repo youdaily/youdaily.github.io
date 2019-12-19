@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.youdaily.world').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="在不算太遥远的过去，业界对数据科学家的评判主要依据于他们发现、理解、管理和综合信息的能力。随着数据环境的不断发展和计算能力的不断提高，编码技能变得越来越重要。随着时间的推移，又出现了更加细致入微的技能要求，包括人工智能方法的专业知识、判断数据真实性以及许多其他的能力。 最近，随着许多组织开始认识到某些高级数据科学技能的重要性，通常最缺乏的是在数据信息和业务需求之间进行转换的能力。这种从大量数据和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据科学家的高级能力-讲故事">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.youdaily.world&#x2F;post&#x2F;a2b8bb5b.html">
+<meta property="og:site_name" content="You的日常">
+<meta property="og:description" content="在不算太遥远的过去，业界对数据科学家的评判主要依据于他们发现、理解、管理和综合信息的能力。随着数据环境的不断发展和计算能力的不断提高，编码技能变得越来越重要。随着时间的推移，又出现了更加细致入微的技能要求，包括人工智能方法的专业知识、判断数据真实性以及许多其他的能力。 最近，随着许多组织开始认识到某些高级数据科学技能的重要性，通常最缺乏的是在数据信息和业务需求之间进行转换的能力。这种从大量数据和">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;youdaily&#x2F;youdaily.github.io&#x2F;images&#x2F;imgs-asdhcbqiwe-234h8cm98c0-mytq24-g34g35t3-m098q24x093-.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;youdaily&#x2F;youdaily.github.io&#x2F;images&#x2F;imgs-vahbiad-wv4vqi2-va81afgw-23523verqf2vc-.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;youdaily&#x2F;youdaily.github.io&#x2F;images&#x2F;imgs-dasdasd-23423-bdf23-35gkw3-536-276kj23f0-.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;youdaily&#x2F;youdaily.github.io&#x2F;images&#x2F;imgs-asdlj-234v2-52vsdg-23423fs-23423v23-.png">
+<meta property="article:published_time" content="2019-12-01T08:11:27.000Z">
+<meta property="article:modified_time" content="2019-12-19T08:22:38.533Z">
+<meta property="article:author" content="You的日常">
+<meta property="article:tag" content="编程技术">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="高级技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;youdaily&#x2F;youdaily.github.io&#x2F;images&#x2F;imgs-asdhcbqiwe-234h8cm98c0-mytq24-g34g35t3-m098q24x093-.png">
+
+<link rel="canonical" href="http://www.youdaily.world/post/a2b8bb5b.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>数据科学家的高级能力-讲故事 | You的日常</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">You的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">You的日常，我们的日常</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.youdaily.world/post/a2b8bb5b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
+      <meta itemprop="name" content="You的日常">
+      <meta itemprop="description" content="Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="You的日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          数据科学家的高级能力-讲故事
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-01 16:11:27" itemprop="dateCreated datePublished" datetime="2019-12-01T16:11:27+08:00">2019-12-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/post/a2b8bb5b.html" class="post-meta-item leancloud_visitors" data-flag-title="数据科学家的高级能力-讲故事" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/a2b8bb5b.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/a2b8bb5b.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div id="vip-container"><p><img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-asdhcbqiwe-234h8cm98c0-mytq24-g34g35t3-m098q24x093-.png" alt=""></p>
+<p>在不算太遥远的过去，业界对数据科学家的评判主要依据于他们发现、理解、管理和综合信息的能力。随着数据环境的不断发展和计算能力的不断提高，编码技能变得越来越重要。随着时间的推移，又出现了更加细致入微的技能要求，包括人工智能方法的专业知识、判断数据真实性以及许多其他的能力。</p>
+<p>最近，随着许多组织开始认识到某些高级数据科学技能的重要性，通常最缺乏的是在数据信息和业务需求之间进行转换的能力。这种从大量数据和分析中获得实际意义的能力，以及以一种通俗易懂的方式向其他与数据分析无关的人传达这种理解的能力，有时被称为数据科学故事化。通常情况下，数据科学家掌握这一技能时可能会遇到一些困难。</p>
+<h2 id="为销售提供论点"><a href="#为销售提供论点" class="headerlink" title="为销售提供论点"></a>为销售提供论点</h2><p><img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-vahbiad-wv4vqi2-va81afgw-23523verqf2vc-.png" alt="为销售提供论点"></p>
+<p>现在请思考一个典型的场景：试着给出一个充分的理由来争取一项投资。不管需要什么样的正式流程，在开始阶段，通常会有一场对话——有时也称为“推销”——其中一个或多个相关方试图提出价值主张以承诺资金和其他资源。很多时候，在这个演讲之前，我们会请一些拥有数据分析技能的人来创建一个支持性的论点。</p>
+<p>有了对他们试图证明的东西的一些理解，数据科学家可以用现有的数据构建模型来支持结论。他们可以使用优秀的工具来创建可视化数据，这有助于数据信息的交付。团队按照要求完成分析并将其结果交付给原始涉众。所有这些工作都是为论点服务的。</p>
+<p>但即使是这个简单的场景，也包含了几个常见的数据故事化的挑战。</p>
+<p>在一开始，往往会先有一个众所周知的先验结论，也就是在进行任何分析之前得出的关于结论的假设。数据科学家被要求得出一个预先确定的结论。在这种情况下，分析工作是独立于数据科学的公式之外进行的，然后，那些被要求从数据中获取支撑性论点的人，只是参与进来而已。</p>
+<a id="more"></a>
+
+<p>在这个关键的阶段，信息的丢失，公式被忽略，往往会导致一种认知偏差——这种偏差通常来自于一个人理解问题的方式。</p>
+<p>基于团队所达成的对问题的理解，分析工作继续进行，另外一个挑战就出现了——使用现有的数据。在这个阶段，如果没有考虑到手头的数据是否足够，甚至数据对分析工作是否具有代表性。仅仅因为可以立即获得数据就使用数据——有时被称为方便抽样，经常会带来错误或不完整的结论。</p>
+<p>最后，数据科学团队通过数据可视化将分析结果传递给那些做陈述的人。任何对分析的深刻理解都丢失了，或者，在陈述时无法利用的结果。即使假设与涉众就问题和关注点进行了一些讨论，这些复杂的因素也可能在最终的演示中丢失，至少部分丢失。简化是有效决策的关键，但是过度简化可能会带来错误的决策。</p>
+<p>因此，记住关于数据科学故事化的三个有用的实践办法是很重要的:</p>
+<ul>
+<li>让利益相关者参与分析性叙述的创建。<br>  这有助于减少信息损失，确保对结论有清晰的理解，并减少最终决策中潜在的关键细微差别的损失。</li>
+<li>仔细考虑数据分析方法。<br>  这支持实证的严谨性——例如，结果是否可以复制——并防止抽样和其他一些偏差。</li>
+<li>以简化为目标，从而做出正确的决定。<br>  过于简化以至于忽略可能改变决策的细节，可能会是一个关键的缺点。<br>  可视化应该用来讲述一个故事，而不是模糊论证中的关键点——例如，做了什么假设，为什么这些数据是得出结论的正确数据等等。</li>
+</ul>
+<h2 id="“死”于数据"><a href="#“死”于数据" class="headerlink" title="“死”于数据"></a>“死”于数据</h2><p><img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-dasdasd-23423-bdf23-35gkw3-536-276kj23f0-.png" alt="“死”于数据"><br>在我们考虑哪些技能与未来企业决策的方式相关时，我们应该仔细考虑一些重要的趋势，比如联合。</p>
+<p>随着数据和分析在企业中的应用越来越广泛，越来越多的人被要求使用数据科学技能来支持他们的工作，这是很自然的。就像当PPT变得流行起来时，非图形专业的人员也突然被要求了解字体、图形表示和其他技能，但是许多人可能还没有做好转变的准备，因而“死于PPT”。与此相对应的，可以称之为“死于数据”。</p>
+<p>随着数据和分析的联合趋势在企业中持续发展，企业领导者应该仔细思考要采取哪些步骤来确保员工拥有合适的技能——例如问题公式化、理解偏差和基本前提——并且为员工提供正确的专用分析资源。</p>
+<h2 id="以问题为导向"><a href="#以问题为导向" class="headerlink" title="以问题为导向"></a>以问题为导向</h2><p><img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-asdlj-234v2-52vsdg-23423fs-23423v23-.png" alt="以问题为导向"></p>
+<p>另一个关键趋势是提出解决方案。随着人工智能和其他方法变得越来越普遍，很多时候，我们会发现自己在讨论，如何用某一个工具或方法获得一个应用的解决方案。这种类型的对话非常常见，比如，“我们如何用人工智能来理解客户的评论？”或者，“我们如何使用可视化的方式，来演示我们的新产品？”</p>
+<p>当我们以某个工具或技术作为导向时，必须非常小心——因为科学告诉我们要以问题为导向。考虑一下，如果我们问，“我们是否能够访问到关于Y这个人的数据，这些数据足以理解他的评论吗？”，或者“我们可以用什么方法来分析这些数据？”，或者“我们需要多精确才能做出决定？”这类问题更有可能促使我们在数据集、分析方法和讲述故事的能力方面做出有效的选择，并得出强有力的决策。</p>
+</div>
+
+			<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+			    var btw = new BTWPlugin();
+			    btw.init({
+			        "id": "vip-container",
+			        "blogId": "17107-1575958378269-553",
+			        "name": "you的日常",
+			        "qrcode": "https://i.loli.net/2019/12/10/YzmMvgyAIXeuS8F.jpg",
+			        "keyword": "vip"
+			    });
+			}
+			</script>
+		
+    </div>
+
+    
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-20191212153059.png" alt="You的日常 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-20191212153213.png" alt="You的日常 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>You的日常
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.youdaily.world/post/a2b8bb5b.html" title="数据科学家的高级能力-讲故事">http://www.youdaily.world/post/a2b8bb5b.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 编程技术</a>
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+              <a href="/tags/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 高级技术</a>
+          </div>
+
+        
+        <div>
+          
+            
+          
+        </div>  
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/f8a39f2f.html" rel="prev" title="深入理解 Python 字典的实现过程">
+      <i class="fa fa-chevron-left"></i> 深入理解 Python 字典的实现过程
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/db7d6965.html" rel="next" title="每日一文：剩男现象">
+      每日一文：剩男现象 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为销售提供论点"><span class="nav-number">1.</span> <span class="nav-text">为销售提供论点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#“死”于数据"><span class="nav-number">2.</span> <span class="nav-text">“死”于数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以问题为导向"><span class="nav-number">3.</span> <span class="nav-text">以问题为导向</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="You的日常"
+      src="https://raw.githubusercontent.com/youdaily/youdaily.github.io/images/imgs-youDaily.jpg">
+  <p class="site-author-name" itemprop="name">You的日常</p>
+  <div class="site-description" itemprop="description">Python、Java、Android、JavaScript、TypeScript，网络爬虫、人工智能、AI、机器学习、深度学习、服务研发、日常故事分享.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element">
+    <a onclick="tidioChatApi.open();"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/e8c3cb999dc5" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;e8c3cb999dc5" rel="noopener" target="_blank"><i class="fa fa-fw fa-heartbeat"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCJoHHCT90Di7_gRZ88sFaGw" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCJoHHCT90Di7_gRZ88sFaGw" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">You的日常</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">309k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:09</span>
+</div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df0bed512824580" async="async"></script>
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+            'X-LC-Key': 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 22317,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+
+
+
+
+  <script src="//code.tidio.co/r9tdkt9kk55kvv9fbbe9eufs3g3qfxjc.js"></script>
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: false,
+      appId: 'puSFTWKAKq1Cj8HfeH8G15qr-MdYXbMMI',
+      appKey: 'MmTqm9g4lPYOTh6VJdgWj0Xj',
+      placeholder: "请留下您的意见吧：",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: '' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+
+//新增以下代码即可，可以移除.info下所有子节点。
+var infoEle = document.querySelector('#comments .info');
+if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+  infoEle.childNodes.forEach(function(item) {
+    item.parentNode.removeChild(item);
+  });
+}
+
+</script>
+
+</body>
+</html>
+
